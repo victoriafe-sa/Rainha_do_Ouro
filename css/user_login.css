@@ -83,7 +83,7 @@ form {
 input {
     background-color: #fff2de;
     border-radius: 15px;
-    border: 2px solid rgb(187, 119, 56);
+    border: 2px solid rgba(187, 119, 56, 0.26);
     padding: 7px 7px;
     margin: 8px 0;
     width: 100%;
