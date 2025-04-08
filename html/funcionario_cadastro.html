@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Funcionário - Salão Rainha do Ouro</title>
+    <link rel="stylesheet" href="../css/funcionario_cadastro.css">
+</head>
+</head>
+
+<body class="fade-in">
+    <img src="../img/logo.png" alt="">
+    <div class="form-container">
+        <h1>Cadastro de Funcionário</h1>
+        <form>
+
+            <!-- SEÇÃO: INFORMAÇÕES PESSOAIS -->
+            <h2 class="section-title">Informações Pessoais</h2>
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" placeholder="Nome Completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="nascimento">Data de nascimento</label>
+                    <input type="date" id="nascimento" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" placeholder="CPF" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="rg">RG</label>
+                    <input type="text" id="rg" placeholder="RG">
+                </div>
+
+                <div class="form-group">
+                    <label for="sexo">Sexo/Gênero</label>
+                    <select id="sexo" required>
+                        <option value="">Selecione</option>
+                        <option>Feminino</option>
+                        <option>Masculino</option>
+                        <option>Outro</option>
+                        <option>Prefiro não informar</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="estado-civil">Estado civil</label>
+                    <select id="estado-civil">
+                        <option value="">Selecione</option>
+                        <option>Solteiro(a)</option>
+                        <option>Casado(a)</option>
+                        <option>Divorciado(a)</option>
+                        <option>Viúvo(a)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" placeholder="Telefone">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="E-mail">
+                </div>
+
+                <div class="form-group">
+                    <label for="cep">CEP</label>
+                    <input type="text" id="cep" placeholder="CEP">
+                </div>
+
+                <div class="form-group">
+                    <label for="rua">Rua</label>
+                    <input type="text" id="rua" placeholder="Rua">
+                </div>
+
+                <div class="form-group">
+                    <label for="numero">Número</label>
+                    <input type="text" id="numero" placeholder="Número">
+                </div>
+
+                <div class="form-group">
+                    <label for="bairro">Bairro</label>
+                    <input type="text" id="bairro" placeholder="Bairro">
+                </div>
+
+                <div class="form-group">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" id="cidade" placeholder="Cidade">
+                </div>
+
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <input type="text" id="estado" placeholder="Estado">
+                </div>
+            </div>
+
+            <!-- SEÇÃO: INFORMAÇÕES PROFISSIONAIS -->
+            <h2 class="section-title">Informações Profissionais</h2>
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="cargo">Cargo/Função</label>
+                    <input type="text" id="cargo" required placeholder="Cargo">
+                </div>
+
+                <div class="form-group">
+                    <label for="admissao">Data de admissão</label>
+                    <input type="date" id="admissao" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="horario">Horário de trabalho</label>
+                    <input type="text" id="horario" placeholder="Horário">
+                </div>
+
+                <div class="form-group">
+                    <label for="salario">Salário / Comissão</label>
+                    <input type="text" id="salario" placeholder="Salário">
+                </div>
+
+                <div class="form-group">
+                    <label for="tipo-contrato">Tipo de contratação</label>
+                    <select id="tipo-contrato">
+                        <option value="">Selecione</option>
+                        <option>CLT</option>
+                        <option>Autônomo</option>
+                        <option>Freelancer</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="carteira">Nº Carteira de Trabalho</label>
+                    <input type="text" id="carteira" placeholder="Carteira de Trabalho">
+                </div>
+
+                <div class="form-group">
+                    <label for="pis">Número do PIS</label>
+                    <input type="text" id="pis" placeholder="PIS">
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status">
+                        <option>Ativo</option>
+                        <option>Inativo</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="observacoes">Observações</label>
+                    <textarea id="observacoes" placeholder="Observações adicionais..."></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Cadastrar</button>
+        </form>
+    </div>
+</body>
+
+</html>
