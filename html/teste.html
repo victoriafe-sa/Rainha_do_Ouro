@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Serviços e Produtos</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    .payment-tabs {
+      max-width: 600px;
+      margin: 40px auto;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #fff;
+      padding: 20px;
+    }
+    .tab-header {
+      display: flex;
+      justify-content: space-around;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 20px;
+    }
+    .tab-header button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      background-color: #f9f9f9;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .tab-header button.active {
+      background-color: #347eff;
+      color: white;
+    }
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    .form-group label {
+      font-weight: 600;
+    }
+    .btn-primary {
+      background-color: #347eff;
+      border: none;
+    }
+    .note {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="payment-tabs">
+  <div class="tab-header">
+    <button class="tab-btn active" data-tab="services">Serviços</button>
+    <button class="tab-btn" data-tab="products">Produtos</button>
+    <button class="tab-btn" data-tab="banking">Net Banking</button>
+  </div>
+
+  <div class="tab-content active" id="services">
+    <div class="form-group">
+      <label>Nome do Cliente</label>
+      <input type="text" class="form-control" placeholder="Seu nome">
+    </div>
+    <div class="form-group">
+      <label>Serviço</label>
+      <input type="text" class="form-control" placeholder="Tipo de serviço">
+    </div>
+    <div class="form-group">
+      <label>Data</label>
+      <input type="date" class="form-control">
+    </div>
+    <button class="btn btn-primary btn-block">Confirmar Serviço</button>
+  </div>
+
+  <div class="tab-content" id="products">
+    <div class="form-group">
+      <label>Tipo da conta</label><br>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="tipoConta" id="domestic" checked>
+        <label class="form-check-label" for="domestic">Nacional</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="tipoConta" id="international">
+        <label class="form-check-label" for="international">Internacional</label>
+      </div>
+    </div>
+    <button class="btn btn-primary btn-block">Comprar Produto</button>
+    <p class="note">
+      Após clicar no botão, você será redirecionado a um gateway de pagamento seguro.
+      Após a conclusão, retornará para ver os detalhes do seu pedido.
+    </p>
+  </div>
+
+  <div class="tab-content" id="banking">
+    <p>Em breve: Integração com Net Banking.</p>
+  </div>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tab-btn');
+  const contents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(btn => btn.classList.remove('active'));
+      tab.classList.add('active');
+
+      contents.forEach(content => {
+        content.classList.remove('active');
+        if (content.id === tab.dataset.tab) {
+          content.classList.add('active');
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
