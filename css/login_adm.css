@@ -2,7 +2,7 @@
 
 :root {
   --marrom-escuro: #4B2E1E;
-  --marrom-claro: #A67B5B;
+  --marrom-claro: #e6c8b1;
   --dourado-claro: #FFC72C;
   --dourado-escuro: #F8B61F;
   --branco: #fff9f3;
@@ -16,7 +16,7 @@
 
 body {
   font-family: 'Times New Roman', Times, serif;
-  background-color: var(--branco);
+  background-color: var(--marrom-claro);
   display: flex;
   justify-content: center;
   align-items: center;

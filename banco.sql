@@ -100,7 +100,11 @@ CREATE TABLE produtos (
     descricao TEXT,
     preco_venda DECIMAL(10,2),
     categoria VARCHAR(50),
-    ativo BOOLEAN DEFAULT TRUE
+    fornecedor VARCHAR(100),
+    estoque INT,
+    ativo BOOLEAN DEFAULT TRUE,
+    FOREIGN KEY (fornecedor) REFERENCES fornecedores(nome),
+    FOREIGN KEY (estoque) REFERENCES estoque(quantidade),
 );
 
 -- Tabela de Serviços
