@@ -1,75 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Serviços e Produtos</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/cadastro_serv-prod.css">
+  <script src="../script/cadastro_serv-prod.js" defer></script>
+  
 </head>
+
 <body>
-
-<div class="payment-tabs">
-  <div class="tab-header">
-    <button class="tab-btn active" data-tab="services">Serviços</button>
-    <button class="tab-btn" data-tab="products">Produtos</button>
-  </div>
-
-  <div class="tab-content active" id="services">
-    <div class="form-group">
-      <label>Nome do Cliente</label>
-      <input type="text" class="form-control" placeholder="Seu nome">
+  <img src="../img/logo.png" alt="" srcset="">
+  <div class="payment-tabs">
+    <div class="tab-header">
+      <button class="tab-btn active" data-tab="services">Serviços</button>
+      <button class="tab-btn" data-tab="products">Produtos</button>
     </div>
-    <div class="form-group">
-      <label>Serviço</label>
-      <input type="text" class="form-control" placeholder="Tipo de serviço">
-    </div>
-    <div class="form-group">
-      <label>Data</label>
-      <input type="date" class="form-control">
-    </div>
-    <button class="btn btn-primary btn-block">Confirmar Serviço</button>
-  </div>
 
-  <div class="tab-content" id="products">
-    <div class="form-group">
-      <label>Tipo da conta</label><br>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="tipoConta" id="domestic" checked>
-        <label class="form-check-label" for="domestic">Nacional</label>
+    <div class="tab-content active" id="services">
+      <div class="form-group">
+        <label>Nome do Serviço:</label>
+        <input type="text" class="form-control" placeholder="Serviço">
       </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="tipoConta" id="international">
-        <label class="form-check-label" for="international">Internacional</label>
+      <div class="form-group">
+        <label>Descrição:</la¢bel>
+        <input type="text" class="form-control" placeholder="Descrição">
       </div>
+      <div class="form-group">
+        <label>Duração:</label>
+        <input type="text" class="form-control" placeholder="dd/mm/aaaa">
+      </div>
+      <div class="form-group">
+        <label>Valor:</label>
+        <input type="number" class="form-control" placeholder="valor ">
+      </div>
+      <button class="btn btn-primary btn-block">Confirmar Serviço</button>
     </div>
-    <button class="btn btn-primary btn-block">Comprar Produto</button>
-    <p class="note">
-      Após clicar no botão, você será redirecionado a um gateway de pagamento seguro.
-      Após a conclusão, retornará para ver os detalhes do seu pedido.
-    </p>
+
+    <!----PRODUTOS-->
+    <div class="tab-content" id="products">
+
+      <div class="form-group">
+        <DIV>
+        
+        <label for="nome">Nome do produto:</label>
+        <input type="text" name="nome" id="nome_prod" placeholder="Nome do Produto" required>
+      </DIV>
+<DIV class="form-check form-check-inline">
+        <label for="descricao">Descrição: </label>
+        <input type="text" name="descricao" id="descricao_prod" placeholder="Descrição" required>
+      </DIV>
+<DIV class="form-check form-check-inline">
+        <label for="preco">Valor:</label>
+        <input type="number" name="valor" id="preco_prod" placeholder="Preço" required>
+      </DIV>
+<DIV class="form-check form-check-inline">
+        <label for="categoria">Categoria</label>
+        <input type="text" name="categoria" id="categoria_prod" placeholder="Categoria" required>
+      </DIV>
+<DIV class="form-check form-check-inline">
+        <label for="fornecedor">Fornecedor:</label>
+        <input type="text" name="fornecedor" id="fornecedor" placeholder="Fornecedor" required>
+      </DIV>
+<DIV class="form-check form-check-inline">
+        <label for="estoque">Estoque:</label>
+        <input type="number" name="estoque" id="estoque" placeholder="Estoque" required>
+      </DIV>
+    </div>
+    <button class="btn btn-primary btn-block">Confirmar Produtos</button>
   </div>
-
-</div>
-
-<script>
-  const tabs = document.querySelectorAll('.tab-btn');
-  const contents = document.querySelectorAll('.tab-content');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(btn => btn.classList.remove('active'));
-      tab.classList.add('active');
-
-      contents.forEach(content => {
-        content.classList.remove('active');
-        if (content.id === tab.dataset.tab) {
-          content.classList.add('active');
-        }
-      });
-    });
-  });
-</script>
 
 </body>
+
 </html>

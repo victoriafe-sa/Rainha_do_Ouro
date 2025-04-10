@@ -1,49 +1,163 @@
+/* ====== Estilo Geral ====== */
+body {
+  background-color: #f7e4c1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2e1e0f;
+  margin: 0;
+  padding: 0;
+}
+
+/* ====== Container principal com abas ====== */
 .payment-tabs {
-    max-width: 600px;
-    margin: 40px auto;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
+  max-width: 600px;
+  margin: 50px auto;
+  border: 1px solid #442900;
+  border-radius: 12px;
+  background-color: #b88b4a;
+  padding: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ====== Cabeçalho das Abas ====== */
+.tab-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #e0c198;
+  margin-bottom: 15px;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.tab-header button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background-color: #f4ede4;
+  cursor: pointer;
+  font-weight: bold;
+  color: #4b2e1e;
+  transition: background-color 0.3s;
+}
+
+.tab-header button:hover {
+  background-color: #dfc09c;
+}
+
+.tab-header button.active {
+  background-color: #643c27;
+  color: #fff;
+}
+
+/* ====== Conteúdo das Abas ====== */
+.tab-content {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* ====== Formulário ====== */
+form {
+  background-color: #a98342;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #2e1e0f;
+  font-size: 15px;
+}
+
+/* Inputs e Textarea */
+input[type="text"],
+input[type="date"],
+input[type="number"],
+textarea {
+  width: 100%;
+  height: 45px; /* Altura uniforme para todos os inputs */
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: #fff;
+  transition: box-shadow 0.2s ease;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  box-sizing: border-box; /* Garante que o padding não aumente o tamanho total */
+}
+
+/* Altura maior só para textarea */
+textarea {
+  height: 100px;
+  resize: vertical; /* Permite redimensionar para mais texto */
+}
+
+
+/* Botão principal */
+button,
+.btn-primary {
+  display: block; /* Necessário para centralizar com margin auto */
+  width: 50%;
+  height: 45px;
+  margin: 20px auto; /* Centraliza horizontalmente e dá espaço acima/abaixo */
+  background-color: #643c27;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+button:hover,
+.btn-primary:hover {
+  background-color: #4e2f1b;
+  transform: scale(1.02);
+}
+
+
+/* Notas adicionais */
+.note {
+  font-size: 0.9rem;
+  color: #5a4533;
+  margin-top: 15px;
+}
+
+/* ====== Responsividade ====== */
+@media (max-width: 600px) {
+  .payment-tabs {
     padding: 20px;
   }
-  .tab-header {
-    display: flex;
-    justify-content: space-around;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 20px;
+
+  form {
+    padding: 20px;
   }
+
+  input,
+  button,
+  textarea {
+    font-size: 14px;
+  }
+
   .tab-header button {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    background-color: #f9f9f9;
-    cursor: pointer;
-    font-weight: bold;
+    padding: 10px 5px;
   }
-  .tab-header button.active {
-    background-color: #347eff;
-    color: white;
-  }
-  .tab-content {
-    display: none;
-    animation: fadeIn 0.3s ease-in-out;
-  }
-  .tab-content.active {
-    display: block;
-  }
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
-  .form-group label {
-    font-weight: 600;
-  }
-  .btn-primary {
-    background-color: #347eff;
-    border: none;
-  }
-  .note {
-    font-size: 0.9rem;
-    color: #555;
-    margin-top: 15px;
-  }
+}
+img{
+  width: 250px;
+  height: 200px;
+}
