@@ -1,265 +1,113 @@
 body {
-    color: #000;
-    overflow-x: hidden;
-    height: 100%;
-    background: linear-gradient(-45deg, #2196F3 50%, #EEEEEE 50%);
-    background-repeat: no-repeat;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    padding: 0;
 }
 
-.card {
-    background-color: #FFF;
-    border-radius: 25px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    padding: 40px;
-    transition: all 0.3s ease;
+.container {
+    max-width: 600px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
 }
 
-.card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.2);
-}
-
-.heading {
-    font-weight: 600;
-    font-size: 28px;
+h2,
+h3 {
     margin-bottom: 10px;
 }
 
-.desc {
-    font-size: 15px;
-    color: #555;
+.phone {
+    color: orange;
 }
 
-#progressbar {
-    margin-bottom: 30px;
-    overflow: hidden;
-    color: lightgrey;
-    padding-left: 0;
+.progress-bar {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
 }
 
-#progressbar .active {
-    color: #673AB7;
+.step {
+    width: 22%;
+    height: 8px;
+    background: #ddd;
+    border-radius: 5px;
 }
 
-#progressbar li {
-    list-style-type: none;
-    font-size: 15px;
-    width: 25%;
-    float: left;
-    position: relative;
-    font-weight: 500;
+.step.active {
+    background: #4e2f1e;
 }
 
-#progressbar .step0:before {
-    content: "";
-}
-
-#progressbar li:before {
-    width: 40px;
-    height: 40px;
-    line-height: 45px;
-    display: block;
-    font-size: 20px;
-    background: #E0E0E0;
-    border-radius: 50%;
-    margin: auto;
-    padding: 2px;
-    transition: background 0.3s ease;
-}
-
-#progressbar li:after {
-    content: '';
-    width: 100%;
-    height: 10px;
-    background: #E0E0E0;
-    position: absolute;
-    left: 0;
-    top: 17px;
-    z-index: -1;
-    transition: background 0.3s ease;
-}
-
-#progressbar li:first-child:after {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-
-#progressbar li:last-child:after {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-#progressbar li.active:before,
-#progressbar li.active:after {
-    background: #F9A825;
-}
-
-.sub-heading {
-    font-weight: 600;
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.yellow-text {
-    color: #F9A825;
-    font-weight: 500;
-}
-
-fieldset {
+.form-step {
     display: none;
-    border: none;
+    flex-direction: column;
 }
 
-fieldset.show {
-    display: block;
-    animation: fadeIn 0.5s ease;
+.form-step.active {
+    display: flex;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.radio {
-    display: inline-block;
-    box-sizing: border-box;
-    cursor: pointer;
-    color: #BDBDBD;
-    font-weight: 500;
-    filter: grayscale(100%);
-    transition: all 0.3s ease;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.radio:hover {
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    filter: grayscale(80%);
-}
-
-.radio.selected {
-    border: 2px solid #F9A825;
-    box-shadow: 0px 8px 16px rgba(41, 182, 246, 0.2);
-    color: #29B6F6 !important;
-    filter: grayscale(0%);
-}
-
-.card-block {
-    border: 1px solid #CFD8DC;
-    width: 45%;
-    margin: 2.5%;
-    padding: 20px 25px;
-    border-radius: 12px;
-    background-color: #FAFAFA;
-    transition: box-shadow 0.3s ease;
-}
-
-.card-block:hover {
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-}
-
-@media screen and (max-width: 768px) {
-    .card-block {
-        padding: 20px;
-        height: auto;
-    }
-}
-
-.icon {
-    width: 85px;
-    height: 100px;
-}
-
-.image-icon {
-    width: 85px;
-    height: 100px;
-    margin: 0 auto 20px;
-}
-
-select, input, textarea, button {
-    padding: 10px 15px;
-    border-radius: 6px;
-    margin-bottom: 25px;
-    margin-top: 2px;
+input,
+select {
+    margin: 10px 0;
+    padding: 10px;
     width: 100%;
-    box-sizing: border-box;
-    color: #2C3E50;
-    background-color: #F5F5F5;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    transition: all 0.2s ease;
-}
-
-select:focus, input:focus, textarea:focus {
-    border-color: #29B6F6;
-    background-color: #FFF;
-    outline: none;
-}
-
-button:focus {
-    outline: none;
-}
-
-textarea {
-    height: 100px;
 }
 
 button {
-    width: 130px;
-    letter-spacing: 1px;
-    background-color: #2196F3;
-    color: white;
+    padding: 10px 20px;
     border: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    background: #4B2E1E;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 button:hover {
-    background-color: #1976D2;
-    transform: scale(1.03);
+    background: #31190d;
 }
 
-.btn-block {
-    border-radius: 8px;
-    height: 50px;
-    font-weight: 600;
+.button-group {
+    display: flex;
+    justify-content: space-between;
 }
 
-.btn-secondary {
-    background-color: #ECEFF1;
-    color: #333;
+.service-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
 }
 
-.btn-secondary:hover {
-    background-color: #CFD8DC;
-}
-
-.fa-long-arrow-right {
-    float: right;
-    margin-top: 4px;
-}
-
-.fa-long-arrow-left {
-    float: left;
-    margin-top: 4px;
-}
-
-.fit-image {
-    width: 100%;
-    object-fit: cover;
-}
-
-.message {
-    font-size: 16px;
-    color: #444;
+.service {
+    border: 1px solid #ccc;
+    padding: 15px;
     text-align: center;
-    margin-bottom: 20px;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
-.check-img {
-    width: 80px;
-    height: 80px;
-    display: block;
-    margin: 20px auto 0;
+.service.active {
+    border-color: orange;
+    background: #f9dbcc;
+}
+
+.service input {
+    display: none;
+}
+
+.service img {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.success {
+    text-align: center;
+}
+
+.checkmark {
+    font-size: 60px;
+    color: orange;
+    margin-top: 20px;
 }

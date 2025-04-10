@@ -1,151 +1,97 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendamentos | Beleza Afro</title>
+    <title>Agendamento - Salão Rainha do Ouro</title>
     <link rel="stylesheet" href="../css/agendamentos.css">
 </head>
+
 <body>
-    <div class="container-fluid px-1 py-5 mx-auto">
-        <div class="row d-flex justify-content-center">
-            <div class="col-xl-5 col-lg-6 col-md-7">
-                <div class="card b-0">
-                    <h1 class="heading">Agende Seu Horário</h1>
-                    <p class="desc">Ou fale com a gente pelo <span class="yellow-text">(11) 91234-5678</span><br>e preencha o formulário abaixo</p>
+    <div class="container">
+        <h2>Selecione o tipo de serviço</h2>
+        <p>Preencha o formulário com <span class="phone">suas informações</span>
+        <div class="progress-bar">
+            <div class="step active"></div>
+            <div class="step"></div>
+            <div class="step"></div>
+            <div class="step"></div>
+        </div>
 
-                    <ul id="progressbar" class="text-center">
-                        <li class="active step0" id="step1"></li>
-                        <li class="step0" id="step2"></li>
-                        <li class="step0" id="step3"></li>
-                        <li class="step0" id="step4"></li>
-                    </ul>
+        <form id="quoteForm">
+            <!-- Step 1 -->
+            <div class="form-step active">
+                <h3>Selecione o Serviço</h3>
+                <div class="service-options">
+                    <label class="service active">
+                        <input type="radio" name="service" value="One time paper cleanout" checked>                        
+                        <span>Trança</span>
+                    </label>
+                    <label class="service">
+                        <input type="radio" name="service" value="Shredding service">                        
+                        <span>Tratamento</span>
+                    </label>
+                    <label class="service">
+                        <input type="radio" name="service" value="Hard Drive destruction">                        
+                        <span>Consultoria</span>
+                    </label>
+                    <label class="service">
+                        <input type="radio" name="service" value="Other material destruction">
+                        <span>Higienização</span>
+                    </label>
+                    <label class="service">
+                        <input type="radio" name="service" value="Other material destruction">
+                        <span>Corte</span>
+                    </label>
+                    <label class="service">
+                        <input type="radio" name="service" value="Other material destruction">
+                        <span>Manutenção</span>
+                    </label>
+                </div><br>
+                <button type="button" class="next-btn">Próximo</button>
+            </div>
 
-                    <!-- Etapa 1 -->
-                    <fieldset class="show">
-                        <div class="form-card">
-                            <h5 class="sub-heading">Escolha o serviço desejado</h5>
 
-                            <div class="row px-1 radio-group">
-                                <div class="card-block text-center radio selected">
-                                    <div class="image-icon">
-                                        <img class="icon icon1" src="../img/Montagem de Fotos Família Alegre Profissional Marrom Bege e Branco.png">
-                                    </div>
-                                    <p class="sub-desc">Tranças Box Braids</p>
-                                </div>
-                                <div class="card-block text-center radio">
-                                    <div class="image-icon">
-                                        <img class="icon icon1 fit-image" src="https://i.imgur.com/HnX40f4.png">
-                                    </div>
-                                    <p class="sub-desc">Twists e Dreads</p>
-                                </div>
-                                <div class="card-block text-center radio">
-                                    <div class="image-icon">
-                                        <img class="icon icon1 fit-image" src="https://i.imgur.com/ynKYPkk.png">
-                                    </div>
-                                    <p class="sub-desc">Hidratação Profunda</p>
-                                </div>
-                                <div class="card-block text-center radio">
-                                    <div class="image-icon">
-                                        <img class="icon icon1 fit-image" src="https://i.imgur.com/6qK7u8Q.png">
-                                    </div>
-                                    <p class="sub-desc">Corte e Estilização Afro</p>
-                                </div>
-                            </div>
-
-                            <button id="next1" class="btn-block btn-primary mt-3 mb-1 next">PRÓXIMO<span class="fa fa-long-arrow-right"></span></button>
-                        </div>
-                    </fieldset>
-
-                    <!-- Etapa 2 -->
-                    <fieldset>
-                        <div class="form-card">
-                            <h5 class="sub-heading mb-4">Seus Dados Pessoais</h5>
-                            <label class="text-danger mb-3">* Obrigatório</label>
-
-                            <div class="form-group">
-                                <label class="form-control-label">Nome * :</label>
-                                <input type="text" id="fname" name="fname" placeholder="" class="form-control" onblur="validate1(1)">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-control-label">Sobrenome * :</label>
-                                <input type="text" id="lname" name="lname" placeholder="" class="form-control" onblur="validate1(2)">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-control-label">Email * :</label>
-                                <input type="text" id="email" name="email" placeholder="" class="form-control" onblur="validate1(3)">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-control-label">Telefone * :</label>
-                                <input type="text" id="mob" name="mob" placeholder="" class="form-control" onblur="validate1(4)">
-                            </div>
-
-                            <button id="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate1(0)">PRÓXIMO<span class="fa fa-long-arrow-right"></span></button>
-                            <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fa fa-long-arrow-left"></span>ANTERIOR</button>
-                        </div>
-                    </fieldset>
-
-                    <!-- Etapa 3 -->
-                    <fieldset>
-                        <div class="form-card">
-                            <h5 class="sub-heading mb-4">Informações de Localização</h5>
-                            <label class="text-danger mb-3">* Obrigatório</label>
-
-                            <div class="form-group">
-                                <label class="form-control-label">Nome do Salão (opcional):</label>
-                                <input type="text" id="cname" name="cname" placeholder="" class="form-control" onblur="validate2(1)">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-control-label">CEP * :</label>
-                                <input type="text" id="zip" name="zip" placeholder="" class="form-control" onblur="validate2(2)">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-control-label">Estado * :</label>
-                                <input type="text" id="state" name="state" placeholder="" class="form-control" onblur="validate2(3)">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-control-label">Cidade * :</label>
-                                <input type="text" id="city" name="city" placeholder="" class="form-control" onblur="validate2(4)">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-control-label">Horário Preferido * :</label>
-                                <div class="select mb-3">
-                                    <select name="shred-info" class="form-control">
-                                        <option>Manhã</option>
-                                        <option>Tarde</option>
-                                        <option>Noite</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <button id="next3" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate2(0)">ENVIAR PEDIDO<span class="fa fa-long-arrow-right"></span></button>
-                            <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fa fa-long-arrow-left"></span>ANTERIOR</button>
-                        </div>
-                    </fieldset>
-
-                    <!-- Etapa Final -->
-                    <fieldset>
-                        <div class="form-card">
-                            <h5 class="sub-heading mb-4">Sucesso!</h5>
-                            <p class="message">Obrigado por escolher nosso salão especializado em cabelos afros!<br>Entraremos em contato em breve para confirmar seu agendamento.</p>
-                            <div class="check">
-                                <img class="fit-image check-img" src="https://i.imgur.com/QH6Zd6Y.gif">
-                            </div>
-                        </div>
-                    </fieldset>
+            <!-- Step 2 -->
+            <div class="form-step">
+                <h3>Detalhes do Serviço</h3>
+                <div id="step2-dynamic-content">
+                    <!-- Conteúdo será inserido dinamicamente com JavaScript -->
+                </div>
+                <div class="button-group">
+                    <button type="button" class="prev-btn">Anterior</button>
+                    <button type="button" class="next-btn">Próximo</button>
                 </div>
             </div>
-        </div>
+
+
+
+            <!-- Step 3 -->
+            <div class="form-step">
+                <h3>Dados Pessoais</h3>
+                <input type="text" placeholder="Nome *" required>
+                <input type="text" placeholder="Sobrenome *" required>
+                <input type="email" placeholder="Email *" required>
+                <input type="tel" placeholder="Telefone *" required>
+                <div class="button-group">
+                    <button type="button" class="prev-btn">Anterior</button>
+                    <button type="submit" class="submit-btn">Enviar</button>
+
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="form-step success">
+                <h3>Succeso!</h3>
+                <p>Obrigada por agendar com a gente.<br>Uma confirmação do agendamento será enviada para seu email.
+                </p>
+                <div class="checkmark">✔</div>
+            </div>
+        </form>
     </div>
 
     <script src="../script/agendamentos.js"></script>
 </body>
+
 </html>
