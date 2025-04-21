@@ -1,18 +1,20 @@
-// script.js
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('container');
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
 
-// Função para inicializar eventos
-function init() {
-    // Seleciona todos os botões no menu
-    const menuButtons = document.querySelectorAll('.sidebar button');
+    // Aplica a classe 'show' para surgir na tela ao carregar
+    setTimeout(() => {
+        container.classList.add('show');
+    }, 300); // Pequeno delay para suavidade
 
-    // Adiciona um ouvinte de evento de clique a cada botão
-    menuButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const buttonText = button.querySelector('span') ? button.querySelector('span').textContent : 'Botão';
-            alert(`Você clicou em: ${buttonText}`);
-        });
+    // Clique em "Criar conta" (ativa o painel da direita)
+    signUpButton.addEventListener('click', () => {
+        container.classList.add('right-panel-active');
     });
-}
 
-// Chama a função init quando o documento estiver pronto
-document.addEventListener('DOMContentLoaded', init);
+    // Clique em "Fazer login" (volta ao painel da esquerda)
+    signInButton.addEventListener('click', () => {
+        container.classList.remove('right-panel-active');
+    });
+});

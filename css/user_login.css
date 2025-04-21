@@ -258,3 +258,17 @@ footer a {
     color: #F8B61F;
     text-decoration: none;
 }
+.container {
+    /* Começa fora da tela, invisível */
+    top: 100%;
+    opacity: 0;
+    transition: all 2.5s ease;
+}
+
+.container.show {
+    /* Quando a classe "show" for adicionada, ele sobe pro centro da tela e fica visível */
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 1;
+}
+
