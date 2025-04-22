@@ -31,6 +31,16 @@ function updateBadgeCounts() {
     messagesBadge.textContent = 12; // Update based on actual data
     draftsBadge.textContent = 10; // Update based on actual data
 }
-
-// Call the update function on page load
 document.addEventListener('DOMContentLoaded', updateBadgeCounts);
+// navegação entre as paginas//
+function carregarPagina(caminho) {
+    fetch(caminho) // faz a requisição para o arquivo HTML da página
+      .then(response => response.text()) // converte a resposta para texto
+      .then(html => {
+        document.getElementById('conteudo').innerHTML = html; // insere o conteúdo na div com id "conteudo"
+      })
+      .catch(erro => {
+        document.getElementById('conteudo').innerHTML = "<p>Erro ao carregar a página.</p>";
+      });
+  }
+  
