@@ -1,0 +1,77 @@
+/* Estilização geral para fontes */
+  body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    background-color: #F8D39C;
+}
+/*--------------------------------------------------------------------------------*/
+ /* Estilo do header */
+header {
+    background-color: #4B2C1A; /* marrom escuro */
+    color: #F7E1A0; /* cor amarela clara para texto */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 5px solid #F0B429; /* faixa amarela */
+    padding: 5px 20px; /* já tá fino! */
+    height: 80px; /* <<< Adicionei altura controlada */
+
+  }
+  
+  /* Logo */
+  header .logo img {
+    height: 150px; /* <<< diminuí a logo */
+    margin-left: 20px; /* <<< margem menor */
+  }
+  
+  /* Navegação */
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* <<< diminui o espaço entre links */
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #F7E1A0;
+    font-family: 'Georgia', serif;
+    font-size: 22px; /* <<< fonte um pouco menor */
+  }
+  
+  /* Ícones do header */
+  header .icons {
+    display: flex;
+    align-items: center;
+    gap: 19px; /* <<< menos espaço entre ícones */
+    margin-right: 20px;
+  }
+  
+  header .icons a img {
+    width: 30px; /* <<< tamanho menor do ícone */
+    height: 30px;
+  }
+  
+  header .icons a:last-child img {
+    width: 36px; /* <<< tamanho menor do ícone de perfil */
+    height: 36px;
+  }
+  /*---------------------------------------------------------------*/
+  /*Carrosel*/
+  .carrossel{
+    padding: 225px;
+    background-color: #F0B429;
+    text-align: center;
+  }
+  /*-------------------------------------------------------------------*/
+ /*boasvindas*/
+.boas_vindas,#titulo{
+    font-family: 'Dancing Script', cursive;
+    font-style: italic;
+    font-size: 55px;
+    text-align: center;
+}
+.boas_vindas,#text{
+    text-align: center;
+    font-size: 30px;
+}
+/**/
