@@ -7,139 +7,413 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/RAINHA DO OURO.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/produtos.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+      
     <title>Rainha do Ouro | Produtos</title>
 </head>
 
 <body>
+    <header style="width: 100%; height: auto; background-color: yellow; margin: 0; padding: 1rem 0;">
+        <h1>Cabeçalho</h1>
+    </header>
+    
+    
     <main class="container">
+
         <aside class="sidebar">
-            <h3>Filtros</h3>
+
+            <div class="filtro">
+                <h3>Filtros</h3>
+                <img src="../img/filtro.png" alt="">
+            </div>
 
             <div class="filter-group">
                 <p>Tipo de Produto</p>
-                <label><input type="checkbox"/> Kit</label><br>
-                <label><input type="checkbox"/> Creme de pentear</label><br>
-                <label><input type="checkbox"/> Máscara</label><br>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Kit
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Creme de pentear
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Máscara
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Shampoo
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Condicionador
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Óleo capilar
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Tônico capilar
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Gelatina capilar
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Ativador de cachos
+                </label>
             </div>
+
 
             <div class="filter-group">
                 <p>Marca</p>
-                <label><input type="checkbox"/> Widi Care</label><br>
-                <label><input type="checkbox"/> Aspa</label><br>
-                <label><input type="checkbox"/> Lola</label><br>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Widi Care
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Apice
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Lola
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Salon Line
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Soul Power
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Truss
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Deva Curl
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Haskell
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Skala
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Embelleze
+                </label>
             </div>
+
 
             <div class="filter-group">
                 <p>Tipo de Cabelo</p>
-                <label><input type="checkbox"/> Cacheado</label><br>
-                <label><input type="checkbox"/> Crespo</label><br>
-                <label><input type="checkbox"/> Ondulado</label><br>
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Cacheado
+                </label>
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Crespo
+                </label>
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Ondulado
+                </label>
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Liso
+                </label>
             </div>
 
             <div class="filter-group">
-                <p>Acessórios</p>
-                <label><input type="checkbox"/> Pentes/Escovas</label><br>
-                <label><input type="checkbox"/> Toucas e turbantes</label><br>
-                <label><input type="checkbox"/> Difusor</label><br>
+                <p>Complementos</p>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Pentes/Escovas
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Toucas e turbantes
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Difusor
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Prendedores de cabelo
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Sprays de água
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Capas de proteção
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Escova secadora
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Touca difusora
+                </label>
+
+                <label class="chk">
+                    <input type="checkbox" />
+                    <span></span> Faixas de cabelo
+                </label>
             </div>
+
+
         </aside>
 
         <section class="product-section">
             <div class="search-bar">
                 <input type="text" placeholder="buscar produtos" />
+                <i class="fas fa-search"></i> <!-- Ícone de lupa -->
             </div>
+            
 
             <div class="product-grid">
-                <!-- Produto repetido para exemplo -->
+
                 <div class="product-card">
+                    <div class="heart-icon">
+                        <svg viewBox="0 0 24 24" class="heart-svg">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                                     C13.09 3.81 14.76 3 16.5 3
+                                     19.58 3 22 5.42 22 8.5
+                                     c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </div>
+
                     <img src="../img/apse.png" alt="Kit Crespo Power" />
-                    <h4>Kit Crespo Power - Aspa</h4>
+                    <h4>Kit Crespo Power - Apice</h4>
                     <p class="price">R$ 99,99</p>
                     <button class="buy-btn">Comprar</button>
                     <a href="#" class="details-link">ver detalhes</a>
                 </div>
 
-                <!-- Repetir outros produtos aqui -->
-                <div class="product-card">
-                    <img src="../img/apse.png" alt="Kit Crespo Power" />
-                    <h4>Kit Crespo Power - Aspa</h4>
-                    <p class="price">R$ 99,99</p>
-                    <button class="buy-btn">Comprar</button>
-                    <a href="#" class="details-link">ver detalhes</a>
-                </div>
 
                 <div class="product-card">
+                    <div class="heart-icon">
+                        <svg viewBox="0 0 24 24" class="heart-svg">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                                     C13.09 3.81 14.76 3 16.5 3
+                                     19.58 3 22 5.42 22 8.5
+                                     c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </div>
                     <img src="../img/apse.png" alt="Kit Crespo Power" />
-                    <h4>Kit Crespo Power - Aspa</h4>
-                    <p class="price">R$ 99,99</p>
-                    <button class="buy-btn">Comprar</button>
-                    <a href="#" class="details-link">ver detalhes</a>
-                </div>
-                <div class="product-card">
-                    <img src="../img/apse.png" alt="Kit Crespo Power" />
-                    <h4>Kit Crespo Power - Aspa</h4>
-                    <p class="price">R$ 99,99</p>
-                    <button class="buy-btn">Comprar</button>
-                    <a href="#" class="details-link">ver detalhes</a>
-                </div>
-                <div class="product-card">
-                    <img src="../img/apse.png" alt="Kit Crespo Power" />
-                    <h4>Kit Crespo Power - Aspa</h4>
-                    <p class="price">R$ 99,99</p>
-                    <button class="buy-btn">Comprar</button>
-                    <a href="#" class="details-link">ver detalhes</a>
-                </div>
-                <div class="product-card">
-                    <img src="../img/apse.png" alt="Kit Crespo Power" />
-                    <h4>Kit Crespo Power - Aspa</h4>
-                    <p class="price">R$ 99,99</p>
-                    <button class="buy-btn">Comprar</button>
-                    <a href="#" class="details-link">ver detalhes</a>
-                </div>
-                <div class="product-card">
-                    <img src="../img/apse.png" alt="Kit Crespo Power" />
-                    <h4>Kit Crespo Power - Aspa</h4>
-                    <p class="price">R$ 99,99</p>
-                    <button class="buy-btn">Comprar</button>
-                    <a href="#" class="details-link">ver detalhes</a>
-                </div>
-                <div class="product-card">
-                    <img src="../img/apse.png" alt="Kit Crespo Power" />
-                    <h4>Kit Crespo Power - Aspa</h4>
-                    <p class="price">R$ 99,99</p>
-                    <button class="buy-btn">Comprar</button>
-                    <a href="#" class="details-link">ver detalhes</a>
-                </div>
-                <div class="product-card">
-                    <img src="../img/apse.png" alt="Kit Crespo Power" />
-                    <h4>Kit Crespo Power - Aspa</h4>
-                    <p class="price">R$ 99,99</p>
-                    <button class="buy-btn">Comprar</button>
-                    <a href="#" class="details-link">ver detalhes</a>
-                </div>
-                <div class="product-card">
-                    <img src="../img/apse.png" alt="Kit Crespo Power" />
-                    <h4>Kit Crespo Power - Aspa</h4>
-                    <p class="price">R$ 99,99</p>
-                    <button class="buy-btn">Comprar</button>
-                    <a href="#" class="details-link">ver detalhes</a>
-                </div>
-                <div class="product-card">
-                    <img src="../img/apse.png" alt="Kit Crespo Power" />
-                    <h4>Kit Crespo Power - Aspa</h4>
+                    <h4>Kit Crespo Power - Apice</h4>
                     <p class="price">R$ 99,99</p>
                     <button class="buy-btn">Comprar</button>
                     <a href="#" class="details-link">ver detalhes</a>
                 </div>
 
                 <div class="product-card">
+                    <div class="heart-icon">
+                        <svg viewBox="0 0 24 24" class="heart-svg">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                                     C13.09 3.81 14.76 3 16.5 3
+                                     19.58 3 22 5.42 22 8.5
+                                     c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </div>
                     <img src="../img/apse.png" alt="Kit Crespo Power" />
-                    <h4>Kit Crespo Power - Aspa</h4>
+                    <h4>Kit Crespo Power - Apice</h4>
+                    <p class="price">R$ 99,99</p>
+                    <button class="buy-btn">Comprar</button>
+                    <a href="#" class="details-link">ver detalhes</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="heart-icon">
+                        <svg viewBox="0 0 24 24" class="heart-svg">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                                     C13.09 3.81 14.76 3 16.5 3
+                                     19.58 3 22 5.42 22 8.5
+                                     c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </div>
+                    <img src="../img/apse.png" alt="Kit Crespo Power" />
+                    <h4>Kit Crespo Power - Apice</h4>
+                    <p class="price">R$ 99,99</p>
+                    <button class="buy-btn">Comprar</button>
+                    <a href="#" class="details-link">ver detalhes</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="heart-icon">
+                        <svg viewBox="0 0 24 24" class="heart-svg">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                                     C13.09 3.81 14.76 3 16.5 3
+                                     19.58 3 22 5.42 22 8.5
+                                     c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </div>
+                    <img src="../img/apse.png" alt="Kit Crespo Power" />
+                    <h4>Kit Crespo Power - Apice</h4>
+                    <p class="price">R$ 99,99</p>
+                    <button class="buy-btn">Comprar</button>
+                    <a href="#" class="details-link">ver detalhes</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="heart-icon">
+                        <svg viewBox="0 0 24 24" class="heart-svg">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                                     C13.09 3.81 14.76 3 16.5 3
+                                     19.58 3 22 5.42 22 8.5
+                                     c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </div>
+                    <img src="../img/apse.png" alt="Kit Crespo Power" />
+                    <h4>Kit Crespo Power - Apice</h4>
+                    <p class="price">R$ 99,99</p>
+                    <button class="buy-btn">Comprar</button>
+                    <a href="#" class="details-link">ver detalhes</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="heart-icon">
+                        <svg viewBox="0 0 24 24" class="heart-svg">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                                     C13.09 3.81 14.76 3 16.5 3
+                                     19.58 3 22 5.42 22 8.5
+                                     c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </div>
+                    <img src="../img/apse.png" alt="Kit Crespo Power" />
+                    <h4>Kit Crespo Power - Apice</h4>
+                    <p class="price">R$ 99,99</p>
+                    <button class="buy-btn">Comprar</button>
+                    <a href="#" class="details-link">ver detalhes</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="heart-icon">
+                        <svg viewBox="0 0 24 24" class="heart-svg">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                                     C13.09 3.81 14.76 3 16.5 3
+                                     19.58 3 22 5.42 22 8.5
+                                     c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </div>
+                    <img src="../img/apse.png" alt="Kit Crespo Power" />
+                    <h4>Kit Crespo Power - Apice</h4>
+                    <p class="price">R$ 99,99</p>
+                    <button class="buy-btn">Comprar</button>
+                    <a href="#" class="details-link">ver detalhes</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="heart-icon">
+                        <svg viewBox="0 0 24 24" class="heart-svg">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                                     C13.09 3.81 14.76 3 16.5 3
+                                     19.58 3 22 5.42 22 8.5
+                                     c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </div>
+                    <img src="../img/apse.png" alt="Kit Crespo Power" />
+                    <h4>Kit Crespo Power - Apice</h4>
+                    <p class="price">R$ 99,99</p>
+                    <button class="buy-btn">Comprar</button>
+                    <a href="#" class="details-link">ver detalhes</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="heart-icon">
+                        <svg viewBox="0 0 24 24" class="heart-svg">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                                     C13.09 3.81 14.76 3 16.5 3
+                                     19.58 3 22 5.42 22 8.5
+                                     c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </div>
+                    <img src="../img/apse.png" alt="Kit Crespo Power" />
+                    <h4>Kit Crespo Power - Apice</h4>
+                    <p class="price">R$ 99,99</p>
+                    <button class="buy-btn">Comprar</button>
+                    <a href="#" class="details-link">ver detalhes</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="heart-icon">
+                        <svg viewBox="0 0 24 24" class="heart-svg">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                                     C13.09 3.81 14.76 3 16.5 3
+                                     19.58 3 22 5.42 22 8.5
+                                     c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </div>
+                    <img src="../img/apse.png" alt="Kit Crespo Power" />
+                    <h4>Kit Crespo Power - Apice</h4>
+                    <p class="price">R$ 99,99</p>
+                    <button class="buy-btn">Comprar</button>
+                    <a href="#" class="details-link">ver detalhes</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="heart-icon">
+                        <svg viewBox="0 0 24 24" class="heart-svg">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                     2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                                     C13.09 3.81 14.76 3 16.5 3
+                                     19.58 3 22 5.42 22 8.5
+                                     c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </div>
+                    <img src="../img/apse.png" alt="Kit Crespo Power" />
+                    <h4>Kit Crespo Power - Apice</h4>
                     <p class="price">R$ 99,99</p>
                     <button class="buy-btn">Comprar</button>
                     <a href="#" class="details-link">ver detalhes</a>
