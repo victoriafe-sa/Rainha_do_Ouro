@@ -1,0 +1,102 @@
+/* Cores principais */
+:root {
+    --cor-fundo: #F8D39C;
+    --cor-principal: #4B2E1E;
+    --cor-secundaria: #A67B5B;
+    --cor-destaque: #F8B61F;
+    --cor-amarelo: #FFC72C;
+    --branco: #fff;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-principal);
+    line-height: 1.6;
+  }
+  
+  header {
+    background-color: var(--cor-principal);
+    color: var(--branco);
+    text-align: center;
+    padding: 2rem 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .card {
+    background-color: var(--cor-amarelo);
+    border: 3px solid var(--cor-secundaria);
+    border-radius: 16px;
+    padding: 1.5rem;
+    width: 320px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card h2 {
+    margin-bottom: 1rem;
+    color: var(--cor-principal);
+    font-size: 1.4rem;
+    border-bottom: 2px solid var(--cor-secundaria);
+    padding-bottom: 0.5rem;
+  }
+  
+  .item {
+    background-color: var(--cor-destaque);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+  
+  .item span {
+    font-weight: 500;
+  }
+  
+  .item button {
+    background-color: var(--cor-principal);
+    color: var(--branco);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .item button:hover {
+    background-color: var(--cor-secundaria);
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--cor-principal);
+    color: var(--branco);
+    margin-top: 2rem;
+  }
+  
