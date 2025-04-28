@@ -1,6 +1,6 @@
-/* Cores principais */
+
 :root {
-    --cor-fundo: #F8D39C;
+    --cor-fundo: #fff3e5;
     --cor-principal: #4B2E1E;
     --cor-secundaria: #A67B5B;
     --cor-destaque: #F8B61F;
@@ -8,95 +8,138 @@
     --branco: #fff;
   }
   
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  :root {
+    --numDays: 5;
+    --numHours: 10;
+    --timeHeight: 60px;
+    --calBgColor: #fff1f8;
+    --eventBorderColor: #f2d3d8;
+    --eventColor1: #ffd6d1;
+    --eventColor2: #fafaa3;
+    --eventColor3: #e2f8ff;
+    --eventColor4: #d1ffe6;
   }
+  
+  .calendar {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: auto 2fr;
+    margin: 1rem;
+  }
+  
+  .timeline {
+    display: grid;
+    grid-template-rows: repeat(var(--numHours), var(--timeHeight));
+  }
+  
+  .days {
+    display: grid;
+    grid-column: 2;
+    gap: 7px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+  
+  .events {
+    display: grid;
+    grid-template-rows: repeat(var(--numHours), var(--timeHeight));
+    border-radius: 5px;
+    background: var(--cor-fundo);
+  }
+  
+  // Place on Timeline
+  .start-10 {
+    grid-row-start: 5;
+  }
+  
+  .start-12 {
+    grid-row-start: 4;
+  }
+  
+  .start-1 {
+    grid-row-start: 5;
+  }
+  
+  .start-2 {
+    grid-row-start: 6;
+  }
+  
+  .end-12 {
+    grid-row-end: 4;
+  }
+  
+  .end-1 {
+    grid-row-end: 5;
+  }
+  
+  .end-3 {
+    grid-row-end: 7;
+  }
+  
+  .end-4 {
+    grid-row-end: 8;
+  }
+  
+  .end-5 {
+    grid-row-end: 9;
+  }
+  
+
+  
+  .title {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+  
+  .event {
+    border: 2px solid var(--cor-secundaria);
+    border-radius: 7px;
+    padding: 0.5rem;
+    margin: 0 0.4rem;
+    background: #F8D39C;
+  }
+  
+  .space,
+  .date {
+    height: 35px
+  }
+  
+ 
   
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--cor-fundo);
-    color: var(--cor-principal);
-    line-height: 1.6;
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    background-color:#F8D39C;
   }
   
-  header {
-    background-color: var(--cor-principal);
-    color: var(--branco);
-    text-align: center;
-    padding: 2rem 1rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  .corp-fi {
+    background: var(--eventColor1);
   }
   
-  header h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+  .ent-law {
+    background: var(--eventColor2);
   }
   
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    padding: 2rem;
+  .writing {
+    background: var(--eventColor3);
   }
   
-  .card {
-    background-color: var(--cor-amarelo);
-    border: 3px solid var(--cor-secundaria);
-    border-radius: 16px;
-    padding: 1.5rem;
-    width: 320px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+  .securities {
+    background: var(--eventColor4);
   }
   
-  .card:hover {
-    transform: translateY(-5px);
+  .date {
+    display:inline-table;
+    gap: 0em;
   }
   
-  .card h2 {
-    margin-bottom: 1rem;
-    color: var(--cor-principal);
-    font-size: 1.4rem;
-    border-bottom: 2px solid var(--cor-secundaria);
-    padding-bottom: 0.5rem;
+  .date-num {
+    font-size: 4rem;
+    font-weight: 700;
+    display: inline;
   }
   
-  .item {
-    background-color: var(--cor-destaque);
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.75rem;
-  }
-  
-  .item span {
-    font-weight: 500;
-  }
-  
-  .item button {
-    background-color: var(--cor-principal);
-    color: var(--branco);
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .item button:hover {
-    background-color: var(--cor-secundaria);
-  }
-  
-  footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: var(--cor-principal);
-    color: var(--branco);
-    margin-top: 2rem;
+  .date-day {
+    display:inline;
+    font-size: 3rem;
+    font-weight: 200;
   }
   
