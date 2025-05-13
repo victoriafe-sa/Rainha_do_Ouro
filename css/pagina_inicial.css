@@ -47,13 +47,13 @@ header {
   }
   
   header .icons a img {
-    width: 30px; /* <<< tamanho menor do ícone */
+    width: 28px; /* <<< tamanho menor do ícone */
     height: 30px;
   }
   
   header .icons a:last-child img {
-    width: 36px; /* <<< tamanho menor do ícone de perfil */
-    height: 36px;
+    width: 42px; /* <<< tamanho menor do ícone de perfil */
+    height: 40px;
   }
   /*---------------------------------------------------------------*/
   /*Carrosel*/
@@ -64,13 +64,13 @@ header {
   }
   /*-------------------------------------------------------------------*/
  /*boasvindas*/
-.boas_vindas,#titulo{
-    font-family: 'Dancing Script', cursive;
-    font-style: italic;
-    font-size: 55px;
+.boas_vindas,h2{
+  font-family: 'Allura', cursive;
+
+    font-size: 65px;
     text-align: center;
 }
-.boas_vindas,#text{
+.boas_vindas,p{
     text-align: center;
     font-size: 30px;
 }
