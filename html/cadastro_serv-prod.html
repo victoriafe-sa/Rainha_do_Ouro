@@ -4,13 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Serviços e Produtos</title>
-  <link rel="stylesheet" href="../css/cadastro_serv-prod.css">
-  <script src="../script/cadastro_serv-prod.js" defer></script>
+  <link rel="stylesheet" href="../css/cadastro_serv-prod.css" />
   
 </head>
 
 <body>
-  <img src="../img/logo.png" alt="" srcset="">
   <div class="payment-tabs">
     <div class="tab-header">
       <button class="tab-btn active" data-tab="services">Serviços</button>
@@ -18,58 +16,57 @@
     </div>
 
     <div class="tab-content active" id="services">
-      <div class="form-group">
-        <label>Nome do Serviço:</label>
-        <input type="text" class="form-control" placeholder="Serviço">
-      </div>
-      <div class="form-group">
-        <label>Descrição:</la¢bel>
-        <input type="text" class="form-control" placeholder="Descrição">
-      </div>
-      <div class="form-group">
-        <label>Duração:</label>
-        <input type="text" class="form-control" placeholder="Duração">
-      </div>
-      <div class="form-group">
-        <label>Valor:</label>
-        <input type="number" class="form-control" placeholder="valor ">
-      </div>
-      <button class="btn btn-primary btn-block">Confirmar Serviço</button>
+      <form class="form-container">
+        <div class="form-group">
+          <label class="form-label">Nome do Serviço:</label>
+          <input type="text" class="form-input" placeholder="Serviço" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Descrição:</label>
+          <input type="text" class="form-input" placeholder="Descrição" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Duração:</label>
+          <input type="text" class="form-input" placeholder="Duração" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Valor:</label>
+          <input type="number" class="form-input" placeholder="valor " />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Confirmar Serviço</button>
+      </form>
     </div>
 
-    <!----PRODUTOS-->
     <div class="tab-content" id="products">
-
-      <div class="form-group">
-        <DIV>
-        
-        <label for="nome">Nome do produto:</label>
-        <input type="text" name="nome" id="nome_prod" placeholder="Nome do Produto" required>
-      </DIV>
-<DIV class="form-check form-check-inline">
-        <label for="descricao">Descrição: </label>
-        <input type="text" name="descricao" id="descricao_prod" placeholder="Descrição" required>
-      </DIV>
-<DIV class="form-check form-check-inline">
-        <label for="preco">Valor:</label>
-        <input type="number" name="valor" id="preco_prod" placeholder="Preço" required>
-      </DIV>
-<DIV class="form-check form-check-inline">
-        <label for="categoria">Categoria</label>
-        <input type="text" name="categoria" id="categoria_prod" placeholder="Categoria" required>
-      </DIV>
-<DIV class="form-check form-check-inline">
-        <label for="fornecedor">Fornecedor:</label>
-        <input type="text" name="fornecedor" id="fornecedor" placeholder="Fornecedor" required>
-      </DIV>
-<DIV class="form-check form-check-inline">
-        <label for="estoque">Estoque:</label>
-        <input type="number" name="estoque" id="estoque" placeholder="Estoque" required>
-      </DIV>
+      <form class="form-container">
+        <div class="form-group">
+          <label class="form-label" for="nome">Nome do produto:</label>
+          <input type="text" name="nome" id="nome_prod" class="form-input" placeholder="Nome do Produto" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="descricao">Descrição:</label>
+          <input type="text" name="descricao" id="descricao_prod" class="form-input" placeholder="Descrição" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="preco">Valor:</label>
+          <input type="number" name="valor" id="preco_prod" class="form-input" placeholder="Preço" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="categoria">Categoria:</label>
+          <input type="text" name="categoria" id="categoria_prod" class="form-input" placeholder="Categoria" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="fornecedor">Fornecedor:</label>
+          <input type="text" name="fornecedor" id="fornecedor" class="form-input" placeholder="Fornecedor" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="estoque">Estoque:</label>
+          <input type="number" name="estoque" id="estoque" class="form-input" placeholder="Estoque" required />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Confirmar Produtos</button>
+      </form>
     </div>
-    <button class="btn btn-primary btn-block">Confirmar Produtos</button>
   </div>
-
+  <script src="../script/cadastro_serv-prod.js" defer></script>
 </body>
-
 </html>
