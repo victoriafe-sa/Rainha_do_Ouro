@@ -49,19 +49,6 @@ function carregarPagina(caminho) {
         script.defer = true;
         document.body.appendChild(script);
       }
-
-    })
-    .catch(() => {
-      document.getElementById('conteudo').innerHTML = "<p>Erro ao carregar a página.</p>";
-    });
-}
-function carregarPagina(caminho) {
-  fetch(caminho)
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById('conteudo').innerHTML = html;
-
-      // Carrega JS necessário após injetar o HTML
       if (caminho.includes('agendamentos.html')) {
         const script = document.createElement('script');
         script.src = '../script/agendamentos.js';
@@ -74,4 +61,3 @@ function carregarPagina(caminho) {
       document.getElementById('conteudo').innerHTML = "<p>Erro ao carregar a página.</p>";
     });
 }
-
