@@ -13,7 +13,7 @@ body {
   margin: 50px auto;
   border: 1px solid #442900;
   border-radius: 12px;
-  background-color: #b88b4a;
+  background-color: #d2a679;
   padding: 30px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
@@ -44,7 +44,7 @@ body {
 }
 
 .tab-header button.active {
-  background-color: #643c27;
+  background-color: #9c673b;
   color: #fff;
 }
 
@@ -65,7 +65,7 @@ body {
 
 /* ====== Formulário ====== */
 form {
-  background-color: #a98342;
+  background-color: #5e4110;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -160,4 +160,8 @@ button:hover,
 img{
   width: 250px;
   height: 200px;
+}
+
+.tab-btn{
+  margin: 10px;
 }

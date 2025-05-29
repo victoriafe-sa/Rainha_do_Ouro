@@ -1,43 +1,30 @@
 /* Estilização geral para fontes */
 body {
-
     margin: 0;
     background-color: #F8D39C;
 }
 
-/*--------------------------------------------------------------------------------*/
-/* Estilo do header */
+/*==============HEADER============*/
 header {
     background-color: #4B2C1A;
-    /* marrom escuro */
     color: #F7E1A0;
-    /* cor amarela clara para texto */
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 5px solid #F0B429;
-    /* faixa amarela */
     padding: 6px 20px;
-    /* já tá fino! */
     height: 80px;
-    /* <<< Adicionei altura controlada */
-
 }
 
-/* Logo */
 header .logo img {
     height: 150px;
-    /* <<< diminuí a logo */
     margin-left: 20px;
-    /* <<< margem menor */
 }
 
-/* Navegação */
 nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
-    /* <<< diminui o espaço entre links */
 }
 
 nav ul li a {
@@ -45,33 +32,38 @@ nav ul li a {
     color: #F7E1A0;
     font-family: 'Georgia', serif;
     font-size: 22px;
-    /* <<< fonte um pouco menor */
 }
 
-/* Ícones do header */
 header .icons {
     display: flex;
     align-items: center;
     gap: 19px;
-    /* <<< menos espaço entre ícones */
     margin-right: 20px;
 }
 
 header .icons a img {
     width: 28px;
-    /* <<< tamanho menor do ícone */
     height: 30px;
 }
 
 header .icons a:last-child img {
     width: 42px;
-    /* <<< tamanho menor do ícone de perfil */
     height: 40px;
 }
+
+.mainSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3em;
+}
+
+/*===========BARRA DE PESQUISA===============*/
 .searchSection{
     background-color: #feedde;
     padding: 0.2rem;
 }
+
 .searchBar {
     display: flex;
     justify-content: space-between;
@@ -83,10 +75,16 @@ header .icons a:last-child img {
     border-radius: 50px;
 }
 
-.searchBar input {
+.searchBar input { /*deixa o input transparente quando clica no mesmo*/
     background-color: transparent;
     border-color: transparent;
+    width: 100%;
+}
 
+.searchBar input:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
 }
 
 .searchBar img {
@@ -94,27 +92,51 @@ header .icons a:last-child img {
     height: auto;
 }
 
+/*==============FILTROS============*/
 .filterSection {
-    margin-left: 20px;
     display: block;
     flex-direction: column;
-    width: 40%;
+    width: 30%;
     background-color: #feedde;
-    padding: 10px 20px;
+    padding: 20px 20px;
     border-radius: 10px;
+    margin-right: 30px;
+    font-weight: medium;
+    margin-top: -130px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.filterTitle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
 }
 
+.filterTitle img {
+    width: 10%;
+    height: 10%;
+    margin-left: 1.5em;
+}
 .filter {
     display: block;
     flex-direction: column;
+}
+.filter h3{
+    color: #c18a40;
 }
 
 .filter label {
     display: flex;
     align-items: center;
     gap: 6px;
+    margin-bottom: 10px;
 }
 
+.filterTitle{
+    color: #4B2C1A;
+}
+
+/*===============PRODUTOS=========*/
 .products {
     display: flex;
     align-items: center;
@@ -172,22 +194,63 @@ header .icons a:last-child img {
     margin-top: 4px;
 }
 
-.mainSection {
+.product-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.productSection h2{
+    margin-left: 24px;
+    font-weight: bolder;
+    color: #4B2C1A;
+    font-size: 26px;
+}
+
+.product-card button{
+    background-color: #c89678;
+    width: 100%;
+    margin: 0 auto;
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.product-card button:hover{
+    transform: scale(1.02);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+    background-color: #b38263;
+}
+
+/* ============FOOTER============*/
+footer {
+    background-color: #4B2C1A;
+    color: #F7E1A0;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+    border-top: 4px solid #F0B429;
+    font-family: 'Georgia', serif;
+}
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 3em;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.filterTitle {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-
+.footer-links a {
+    color: #F7E1A0;
+    text-decoration: none;
+    font-size: 14px;
 }
 
-.filterTitle img {
-    width: 10%;
-    height: 10%;
-    margin-left: 1.5em;
+.footer-links a:hover {
+    text-decoration: underline;
 }
