@@ -1,196 +1,193 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-
+/* Estilização geral para fontes */
 body {
-    margin: 0 auto;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    background-color: #fbe4c3;
-    color: black;
-    width: 80%;
-}
 
-.container {
-    display: flex;
-    padding: 2rem;
-    gap: 2rem;
-}
-
-
-/*Filtros*/
-.sidebar {
-    width: 20%;
-    padding: 1rem;
-    border-radius: 8px;
-}
-
-.filtro {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 0.5rem 1.5rem;
-    margin-bottom: 1.5rem;
-    
-}
-
-.filtro h3 {
-    font-size: 1.5rem;
     margin: 0;
-    font-weight: bold;
+    background-color: #F8D39C;
 }
 
-.filtro img {
-    width: 24px;
-    height: 24px;
-}
-.filter-group {
-    margin-bottom: 1.5rem;
-    border: 2px solid black;
-    border-radius: 1rem;
-    padding: 0.3rem 2rem;
-    color: black;
-}
-
-.filter-group p {
-    font-weight: bold;
-    margin-bottom: 1em;
-}
-
-/* Estilo para o label de cada checkbox */
-.chk {
+/*--------------------------------------------------------------------------------*/
+/* Estilo do header */
+header {
+    background-color: #4B2C1A;
+    /* marrom escuro */
+    color: #F7E1A0;
+    /* cor amarela clara para texto */
     display: flex;
     align-items: center;
-    gap: 5px;
-    margin-bottom: 0.5em;
+    justify-content: space-between;
+    border-bottom: 5px solid #F0B429;
+    /* faixa amarela */
+    padding: 6px 20px;
+    /* já tá fino! */
+    height: 80px;
+    /* <<< Adicionei altura controlada */
+
 }
 
-/* Esconde o input real */
-.chk input {
-    display: none;
+/* Logo */
+header .logo img {
+    height: 150px;
+    /* <<< diminuí a logo */
+    margin-left: 20px;
+    /* <<< margem menor */
 }
 
-/* Desenha o quadradinho usando o span */
-.chk span {
-    width: 16px;
-    height: 16px;
-    display: inline-block;
+/* Navegação */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    /* <<< diminui o espaço entre links */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #F7E1A0;
+    font-family: 'Georgia', serif;
+    font-size: 22px;
+    /* <<< fonte um pouco menor */
+}
+
+/* Ícones do header */
+header .icons {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    /* <<< menos espaço entre ícones */
+    margin-right: 20px;
+}
+
+header .icons a img {
+    width: 28px;
+    /* <<< tamanho menor do ícone */
+    height: 30px;
+}
+
+header .icons a:last-child img {
+    width: 42px;
+    /* <<< tamanho menor do ícone de perfil */
+    height: 40px;
+}
+.searchSection{
+    background-color: #feedde;
+    padding: 0.2rem;
+}
+.searchBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5em auto;
+    padding: 10px;
+    background-color: #ffffff;
+    width: 600px;
+    border-radius: 50px;
+}
+
+.searchBar input {
     background-color: transparent;
-    border: 2px solid #6a3c2b;
-    border-radius: 4px;
-    cursor: pointer;
+    border-color: transparent;
+
 }
 
-/* Quando o input estiver checado, muda a cor do quadradinho */
-.chk input:checked + span {
-    background-color: #6a3c2b;
+.searchBar img {
+    width: 4%;
+    height: auto;
 }
 
-
-
-/*Seção dos produtos*/
-.product-section {
-    width: 60%;
-    margin: 0 auto;
-    font-family: 'Times New Roman', Times, serif;
+.filterSection {
+    margin-left: 20px;
+    display: block;
+    flex-direction: column;
+    width: 40%;
+    background-color: #feedde;
+    padding: 10px 20px;
+    border-radius: 10px;
 }
 
-.search-bar {
-    position: relative; /* Importante para posicionar a lupa dentro */
-    width: 100%;
+.filter {
+    display: block;
+    flex-direction: column;
 }
 
-.search-bar input {
-    width: 98%;
-    padding: 0.75rem 2.5rem 0.75rem 1rem; /* Espaço para a lupa no canto direito */
-    border: 2px solid saddlebrown;
-    border-radius: 25px;
-    margin-bottom: 1.5rem;
-    background: transparent;
+.filter label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
-.search-bar i {
-    position: absolute;
-    right: 20px; /* Colado à direita */
-    top: 35%;
-    transform: translateY(-50%);
-    color: saddlebrown;
-    font-size: 1.2rem;
-    pointer-events: none; /* Ícone não bloqueia clique no input */
+.products {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 24px;
+    padding: 20px;
 }
-
 
 .product-card {
-    position: relative;
-    background: #fff;
-    border-radius: 10px;
-    padding: 1rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: #feedde;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 16px;
     text-align: center;
-    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+    width: 40%;
 }
 
-.heart-icon {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
-
-.heart-svg {
-    width: 100%;
-    height: 100%;
-    fill: transparent; /* fundo transparente */
-    stroke: #6a3c2b;    /* borda marrom */
-    stroke-width: 2px;
-    transition: 0.3s;
-}
-
-/* efeito de hover - enche o coração */
-.heart-icon:hover .heart-svg {
-    fill: #6a3c2b; /* coração todo marrom no hover */
-    stroke: #6a3c2b;
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 2rem;
-
+.product-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .product-card img {
-    width: 10em;
+    width: 60%;
     height: auto;
-    margin-bottom: 1rem;
+    border-radius: 8px;
+    margin-bottom: 12px;
 }
 
-.product-card h4 {
-    font-size: 1rem;
-    margin: 0.5rem 0;
-}
-
-.price {
+.product-card #product-name {
+    font-size: 20px;
     font-weight: bold;
-    color: #3e2f23;
+    margin: 8px 0 4px;
+    color: #4B2C1A;
 }
 
-.buy-btn {
-    background-color: #6a3c2b;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    margin-top: 0.5rem;
-    cursor: pointer;
+.product-card #product-brand {
+    font-size: 18px;
+    color: #8c6f5a;
+    margin-bottom: 8px;
 }
 
-.details-link {
-    display: block;
-    margin-top: 0.5rem;
-    color: #6a3c2b;
-    text-decoration: none;
-    font-size: 0.9rem;
+.product-card span {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 14px;
+}
+
+.product-card #product-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #c18a40;
+    margin-top: 4px;
+}
+
+.mainSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3em;
+}
+
+.filterTitle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.filterTitle img {
+    width: 10%;
+    height: 10%;
+    margin-left: 1.5em;
 }
