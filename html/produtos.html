@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beleza Capilar - Produtos Profissionais</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8B5A2B;
+            --secondary: #D4A76A;
+            --accent: #E6C229;
+            --light: #F5E6D2;
+            --dark: #3A2C1A;
+        }
+        
+        .bg-primary {
+            background-color: var(--primary);
+        }
+        
+        .text-primary {
+            color: var(--primary);
+        }
+        
+        .border-primary {
+            border-color: var(--primary);
+        }
+        
+        .bg-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .text-secondary {
+            color: var(--secondary);
+        }
+        
+        .bg-accent {
+            background-color: var(--accent);
+        }
+        
+        .text-accent {
+            color: var(--accent);
+        }
+        
+        .bg-light {
+            background-color: var(--light);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .filter-section {
+            scrollbar-width: thin;
+            scrollbar-color: var(--secondary) var(--light);
+        }
+        
+        .filter-section::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .filter-section::-webkit-scrollbar-track {
+            background: var(--light);
+        }
+        
+        .filter-section::-webkit-scrollbar-thumb {
+            background-color: var(--secondary);
+            border-radius: 3px;
+        }
+        
+        .price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-light font-sans">
+    <!-- Header -->
+    <header class="bg-primary text-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-spa text-2xl text-accent"></i>
+                    <h1 class="text-2xl font-bold">Beleza<span class="text-accent">Capilar</span></h1>
+                </div>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="hover:text-accent transition">Home</a>
+                    <a href="#" class="hover:text-accent transition">Produtos</a>
+                    <a href="#" class="hover:text-accent transition">Serviços</a>
+                    <a href="#" class="hover:text-accent transition">Sobre</a>
+                    <a href="#" class="hover:text-accent transition">Contato</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="hover:text-accent transition"><i class="fas fa-search"></i></a>
+                    <a href="#" class="hover:text-accent transition"><i class="fas fa-user"></i></a>
+                    <a href="#" class="hover:text-accent transition relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="absolute -top-2 -right-2 bg-accent text-dark text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </a>
+                </div>
+                <button class="md:hidden text-xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="bg-white py-4 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="relative max-w-2xl mx-auto">
+                <input type="text" placeholder="Buscar produtos..." class="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                <button class="absolute right-0 top-0 h-full px-4 text-primary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Filters Sidebar -->
+            <aside class="w-full md:w-64 flex-shrink-0">
+                <div class="bg-white rounded-lg shadow-md p-4 sticky top-4">
+                    <h2 class="text-lg font-bold text-primary mb-4">Filtrar Produtos</h2>
+                    
+                    <div class="filter-section space-y-6 max-h-[calc(100vh-200px)] overflow-y-auto">
+                        <!-- Brand Filter -->
+                        <div>
+                            <h3 class="font-semibold text-secondary mb-2">Marcas</h3>
+                            <div class="space-y-2">
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                                    <span>L'Oréal</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                                    <span>Pantene</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                                    <span>Natura</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                                    <span>Kérastase</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                                    <span>Elseve</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Hair Type Filter -->
+                        <div>
+                            <h3 class="font-semibold text-secondary mb-2">Tipo de Cabelo</h3>
+                            <div class="space-y-2">
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                                    <span>Liso</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                                    <span>Ondulado</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                                    <span>Crespo</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                                    <span>Cacheado</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                                    <span>Quimicamente Tratado</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Type Filter -->
+                        <div>
+                            <h3 class="font-semibold text-secondary mb-2">Tipo de Produto</h3>
+                            <div class="space-y-2">
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                                    <span>Shampoo</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                                    <span>Condicionador</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                                    <span>Máscara</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                                    <span>Óleo</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                                    <span>Finalizador</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Price Range Filter -->
+                        <div>
+                            <h3 class="font-semibold text-secondary mb-2">Faixa de Preço</h3>
+                            <div class="space-y-2">
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="radio" name="price" class="rounded text-primary focus:ring-primary">
+                                    <span>Até R$ 50</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="radio" name="price" class="rounded text-primary focus:ring-primary">
+                                    <span>R$ 50 - R$ 100</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="radio" name="price" class="rounded text-primary focus:ring-primary">
+                                    <span>R$ 100 - R$ 150</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="radio" name="price" class="rounded text-primary focus:ring-primary">
+                                    <span>Acima de R$ 150</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full mt-6 bg-primary hover:bg-secondary text-white py-2 px-4 rounded-full transition duration-300">
+                        Aplicar Filtros
+                    </button>
+                </div>
+            </aside>
+            
+            <!-- Products Grid -->
+            <div class="flex-1">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-primary">Nossos Produtos</h2>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-gray-600">Ordenar por:</span>
+                        <select class="border border-gray-300 rounded-full px-3 py-1 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <option>Mais vendidos</option>
+                            <option>Menor preço</option>
+                            <option>Maior preço</option>
+                            <option>Mais recentes</option>
+                            <option>Melhor avaliados</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Product 1 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300 relative">
+                        <div class="price-tag">-15%</div>
+                        <div class="p-4">
+                            <img src="https://images.unsplash.com/photo-1608248543803-ba981fd7a8f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Shampoo Hidratação Profunda" class="w-full h-48 object-cover rounded">
+                        </div>
+                        <div class="px-4 pb-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-bold text-primary">Shampoo Hidratação Profunda</h3>
+                                    <p class="text-sm text-gray-600">L'Oréal - 300ml</p>
+                                </div>
+                                <div class="text-yellow-400 flex">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                            <div class="mt-3 flex justify-between items-center">
+                                <div>
+                                    <span class="text-gray-400 line-through text-sm">R$ 59,90</span>
+                                    <p class="font-bold text-lg text-secondary">R$ 50,90</p>
+                                </div>
+                                <button class="bg-primary hover:bg-secondary text-white rounded-full w-10 h-10 flex items-center justify-center transition duration-300">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300">
+                        <div class="p-4">
+                            <img src="https://images.unsplash.com/photo-1590439471364-192aa70c0b53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Máscara Reconstrutora" class="w-full h-48 object-cover rounded">
+                        </div>
+                        <div class="px-4 pb-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-bold text-primary">Máscara Reconstrutora</h3>
+                                    <p class="text-sm text-gray-600">Kérastase - 250ml</p>
+                                </div>
+                                <div class="text-yellow-400 flex">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="mt-3 flex justify-between items-center">
+                                <div>
+                                    <p class="font-bold text-lg text-secondary">R$ 129,90</p>
+                                </div>
+                                <button class="bg-primary hover:bg-secondary text-white rounded-full w-10 h-10 flex items-center justify-center transition duration-300">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300 relative">
+                        <div class="price-tag">Novo</div>
+                        <div class="p-4">
+                            <img src="https://images.unsplash.com/photo-1596704017250-13c0a5d1c0b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Óleo Capilar Nutrição Intensa" class="w-full h-48 object-cover rounded">
+                        </div>
+                        <div class="px-4 pb-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-bold text-primary">Óleo Capilar Nutrição Intensa</h3>
+                                    <p class="text-sm text-gray-600">Natura - 100ml</p>
+                                </div>
+                                <div class="text-yellow-400 flex">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="mt-3 flex justify-between items-center">
+                                <div>
+                                    <p class="font-bold text-lg text-secondary">R$ 79,90</p>
+                                </div>
+                                <button class="bg-primary hover:bg-secondary text-white rounded-full w-10 h-10 flex items-center justify-center transition duration-300">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300">
+                        <div class="p-4">
+                            <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Condicionador Anti-Frizz" class="w-full h-48 object-cover rounded">
+                        </div>
+                        <div class="px-4 pb-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-bold text-primary">Condicionador Anti-Frizz</h3>
+                                    <p class="text-sm text-gray-600">Pantene - 400ml</p>
+                                </div>
+                                <div class="text-yellow-400 flex">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                            <div class="mt-3 flex justify-between items-center">
+                                <div>
+                                    <p class="font-bold text-lg text-secondary">R$ 45,90</p>
+                                </div>
+                                <button class="bg-primary hover:bg-secondary text-white rounded-full w-10 h-10 flex items-center justify-center transition duration-300">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 5 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300 relative">
+                        <div class="price-tag">-20%</div>
+                        <div class="p-4">
+                            <img src="https://images.unsplash.com/photo-1608248544926-e0d7e7284257?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Kit Tratamento Completo" class="w-full h-48 object-cover rounded">
+                        </div>
+                        <div class="px-4 pb-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-bold text-primary">Kit Tratamento Completo</h3>
+                                    <p class="text-sm text-gray-600">Elseve - Shampoo + Máscara</p>
+                                </div>
+                                <div class="text-yellow-400 flex">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="mt-3 flex justify-between items-center">
+                                <div>
+                                    <span class="text-gray-400 line-through text-sm">R$ 89,90</span>
+                                    <p class="font-bold text-lg text-secondary">R$ 71,90</p>
+                                </div>
+                                <button class="bg-primary hover:bg-secondary text-white rounded-full w-10 h-10 flex items-center justify-center transition duration-300">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 6 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300">
+                        <div class="p-4">
+                            <img src="https://images.unsplash.com/photo-1596704017250-13c0a5d1c0b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Spray Termoprotetor" class="w-full h-48 object-cover rounded">
+                        </div>
+                        <div class="px-4 pb-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-bold text-primary">Spray Termoprotetor</h3>
+                                    <p class="text-sm text-gray-600">L'Oréal - 150ml</p>
+                                </div>
+                                <div class="text-yellow-400 flex">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="mt-3 flex justify-between items-center">
+                                <div>
+                                    <p class="font-bold text-lg text-secondary">R$ 65,90</p>
+                                </div>
+                                <button class="bg-primary hover:bg-secondary text-white rounded-full w-10 h-10 flex items-center justify-center transition duration-300">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 7 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300">
+                        <div class="p-4">
+                            <img src="https://images.unsplash.com/photo-1625772452859-1c03c5e08dc4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Shampoo Clareador" class="w-full h-48 object-cover rounded">
+                        </div>
+                        <div class="px-4 pb-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-bold text-primary">Shampoo Clareador</h3>
+                                    <p class="text-sm text-gray-600">Kérastase - 300ml</p>
+                                </div>
+                                <div class="text-yellow-400 flex">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="mt-3 flex justify-between items-center">
+                                <div>
+                                    <p class="font-bold text-lg text-secondary">R$ 139,90</p>
+                                </div>
+                                <button class="bg-primary hover:bg-secondary text-white rounded-full w-10 h-10 flex items-center justify-center transition duration-300">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 8 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300 relative">
+                        <div class="price-tag">-10%</div>
+                        <div class="p-4">
+                            <img src="https://images.unsplash.com/photo-1596704017250-13c0a5d1c0b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Creme para Pentear" class="w-full h-48 object-cover rounded">
+                        </div>
+                        <div class="px-4 pb-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-bold text-primary">Creme para Pentear</h3>
+                                    <p class="text-sm text-gray-600">Natura - 200ml</p>
+                                </div>
+                                <div class="text-yellow-400 flex">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="mt-3 flex justify-between items-center">
+                                <div>
+                                    <span class="text-gray-400 line-through text-sm">R$ 49,90</span>
+                                    <p class="font-bold text-lg text-secondary">R$ 44,90</p>
+                                </div>
+                                <button class="bg-primary hover:bg-secondary text-white rounded-full w-10 h-10 flex items-center justify-center transition duration-300">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="mt-8 flex justify-center">
+                    <nav class="flex items-center space-x-2">
+                        <button class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-primary hover:bg-primary hover:text-white transition duration-300">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-white">1</button>
+                        <button class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-primary hover:bg-primary hover:text-white transition duration-300">2</button>
+                        <button class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-primary hover:bg-primary hover:text-white transition duration-300">3</button>
+                        <span class="px-2">...</span>
+                        <button class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-primary hover:bg-primary hover:text-white transition duration-300">8</button>
+                        <button class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-primary hover:bg-primary hover:text-white transition duration-300">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-accent">BelezaCapilar</h3>
+                    <p class="text-sm">Produtos profissionais e serviços capilares para realçar sua beleza natural.</p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-accent transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-accent transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-accent transition duration-300">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4 text-secondary">Links Úteis</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-accent transition duration-300">Sobre Nós</a></li>
+                        <li><a href="#" class="hover:text-accent transition duration-300">Nossos Serviços</a></li>
+                        <li><a href="#" class="hover:text-accent transition duration-300">Blog</a></li>
+                        <li><a href="#" class="hover:text-accent transition duration-300">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4 text-secondary">Atendimento</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-accent transition duration-300">Central de Ajuda</a></li>
+                        <li><a href="#" class="hover:text-accent transition duration-300">Termos de Uso</a></li>
+                        <li><a href="#" class="hover:text-accent transition duration-300">Política de Privacidade</a></li>
+                        <li><a href="#" class="hover:text-accent transition duration-300">Trocas e Devoluções</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4 text-secondary">Contato</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-map-marker-alt text-accent"></i>
+                            <span>Rua das Flores, 123 - São Paulo/SP</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-phone text-accent"></i>
+                            <span>(11) 98765-4321</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-envelope text-accent"></i>
+                            <span>contato@belezacapilar.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-secondary mt-8 pt-6 text-center text-sm">
+                <p>&copy; 2023 BelezaCapilar. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple filter functionality demonstration
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterCheckboxes = document.querySelectorAll('input[type="checkbox"], input[type="radio"]');
+            const applyFiltersBtn = document.querySelector('button[class*="bg-primary"]');
+            
+            applyFiltersBtn.addEventListener('click', function() {
+                alert('Filtros aplicados! (Esta é uma demonstração. Em um site real, isso filtraria os produtos.)');
+            });
+            
+            // Product card hover effect
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.1)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                    this.style.boxShadow = '';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
