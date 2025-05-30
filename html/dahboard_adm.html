@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,86 +9,90 @@
     <link rel="stylesheet" href="../css/dahboard_adm.css" />
     <script src="https://unpkg.com/akar-icons-fonts"></script>
 </head>
+
 <body>
-    <aside class="sidebar_rc">
-        <div class="left_rc">
+    <aside class="sidebar">
+        <div class="left">
             <img src="../img/logo.png" />
-            <div class="test_rc">
+            <div class="test">
                 <button><i class="ai-home-alt1"></i></button>
-                <div class="texto-hover_rc">Inicio</div>
+                <div class="texto-hover">Início</div>
             </div>
-            <div class="test_rc">
+            <div class="test">
                 <button><i class="ai-align-left"></i></button>
-                <div class="texto-hover_rc texto-hover-grafico_rc">Gráficos</div>
+                <div class="texto-hover texto-hover-grafico">Gráficos</div>
             </div>
-            <div class="test_rc">
+            <div class="test">
                 <button onclick="carregarPagina('agendamentos.html')"><i class="ai-calendar"></i></button>
-                <div class="texto-hover_rc texto-hover-relatorio_rc">Agenda</div>
+                <div class="texto-hover texto-hover-relatorio">Agenda</div>
             </div>
-            <div class="test_rc">
+            <div class="test">
                 <button><i class="ai-chat-dots"></i></button>
-                <div class="texto-hover_rc texto-hover-mensagem_rc">Chat</div>
+                <div class="texto-hover texto-hover-mensagem">Chat</div>
             </div>
-            <div class="test_rc">
+            <div class="test">
                 <button><i class="ai-person-check"></i></button>
-                <div class="texto-hover_rc texto-hover-user_rc">Usuário</div>
+                <div class="texto-hover texto-hover-user">Usuário</div>
             </div>
             <div>
-                <div class="test_rc">
+                <div class="test">
                     <button><i class="ai-gear"></i></button>
-                    <div class="texto-hover_rc texto-hover-config_rc">Config</div>
+                    <div class="texto-hover texto-hover-config">Config</div>
                 </div>
-                <div class="test_rc">
+                <div class="test">
                     <button><i class="ai-door"></i></button>
-                    <div class="texto-hover_rc texto-hover-exit_rc">Exit</div>
+                    <div class="texto-hover texto-hover-exit">Exit</div>
                 </div>
             </div>
         </div>
-        <div class="right_rc">
-            <div class="right-inner_rc">
-                <div class="header_rc">
+
+        <div class="right">
+            <div class="right-inner">
+                <div class="header">
                     <div>
-                        <h2>Bem vindo!</h2>
+                        <h2>Bem-vindo!</h2>
                         <h3>Sistema de Gerenciamento</h3>
                     </div>
                 </div>
                 <nav>
                     <button onclick="carregarPagina('cadastro_serv-prod.html')">
                         <i class="ai-shipping-box-v1"></i>
-                        <span class="tst_rc">Cadastrar Produtos</span>
+                        <span class="tst">Cadastrar Produtos</span>
                     </button>
                     <button onclick="carregarPagina('funcionario_cadastro.html')">
                         <i class="ai-person"></i>
-                        <span class="tst_rc">Cadastrar Usuarios</span>
+                        <span class="tst">Cadastrar Usuários</span>
                     </button>
-                    <button class="button_ai-open-envelope_rc">
+                    <button class="button_ai-open-envelope">
                         <i class="ai-open-envelope"></i>
-                        <span class="tst_rc">Mensagens</span>
-                        <i class="ai-circle-chevron-down-fill arrow-icon_rc"></i>
+                        <span class="tst">Mensagens</span>
+                        <i class="ai-circle-chevron-down-fill arrow-icon"></i>
                     </button>
-                    <ul class="submenu_rc">
+                    <ul class="submenu">
                         <li>
                             Suporte
-                            <span class="badge_rc">10</span>
+                            <span class="badge">10</span>
                         </li>
                         <li>
                             Equipe
-                            <span class="badge_rc">4</span>
+                            <span class="badge">4</span>
                         </li>
                         <li>
                             Clientes
-                            <span class="badge_rc">20</span>
+                            <span class="badge">20</span>
                         </li>
                     </ul>
                     <button>
                         <i class="ai-data"></i>
-                        <span class="tst_rc">Inventory</span>
+                        <span class="tst">Inventory</span>
                     </button>
                 </nav>
             </div>
         </div>
     </aside>
     <div id="conteudo"></div>
+
+    <script src="../script/dahboard_adm.js"></script>
 </body>
-<script src="../script/dahboard_adm.js"></script>
+
 </html>

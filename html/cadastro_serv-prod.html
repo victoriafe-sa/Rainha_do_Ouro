@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Serviços e Produtos</title>
   <link rel="stylesheet" href="../css/cadastro_serv-prod.css" />
-  
+  <script src="../script/cadastro_serv-prod.js" defer></script>
 </head>
 
 <body>
@@ -15,58 +16,60 @@
       <button class="tab-btn" data-tab="products">Produtos</button>
     </div>
 
+    <!-- SERVIÇOS -->
     <div class="tab-content active" id="services">
       <form class="form-container">
         <div class="form-group">
-          <label class="form-label">Nome do Serviço:</label>
-          <input type="text" class="form-input" placeholder="Serviço" />
+          <label for="nome_servico" class="form-label">Nome do Serviço:</label>
+          <input type="text" class="form-input" id="nome_servico" placeholder="Serviço" required />
         </div>
         <div class="form-group">
-          <label class="form-label">Descrição:</label>
-          <input type="text" class="form-input" placeholder="Descrição" />
+          <label for="descricao_servico" class="form-label">Descrição:</label>
+          <input type="text" class="form-input" id="descricao_servico" placeholder="Descrição" required />
         </div>
         <div class="form-group">
-          <label class="form-label">Duração:</label>
-          <input type="text" class="form-input" placeholder="Duração" />
+          <label for="duracao_servico" class="form-label">Duração:</label>
+          <input type="text" class="form-input" id="duracao_servico" placeholder="Duração" required />
         </div>
         <div class="form-group">
-          <label class="form-label">Valor:</label>
-          <input type="number" class="form-input" placeholder="valor " />
+          <label for="valor_servico" class="form-label">Valor:</label>
+          <input type="number" class="form-input" id="valor_servico" placeholder="Valor" required />
         </div>
         <button type="submit" class="btn btn-primary btn-block">Confirmar Serviço</button>
       </form>
     </div>
 
+    <!-- PRODUTOS -->
     <div class="tab-content" id="products">
       <form class="form-container">
         <div class="form-group">
-          <label class="form-label" for="nome">Nome do produto:</label>
+          <label for="nome_prod" class="form-label">Nome do Produto:</label>
           <input type="text" name="nome" id="nome_prod" class="form-input" placeholder="Nome do Produto" required />
         </div>
         <div class="form-group">
-          <label class="form-label" for="descricao">Descrição:</label>
+          <label for="descricao_prod" class="form-label">Descrição:</label>
           <input type="text" name="descricao" id="descricao_prod" class="form-input" placeholder="Descrição" required />
         </div>
         <div class="form-group">
-          <label class="form-label" for="preco">Valor:</label>
+          <label for="preco_prod" class="form-label">Valor:</label>
           <input type="number" name="valor" id="preco_prod" class="form-input" placeholder="Preço" required />
         </div>
         <div class="form-group">
-          <label class="form-label" for="categoria">Categoria:</label>
+          <label for="categoria_prod" class="form-label">Categoria:</label>
           <input type="text" name="categoria" id="categoria_prod" class="form-input" placeholder="Categoria" required />
         </div>
         <div class="form-group">
-          <label class="form-label" for="fornecedor">Fornecedor:</label>
+          <label for="fornecedor" class="form-label">Fornecedor:</label>
           <input type="text" name="fornecedor" id="fornecedor" class="form-input" placeholder="Fornecedor" required />
         </div>
         <div class="form-group">
-          <label class="form-label" for="estoque">Estoque:</label>
+          <label for="estoque" class="form-label">Estoque:</label>
           <input type="number" name="estoque" id="estoque" class="form-input" placeholder="Estoque" required />
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Confirmar Produtos</button>
+        <button type="submit" class="btn btn-primary btn-block">Confirmar Produto</button>
       </form>
     </div>
   </div>
-  <script src="../script/cadastro_serv-prod.js" defer></script>
 </body>
+
 </html>
