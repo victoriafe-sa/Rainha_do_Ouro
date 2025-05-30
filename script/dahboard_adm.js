@@ -1,46 +1,74 @@
-// script.js
-
-// Function to toggle submenu visibility
-document.querySelectorAll('.nav-item').forEach(item => {
-    item.addEventListener('click', event => {
-        const submenu = item.querySelector('.submenu');
-        if (submenu) {
-            submenu.classList.toggle('active'); // toggle visibility
-        }
+// Gerenciar visibilidade do submenu ao clicar no botão de mensagens
+document.querySelectorAll('.button_ai-open-envelope_rc').forEach(item => {
+    item.addEventListener('click', () => {
+        const submenu = document.querySelector('.submenu_rc');
+        const arrow = document.querySelector('.arrow-icon_rc');
+        if (submenu) submenu.classList.toggle('active');
+        if (arrow) arrow.classList.toggle('rotate');
     });
 });
 
-// Handle sidebar hover for width adjustment
+// Ajuste de largura ao passar o mouse na sidebar (para .sidebar_rc)
+const sidebar_rc = document.querySelector('.sidebar_rc');
+if (sidebar_rc) {
+    sidebar_rc.addEventListener('mouseover', () => {
+        sidebar_rc.style.width = '300px';
+        const right = document.querySelector('.right_rc');
+        if (right) right.style.width = '225px';
+    });
+    sidebar_rc.addEventListener('mouseout', () => {
+        sidebar_rc.style.width = '80px';
+        const right = document.querySelector('.right_rc');
+        if (right) right.style.width = 'auto';
+    });
+}
+
+// Ajuste de largura ao passar o mouse na sidebar (para .sidebar)
 const sidebar = document.querySelector('.sidebar');
+if (sidebar) {
+    sidebar.addEventListener('mouseover', () => {
+        sidebar.style.width = '300px';
+        const right = document.querySelector('.right');
+        if (right) right.style.width = '225px';
+    });
+    sidebar.addEventListener('mouseout', () => {
+        sidebar.style.width = '80px';
+        const right = document.querySelector('.right');
+        if (right) right.style.width = 'auto';
+    });
+}
 
-sidebar.addEventListener('mouseover', () => {
-    sidebar.style.width = '300px';
-    sidebar.querySelector('.right').style.width = '225px';
-});
+// Carregar páginas dinâmicas com JS extra opcional
+function carregarPagina(caminho) {
+    fetch(caminho)
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('conteudo').innerHTML = html;
 
-sidebar.addEventListener('mouseout', () => {
-    sidebar.style.width = '80px';
-    sidebar.querySelector('.right').style.width = 'auto';
-});
+            // Injetar JS adicional se necessário
+            if (caminho.includes('cadastro_serv-prod.html')) {
+                const script = document.createElement('script');
+                script.src = '../script/cadastro_serv-prod.js';
+                script.defer = true;
+                document.body.appendChild(script);
+            }
+            if (caminho.includes('agendamentos.html')) {
+                const script = document.createElement('script');
+                script.src = '../script/agendamentos.js';
+                script.defer = true;
+                document.body.appendChild(script);
+            }
+        })
+        .catch(() => {
+            document.getElementById('conteudo').innerHTML = "<p>Erro ao carregar a página.</p>";
+        });
+}
 
-// Update badge counts (this is just for demonstration; you can fetch these dynamically)
+// Opcional: Atualizar badges (exemplo)
 function updateBadgeCounts() {
     const messagesBadge = document.querySelector('.messages-badge');
     const draftsBadge = document.querySelector('.drafts-badge');
-    
-    messagesBadge.textContent = 12; // Update based on actual data
-    draftsBadge.textContent = 10; // Update based on actual data
+    if (messagesBadge) messagesBadge.textContent = 12; // Exemplo
+    if (draftsBadge) draftsBadge.textContent = 10;     // Exemplo
 }
 document.addEventListener('DOMContentLoaded', updateBadgeCounts);
-// navegação entre as paginas//
-function carregarPagina(caminho) {
-    fetch(caminho) // faz a requisição para o arquivo HTML da página
-      .then(response => response.text()) // converte a resposta para texto
-      .then(html => {
-        document.getElementById('conteudo').innerHTML = html; // insere o conteúdo na div com id "conteudo"
-      })
-      .catch(erro => {
-        document.getElementById('conteudo').innerHTML = "<p>Erro ao carregar a página.</p>";
-      });
-  }
-  

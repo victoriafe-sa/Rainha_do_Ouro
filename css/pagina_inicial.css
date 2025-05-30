@@ -1,0 +1,202 @@
+/* Estilização geral para fontes */
+  body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    background-color: #F8D39C;
+}
+/*--------------------------------------------------------------------------------*/
+ /* Estilo do header */
+header {
+    background-color: #4B2C1A; /* marrom escuro */
+    color: #F7E1A0; /* cor amarela clara para texto */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 5px solid #F0B429; /* faixa amarela */
+    padding: 6px 20px; /* já tá fino! */
+    height: 80px; /* <<< Adicionei altura controlada */
+
+  }
+  
+  /* Logo */
+  header .logo img {
+    height: 150px; /* <<< diminuí a logo */
+    margin-left: 20px; /* <<< margem menor */
+  }
+  
+  /* Navegação */
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* <<< diminui o espaço entre links */
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #F7E1A0;
+    font-family: 'Georgia', serif;
+    font-size: 22px; /* <<< fonte um pouco menor */
+  }
+  
+  /* Ícones do header */
+  header .icons {
+    display: flex;
+    align-items: center;
+    gap: 19px; /* <<< menos espaço entre ícones */
+    margin-right: 20px;
+  }
+  
+  header .icons a img {
+    width: 28px; /* <<< tamanho menor do ícone */
+    height: 30px;
+  }
+  
+  header .icons a:last-child img {
+    width: 42px; /* <<< tamanho menor do ícone de perfil */
+    height: 40px;
+  }
+  /*---------------------------------------------------------------*/
+  /*Carrosel*/
+  .carrossel{
+    padding: 225px;
+    background-color: #F0B429;
+    text-align: center;
+  }
+  /*-------------------------------------------------------------------*/
+ /*boasvindas*/
+.boas-vindas h2{
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.boas-vindas p{
+    text-align: center;
+    font-size: 25px;
+}
+/*-----------------------------------------------------------------------*/
+/*fotos,qualidade,profissional e coroa*/
+.diferenciais {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px;
+}
+
+.item {
+  background-color: #a67c52;
+  border-radius: 20px;
+  padding: 20px;
+  width: 200px;
+  height: 300px;
+  text-align: center;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.item img {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.item p {
+  font-size: 25px;
+  margin: 0;
+}
+.item:hover{
+  transform: scale(1.1);
+  transition: transform 0.6s ease-in-out;
+}
+/*---------------------------------------------------------------------*/
+/*categorias*/
+/* Container geral que organiza os cards lado a lado */
+.categorias {
+  display: flex; /* coloca os elementos em linha */
+  justify-content: center; /* centraliza os cards horizontalmente */
+  gap: 20px; /* espaço entre os cards */
+}
+
+/* Cada card individual */
+.categoria {
+  position: relative; /* necessário para posicionar o texto por cima da imagem */
+  width: 500px;
+  height: 350px;
+  border-radius: 10px; /* bordas arredondadas */
+  overflow: hidden; /* esconde o que ultrapassar do card */
+  text-align: center;
+  font-family: 'Georgia', serif;
+}
+
+/* Imagem do card */
+.categoria img {
+  width: 100%; /* ocupa toda a largura do card */
+  height: 100%; /* ocupa toda a altura do card */
+  object-fit: cover; /* cobre todo o espaço sem distorcer */
+  display: block;
+  filter: brightness(50%); /* escurece a imagem */
+  transition: filter 0.3s ease; /* transição suave no hover */
+}
+
+/* Texto por cima da imagem */
+.categoria h3 {
+  position: absolute; /* permite posicionar livremente */
+  top: 50%; /* move para o meio vertical */
+  left: 50%; /* move para o meio horizontal */
+  transform: translate(-50%, -50%); /* centraliza de fato */
+  color: white; /* cor do texto */
+  font-size: 28px;
+  font-weight: bold;
+  z-index: 1; /* garante que o texto fique acima da imagem */
+  margin: 0;
+}
+
+/* Efeito quando passa o mouse: imagem fica um pouco mais clara */
+.categoria:hover img {
+  filter: brightness(70%);
+}
+
+/*-------------------------------------------------------------------------------*/
+/*lANÇAMENTOS*/
+.lancamentos H2{
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 3.0rem;
+  text-align: center;
+}
+.produtos img{
+  width: 220px;
+  height: 200px;
+  background-color:#F8D39C;
+  border-radius: 30px;}
+
+.produtos{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.produto{
+  background-color: #d49e68;
+  border-radius: 20px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.produto button{
+  background-color: #4a2e14;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: medium;
+}

@@ -1,4 +1,79 @@
-/* styles.css */
+/* ====== Variáveis de Cores ====== */
+:root {
+    --color-bg: #FFC72C;
+    --color-primary: #000000;
+    --color-muted: #9fa4af;
+    --color-hover: #e8ecf4;
+}
+
+/* ====== Reset e Estilo Global ====== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #e6c8b1;
+}
+
+h2, h3, ul {
+    margin: 0;
+}
+
+/* ====== Sidebar Principal ====== */
+.sidebar {
+    position: fixed;
+    overflow: hidden;
+    top: 24px;
+    left: 24px;
+    bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 80px;
+    border-radius: 18px;
+    transition: 0.4s;
+    background: #4b2e1e81;
+}
+
+.sidebar:hover {
+    width: 300px;
+}
+
+.sidebar:hover .right {
+    width: 225px;
+}
+
+.sidebar button {
+    border: 0;
+    background: transparent;
+    font-size: 22px;
+    color: inherit;
+    border-radius: 8px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* ====== Estrutura Esquerda ====== */
+.left {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    background: #f5570300;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.left img {
+    width: 90px;
+    margin: 24px 0;
+}
+
 .left button {
     width: 44px;
     height: 44px;
@@ -6,16 +81,22 @@
     place-items: center;
 }
 
-.left button:hover{
+.left button:hover {
     background: var(--color-bg);
     color: #000000;
-
 }
 
+/* ====== Estrutura Direita ====== */
 .right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
     left: 76px;
     height: 100%;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.4s;
 }
 
 .right-inner {
@@ -48,7 +129,6 @@
     padding: 0 12px;
 }
 
-/* styles.css */
 .right button {
     padding: 0 12px;
     display: flex;
@@ -59,28 +139,27 @@
     font-size: 14px;
 }
 
-.right button:hover:last-child {
-    color: var(--color-primary);
-}
-
 .right button:hover {
     background: var(--color-hover);
     color: #000000;
     transition: 0.5s;
 }
 
-.sidebar:hover {
-    width: 300px;
+.right button:hover:last-child {
+    color: var(--color-primary);
 }
 
-.sidebar:hover .right {
-    width: 225px;
-}
-
+/* ====== Submenus ====== */
 .submenu {
     position: relative;
     list-style: none;
     padding: 8px 0 8px 28px;
+    margin-top: 4px;
+    display: none;
+}
+
+.submenu.active {
+    display: block;
 }
 
 .submenu::before {
@@ -108,120 +187,34 @@
     background: var(--color-hover);
     color: #384251;
     cursor: pointer;
-
-
 }
 
-.submenu .badge {
+.badge {
     font-size: 10px;
     padding: 3px 5px;
     border-radius: 4px;
     background: var(--color-primary);
     color: #ffffff;
 }
-/* styles.css */
-:root {
-    --color-bg: #FFC72C;
-    --color-primary: #000000;
-    --color-muted: #9fa4af;
-    --color-hover: #e8ecf4;
-}
 
-* {
-    box-sizing: border-box;
-}
-
-body {
-    background: #e6c8b1;;
-}
-
-h2, h3, ul {
-    margin: 0;
-}
-
-.sidebar {
-    position: fixed;
-    overflow: hidden;
-    top: 24px;
-    left: 24px;
-    bottom: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 80px;
-    border-radius: 18px;
-    transition: 0.4s;
-    background: #4b2e1e81;
-}
-
-.sidebar button {
-    border: 0;
-    background: transparent;
-    font-size: 22px;
-    color: inherit;
-    border-radius: 8px;
-    font-family: inherit;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.left, .right {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    transition: 0.4s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.left {
-    z-index: 1;
-    left: 0;
-    width: 80px;
-    background: #f5570300;
-}
-
-.left img {
-    width: 90px;
-    margin: 24px 0;
-}
-.tst{
-    font-size:medium
-}
+/* ====== Hover Textos ====== */
 .texto-hover {
     display: none;
     text-align: center;
     width: 100%;
     font-size: medium;
-  }
-  
-  .test:hover .texto-hover {
-    display: block;
-  }
-  
-  /* Estilize cada um individualmente */
-  .texto-hover-grafico {
-    font-size: 13px;
-  }
-  .texto-hover-relatorio {
-   font-size: 14px;
-  }
-  .texto-hover-mensagem {
-    font-size: 14px;
-  }
-  .texto-hover-user {
-    font-size: 14px;
-  }
-  .submenu {
-    display: none;
-    padding-left: 24px;
-    margin-top: 4px;
 }
 
-.submenu.active {
+.test:hover .texto-hover {
     display: block;
 }
+
+.texto-hover-grafico { font-size: 13px; }
+.texto-hover-relatorio { font-size: 14px; }
+.texto-hover-mensagem { font-size: 14px; }
+.texto-hover-user { font-size: 14px; }
+
+/* ====== Ícones Animados ====== */
 .arrow-icon {
     transition: transform 0.5s ease;
 }

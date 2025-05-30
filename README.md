@@ -81,6 +81,42 @@ Criar um sistema web completo que integre todas as áreas operacionais do salão
 
 ---
 
+## 👥 Perfis de Usuário
+
+- **Proprietária:** Administração geral e acesso a relatórios
+- **Recepcionista:** Gerenciamento de agendamentos e atendimento
+- **Cabeleireiros/Trancistas:** Visualização da agenda
+- **Equipe Administrativa:** Controle de finanças e estoque
+- **Clientes:** Agendamento e visualização do histórico
+
+---
+
+## 🎯 Diferenciais do Sistema
+
+- Foco em um nicho específico (cabelos cacheados e trançados)
+- Atendimento personalizado com histórico de clientes
+- Integração de gestão de estoque e financeiro
+- Relatórios estratégicos para auxiliar nas decisões
+- Canal digital para agendamento e consulta de produtos/serviços
+
+---
+
+## 🧑‍💻 Equipe Envolvida
+
+| Nome               | Função                                                       |
+|--------------------|--------------------------------------------------------------|
+| Victoria Ferreira  | Gerente de Projeto, Desenvolvedora, Documentadora            |
+| Gabriel Castro     | Analista de Requisitos, Desenvolvedor, Documentador          |
+| Natyelly Neres     | Analista de Requisitos, Desenvolvedora, Documentadora        |
+| Rômulo César       | Analista de Requisitos, Desenvolvedor, Documentador          |
+
+**Orientadores:**  
+- Rafael Sacramento Bonfim  
+- Hudson Neves  
+- Ana Paula Leite Pereira
+
+---
+
 ## 🧪 Como Rodar o Projeto
 
 1. Clone o repositório:

@@ -7,15 +7,15 @@ body {
   padding: 0;
 }
 
-/* ====== Container principal com abas ====== */
+/* ====== Container Principal com Abas ====== */
 .payment-tabs {
   max-width: 600px;
   margin: 50px auto;
   border: 1px solid #442900;
   border-radius: 12px;
-  background-color: #d2a679;
+  background-color: #FFC72C; /* Cor final escolhida */
   padding: 30px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* ====== Cabeçalho das Abas ====== */
@@ -44,7 +44,7 @@ body {
 }
 
 .tab-header button.active {
-  background-color: #9c673b;
+  background-color: #643c27;
   color: #fff;
 }
 
@@ -59,20 +59,19 @@ body {
 }
 
 @keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* ====== Formulário ====== */
-form {
-  background-color: #5e4110;
+.form-container {
+  background-color: #e6c8b1b4; /* Tom suave */
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Labels */
-label {
+.form-label {
   display: block;
   margin-bottom: 6px;
   font-weight: 600;
@@ -80,13 +79,9 @@ label {
   font-size: 15px;
 }
 
-/* Inputs e Textarea */
-input[type="text"],
-input[type="date"],
-input[type="number"],
-textarea {
+.form-input,
+.form-textarea {
   width: 100%;
-  height: 45px; /* Altura uniforme para todos os inputs */
   padding: 10px 14px;
   margin-bottom: 20px;
   border: 1px solid #ddd;
@@ -95,23 +90,25 @@ textarea {
   background-color: #fff;
   transition: box-shadow 0.2s ease;
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-  box-sizing: border-box; /* Garante que o padding não aumente o tamanho total */
+  box-sizing: border-box;
 }
 
-/* Altura maior só para textarea */
-textarea {
+.form-input {
+  height: 45px;
+}
+
+.form-textarea {
   height: 100px;
-  resize: vertical; /* Permite redimensionar para mais texto */
+  resize: vertical;
 }
-
 
 /* Botão principal */
-button,
+.btn,
 .btn-primary {
-  display: block; /* Necessário para centralizar com margin auto */
+  display: block;
   width: 50%;
   height: 45px;
-  margin: 20px auto; /* Centraliza horizontalmente e dá espaço acima/abaixo */
+  margin: 20px auto;
   background-color: #643c27;
   color: #fff;
   font-weight: bold;
@@ -122,13 +119,11 @@ button,
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-
-button:hover,
+.btn:hover,
 .btn-primary:hover {
   background-color: #4e2f1b;
   transform: scale(1.02);
 }
-
 
 /* Notas adicionais */
 .note {
@@ -137,31 +132,29 @@ button:hover,
   margin-top: 15px;
 }
 
+/* ====== Imagem (opcional) ====== */
+img {
+  width: 250px;
+  height: 200px;
+}
+
 /* ====== Responsividade ====== */
 @media (max-width: 600px) {
   .payment-tabs {
     padding: 20px;
   }
 
-  form {
+  .form-container {
     padding: 20px;
   }
 
-  input,
-  button,
-  textarea {
+  .form-input,
+  .btn,
+  .form-textarea {
     font-size: 14px;
   }
 
   .tab-header button {
     padding: 10px 5px;
   }
-}
-img{
-  width: 250px;
-  height: 200px;
-}
-
-.tab-btn{
-  margin: 10px;
 }
