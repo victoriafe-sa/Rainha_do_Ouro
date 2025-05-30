@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento - Salão Rainha do Ouro</title>
+    <link rel="stylesheet" href="../css/agendamentos.css">
+    <link rel="stylesheet" href="../css/dahboard_adm.css">
+    <script src="https://unpkg.com/akar-icons-fonts"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="../img/logo.png" alt="Rainha do Ouro">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="../html/produtos.html">Produtos</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <a href="#"><img src="../img/lupa.png" alt="Buscar"></a>
+            <a href="#"><img src="../img/carrinho.png " alt="Carrinho"></a>
+            <a href="#"><img src="../img/perfil.png" alt="Perfil"></a>
+        </div>
+    </header>
+    <div id="sidebar-container"></div>
+    <div class="container">
+        <h2>Selecione o tipo de serviço</h2>
+        <p>Preencha o formulário com <span class="phone">suas informações</span>
+        <div class="progress-bar">
+            <div class="step active"></div>
+            <div class="step"></div>
+            <div class="step"></div>
+            <div class="step"></div>
+        </div>
+
+        <form id="quoteForm">
+            <!-- Step 1 -->
+            <div class="form-step active">
+                <h3>Selecione o Serviço</h3>
+                <div class="service-options">
+                    <label class="service active">
+                        <input type="radio" name="service" value="One time paper cleanout" checked>                        
+                        <span>Trança</span>
+                    </label>
+                    <label class="service">
+                        <input type="radio" name="service" value="Shredding service">                        
+                        <span>Tratamento</span>
+                    </label>
+                    <label class="service">
+                        <input type="radio" name="service" value="Hard Drive destruction">                        
+                        <span>Consultoria</span>
+                    </label>
+                    <label class="service">
+                        <input type="radio" name="service" value="Other material destruction">
+                        <span>Higienização</span>
+                    </label>
+                    <label class="service">
+                        <input type="radio" name="service" value="Other material destruction">
+                        <span>Corte</span>
+                    </label>
+                    <label class="service">
+                        <input type="radio" name="service" value="Other material destruction">
+                        <span>Manutenção</span>
+                    </label>
+                </div><br>
+                <button type="button" class="next-btn">Próximo</button>
+            </div>
+
+
+            <!-- Step 2 -->
+            <div class="form-step">
+                <h3>Detalhes do Serviço</h3>
+                <div id="step2-dynamic-content">
+                    <!-- Conteúdo será inserido dinamicamente com JavaScript -->
+                </div>
+                <div class="button-group">
+                    <button type="button" class="prev-btn">Anterior</button>
+                    <button type="button" class="next-btn">Próximo</button>
+                </div>
+            </div>
+
+
+
+            <!-- Step 3 -->
+            <div class="form-step">
+                <h3>Dados Pessoais</h3>
+                <input type="text" placeholder="Nome *" required>
+                <input type="text" placeholder="Sobrenome *" required>
+                <input type="email" placeholder="Email *" required>
+                <input type="tel" placeholder="Telefone *" required>
+                <div class="button-group">
+                    <button type="button" class="prev-btn">Anterior</button>
+                    <button type="submit" class="submit-btn">Enviar</button>
+
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="form-step success">
+                <h3>Succeso!</h3>
+                <p>Obrigada por agendar com a gente.<br>Uma confirmação do agendamento será enviada para seu email.
+                </p>
+                <div class="checkmark">✔</div>
+            </div>
+        </form>
+    </div>
+    <script src="../script/dahboard_adm.js"></script>
+    <script src="../script/agendamentos.js"></script>
+</body>
+
+</html>

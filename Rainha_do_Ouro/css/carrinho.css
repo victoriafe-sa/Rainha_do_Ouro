@@ -1,0 +1,176 @@
+/* Estilização geral para fontes */
+body {
+    margin: 0;
+    background-color: #F8D39C;
+}
+
+/*==============HEADER============*/
+header {
+    background-color: #4B2C1A;
+    color: #F7E1A0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 5px solid #F0B429;
+    padding: 6px 20px;
+    height: 80px;
+}
+
+header .logo img {
+    height: 150px;
+    margin-left: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #F7E1A0;
+    font-family: 'Georgia', serif;
+    font-size: 22px;
+}
+
+header .icons {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    margin-right: 20px;
+}
+
+header .icons a img {
+    width: 28px;
+    height: 30px;
+}
+
+header .icons a:last-child img {
+    width: 42px;
+    height: 40px;
+}
+
+
+.cartSection {
+    padding: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.item-image img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.item-details {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.item-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.price-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 14px;
+}
+
+.current-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+
+.quantity-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 8px;
+}
+
+.quantity-btn {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background-color: #333;
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.quantity-btn:hover {
+    background-color: #555;
+}
+
+.quantity-wrapper input[type="number"] {
+    width: 40px;
+    text-align: center;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.quantity-wrapper input[type="number"]::-webkit-inner-spin-button,
+.quantity-wrapper input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+footer {
+    background-color: #4B2C1A;
+    color: #F7E1A0;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+    border-top: 4px solid #F0B429;
+    font-family: 'Georgia', serif;
+}
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #F7E1A0;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho | Rainha do Ouro</title>
+    <link rel="stylesheet" href="../css/carrinho.css">
+    <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="../img/logo.png" alt="Rainha do Ouro">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="../html/agendamentos.html">Agendamento</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <a href="#"><img src="../img/lupa.png" alt="Buscar"></a>
+            <a href="#"><img src="../img/carrinho.png " alt="Carrinho"></a>
+            <a href="#"><img src="../img/perfil.png" alt="Perfil"></a>
+        </div>
+    </header>
+
+    <main>
+        <section class="cartSection">
+            <div class="cart-item">
+                <div class="item-image">
+                    <img src="../img/apise.png" alt="Produto">
+                </div>
+                <div class="item-details">
+                    <p class="item-name">Creme para Pentear Uva + Melancia <br>Óleo de Tratamento Extraordinário 1kg</p>
+                    <div class="price-info">
+                        <span class="old-price">De R$ 40,00 por</span>
+                        <span class="current-price">R$ 33,00</span>
+                    </div>
+                </div>
+                <div class="quantity-wrapper">
+                    <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                    <input type="number" value="1" id="quantity">
+                    <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                </div>
+            </div>
+            <div class="cart-item">
+                <div class="item-image">
+                    <img src="../img/apise.png" alt="Produto">
+                </div>
+                <div class="item-details">
+                    <p class="item-name">Creme para Pentear Uva + Melancia <br>Óleo de Tratamento Extraordinário 1kg</p>
+                    <div class="price-info">
+                        <span class="old-price">De R$ 40,00 por</span>
+                        <span class="current-price">R$ 33,00</span>
+                    </div>
+                </div>
+                <div class="quantity-wrapper">
+                    <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                    <input type="number" value="2" id="quantity">
+                    <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                </div>
+            </div>
+            <div class="cart-item">
+                <div class="item-image">
+                    <img src="../img/apise.png" alt="Produto">
+                </div>
+                <div class="item-details">
+                    <p class="item-name">Creme para Pentear Uva + Melancia <br>Óleo de Tratamento Extraordinário 1kg</p>
+                    <div class="price-info">
+                        <span class="old-price">De R$ 40,00 por</span>
+                        <span class="current-price">R$ 33,00</span>
+                    </div>
+                </div>
+                <div class="quantity-wrapper">
+                    <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                    <input type="number" value="2" id="quantity">
+                    <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                </div>
+            </div>
+            <div class="cart-item">
+                <div class="item-image">
+                    <img src="../img/apise.png" alt="Produto">
+                </div>
+                <div class="item-details">
+                    <p class="item-name">Creme para Pentear Uva + Melancia <br>Óleo de Tratamento Extraordinário 1kg</p>
+                    <div class="price-info">
+                        <span class="old-price">De R$ 40,00 por</span>
+                        <span class="current-price">R$ 33,00</span>
+                    </div>
+                </div>
+                <div class="quantity-wrapper">
+                    <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                    <input type="number" value="2" id="quantity">
+                    <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                </div>
+            </div>
+            <div class="cart-item">
+                <div class="item-image">
+                    <img src="../img/apise.png" alt="Produto">
+                </div>
+                <div class="item-details">
+                    <p class="item-name">Creme para Pentear Uva + Melancia <br>Óleo de Tratamento Extraordinário 1kg</p>
+                    <div class="price-info">
+                        <span class="old-price">De R$ 40,00 por</span>
+                        <span class="current-price">R$ 33,00</span>
+                    </div>
+                </div>
+                <div class="quantity-wrapper">
+                    <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                    <input type="number" value="2" id="quantity">
+                    <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div>
+                <h3>Calcular frete</h3>
+                <div>
+                    <input type="text" name="CEP" id="CEP" placeholder="Digite seu CEP">
+                    <button>Calcular</button>
+                </div>
+                
+                <a href="https://buscacepinter.correios.com.br/app/endereco/index.php?t#xd_co_f=YzhlNjlhNTItMjgzZi00MjkwLWIyNTEtYmVmNDNhNDBkNTM0~" target="_blank">Não sei meu CEP</a>
+            </div>
+            <div>
+                <h3>Resumo</h3>
+                <p>Subtotal</p>
+                <p>Frete</p>
+                <p>Total</p>
+            </div>
+            <button>Finalizar Compra</button>
+            <button>Continuar comprando</button>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Rainha do Ouro. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Uso</a>
+                <a href="#">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script/carrinho.js"></script>
+</body>
+
+</html>
