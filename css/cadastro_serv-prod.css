@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 /* ====== Estilo Geral ====== */
 body {
   background-color: #f7e4c1;
@@ -156,6 +157,162 @@ body {
     padding: 10px 5px;
   }
 }
+=======
+/* ====== Estilo Geral ====== */
+body {
+  background-color: #f7e4c1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2e1e0f;
+  margin: 0;
+  padding: 0;
+}
+
+/* ====== Container Principal com Abas ====== */
+.payment-tabs {
+  max-width: 600px;
+  margin: 50px auto;
+  border: 1px solid #442900;
+  border-radius: 12px;
+  background-color: #FFC72C; /* Cor final escolhida */
+  padding: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ====== Cabeçalho das Abas ====== */
+.tab-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #e0c198;
+  margin-bottom: 15px;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.tab-header button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background-color: #f4ede4;
+  cursor: pointer;
+  font-weight: bold;
+  color: #4b2e1e;
+  transition: background-color 0.3s;
+}
+
+.tab-header button:hover {
+  background-color: #dfc09c;
+}
+
+.tab-header button.active {
+  background-color: #643c27;
+  color: #fff;
+}
+
+/* ====== Conteúdo das Abas ====== */
+.tab-content {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ====== Formulário ====== */
+.form-container {
+  background-color: #e6c8b1b4; /* Tom suave */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #2e1e0f;
+  font-size: 15px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: #fff;
+  transition: box-shadow 0.2s ease;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+}
+
+.form-input {
+  height: 45px;
+}
+
+.form-textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+/* Botão principal */
+.btn,
+.btn-primary {
+  display: block;
+  width: 50%;
+  height: 45px;
+  margin: 20px auto;
+  background-color: #643c27;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover,
+.btn-primary:hover {
+  background-color: #4e2f1b;
+  transform: scale(1.02);
+}
+
+/* Notas adicionais */
+.note {
+  font-size: 0.9rem;
+  color: #5a4533;
+  margin-top: 15px;
+}
+
+/* ====== Responsividade ====== */
+@media (max-width: 600px) {
+  .payment-tabs {
+    padding: 20px;
+  }
+
+  .form-container {
+    padding: 20px;
+  }
+
+  .form-input,
+  .btn,
+  .form-textarea {
+    font-size: 14px;
+  }
+
+  .tab-header button {
+    padding: 10px 5px;
+  }
+}
+>>>>>>> Stashed changes
 =======
 /* ====== Estilo Geral ====== */
 body {
