@@ -51,7 +51,7 @@ header {
     height: 30px;
   }
   
-  header .icons a:last-child img {
+  #login_cadastro img {
     width: 42px; /* <<< tamanho menor do ícone de perfil */
     height: 40px;
   }
