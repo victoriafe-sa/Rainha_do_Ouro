@@ -48,9 +48,15 @@ CREATE TABLE cabeleleiros (
 -- Tabela de Administradores
 CREATE TABLE administradores (
     id_adm INT AUTO_INCREMENT PRIMARY KEY,
-    id_usuario INT,
+    id_usuario INT NOT NULL,
+    cargo VARCHAR(50) DEFAULT 'Administrador', -- cargo ou função administrativa
+    nivel_acesso INT DEFAULT 1, -- 1 = básico, 2 = gerencial, 3 = master, etc permite controle hierárquico.
+    status ENUM('ativo', 'inativo') DEFAULT 'ativo', -- controle de ativação
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- data de criação
+    atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- última atualização
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
 );
+
 
 -- Tabela de Funcionários
 CREATE TABLE funcionarios (
