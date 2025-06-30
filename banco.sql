@@ -1,232 +1,245 @@
-create database RainhadoOuro;
-use RainhadoOuro;
- 
--- Tabela de Usuários
-CREATE TABLE usuarios (
-    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100),
-    email VARCHAR(100) UNIQUE,
-    senha VARCHAR(255),
-    tipo_usuario ENUM('adm', 'recepcionista', 'cliente', 'cabeleleiro'),
-    data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
-    ativo BOOLEAN DEFAULT TRUE
-);
+-- MySQL Workbench Forward Engineering
 
--- Tabela de Clientes
-CREATE TABLE clientes (
-    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
-    id_usuario INT,
-    nome VARCHAR(50),
-    telefone VARCHAR(20),
-    data_nascimento DATE,
-    email VARCHAR(100) UNIQUE,
-    senha VARCHAR(10),
-    cep VARCHAR(12),
-    rua VARCHAR(30),
-    numero INT,
-    bairro VARCHAR(20),
-    cidade VARCHAR(30),
-    estado CHAR(2),
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
-);
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
--- Tabela de Recepcionistas
-CREATE TABLE recepcionistas (
-    id_recepcionista INT AUTO_INCREMENT PRIMARY KEY,
-    id_usuario INT,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
-);
+-- -----------------------------------------------------
+-- Schema db_rainhadoouro
+-- -----------------------------------------------------
 
--- Tabela de Cabeleleiros
-CREATE TABLE cabeleleiros (
-    id_cabeleleiro INT AUTO_INCREMENT PRIMARY KEY,
-    id_usuario INT,
-    especialidade VARCHAR(100),
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
-);
+-- -----------------------------------------------------
+-- Schema db_rainhadoouro
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `db_rainhadoouro` ;
+USE `db_rainhadoouro` ;
 
--- Tabela de Administradores
-CREATE TABLE administradores (
-    id_adm INT AUTO_INCREMENT PRIMARY KEY,
-    id_usuario INT,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
-);
+-- -----------------------------------------------------
+-- Table `db_rainhadoouro`.`tb_produtos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_rainhadoouro`.`tb_produtos` (
+  `id_produtos` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `descricao` TEXT NOT NULL,
+  `preco_venda` DECIMAL(10,2) NOT NULL,
+  `categoria` VARCHAR(50) NOT NULL,
+  `ativo` INT NOT NULL,
+  PRIMARY KEY (`id_produtos`))
+ENGINE = InnoDB;
 
--- Tabela de Funcionários
-CREATE TABLE funcionarios (
-    id_funcionario INT AUTO_INCREMENT PRIMARY KEY,
-    id_usuario INT,       
-    nome_completo VARCHAR(100) NOT NULL,
-    data_nascimento DATE NOT NULL,
-    cpf VARCHAR(14) NOT NULL UNIQUE,
-    rg VARCHAR(20),
-    sexo ENUM('Feminino', 'Masculino', 'Outro', 'Prefiro não informar'),
-    estado_civil ENUM('Solteiro(a)', 'Casado(a)', 'Divorciado(a)', 'Viúvo(a)'),
-    telefone VARCHAR(20),
-    email VARCHAR(100),
-    cep VARCHAR(9),
-    rua VARCHAR(100),
-    numero VARCHAR(10),
-    bairro VARCHAR(50),
-    cidade VARCHAR(50),
-    estado VARCHAR(2),
-    cargo VARCHAR(50) NOT NULL,
-    data_admissao DATE NOT NULL,
-    horario_trabalho VARCHAR(50),
-    salario DECIMAL(10,2),
-    tipo_contrato ENUM('CLT', 'Autônomo', 'Freelancer'),
-    carteira_trabalho VARCHAR(20),
-    pis VARCHAR(20),
-    status ENUM('Ativo', 'Inativo') DEFAULT 'Ativo',
-    observacoes TEXT,
-    data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) 
-);
 
--- Tabela de Fornecedores
-CREATE TABLE fornecedores (
-    id_fornecedor INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100),
-    cnpj VARCHAR(20),
-    telefone VARCHAR(20),
-    email VARCHAR(100),
-    endereco TEXT
-);
+-- -----------------------------------------------------
+-- Table `db_rainhadoouro`.`tb_servicos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_rainhadoouro`.`tb_servicos` (
+  `id_servicos` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  `descricao` TEXT NOT NULL,
+  `preco` DECIMAL(10,2) NOT NULL,
+  `duracao_min` INT NOT NULL,
+  `ativo` TINYINT NOT NULL,
+  PRIMARY KEY (`id_servicos`))
+ENGINE = InnoDB;
 
--- Tabela de Produtos
-CREATE TABLE produtos (
-    id_produto INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100),
-    descricao TEXT,
-    preco_venda DECIMAL(10,2),
-    categoria VARCHAR(50),
-    fornecedor VARCHAR(100),
-    estoque INT,
-    ativo BOOLEAN DEFAULT TRUE,
-    FOREIGN KEY (fornecedor) REFERENCES fornecedores(nome),
-    FOREIGN KEY (estoque) REFERENCES estoque(quantidade),
-);
 
--- Tabela de Serviços
-CREATE TABLE servicos (
-    id_servico INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100),
-    descricao TEXT,
-    preco DECIMAL(10,2),
-    duracao_min INT,
-    ativo BOOLEAN DEFAULT TRUE
-);
+-- -----------------------------------------------------
+-- Table `db_rainhadoouro`.`tb_estoque`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_rainhadoouro`.`tb_estoque` (
+  `id_estoque` INT NOT NULL AUTO_INCREMENT,
+  `quantidade` INT NOT NULL,
+  `atualizado_em` DATETIME NOT NULL,
+  PRIMARY KEY (`id_estoque`))
+ENGINE = InnoDB;
 
--- Tabela de Estoque
-CREATE TABLE estoque (
-    id_estoque INT AUTO_INCREMENT PRIMARY KEY,
-    id_produto INT,
-    quantidade INT,
-    atualizado_em DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_produto) REFERENCES produtos(id_produto)
-);
 
--- Tabela de Compras
-CREATE TABLE compras (
-    id_compra INT AUTO_INCREMENT PRIMARY KEY,
-    id_fornecedor INT,
-    data_compra DATETIME,
-    valor_total DECIMAL(10,2),
-    observacoes TEXT,
-    FOREIGN KEY (id_fornecedor) REFERENCES fornecedores(id_fornecedor)
-);
+-- -----------------------------------------------------
+-- Table `db_rainhadoouro`.`tb_fornecedores`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_rainhadoouro`.`tb_fornecedores` (
+  `id_fornecedores` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `cnpj` VARCHAR(25) NOT NULL,
+  `telefone` VARCHAR(20) NOT NULL,
+  `email` VARCHAR(30) NOT NULL,
+  `endereco` TEXT NOT NULL,
+  PRIMARY KEY (`id_fornecedores`))
+ENGINE = InnoDB;
 
--- Itens da Compra
-CREATE TABLE itens_compra (
-    id_item INT AUTO_INCREMENT PRIMARY KEY,
-    id_compra INT,
-    id_produto INT,
-    quantidade INT,
-    valor_unitario DECIMAL(10,2),
-    FOREIGN KEY (id_compra) REFERENCES compras(id_compra),
-    FOREIGN KEY (id_produto) REFERENCES produtos(id_produto)
-);
 
--- Agendamentos
-CREATE TABLE agendamentos (
-    id_agendamento INT AUTO_INCREMENT PRIMARY KEY,
-    id_cliente INT,
-    id_servico INT,
-    id_funcionario INT,
-    data_hora DATETIME,
-    status ENUM('agendado', 'realizado', 'cancelado'),
-    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
-    FOREIGN KEY (id_servico) REFERENCES servicos(id_servico),
-    FOREIGN KEY (id_funcionario) REFERENCES funcionarios(id_funcionario)
-);
+-- -----------------------------------------------------
+-- Table `db_rainhadoouro`.`tb_cabeleireiro`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_rainhadoouro`.`tb_cabeleireiro` (
+  `id_cabeleireiro` INT NOT NULL AUTO_INCREMENT,
+  `especialidade` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id_cabeleireiro`))
+ENGINE = InnoDB;
 
--- Histórico de Atendimentos
-CREATE TABLE historico_atendimentos (
-    id_historico INT AUTO_INCREMENT PRIMARY KEY,
-    id_cliente INT,
-    id_agendamento INT,
-    observacoes TEXT,
-    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
-    FOREIGN KEY (id_agendamento) REFERENCES agendamentos(id_agendamento)
-);
 
--- Pagamentos
-CREATE TABLE pagamentos (
-    id_pagamento INT AUTO_INCREMENT PRIMARY KEY,
-    id_cliente INT,
-    valor DECIMAL(10,2),
-    forma_pagamento ENUM('dinheiro', 'cartao', 'pix'),
-    data_pagamento DATETIME,
-    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
-);
+-- -----------------------------------------------------
+-- Table `db_rainhadoouro`.`tb_carrinho`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_rainhadoouro`.`tb_carrinho` (
+  `id_carrinho` INT NOT NULL AUTO_INCREMENT,
+  `data_criacao` DATETIME NULL,
+  `status` ENUM('aberto', 'fechado') NULL,
+  PRIMARY KEY (`id_carrinho`))
+ENGINE = InnoDB;
 
--- Vendas
-CREATE TABLE vendas (
-    id_venda INT AUTO_INCREMENT PRIMARY KEY,
-    id_cliente INT,
-    data_venda DATETIME,
-    total_venda DECIMAL(10,2),
-    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
-);
 
--- Itens da Venda
-CREATE TABLE itens_venda (
-    id_item INT AUTO_INCREMENT PRIMARY KEY,
-    id_venda INT,
-    id_produto INT,
-    quantidade INT,
-    valor_unitario DECIMAL(10,2),
-    FOREIGN KEY (id_venda) REFERENCES vendas(id_venda),
-    FOREIGN KEY (id_produto) REFERENCES produtos(id_produto)
-);
+-- -----------------------------------------------------
+-- Table `db_rainhadoouro`.`tb_itens_carrinho`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_rainhadoouro`.`tb_itens_carrinho` (
+  `id_itens_carrinho` INT NOT NULL AUTO_INCREMENT,
+  `quantidade` INT NOT NULL,
+  PRIMARY KEY (`id_itens_carrinho`))
+ENGINE = InnoDB;
 
--- Avaliações
-CREATE TABLE avaliacoes (
-    id_avaliacao INT AUTO_INCREMENT PRIMARY KEY,
-    id_cliente INT,
-    id_servico INT,
-    nota INT CHECK (nota BETWEEN 1 AND 5),
-    comentario TEXT,
-    data_avaliacao DATETIME,
-    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
-    FOREIGN KEY (id_servico) REFERENCES servicos(id_servico)
-);
 
--- Carrinho
-CREATE TABLE carrinho (
-    id_carrinho INT AUTO_INCREMENT PRIMARY KEY,
-    id_cliente INT,
-    data_criacao DATETIME,
-    status ENUM('aberto', 'fechado'),
-    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
-);
+-- -----------------------------------------------------
+-- Table `db_rainhadoouro`.`tb_clientes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_rainhadoouro`.`tb_clientes` (
+  `id_clientes` INT NOT NULL,
+  `nome` VARCHAR(60) NOT NULL,
+  `telefone` VARCHAR(20) NOT NULL,
+  `data_nascimento` DATE NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `senha` VARCHAR(45) NOT NULL,
+  `cep` VARCHAR(12) NOT NULL,
+  `rua` VARCHAR(45) NOT NULL,
+  `numero` INT NOT NULL,
+  `bairro` VARCHAR(45) NOT NULL,
+  `cidade` VARCHAR(45) NOT NULL,
+  `estado` VARCHAR(2) NOT NULL,
+  `data_cadastro` DATE NOT NULL,
+  `ativo` TINYINT NOT NULL,
+  PRIMARY KEY (`id_clientes`))
+ENGINE = InnoDB;
 
--- Itens do Carrinho
-CREATE TABLE itens_carrinho (
-    id_item INT AUTO_INCREMENT PRIMARY KEY,
-    id_carrinho INT,
-    id_produto INT,
-    quantidade INT,
-    FOREIGN KEY (id_carrinho) REFERENCES carrinho(id_carrinho),
-    FOREIGN KEY (id_produto) REFERENCES produtos(id_produto)
-);
+
+-- -----------------------------------------------------
+-- Table `db_rainhadoouro`.`tb_administradores`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_rainhadoouro`.`tb_administradores` (
+  `id_administradores` INT NOT NULL AUTO_INCREMENT,
+  `nivel_acesso` INT NOT NULL,
+  PRIMARY KEY (`id_administradores`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `db_rainhadoouro`.`tb_funcionarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_rainhadoouro`.`tb_funcionarios` (
+  `id_funcionarios` INT NOT NULL,
+  `nome_completo` VARCHAR(100) NOT NULL,
+  `data_nascimento` DATE NOT NULL,
+  `cpf` VARCHAR(14) NOT NULL,
+  `rg` VARCHAR(20) NOT NULL,
+  `sexo` ENUM('Feminino', 'Masculino', 'Outro', 'Prefiro não informar') NOT NULL,
+  `estado_civil` ENUM('Solteiro(a)', 'Casado(a)', 'Divorciado(a)', 'Viúvo(a)') NOT NULL,
+  `telefone` VARCHAR(20) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `cep` VARCHAR(9) NOT NULL,
+  `rua` VARCHAR(100) NOT NULL,
+  `numero` VARCHAR(10) NOT NULL,
+  `bairro` VARCHAR(50) NOT NULL,
+  `cidade` VARCHAR(50) NOT NULL,
+  `estado` CHAR(2) NOT NULL,
+  `cargo` VARCHAR(50) NOT NULL,
+  `data_admissao` DATE NOT NULL,
+  `horario_trabalho` TIME NOT NULL,
+  `salario` DECIMAL(10,2) NOT NULL,
+  `tipo_contrato` ENUM('CLT', 'Autônomo', 'Freelancer') NOT NULL,
+  `carteira_trabalho` VARCHAR(20) NOT NULL,
+  `pis` VARCHAR(20) NOT NULL,
+  `status` ENUM('Ativo', 'Inativo') NOT NULL,
+  `observacoes` TEXT NOT NULL,
+  `data_cadastro` DATETIME NOT NULL,
+  PRIMARY KEY (`id_funcionarios`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `db_rainhadoouro`.`tb_recepcionista`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_rainhadoouro`.`tb_recepcionista` (
+  `id_recepcionista` INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id_recepcionista`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `db_rainhadoouro`.`tb_compras`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_rainhadoouro`.`tb_compras` (
+  `id_compras` INT NOT NULL AUTO_INCREMENT,
+  `data_compra` DATETIME NOT NULL,
+  `valor_total` DECIMAL(10,2) NOT NULL,
+  `observacoes` TEXT NOT NULL,
+  PRIMARY KEY (`id_compras`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `db_rainhadoouro`.`tb_itens_compra`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_rainhadoouro`.`tb_itens_compra` (
+  `id_itens_compra` INT NOT NULL AUTO_INCREMENT,
+  `quantidade` INT NOT NULL,
+  `valor_unitario` DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (`id_itens_compra`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `db_rainhadoouro`.`tb_agendamentos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_rainhadoouro`.`tb_agendamentos` (
+  `id_agendamentos` INT NOT NULL AUTO_INCREMENT,
+  `data_hora` DATETIME NULL,
+  `status` ENUM('agendado', 'realizado', 'cancelado') NULL,
+  PRIMARY KEY (`id_agendamentos`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `db_rainhadoouro`.`tb_historico_agendamento`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_rainhadoouro`.`tb_historico_agendamento` (
+  `id_historico_agendamento` INT NOT NULL AUTO_INCREMENT,
+  `observacoes` TEXT NOT NULL,
+  PRIMARY KEY (`id_historico_agendamento`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `db_rainhadoouro`.`tb_pagamentos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_rainhadoouro`.`tb_pagamentos` (
+  `id_pagamentos` INT NOT NULL AUTO_INCREMENT,
+  `valor` DECIMAL(10,2) NOT NULL,
+  `forma_pagamento` ENUM('boleto', 'cartao', 'pix') NOT NULL,
+  `data_pagamento` DATETIME NOT NULL,
+  PRIMARY KEY (`id_pagamentos`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `db_rainhadoouro`.`tb_avaliacoes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_rainhadoouro`.`tb_avaliacoes` (
+  `id_avaliacoes` INT NOT NULL,
+  `nota` INT NOT NULL,
+  `comentario` TEXT NOT NULL,
+  `data_avaliacao` DATETIME NOT NULL,
+  PRIMARY KEY (`id_avaliacoes`))
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
