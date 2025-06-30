@@ -51,6 +51,12 @@ header .icons a:last-child img {
     height: 40px;
 }
 
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3em;
+}
 
 .cartSection {
     padding: 20px;
@@ -63,23 +69,24 @@ header .icons a:last-child img {
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    max-width: 900px;
     margin: 30px auto;
+    width: 1000px;
 }
 
 .item-image img {
     width: 100px;
     height: 100px;
     object-fit: contain;
+    margin-left: 50px;
 }
 
 .item-details {
     flex: 1;
-    margin-left: 20px;
+    margin-left: 100px;
 }
 
 .item-name {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -96,12 +103,13 @@ header .icons a:last-child img {
 }
 
 .current-price {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: bold;
     color: #000;
 }
 
 .quantity-wrapper {
+    margin-left: 50px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -112,8 +120,8 @@ header .icons a:last-child img {
 }
 
 .quantity-btn {
-    width: 36px;
-    height: 36px;
+    width: 25px;
+    height: 25px;
     border: none;
     background-color: #333;
     color: white;
@@ -128,7 +136,7 @@ header .icons a:last-child img {
 }
 
 .quantity-wrapper input[type="number"] {
-    width: 40px;
+    width: 30px;
     text-align: center;
     font-size: 16px;
     border: none;
@@ -140,6 +148,10 @@ header .icons a:last-child img {
 .quantity-wrapper input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+.price-section{
+    
 }
 
 footer {
