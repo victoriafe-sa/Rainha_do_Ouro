@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Editar Advogado</title>
-        <link rel="stylesheet" href="css/estiloforms.css"/>
+        <link rel="stylesheet" href="../css/prod_serv_php.css"/>
     </head>
 
     <body>
@@ -21,23 +21,23 @@
 
                 <h1>Alterar Produto</h1>
 
-                <!esta linha cria um campo oculto para passar o id_cliente, pois senão ao clicar em Salvar o código não saberá onde salvar.-->
+                <!--esta linha cria um campo oculto para passar o id_cliente, pois senão ao clicar em Salvar o código não saberá onde salvar.-->
                 <input type="hidden" name="id" value="<?= $campo["id_produtos"] ?>"> 
 
-                <label>Nome</label><br> 
-                <input type="text" name="nome" placeholder="Nome" value="<?= $campo["nome"] ?>"> <br><br>
+                <label>Nome</label> 
+                <input type="text" name="nome" placeholder="Nome" value="<?= $campo["nome"] ?>"> 
 
-                <label>Descrição</label><br>
-                <input type="text" name="descricao" placeholder="Descrição" value="<?= $campo["descricao"] ?>"> <br><br>
+                <label>Descrição</label>
+                <input type="text" name="descricao" placeholder="Descrição" value="<?= $campo["descricao"] ?>"> 
 
-                <label>Preço de Venda</label><br>
-                <input type="number" name="preco_venda" placeholder="Preço de Venda" value="<?= $campo["preco_venda"] ?>"> <br><br>
+                <label>Preço de Venda</label>
+                <input type="number" name="preco_venda" placeholder="Preço de Venda" value="<?= $campo["preco_venda"] ?>"> 
                 
-                <label>Categoria</label><br>
-                <input type="text" name="categoria" placeholder="Categoria" value="<?= $campo["categoria"] ?>"> <br><br>
+                <label>Categoria</label>
+                <input type="text" name="categoria" placeholder="Categoria" value="<?= $campo["categoria"] ?>"> 
 
-                <label>ativo</label><br>
-                <input type="text" name="ativo" placeholder="ativo" value="<?= $campo["ativo"] ?>"> <br><br>
+                <label>Ativo</label>
+                <input type="text" name="ativo" placeholder="Ativo" value="<?= $campo["ativo"] ?>"> 
 
 
                 <input type="submit" class="botoes" value="Salvar" >

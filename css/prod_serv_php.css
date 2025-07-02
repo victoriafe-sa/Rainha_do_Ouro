@@ -1,0 +1,94 @@
+body {
+    font-family: sans-serif;
+    background-color: #f7e4c1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.formulario {
+    background-color: #f7d794; 
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+    color: #272727;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: calc(100% - 20px); 
+    padding: 12px 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #a0d3e8; 
+}
+
+input[type="submit"],
+input[type="button"] {
+    background-color: #643c27; 
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, border-color 0.3s;
+    margin-right: 10px; 
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background-color: #4e2f1b; 
+    border-color: #8f6041;
+}
+
+
+.botoes:hover {
+    background-color: #d3d3d3; /* Lighter gray on hover */
+    border-color: #777;
+}
+
+/* Adjustments for responsiveness if needed */
+@media (max-width: 600px) {
+    .formulario {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    input[type="submit"],
+    input[type="button"] {
+        width: calc(50% - 5px); /* Makes buttons take up half width on smaller screens */
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    input[type="button"] {
+        margin-left: 10px; /* Add some margin to the second button */
+    }
+}

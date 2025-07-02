@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Consultar Produtos</title>
-        <link type="text/css" rel="stylesheet" href="estilo.css">
+        <link type="text/css" rel="stylesheet" href="../css/consultar.css">
     
     </head>
 
@@ -42,7 +42,7 @@
                                 
 
                                 <td align="center"><a href="FormEditarProduto.php?editarid=<?php echo $campo ['id_produtos'];?>">Editar</a></td>
-                                <td align="center"><i><a href="ExcluirProduto.php?p=excluir&produto=<?php echo $campo['id_produtos'];?>">Excluir</i></a></td>
+                                <td align="center"><a href="ExcluirProduto.php?p=excluir&produto=<?php echo $campo['id_produtos'];?>">Excluir</a></td>
                             </tr>
                     <?php }?>
                 </table><br>

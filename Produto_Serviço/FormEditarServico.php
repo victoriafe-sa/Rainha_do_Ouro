@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Editar Serviço</title>
-        <link rel="stylesheet" href="css/estiloforms.css"/>
+        <link rel="stylesheet" href="../css/prod_serv_php.css"/>
     </head>
 
     <body>
@@ -19,32 +19,33 @@
         <div class="formulario">
             <form method="post" action="EditarServico.php">
 
-                <h1>Alterar Servico</h1>
+                <h1>Alterar Serviço</h1>
 
-                <!esta linha cria um campo oculto para passar o id_cliente, pois senão ao clicar em Salvar o código não saberá onde salvar.-->
+                <!--esta linha cria um campo oculto para passar o id_cliente, pois senão ao clicar em Salvar o código não saberá onde salvar.-->
                 <input type="hidden" name="id" value="<?= $campo["id_servicos"] ?>"> 
 
-                <label>Nome</label><br> 
-                <input type="text" name="nome" placeholder="Nome" value="<?= $campo["nome"] ?>"> <br><br>
+                <label>Nome</label> 
+                <input type="text" name="nome" placeholder="Nome" value="<?= $campo["nome"] ?>"> 
 
-                <label>Descrição</label><br>
-                <input type="text" name="descricao" placeholder="Descrição" value="<?= $campo["descricao"] ?>"> <br><br>
+                <label>Descrição</label>
+                <input type="text" name="descricao" placeholder="Descrição" value="<?= $campo["descricao"] ?>"> 
 
-                <label>Preço</label><br>
-                <input type="number" name="preco" placeholder="Preço" value="<?= $campo["preco"] ?>"> <br><br>
+                <label>Preço</label>
+                <input type="number" name="preco" placeholder="Preço" value="<?= $campo["preco"] ?>"> 
 
-                <label>Duração em minutos</label><br>
-                <input type="text" name="duracao_min" placeholder="Duração em minutos" value="<?= $campo["duracao_min"] ?>"> <br><br>
+                <label>Duração em minutos</label>
+                <input type="text" name="duracao_min" placeholder="Duração em minutos" value="<?= $campo["duracao_min"] ?>"> 
                 
-                <label>ativo</label><br>
-                <input type="text" name="ativo" placeholder="ativo" value="<?= $campo["ativo"] ?>"> <br><br>
+                <label>ativo</label>
+                <input type="text" name="ativo" placeholder="ativo" value="<?= $campo["ativo"] ?>"> 
 
 
                 <input type="submit" class="botoes" value="Salvar" >
-                <a href="FormConsultarServico.php"><input type="button" class="botoes" value="Cancelar"/></a>
+                <a href="FormConsultarServico.php">
+                    <input type="button" class="botoes" value="Cancelar"/>
+                </a>
 
             </form>
         </div>
-
     </body>
 </html>
