@@ -4,15 +4,15 @@
         <?php
         $nome = $_POST["nome"];
         $descricao = $_POST["descricao"];
-        $preco_venda = $_POST["preco_venda"];
-        $categoria = $_POST["categoria"];
+        $preco = $_POST["preco"];
+        $duracao_min = $_POST["duracao_min"];
         $ativo = $_POST["ativo"];
       
         $conn = mysqli_connect($servidor, $dbusuario, $dbsenha, $dbname);
         mysqli_select_db($conn, 'db_rainhadoouro');
-        $sql = "INSERT INTO tb_produtos(nome,descricao,preco_venda,categoria,ativo) VALUES ('$nome', '$descricao', '$preco_venda', '$categoria', '$ativo')";
+        $sql = "INSERT INTO tb_servicos(nome,descricao,preco,duracao_min,ativo) VALUES ('$nome', '$descricao', '$preco', '$duracao_min', '$ativo')";
         if (mysqli_query($conn, $sql)) {
-            echo "<script>alert('Produto adicionado com sucesso!'); window.location = '../index.php';</script>";
+            echo "<script>alert('Serviço adicionado com sucesso!'); window.location = '../index.php';</script>";
         } else {
             echo "Deu erro: " . $sql . "<br>" . mysqli_error($conn);
         }
@@ -20,3 +20,4 @@
         ?>
     </body>
 </html>
+

@@ -178,24 +178,29 @@
 
             <!-- SERVIÇOS -->
             <div class="tab-content active" id="services">
-                <form class="form-container">
+                <form class="form-container" method="post" action="CadastrarServico.php">
                     <div class="form-group">
-                        <label for="nome_servico" class="form-label">Nome do Serviço:</label>
-                        <input type="text" class="form-input" id="nome_servico" placeholder="Serviço" required />
+                        <label for="nome" class="form-label">Nome do Serviço:</label>
+                        <input type="text" class="form-input" id="nome_servico" name="nome" placeholder="Serviço" required />
                     </div>
                     <div class="form-group">
-                        <label for="descricao_servico" class="form-label">Descrição:</label>
-                        <input type="text" class="form-input" id="descricao_servico" placeholder="Descrição" required />
+                        <label for="descricao" class="form-label">Descrição:</label>
+                        <input type="text" class="form-input" id="descricao_servico" name="descricao" placeholder="Descrição" required />
                     </div>
                     <div class="form-group">
-                        <label for="duracao_servico" class="form-label">Duração:</label>
-                        <input type="text" class="form-input" id="duracao_servico" placeholder="Duração" required />
+                        <label for="duracao_min" class="form-label">Duração:</label>
+                        <input type="text" class="form-input" id="duracao_servico" name="duracao_min" placeholder="Duração" required />
                     </div>
                     <div class="form-group">
-                        <label for="valor_servico" class="form-label">Valor:</label>
-                        <input type="number" class="form-input" id="valor_servico" placeholder="Valor" required />
+                        <label for="preco" class="form-label">Preço:</label>
+                        <input type="number" class="form-input" id="preco" name="preco" placeholder="Valor" required />
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Confirmar Serviço</button>
+                    <ul>
+                        <input type="submit" id="Cadastrar">
+                        <a href="../index.php">
+                            <input type="button" class="botoes" value="Cancelar" />
+                        </a>
+                    </ul>
                 </form>
             </div>
 
@@ -211,8 +216,8 @@
                         <input type="text" name="descricao" id="descricao_prod" class="form-input" placeholder="Descrição" required />
                     </div>
                     <div class="form-group">
-                        <label for="preco_prod" class="form-label">Valor:</label>
-                        <input type="number" name="valor" id="preco_prod" class="form-input" placeholder="Preço" required />
+                        <label for="preco_venda" class="form-label">Preço:</label>
+                        <input type="number" name="preco_venda" id="preco_venda" class="form-input" placeholder="Preço" required />
                     </div>
                     <div class="form-group">
                         <label for="categoria_prod" class="form-label">Categoria:</label>
