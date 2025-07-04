@@ -30,7 +30,7 @@ img {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.form-container {
+.formulario {
 	max-width: 1000px;
 	margin: auto;
 	background-color: #a67b5b8f;
@@ -40,7 +40,7 @@ img {
 	backdrop-filter: blur(2px);
 }
 
-h1 {
+h2 {
 	text-align: center;
 	margin-bottom: 40px;
 	font-size: 2em;
