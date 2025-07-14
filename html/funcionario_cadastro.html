@@ -67,17 +67,18 @@
 
                 <div class="form-group">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" placeholder="E-mail">
+                    <input type="email" id="email-user" placeholder="E-mail" required>
                 </div>
 
                 <div class="form-group">
                     <label for="cep">CEP</label>
-                    <input type="text" id="cep" placeholder="CEP">
+                    <input type="text" id="cep" onblur="pesquisacep(this.value)" placeholder="CEP">
+
                 </div>
 
                 <div class="form-group">
-                    <label for="rua">Rua</label>
-                    <input type="text" id="rua" placeholder="Rua">
+                    <label for="Endereco">Endereço</label>
+                    <input type="text" id="logradouro" placeholder="Endereco">
                 </div>
 
                 <div class="form-group">
@@ -161,6 +162,8 @@
             <button type="submit" class="submit-btn">Cadastrar</button>
         </form>
     </div>
+
+    <script src="../script/funcionario_cadastro.js"></script>
 </body>
 
 </html>
