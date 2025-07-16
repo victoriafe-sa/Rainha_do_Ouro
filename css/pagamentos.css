@@ -1,0 +1,142 @@
+/* Estilo base */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #F8D39C;
+    margin: 0;
+    padding: 20px;
+    color: #4B2E1E;
+  }
+
+  img {
+	display: block;
+	margin: 0 auto 20px;
+	width: 200px;
+	height: auto;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+  
+  /* Animação de entrada */
+  @keyframes fade {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fade-in {
+    animation: fade 1s ease-out;
+  }
+  
+  /* Container principal */
+  .payment-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #a67b5b8f;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(2px);
+  }
+  
+  /* Título */
+  .payment-container h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #4B2E1E;
+    border-bottom: 2px solid #4B2E1E;
+    padding-bottom: 10px;
+  }
+  
+  /* Formulário */
+  .payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #4B2E1E;
+  }
+  
+  input[type="text"],
+  input[type="int"] {
+    padding: 12px 14px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #e4ddddc6;
+    color: #2d1a12;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(75, 46, 30, 0.2);
+  }
+  
+  input:focus {
+    outline: none;
+    border: 1px solid #4B2E1E;
+    box-shadow: 0 0 8px rgba(75, 46, 30, 0.2);
+    background-color: #e6e6e6;
+  }
+  
+  /* Linha de campos lado a lado */
+  .form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .half {
+    flex: 1 1 45%;
+    min-width: 200px;
+  }
+  
+  /* Botão de envio */
+  .btn-pagar {
+    display: block;
+    margin: 30px auto 0;
+    padding: 14px 35px;
+    background-color: #4B2E1E;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn-pagar:hover {
+    background-color: #27170e;
+    transform: scale(1.03);
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .form-row {
+      flex-direction: column;
+    }
+  
+    .half {
+      flex: 1 1 100%;
+    }
+  
+    .payment-container {
+      padding: 25px 20px;
+    }
+  }
+  
+  

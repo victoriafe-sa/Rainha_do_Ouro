@@ -31,6 +31,9 @@
                         <td align="center"> <strong>Estado</strong></td>
                         <td align="center"> <strong>Data de Cadastro</strong></td>
                         <td align="center"> <strong>Ativo</strong></td>
+                        <td align="center"> <strong>Editar</strong></td>
+                        <td align="center"> <strong>Excluir</strong></td>
+
 
                     </tr>
 
