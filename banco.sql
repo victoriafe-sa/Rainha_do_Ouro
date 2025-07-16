@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS `tb_produtos` (
   `descricao` TEXT NOT NULL,
   `preco_venda` DECIMAL(10,2) NOT NULL,
   `categoria` VARCHAR(50) NOT NULL,
-  `ativo` TINYINT(1) NOT NULL,
+  `ativo` TINYINT(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_produtos`)
 ) ENGINE = InnoDB;
 
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `tb_servicos` (
   `descricao` TEXT NOT NULL,
   `preco` DECIMAL(10,2) NOT NULL,
   `duracao_min` INT NOT NULL,
-  `ativo` TINYINT(1) NOT NULL,
+  `ativo` TINYINT(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_servicos`)
 ) ENGINE = InnoDB;
 
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `tb_clientes` (
   `cidade` VARCHAR(45) NOT NULL,
   `estado` VARCHAR(2) NOT NULL,
   `data_cadastro` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `ativo` TINYINT(1) NOT NULL,
+  `ativo` TINYINT(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_clientes`)
 ) ENGINE = InnoDB;
 
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `tb_clientes` (
 CREATE TABLE IF NOT EXISTS `tb_carrinho` (
   `id_carrinho` INT NOT NULL AUTO_INCREMENT,
   `data_criacao` DATETIME NULL,
-  `status` ENUM('aberto', 'fechado') NULL,
+  `status` ENUM('aberto', 'fechado') NULL DEFAULT 'aberto',
   `tb_clientes_id_clientes` INT NOT NULL,
   PRIMARY KEY (`id_carrinho`),
   CONSTRAINT `fk_carrinho_cliente` FOREIGN KEY (`tb_clientes_id_clientes`) REFERENCES `tb_clientes` (`id_clientes`) ON DELETE CASCADE
@@ -170,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `tb_pagamentos` (
   `id_pagamentos` INT NOT NULL AUTO_INCREMENT,
   `valor` DECIMAL(10,2) NOT NULL,
   `forma_pagamento` ENUM('cartao', 'pix') NOT NULL,
-  `status` ENUM('pendente', 'pago', 'cancelado') NOT NULL,
+  `status` ENUM('pendente', 'pago', 'cancelado') NOT NULL DEFAULT 'pendente',
   `data_pagamento` DATETIME NOT NULL,
   `tb_compras_id_compras` INT NOT NULL,
   `tb_clientes_id_clientes` INT NOT NULL,
@@ -183,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `tb_pagamentos` (
 CREATE TABLE IF NOT EXISTS `tb_agendamentos` (
   `id_agendamentos` INT NOT NULL AUTO_INCREMENT,
   `data_hora` DATETIME NULL,
-  `status` ENUM('agendado', 'realizado', 'cancelado') NULL,
+  `status` ENUM('agendado', 'realizado', 'cancelado') NULL DEFAULT 'agendado',
   `tb_funcionarios_id_funcionarios` INT NOT NULL,
   `tb_pagamentos_id_pagamentos` INT NOT NULL,
   PRIMARY KEY (`id_agendamentos`),
