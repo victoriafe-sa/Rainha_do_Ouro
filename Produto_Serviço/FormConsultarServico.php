@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Consultar Serviços</title>
-        <link type="text/css" rel="stylesheet" href="estilo.css">
+        <link type="text/css" rel="stylesheet" href="../css/consultar_servico.css">
     
     </head>
 
