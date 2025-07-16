@@ -17,6 +17,7 @@
                    cellpadding="5"
                    >
                     <tr>
+                    <td align="center"> <strong>id_funcionarios</strong></td>	
                     <td align="center"> <strong>nome_completo</strong></td>	
                     <td align="center"> <strong>data_nascimento</strong></td>	
                     <td align="center"> <strong>cpf</strong></td>	
@@ -50,6 +51,7 @@
                         $selecionar= mysqli_query($conn, "SELECT * FROM tb_funcionarios");
                         while ($campo= mysqli_fetch_array($selecionar)){?>
                             <tr>
+                            <td align="center"><?=$campo["id_funcionarios"]?></td>
                             <td align="center"><?=$campo["nome_completo"]?></td>
                             <td align="center"><?=$campo["data_nascimento"]?></td>
                             <td align="center"><?=$campo["cpf"]?></td>

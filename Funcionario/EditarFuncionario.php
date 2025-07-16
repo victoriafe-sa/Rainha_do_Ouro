@@ -27,7 +27,7 @@ $status = filter_input(INPUT_POST, 'status');
 $observacoes = filter_input(INPUT_POST, 'observacoes');
 $data_cadastro = filter_input(INPUT_POST, 'data_cadastro');
 
-  if(mysqli_query($conn, "UPDATE tb_funcionario SET nome_completo='$nome_completo',
+  if(mysqli_query($conn, "UPDATE tb_funcionarios SET nome_completo='$nome_completo',
   data_nascimento='$data_nascimento',
   cpf='$cpf',
   rg='$rg',
@@ -50,7 +50,7 @@ $data_cadastro = filter_input(INPUT_POST, 'data_cadastro');
   pis='$pis',
   status='$status',
   observacoes='$observacoes',
-  data_cadastro='$data_cadastro'  WHERE id_funcionario=$recid")) {
+  data_cadastro='$data_cadastro'  WHERE id_funcionarios=$recid")) {
     echo "<script>alert('Dados alterado com sucesso!'); window.location = 'FormConsultarFuncionario.php';</script>";
   }else {
     echo "Não foi possível alterar os dados no Banco de Dados" . $recid . "<br>" . mysqli_error($conn);

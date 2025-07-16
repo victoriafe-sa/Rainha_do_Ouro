@@ -29,7 +29,7 @@
        
         $conn = mysqli_connect($servidor, $dbusuario, $dbsenha, $dbname);
         mysqli_select_db($conn, 'db_rainhadoouro');
-        $sql = "INSERT INTO tb_funcionarios(nome_completo,data_nascimento,cpf,rg,sexo,estado_civil,telefone,email,cep,rua,numero,bairro,cidade,estado,cargo,data_admissao,horario_trabalho,salario,tipo_contrato,carteira_trabalho,pis,status,observacoes,data_cadastro) VALUES ('$nome_completo','$data_nascimento', '$cpf', '$rg', '$sexo', '$estado_civil','$telefone','$email','$cep','$rua','$numero','$bairro','$cidade','$estado','$cargo','$data_admissao','$horario_trabalho','$salario','$tipo_contrato','$carteira_trabalho','$pis''$status''$observacoes''$data_cadastro')";
+        $sql = "INSERT INTO tb_funcionarios(nome_completo,data_nascimento,cpf,rg,sexo,estado_civil,telefone,email,cep,rua,numero,bairro,cidade,estado,cargo,data_admissao,horario_trabalho,salario,tipo_contrato,carteira_trabalho,pis,status,observacoes,data_cadastro) VALUES ('$nome_completo','$data_nascimento', '$cpf', '$rg', '$sexo', '$estado_civil','$telefone','$email','$cep','$rua','$numero','$bairro','$cidade','$estado','$cargo','$data_admissao','$horario_trabalho','$salario','$tipo_contrato','$carteira_trabalho','$pis','$status','$observacoes','$data_cadastro')";
         if (mysqli_query($conn, $sql)) {
             echo "<script>alert('Seus dados foram salvos !'); window.location = '../index.php';</script>";
         } else {
