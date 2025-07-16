@@ -238,3 +238,4 @@ CREATE TABLE IF NOT EXISTS `tb_historico_pagamentos` (
   CONSTRAINT `fk_historico_pagamento`
   FOREIGN KEY (`tb_pagamentos_id_pagamentos`) REFERENCES `tb_pagamentos` (`id_pagamentos`) ON DELETE CASCADE
 ) ENGINE = InnoDB;
+
