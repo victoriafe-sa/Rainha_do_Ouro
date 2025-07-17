@@ -30,11 +30,31 @@ function updateTotal() {
 }
 
 function calculateFrete() {
-    const cep = document.getElementById('CEP').value;
-    if (!cep || cep.length !== 8) return 0;
-    // Exemplo fictício:
-    return cep.startsWith('01') ? 10.00 : 15.00;
+    // Obtém o valor do campo de CEP
+    const rawCep = document.getElementById('CEP').value;
+
+    // Remove tudo que não for número
+    const cep = rawCep.replace(/\D/g, '');
+
+    // Verifica se o CEP tem exatamente 8 dígitos
+    if (!cep || cep.length !== 8) {
+        console.warn('CEP inválido');
+        return 0;
+    }
+
+    // Simulação de cálculo de frete baseado nos primeiros dígitos do CEP
+    // Você pode substituir isso por uma API dos Correios ou transportadora real
+    if (cep.startsWith('01')) {
+        return 10.00;
+    } else if (cep.startsWith('20')) {
+        return 12.50;
+    } else if (cep.startsWith('30')) {
+        return 14.00;
+    } else {
+        return 18.90;
+    }
 }
+
 
 document.getElementById('CEP').addEventListener('input', updateTotal);
 

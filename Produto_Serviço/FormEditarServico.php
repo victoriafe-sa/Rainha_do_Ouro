@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Editar Serviço</title>
-        <link rel="stylesheet" href="../css/prod_serv_php.css"/>
+        <link rel="stylesheet" href="../css/editar.css"/>
     </head>
 
     <body>
