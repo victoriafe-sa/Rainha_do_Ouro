@@ -16,15 +16,16 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Serviços</a></li>
+                <li><a href="../html/pagina_inicial.html">Inicio</a></li>
+                <li><a href="../html/produtos.html">Produtos</a></li>
+                <li><a href="../html/servicos.html">Serviços</a></li>
                 <li><a href="../html/agendamentos.html">Agendamento</a></li>
             </ul>
         </nav>
         <div class="icons">
             <a href="#"><img src="../img/lupa.png" alt="Buscar"></a>
             <a href="../html/carrinho.html"><img src="../img/carrinho.png " alt="Carrinho"></a>
-            <a href="#"><img src="../img/perfil.png" alt="Perfil"></a>
+            <a href=""><img src="../img/perfil.png" alt="Perfil"></a>
         </div>
     </header>
 
