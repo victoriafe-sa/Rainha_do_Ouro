@@ -91,7 +91,8 @@
                         <p id="product-brand">Apise</p>
                         <span>R$ 169,90</span>
                         <p id="product-price">R$ 159,90</p>
-                        <button>comprar</button>
+                        <button onclick="addToCart(this)">comprar</button>
+
                     </div>
                     <div class="product-card">
                         <img src="../img/apise.png" alt="Shampoo Hidratação Profunda">
@@ -99,7 +100,17 @@
                         <p id="product-brand">Apise</p>
                         <span>R$ 169,90</span>
                         <p id="product-price">R$ 159,90</p>
-                        <button>comprar</button>
+                        <button onclick="addToCart(this)">comprar</button>
+
+                    </div>
+                    <div class="product-card">
+                        <img src="../img/apise.png" alt="Shampoo Hidratação Profunda">
+                        <p id="product-name">Kit</p>
+                        <p id="product-brand">Apise</p>
+                        <span>R$ 169,90</span>
+                        <p id="product-price">R$ 159,90</p>
+                        <button onclick="addToCart(this)">comprar</button>
+
                     </div>
                     <div class="product-card">
                         <img src="../img/apise.png" alt="Shampoo Hidratação Profunda">
@@ -107,15 +118,8 @@
                         <p id="product-brand">Apise</p>
                         <span>R$ 169,90</span>
                         <p id="product-price">R$ 159,90</p>
-                        <button>comprar</button>
-                    </div>
-                    <div class="product-card">
-                        <img src="../img/apise.png" alt="Shampoo Hidratação Profunda">
-                        <p id="product-name">Kit Crespo Power</p>
-                        <p id="product-brand">Apise</p>
-                        <span>R$ 169,90</span>
-                        <p id="product-price">R$ 159,90</p>
-                        <button>comprar</button>
+                        <button onclick="addToCart(this)">comprar</button>
+
                     </div>
                 </div>
                 <div class="products">
@@ -125,7 +129,8 @@
                         <p id="product-brand">Apise</p>
                         <span>R$ 169,90</span>
                         <p id="product-price">R$ 159,90</p>
-                        <button>comprar</button>
+                        <button onclick="addToCart(this)">comprar</button>
+
                     </div>
                     <div class="product-card">
                         <img src="../img/apise.png" alt="Shampoo Hidratação Profunda">
@@ -133,7 +138,8 @@
                         <p id="product-brand">Apise</p>
                         <span>R$ 169,90</span>
                         <p id="product-price">R$ 159,90</p>
-                        <button>comprar</button>
+                        <button onclick="addToCart(this)">comprar</button>
+
                     </div>
                     <div class="product-card">
                         <img src="../img/apise.png" alt="Shampoo Hidratação Profunda">
@@ -141,7 +147,8 @@
                         <p id="product-brand">Apise</p>
                         <span>R$ 169,90</span>
                         <p id="product-price">R$ 159,90</p>
-                        <button>comprar</button>
+                        <button onclick="addToCart(this)">comprar</button>
+
                     </div>
                     <div class="product-card">
                         <img src="../img/apise.png" alt="Shampoo Hidratação Profunda">
@@ -149,7 +156,8 @@
                         <p id="product-brand">Apise</p>
                         <span>R$ 169,90</span>
                         <p id="product-price">R$ 159,90</p>
-                        <button>comprar</button>
+                        <button onclick="addToCart(this)">comprar</button>
+
                     </div>
                 </div>
             </div>
@@ -167,6 +175,40 @@
         </div>
     </footer>
 
+    <script>
+        function addToCart(button) {
+            const productCard = button.closest('.product-card');
+
+            const name = productCard.querySelector('#product-name')?.textContent || 'Produto';
+            const brand = productCard.querySelector('#product-brand')?.textContent || '';
+            const priceText = productCard.querySelector('#product-price')?.textContent.replace('R$', '').replace(',', '.').trim();
+            const price = parseFloat(priceText) || 0;
+            const imageUrl = productCard.querySelector('img')?.getAttribute('src') || '';
+
+            const product = {
+                name: name,
+                brand: brand,
+                price: price,
+                imageUrl: imageUrl,
+                quantity: 1
+            };
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Verifica se o produto já está no carrinho
+            const existingProduct = cart.find(item => item.name === product.name && item.brand === product.brand);
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${product.name} foi adicionado ao carrinho!`);
+            // Redirecionar para o carrinho, se quiser:
+            // window.location.href = "../html/carrinho.html";
+        }
+    </script>
 </body>
 
 </html>

@@ -51,11 +51,21 @@ header .icons a:last-child img {
     height: 40px;
 }
 
-main{
+.pageName{
+    margin-top: 30px;
+    margin-bottom: -30px;
+    text-align: center;
+    font-size: 30px;
+    color: #3a210f;
+}
+
+main {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* alinha pelo topo */
     justify-content: center;
     gap: 3em;
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
 
 .cartSection {
@@ -149,6 +159,106 @@ main{
     -webkit-appearance: none;
     margin: 0;
 }
+
+
+/* ============ VALORES FINAIS / RESUMO ============ */
+.price-section {
+    background-color: #fff;
+    border-radius: 18px;
+    padding: 35px 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 380px;
+    font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    margin-right: 60px;
+}
+
+.price-section h3 {
+    font-size: 22px;
+    color: #4B2C1A;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #F0B429;
+    padding-bottom: 6px;
+}
+
+.frete-price input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.frete-price button {
+    width: 100%;
+    background-color: #F0B429;
+    color: #4B2C1A;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-bottom: 10px;
+}
+
+.frete-price button:hover {
+    background-color: #e0a817;
+}
+
+.frete-price a {
+    font-size: 14px;
+    color: #4B2C1A;
+    text-decoration: underline;
+}
+
+.prices-resumo {
+    background-color: #FAF3E3;
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.prices-resumo p {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    color: #333;
+}
+
+.price-section button a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'Georgia', serif;
+}
+
+.price-section button {
+    width: 100%;
+    padding: 14px;
+    background-color: #4B2C1A;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.price-section button:hover {
+    background-color: #3a210f;
+}
+
+
 
 footer {
     background-color: #4B2C1A;

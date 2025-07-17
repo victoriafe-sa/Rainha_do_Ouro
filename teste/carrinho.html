@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrinho</title>
+  <style>
+    .vazio {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .produto {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Seu Carrinho</h1>
+
+  <div id="mensagem-vazio" class="vazio">
+    <img src="carrinho-vazio.png" alt="Carrinho vazio" width="150">
+    <p>Seu carrinho está vazio.</p>
+  </div>
+
+  <div id="itens-carrinho"></div>
+
+  <div id="resumo" style="display:none;">
+    <p>Subtotal: R$ <span id="subtotal">0</span></p>
+    <label>CEP: <input type="text" id="cep" maxlength="8" oninput="calcularFrete()"></label>
+    <p>Frete: R$ <span id="frete">0</span></p>
+    <p><strong>Total: R$ <span id="total">0</span></strong></p>
+  </div>
+
+  <script>
+    const itensCarrinho = document.getElementById("itens-carrinho");
+    const mensagemVazio = document.getElementById("mensagem-vazio");
+    const resumo = document.getElementById("resumo");
+
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+    function exibirCarrinho() {
+      if (carrinho.length === 0) {
+        mensagemVazio.style.display = "block";
+        resumo.style.display = "none";
+        return;
+      }
+
+      mensagemVazio.style.display = "none";
+      resumo.style.display = "block";
+
+      let subtotal = 0;
+      itensCarrinho.innerHTML = "";
+
+      carrinho.forEach((item, index) => {
+        subtotal += item.preco;
+        const div = document.createElement("div");
+        div.className = "produto";
+        div.innerHTML = `${item.nome} - R$ ${item.preco.toFixed(2)} <button onclick="removerItem(${index})">Remover</button>`;
+        itensCarrinho.appendChild(div);
+      });
+
+      document.getElementById("subtotal").textContent = subtotal.toFixed(2);
+      calcularFrete();
+    }
+
+    function calcularFrete() {
+      const cep = document.getElementById("cep").value;
+      const subtotal = parseFloat(document.getElementById("subtotal").textContent);
+      let frete = 0;
+
+      if (cep.length === 8) {
+        // Exemplo simples de cálculo de frete
+        frete = 20;
+      }
+
+      document.getElementById("frete").textContent = frete.toFixed(2);
+      document.getElementById("total").textContent = (subtotal + frete).toFixed(2);
+    }
+
+    function removerItem(index) {
+      carrinho.splice(index, 1);
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+      exibirCarrinho();
+    }
+
+    exibirCarrinho();
+  </script>
+</body>
+</html>

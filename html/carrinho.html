@@ -27,8 +27,9 @@
             <a href="#"><img src="../img/perfil.png" alt="Perfil"></a>
         </div>
     </header>
-
+    <h2 class="pageName">Carrinho</h2>
     <main>
+
         <section class="cartSection">
             <div class="cart-item">
                 <div class="item-image">
@@ -42,9 +43,10 @@
                     </div>
                 </div>
                 <div class="quantity-wrapper">
-                    <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
-                    <input type="number" value="1" id="quantity">
-                    <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                    <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                    <input type="number" value="1">
+                    <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+
                 </div>
             </div>
             <div class="cart-item">
@@ -59,9 +61,10 @@
                     </div>
                 </div>
                 <div class="quantity-wrapper">
-                    <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
-                    <input type="number" value="2" id="quantity">
-                    <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                    <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                    <input type="number" value="1">
+                    <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+
                 </div>
             </div>
             <div class="cart-item">
@@ -76,9 +79,10 @@
                     </div>
                 </div>
                 <div class="quantity-wrapper">
-                    <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
-                    <input type="number" value="2" id="quantity">
-                    <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                    <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                    <input type="number" value="1">
+                    <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+
                 </div>
             </div>
             <div class="cart-item">
@@ -93,26 +97,10 @@
                     </div>
                 </div>
                 <div class="quantity-wrapper">
-                    <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
-                    <input type="number" value="2" id="quantity">
-                    <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
-                </div>
-            </div>
-            <div class="cart-item">
-                <div class="item-image">
-                    <img src="../img/apise.png" alt="Produto">
-                </div>
-                <div class="item-details">
-                    <p class="item-name">Creme para Pentear Uva + Melancia <br>Óleo de Tratamento Extraordinário 1kg</p>
-                    <div class="price-info">
-                        <span class="old-price">De R$ 40,00 por</span>
-                        <span class="current-price">R$ 33,00</span>
-                    </div>
-                </div>
-                <div class="quantity-wrapper">
-                    <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
-                    <input type="number" value="2" id="quantity">
-                    <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                    <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                    <input type="number" value="1">
+                    <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+
                 </div>
             </div>
         </section>
@@ -124,8 +112,9 @@
                     <input type="text" name="CEP" id="CEP" placeholder="Digite seu CEP">
                     <button>Calcular</button>
                 </div>
-                
-                <a href="https://buscacepinter.correios.com.br/app/endereco/index.php?t#xd_co_f=YzhlNjlhNTItMjgzZi00MjkwLWIyNTEtYmVmNDNhNDBkNTM0~" target="_blank">Não sei meu CEP</a>
+
+                <a href="https://buscacepinter.correios.com.br/app/endereco/index.php?t#xd_co_f=YzhlNjlhNTItMjgzZi00MjkwLWIyNTEtYmVmNDNhNDBkNTM0~"
+                    target="_blank">Não sei meu CEP</a>
             </div>
             <div class="prices-resumo">
                 <h3>Resumo</h3>
