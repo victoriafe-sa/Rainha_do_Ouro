@@ -72,7 +72,7 @@ header {
 
 .boas-vindas p{
     text-align: center;
-    font-size: 25px;
+    font-size: 35px;
 }
 /*-----------------------------------------------------------------------*/
 /*fotos,qualidade,profissional e coroa*/
@@ -80,14 +80,14 @@ header {
   display: flex;
   justify-content: center;
   gap: 30px;
-  padding: 40px;
+  padding: 100px;
 }
 
 .item {
   background-color: #a67c52;
   border-radius: 20px;
   padding: 20px;
-  width: 200px;
+  width: 300px;
   height: 300px;
   text-align: center;
   color: black;
@@ -116,13 +116,14 @@ header {
 .categorias {
   display: flex; /* coloca os elementos em linha */
   justify-content: center; /* centraliza os cards horizontalmente */
-  gap: 20px; /* espaço entre os cards */
+  gap: 10px; /* espaço entre os cards */
+
 }
 
 /* Cada card individual */
 .categoria {
   position: relative; /* necessário para posicionar o texto por cima da imagem */
-  width: 500px;
+  width: 5000px;
   height: 350px;
   border-radius: 10px; /* bordas arredondadas */
   overflow: hidden; /* esconde o que ultrapassar do card */
@@ -166,10 +167,11 @@ header {
   font-size: 3.0rem;
   text-align: center;
 }
-.produtos  img{
+.produto img{
   height: 200px;
   background-color:#F8D39C;
-  border-radius: 30px;}
+  border-radius: 30px;
+}
 
 .produtos {
   display: flex;
@@ -193,15 +195,30 @@ header {
 }
 
 .produtos .compra{
-  background-color: #4B2C1A;
+  background-color: #794a31; /* Cor de fundo do botão (marrom escuro) */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 25px; /* Arredondamento dos cantos */
+    padding: 5px 10px; /* Preenchimento interno (top/bottom e left/right) */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    display: inline-flex; /* Permite que o conteúdo interno seja flexível e centralizado */
+    justify-content: center; /* Centraliza o texto horizontalmente */
+    align-items: center; /* Centraliza o texto verticalmente */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil para profundidade */
+    text-decoration: none; /* Remove sublinhado padrão se for um <a> */
+    color: #fcfcfc; /* Cor do texto (branco quase puro) */
+    font-size: 15px; /* Tamanho da fonte */
+    font-weight: 300; /* Peso da fonte (semi-bold para se assemelhar à imagem) */
+    letter-spacing: 0.5px; /* Espaçamento entre letras */
+    position: relative; /* Necessário para posicionar o sublinhado */
+    overflow: hidden; /* Garante que o sublinhado animado não vaze */
 }
-.produto h4 {
+.produtos h4 {
   font-family: 'Playfair Display', serif;
 }
 
-.coração {
+.coração img {
   position: absolute;
-  top: 10px;
+  top: 1px;
   right: 10px;
   background: none;
   border: none;
@@ -211,9 +228,42 @@ header {
 }
 
 .coração img {
-  width: 30px;
-  height: 33px;
+  width: 60px;
+  height: 100px;
+  
 }
 /*------------------------------------------------------*/
 /*NOSSOS PROFISSIONAIS*/
 
+/* Seção Nossos Profissionais */
+.nossos-profissionais {
+  background-color: #fde0ae;
+  text-align: center;
+  padding: 45px 20px;
+}
+
+.nossos-profissionais h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.galeria-profissionais {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.galeria-profissionais img {
+  width: 120px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 100px 100px 0 0; /* Borda superior arredondada */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.galeria-profissionais img:hover {
+  transform: scale(1.05);
+}
