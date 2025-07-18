@@ -1,142 +1,145 @@
 body {
-	font-family: 'Arial', sans-serif;
-	background-color: #F8D39C;
-	margin: 0;
-	padding: 20px;                                                                        
-	color: #4B2E1E;
+    font-family: sans-serif;
+    background-color: #f7e4c1; /* Light gray background for the body */
+    display: flex;
+    flex-direction: column; /* Arrange content in a column */
+    align-items: center; /* Center horizontally */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px; /* Add some padding around the content */
+    box-sizing: border-box; /* Include padding in element's total width and height */
 }
 
-@keyframes fade {
-	from {
-		opacity: 0;
-		transform: translateY(-20px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 28px;
+    padding: 15px 30px;
+    background-color: #f7d794; /* Yellowish background for the title */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.fade-in {
-	animation: fade 1s ease-out;
+table {
+    background-color: #f7d794; /* Yellowish background for the table */
+    border-collapse: collapse; /* Collapse borders between cells */
+    margin-bottom: 20px;
+    border: 1px solid #c0a060; /* Darker yellowish border */
+    border-radius: 8px; /* Rounded corners for the table */
+    overflow: hidden; /* Ensures rounded corners are visible */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-img {
-	display: block;
-	margin: 0 auto 20px;
-	width: 200px;
-	height: auto;
-	border-radius: 10px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+table tr:first-child { /* Style for the header row */
+    background-color: #e6c582; /* Slightly darker yellowish for header */
 }
 
-.formulario {
-	max-width: 1000px;
-	margin: auto;
-	background-color: #a67b5b8f;
-	padding: 40px 30px;
-	border-radius: 15px;
-	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-	backdrop-filter: blur(2px);
+table th, table td {
+    padding: 12px 15px; /* Padding inside cells */
+    text-align: center;
+    border: 1px solid #c0a060; /* Borders for cells */
+    color: #333;
 }
 
-h2 {
-	text-align: center;
-	margin-bottom: 40px;
-	font-size: 2em;
-	color: #4B2E1E;
+table strong {
+    color: #222; /* Stronger color for header text */
 }
 
-.section-title {
-	font-size: 1.4em;
-	margin: 30px 0 20px;
-	border-bottom: 2px solid #4B2E1E;
-	padding-bottom: 8px;
-	color: #4B2E1E;
+table tr:nth-child(even) { /* Zebra striping for rows */
+    background-color: #fcdfa9; /* Lighter yellow for even rows */
 }
 
-.form-section {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 25px;
+table tr:hover {
+    background-color: #fce8bd; /* Even lighter yellow on row hover */
 }
 
-.form-group {
-	flex: 1 1 45%;
-	min-width: 280px;
-	display: flex;
-	flex-direction: column;
+a {
+    color: #000000; /* Standard blue for links */
+    text-decoration: none; /* No underline by default */
+    transition: color 0.2s;
 }
 
-label {
-	margin-bottom: 8px;
-	font-weight: bold;
-	color: #4B2E1E;
+a:hover {
+    color: #252525; /* Darker blue on hover */
+    text-decoration: underline; /* Underline on hover */
 }
 
-input[type="text"],
-input[type="date"],
-input[type="email"],
-input[type="tel"],
-input[type="file"],
-select,
-textarea {
-	width: 100%;
-	padding: 10px 12px;
-	border-radius: 8px;
-	border: 1px solid #ccc;
-	box-sizing: border-box;
-	box-shadow: inset 0 1px 3px rgba(75, 46, 30, 0.2);
-	background-color: #e4ddddc6;
-	transition: all 0.3s ease;
-	font-size: 1em;
-	color: #2d1a12;
+/* Style for the 'Cancelar' button */
+.botoes {
+    background-color: #af7454; /* Grayish background for the button */
+    color: #ffffff;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.2s;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-	outline: none;
-	border: 1px solid #4B2E1E;
-	box-shadow: 0 0 8px rgba(75, 46, 30, 0.2);
-	background-color: #e6e6e6;
+.botoes:hover {
+    background-color: #4e2f1b; /* Lighter gray on hover */
+    border-color: #777;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-textarea {
-	resize: vertical;
-	min-height: 100px;
-}
-
-.full-width {
-	flex: 1 1 100%;
-}
-
-.submit-btn {
-	display: block;
-	margin: 40px auto 0;
-	padding: 14px 35px;
-	background-color: #4B2E1E;
-	color: white;
-	border: none;
-	border-radius: 30px;
-	font-size: 1em;
-	cursor: pointer;
-	font-weight: bold;
-	letter-spacing: 0.5px;
-	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-	transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.submit-btn:hover {
-	background-color: #27170e;
-	transform: scale(1.03);
-}
-
+/* Ensure the table doesn't overflow on smaller screens */
 @media (max-width: 768px) {
-	.form-group {
-		flex: 1 1 100%;
-	}
-	.form-container {
-		padding: 25px 20px;
-	}
+    table, h1 {
+        width: 95%; /* Adjust width for smaller screens */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    table, thead, tbody, th, td, tr {
+        display: block; /* Make table elements block-level for stacking */
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px; /* Hide table headers visually */
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    td {
+        border: none; /* Remove individual cell borders when stacked */
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%; /* Make space for the label */
+        text-align: left; /* Align text to the left */
+    }
+
+    td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        content: attr(data-label); /* Use data-label for content */
+        font-weight: bold;
+        color: #555;
+    }
+
+    /* Assign data-label to each td for responsive table headers */
+    td:nth-of-type(1):before { content: "ID"; }
+    td:nth-of-type(2):before { content: "Nome"; }
+    td:nth-of-type(3):before { content: "Descrição"; }
+    td:nth-of-type(4):before { content: "Preço de Venda"; }
+    td:nth-of-type(5):before { content: "Categoria"; }
+    td:nth-of-type(6):before { content: "Ativo"; }
+    td:nth-of-type(7):before { content: "Editar"; }
+    td:nth-of-type(8):before { content: "Deletar"; }
 }
