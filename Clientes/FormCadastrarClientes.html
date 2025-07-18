@@ -1,77 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <title>Cadastrar Clientes</title>
-        <link rel="stylesheet" href="../css/cadastro_usuario.css"/>
-    </head>
-    <body>
-        <div class="formulario">
-            <h2>Cadastro Clientes</h2>
-            <form method="post" action="CadastrarCliente.php">
 
-                <table>
-                    <ul>
-                        <label id="nome">Nome dos Clientes: </label>
-                        <input type="text" id="nome" name="nome"/>
-                    </ul>
-                    <ul>
-                        <label id="telefone">Telefone: </label>
-                        <input type="text" id="telefone" name="telefone"/>
-                    </ul>
-                    <ul>
-                        <label id="data_nascimento">Data de Nascimento: </label>
-                        <input type="date" id="data_nascimento" name="data_nascimento"/>
-                    </ul>
-                    <ul>
-                        <label id="email">Email: </label>
-                        <input type="text" id="email" name="email"/>
-                    </ul>
-                    <ul>
-                        <label id="senha">Senha: </label>
-                        <input type="text" id="senha" name="senha"/>
-                    </ul>
-                    <ul>
-                        <label id="cep">CEP: </label>
-                        <input type="text" id="cep" name="cep"/>
-                    </ul>
-                    <ul>
-                        <label id="logradouro">Rua: </label>
-                        <input type="text" id="logradouro" name="rua"/>
-                    </ul>    
-                    <ul>
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Clientes</title>
+    <link rel="stylesheet" href="../css/cadastro_usuario.css" />
+</head>
 
-                        <label id="numero">Numero: </label>
-                        <input type="text" id="numero" name="numero"/>
-                    </ul>
-                    <ul>
-                        <label id="bairro">Bairro: </label>
-                        <input type="text" id="bairro" name="bairro"/>
-                    </ul>
-                    <ul>
-                        <label id="cidade">Cidade: </label>
-                        <input type="text" id="cidade" name="cidade"/>
-                    </ul>
-                    <ul>
-                        <label id="estado">Estado: </label>
-                        <input type="text" id="estado" name="estado"/>
-                    </ul>
-                    <ul>
-                        <label id="data_cadastro">Data de Cadastro: </label>
-                        <input type="date" id="data_cadastro" name="data_cadastro"/>
-                    </ul>
-                    <ul>
-                        <label id="ativo">Ativo: </label>
-                        <input type="text" id="ativo" name="ativo"/>
-                    </ul>
-                    <input type="submit" id="Cadastrar" class="submit-bt">
-                    <a href="../index.php"><input type="button" class="botoes" value="Cancelar"/></a>
-                    </ul>               
+<body>
+    <img src="../img/logo.png" alt="">
+    <div class="formulario">
+        <h2>Cadastro Clientes</h2>
+        <form method="post" action="CadastrarCliente.php" class="form-section">
 
-                </table>
-            </form>
-        </div>
-        <script src="../script/cadastrar_cliente.js"></script>
-    </body> 
-</html>
+            <div class="form-group">
+                <label for="nome">Nome dos Clientes:</label>
+                <input type="text" id="nome" name="nome" />
+            </div>
 
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone" />
+            </div>
+
+            <div class="form-group">
+                <label for="data_nascimento">Data de Nascimento:</label>
+                <input type="date" id="data_nascimento" name="data_nascimento" />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" />
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="text" id="senha" name="senha" />
+            </div>
+
+            <div class="form-group">
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" name="cep" maxlength="9" />
+            </div>
+
+            <div class="form-group">
+                <label for="logradouro">Endereço:</label>
+                <input type="text" id="logradouro" name="rua" />
+            </div>
+
+            <div class="form-group">
+                <label for="numero">Número:</label>
+                <input type="text" id="numero" name="numero" />
+            </div>
+
+            <div class="form-group">
+                <label for="bairro">Bairro:</label>
+                <input type="text" id="bairro" name="bairro" />
+            </div>
+
+            <div class="form-group">
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" name="cidade" />
+            </div>
+
+            <div class="form-group">
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" name="estado" />
+            </div>
+            <div class="form-group full-width">
+                <input type="submit" value="Cadastrar" class="submit-btn">
+                <a href="../index.php">
+                </a>
+            </div>
+            
+
+            <script src="../script/cadastrar_cliente.js"></script>
+        </body>
+        
+        </html>
+        
+        </body>
+        
+        </html>
