@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Clientes</title>
+    <link rel="stylesheet" href="../css/cadastro_usuario.css" />
+</head>
+
+<body>
+    
+    <div class="formulario">
+        <h2>Cadastro Clientes</h2>
+        <form method="post" action="CadastrarCliente.php" class="form-section">
+
+            <div class="form-group">
+                <label for="nome">Nome dos Clientes:</label>
+                <input type="text" id="nome" name="nome" />
+            </div>
+
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone" />
+            </div>
+
+            <div class="form-group">
+                <label for="data_nascimento">Data de Nascimento:</label>
+                <input type="date" id="data_nascimento" name="data_nascimento" />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" />
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="text" id="senha" name="senha" />
+            </div>
+
+            <div class="form-group">
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" name="cep" maxlength="9" />
+            </div>
+
+            <div class="form-group">
+                <label for="logradouro">Endereço:</label>
+                <input type="text" id="logradouro" name="rua" />
+            </div>
+
+            <div class="form-group">
+                <label for="numero">Número:</label>
+                <input type="text" id="numero" name="numero" />
+            </div>
+
+            <div class="form-group">
+                <label for="bairro">Bairro:</label>
+                <input type="text" id="bairro" name="bairro" />
+            </div>
+
+            <div class="form-group">
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" name="cidade" />
+            </div>
+
+            <div class="form-group">
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" name="estado" />
+            </div>
+            <div class="form-group full-width">
+                <input type="submit" value="Cadastrar" class="submit-btn">
+                <a href="../index.php">
+                </a>
+            </div>
+
+        </form>
+    </div>
+
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Rainha do Ouro. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Uso</a>
+                <a href="#">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="../script/cadastrar_cliente.js"></script>
+</body>
+
+</html>
