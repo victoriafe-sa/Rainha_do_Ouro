@@ -41,7 +41,7 @@
                                 
                                 
 
-                                <td align="center"><a href="FormEditarProduto.php?editarid=<?php echo $campo ['id_produtos'];?>">Editar</a></td>
+                                <td align="center" ><ahref="FormEditarProduto.php?editarid=<?php echo $campo ['id_produtos'];?>">Editar</a></td>
                                 <td align="center"><a href="ExcluirProduto.php?p=excluir&produto=<?php echo $campo['id_produtos'];?>">Excluir</a></td>
                             </tr>
                     <?php }?>
