@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Consulta de Funcionários</title>
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/consunta_funcionrio.css">
+</head>
+<body>
+  <div>
+    <!-- Header -->
+    <header>
+      <h1>Consulta de Funcionários</h1>
+      <p>Pesquise e visualize informações dos colaboradores</p>
+    </header>
+
+    <!-- Search Form -->
+    <div>
+      <form id="searchForm">
+        <div>
+          <div>
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" placeholder="Digite o nome" />
+          </div>
+          <div>
+            <label for="department">Departamento</label>
+            <select id="department" name="department">
+              <option value="">Todos</option>
+              <option value="TI">TI</option>
+              <option value="RH">Recursos Humanos</option>
+              <option value="Financeiro">Financeiro</option>
+              <option value="Vendas">Vendas</option>
+              <option value="Marketing">Marketing</option>
+            </select>
+          </div>
+          <div>
+            <label for="status">Status</label>
+            <select id="status" name="status">
+              <option value="">Todos</option>
+              <option value="Ativo">Ativo</option>
+              <option value="Inativo">Inativo</option>
+              <option value="Férias">Férias</option>
+              <option value="Afastado">Afastado</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <input type="checkbox" id="showAdvanced" />
+            <label for="showAdvanced">Mostrar filtros avançados</label>
+          </div>
+
+          <div>
+            <button type="reset">
+              <i class="fas fa-undo"></i> Limpar
+            </button>
+            <button type="submit">
+              <i class="fas fa-search"></i> Pesquisar
+            </button>
+          </div>
+        </div>
+
+        <!-- Advanced Filters -->
+        <div id="advancedFilters" style="display: none;">
+          <div>
+            <div>
+              <label for="hireDateFrom">Data de Admissão (De)</label>
+              <input type="date" id="hireDateFrom" name="hireDateFrom" />
+            </div>
+            <div>
+              <label for="hireDateTo">Data de Admissão (Até)</label>
+              <input type="date" id="hireDateTo" name="hireDateTo" />
+            </div>
+            <div>
+              <label for="position">Cargo</label>
+              <input type="text" id="position" name="position" />
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Results Section -->
+    <div>
+      <div>
+        <h2>Resultados</h2>
+        <div>
+          <div>
+            <span id="resultCount">0</span> funcionários encontrados
+          </div>
+          <button id="exportBtn" style="display: none;">
+            <i class="fas fa-file-export"></i> Exportar
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Cargo</th>
+              <th>Departamento</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody">
+            <tr id="noResults">
+              <td colspan="6">Use o formulário acima para pesquisar funcionários</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div id="pagination" style="display: none;">
+        <div>
+          <a href="#">Anterior</a>
+          <a href="#">Próximo</a>
+        </div>
+        <div>
+          <p>
+            Mostrando <span>1</span> a <span>10</span> de <span>20</span> resultados
+          </p>
+          <nav aria-label="Pagination">
+            <a href="#" aria-label="Anterior"><i class="fas fa-chevron-left"></i></a>
+            <a href="#" aria-current="page">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#" aria-label="Próximo"><i class="fas fa-chevron-right"></i></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Employee Details Modal -->
+  <div id="employeeModal" style="display: none;">
+    <div>
+      <div aria-hidden="true"></div>
+      <span aria-hidden="true">&#8203;</span>
+      <div>
+        <div>
+          <div>
+            <div>
+              <i class="fas fa-user"></i>
+            </div>
+            <div>
+              <h3 id="modalTitle">Detalhes do Funcionário</h3>
+              <div id="modalContent"></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button id="closeModal" type="button">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Seu JavaScript aqui
+  </script>
+</body>
+</html>

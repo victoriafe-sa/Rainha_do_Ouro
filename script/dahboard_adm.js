@@ -52,12 +52,6 @@ function carregarPagina(caminho) {
                 script.defer = true;
                 document.body.appendChild(script);
             }
-            if (caminho.includes('agendamentos.html')) {
-                const script = document.createElement('script');
-                script.src = '../script/agendamentos.js';
-                script.defer = true;
-                document.body.appendChild(script);
-            }
         })
         .catch(() => {
             document.getElementById('conteudo').innerHTML = "<p>Erro ao carregar a página.</p>";
