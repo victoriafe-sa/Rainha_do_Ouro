@@ -17,19 +17,16 @@
         $cidade = $_POST["cidade"];
         $estado = $_POST["estado"];
         $cargo = $_POST["cargo"];
-        $data_admissao = $_POST["data_admissao"];
         $horario_trabalho = $_POST["horario_trabalho"];
         $salario = $_POST["salario"];
         $tipo_contrato = $_POST["tipo_contrato"];
         $carteira_trabalho = $_POST["carteira_trabalho"];
         $pis = $_POST["pis"];
-        $status = $_POST["status"];
         $observacoes = $_POST["observacoes"];
-        $data_cadastro = $_POST["data_cadastro"];
        
         $conn = mysqli_connect($servidor, $dbusuario, $dbsenha, $dbname);
         mysqli_select_db($conn, 'db_rainhadoouro');
-        $sql = "INSERT INTO tb_funcionarios(nome_completo,data_nascimento,cpf,rg,sexo,estado_civil,telefone,email,cep,rua,numero,bairro,cidade,estado,cargo,data_admissao,horario_trabalho,salario,tipo_contrato,carteira_trabalho,pis,status,observacoes,data_cadastro) VALUES ('$nome_completo','$data_nascimento', '$cpf', '$rg', '$sexo', '$estado_civil','$telefone','$email','$cep','$rua','$numero','$bairro','$cidade','$estado','$cargo','$data_admissao','$horario_trabalho','$salario','$tipo_contrato','$carteira_trabalho','$pis','$status','$observacoes','$data_cadastro')";
+        $sql = "INSERT INTO tb_funcionarios(nome_completo,data_nascimento,cpf,rg,sexo,estado_civil,telefone,email,cep,rua,numero,bairro,cidade,estado,cargo,horario_trabalho,salario,tipo_contrato,carteira_trabalho,pis,observacoes) VALUES ('$nome_completo','$data_nascimento', '$cpf', '$rg', '$sexo', '$estado_civil','$telefone','$email','$cep','$rua','$numero','$bairro','$cidade','$estado','$cargo','$horario_trabalho','$salario','$tipo_contrato','$carteira_trabalho','$pis','$observacoes')";
         if (mysqli_query($conn, $sql)) {
             echo "<script>alert('Seus dados foram salvos !'); window.location = '../index.php';</script>";
         } else {

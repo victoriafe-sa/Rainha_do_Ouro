@@ -17,7 +17,6 @@ $bairro = filter_input(INPUT_POST, 'bairro');
 $cidade = filter_input(INPUT_POST, 'cidade');
 $estado = filter_input(INPUT_POST, 'estado');
 $cargo = filter_input(INPUT_POST, 'cargo');
-$data_admissao = filter_input(INPUT_POST, 'data_admissao');
 $horario_trabalho = filter_input(INPUT_POST, 'horario_trabalho');
 $salario = filter_input(INPUT_POST, 'salario');
 $tipo_contrato = filter_input(INPUT_POST, 'tipo_contrato');
@@ -25,7 +24,6 @@ $carteira_trabalho = filter_input(INPUT_POST, 'carteira_trabalho');
 $pis = filter_input(INPUT_POST, 'pis');
 $status = filter_input(INPUT_POST, 'status');
 $observacoes = filter_input(INPUT_POST, 'observacoes');
-$data_cadastro = filter_input(INPUT_POST, 'data_cadastro');
 
   if(mysqli_query($conn, "UPDATE tb_funcionarios SET nome_completo='$nome_completo',
   data_nascimento='$data_nascimento',
@@ -42,15 +40,13 @@ $data_cadastro = filter_input(INPUT_POST, 'data_cadastro');
   cidade='$cidade',
   estado='$estado',
   cargo='$cargo',
-  data_admissao='$data_admissao',
   horario_trabalho='$horario_trabalho',
   salario='$salario',
   tipo_contrato='$tipo_contrato',
   carteira_trabalho='$carteira_trabalho',
   pis='$pis',
   status='$status',
-  observacoes='$observacoes',
-  data_cadastro='$data_cadastro'  WHERE id_funcionarios=$recid")) {
+  observacoes='$observacoes' WHERE id_funcionarios=$recid")) {
     echo "<script>alert('Dados alterado com sucesso!'); window.location = 'FormConsultarFuncionario.php';</script>";
   }else {
     echo "Não foi possível alterar os dados no Banco de Dados" . $recid . "<br>" . mysqli_error($conn);

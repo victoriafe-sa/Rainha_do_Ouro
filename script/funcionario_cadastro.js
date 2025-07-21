@@ -40,26 +40,6 @@ document.getElementById('rg').addEventListener('input', function (e) {
     e.target.value = value;
 });
 
-// PIS - Validação (11 dígitos com verificador)
-function validaPIS(pis) {
-    pis = pis.replace(/\D/g, '');
-
-    if (pis.length !== 11 || /^(\d)\1+$/.test(pis)) {
-        return false;
-    }
-
-    const multiplicadores = [3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
-    let soma = 0;
-
-    for (let i = 0; i < 10; i++) {
-        soma += parseInt(pis.charAt(i)) * multiplicadores[i];
-    }
-
-    let resto = soma % 11;
-    let dv = resto < 2 ? 0 : 11 - resto;
-
-    return dv === parseInt(pis.charAt(10));
-}
 
 
 // Carteira de trabalho - Apenas números (máx 8 ou 12 dígitos)
@@ -119,12 +99,12 @@ document.querySelector('form').addEventListener('submit', function (e) {
         return;
     }
 
-    const pis = document.getElementById('pis').value;
-    if (pis && !validaPIS(pis)) {
-        alert('PIS inválido. Verifique o número digitado.');
-        document.getElementById('pis').focus();
-        return;
-    }
+    //const pis = document.getElementById('pis').value;
+    //if (pis && !validaPIS(pis)) {
+     //   alert('PIS inválido. Verifique o número digitado.');
+      //  document.getElementById('pis').focus();
+        //return;
+    //}
 
     // Prosseguir com o cadastro
     alert('Cadastro realizado com sucesso!');
