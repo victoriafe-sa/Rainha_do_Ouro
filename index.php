@@ -12,7 +12,6 @@
                 <li><a href="#">Produtos</a>
                     <ul>
                         <li><a href="Produto_Serviço/FormCadastrarProduto_Serviço.html">Cadastrar</a></li>
-                   
                         <li><a href="Produto_Serviço/FormConsultarProduto.php">Consultar</a>
                     </ul>
                 </li>
