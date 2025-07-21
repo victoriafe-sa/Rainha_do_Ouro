@@ -87,6 +87,15 @@
             <h2>Nossos Produtos</h2>
             <div class="products">
                 <?php
+                $host = 'localhost';
+                $usuario = 'root';
+                $senha = '';
+                $banco = 'db_rainhadoouro';
+                
+                $conn = new mysqli($host, $usuario, $senha, $banco);
+                if ($conn->connect_error) {
+                    die("Erro de conexão: " . $conn->connect_error);
+                }
                 $sql = "SELECT * FROM tb_produtos WHERE ativo = 1";
                 $result = $conn->query($sql);
 
