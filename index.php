@@ -1,5 +1,4 @@
 <html>
-
     <head>
         <title>Rainha do Ouro</title>
         <meta charset="UTF-8" />
@@ -23,6 +22,10 @@
                         <li><a href="Produto_Serviço/FormConsultarServico.php">Consultar</a>
                     </ul>
                 </li>
+                <ul>
+                        <li><a href="Clientes/FormCadastrarClientes.html">Cadastrar</a></li>
+                        <li><a href="Clientes/FormConsultarClientes.php">Consultar</a>
+                    </ul>
                 <li><a href="Contato.html">Contato</a></li>
             </ul>
         </nav>
