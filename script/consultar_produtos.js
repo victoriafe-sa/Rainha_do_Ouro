@@ -111,3 +111,13 @@
                 ];
             }
         });
+document.getElementById('advancedFiltersToggle').addEventListener('change', function() {
+    var adv = document.getElementById('advancedFilters');
+    if(this.checked) {
+        adv.classList.remove('hidden');
+        adv.style.height = 'auto';
+    } else {
+        adv.classList.add('hidden');
+        adv.style.height = '0';
+    }
+});
