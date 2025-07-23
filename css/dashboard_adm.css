@@ -300,3 +300,11 @@ h2, h3, ul {
 .card-resumo:nth-child(3)::before {
     background-image: url('https://cdn-icons-png.flaticon.com/512/2921/2921222.png'); /* ícone agendamento */
 }
+.container-dashboard {
+    display: flex;
+    justify-content: center;   /* Centraliza horizontalmente */
+    align-items: center;       /* Centraliza verticalmente */
+    min-height: 80vh;         /* Ocupa a altura total da tela */
+    margin-left: 120px;        /* Espaço da sidebar */
+
+}

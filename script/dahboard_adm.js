@@ -66,3 +66,5 @@ function updateBadgeCounts() {
     if (draftsBadge) draftsBadge.textContent = 10;     // Exemplo
 }
 document.addEventListener('DOMContentLoaded', updateBadgeCounts);
+
+
