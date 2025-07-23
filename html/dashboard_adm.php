@@ -1,3 +1,20 @@
+<?php
+$host = 'localhost';
+$usuario = 'root';
+$senha = '';
+$banco = 'db_rainhadoouro';
+
+$conn = new mysqli($host, $usuario, $senha, $banco);
+
+if ($conn->connect_error) {
+    die("Erro na conexão: " . $conn->connect_error);
+}
+
+// Quantidades:
+$qtd_funcionarios = $conn->query("SELECT COUNT(*) as total FROM tb_funcionarios")->fetch_assoc()['total'];
+$qtd_produtos = $conn->query("SELECT COUNT(*) as total FROM tb_produtos")->fetch_assoc()['total'];
+$qtd_agendamentos = $conn->query("SELECT COUNT(*) as total FROM tb_agendamentos")->fetch_assoc()['total'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,7 +111,22 @@
             </div>
         </div>
     </aside>
-    <div id="conteudo"></div>
+    <div id="conteudo">
+        <div class="resumo-dashboard">
+    <div class="card-resumo">
+      <h3>Funcionários</h3>
+      <p><?= $qtd_funcionarios ?></p>
+    </div>
+    <div class="card-resumo">
+      <h3>Produtos</h3>
+      <p><?= $qtd_produtos ?></p>
+    </div>
+    <div class="card-resumo">
+      <h3>Agendamentos</h3>
+      <p><?= $qtd_agendamentos ?></p>
+    </div>
+  </div>
+    </div>
 
     <script src="../script/dahboard_adm.js"></script>
 </body>
