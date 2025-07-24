@@ -24,8 +24,8 @@
         </nav>
         <div class="icons">
             <a href="#"><img src="../img/lupa.png" alt="Buscar"></a>
-            <a href="../html/carrinho.html"><img src="../img/carrinho.png " alt="Carrinho"></a>
-            <a href=""><img src="../img/perfil.png" alt="Perfil"></a>
+            <a href="../html/carrinho.html"><img src="../img/carrinho.png" alt="Carrinho"></a>
+            <a href="../html/perfil_usuario.html"><img src="../img/perfil.png" alt="Perfil"></a>
         </div>
     </header>
 
@@ -86,7 +86,10 @@
             <div class="productSection">
             <h2>Nossos Produtos</h2>
             <div class="products">
+                
                 <?php
+                include '../conectarbd.php';
+
                 $sql = "SELECT * FROM tb_produtos WHERE ativo = 1";
                 $result = $conn->query($sql);
 
