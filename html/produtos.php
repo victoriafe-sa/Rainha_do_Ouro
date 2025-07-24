@@ -88,6 +88,9 @@
             <div class="products">
                 
                 <?php
+
+                include ("../conectarbd.php");
+                
                 $sql = "SELECT * FROM tb_produtos WHERE ativo = 1";
                 $result = $conn->query($sql);
 
