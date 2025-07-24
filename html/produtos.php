@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos | Rainha do Ouro</title>
-    <link rel="stylesheet" href="../css/produtos.css">
+    <link rel="stylesheet" href="../css/produtos_php.css">
     <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
 </head>
 
@@ -17,8 +17,8 @@
         <nav>
             <ul>
                 <li><a href="../html/pagina_inicial.html">Inicio</a></li>
-                <li><a href="../html/produtos.html">Produtos</a></li>
-                <li><a href="../html/servicos.html">Serviços</a></li>
+                <li><a href="../html/produtos.php">Produtos</a></li>
+                <li><a href="../html/servicos.php">Serviços</a></li>
                 <li><a href="../html/agendamentos.html">Agendamento</a></li>
             </ul>
         </nav>
