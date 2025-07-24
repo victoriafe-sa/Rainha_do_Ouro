@@ -46,7 +46,7 @@ function carregarPagina(caminho) {
             document.getElementById('conteudo').innerHTML = html;
 
             // Injetar JS adicional se necessário
-            if (caminho.includes('cadastro_serv-prod.html')) {
+            if (caminho.includes('../Produto_Serviço/FormCadastrarProduto_Serviço.html')) {
                 const script = document.createElement('script');
                 script.src = '../script/cadastro_serv-prod.js';
                 script.defer = true;
@@ -66,5 +66,6 @@ function updateBadgeCounts() {
     if (draftsBadge) draftsBadge.textContent = 10;     // Exemplo
 }
 document.addEventListener('DOMContentLoaded', updateBadgeCounts);
+
 
 

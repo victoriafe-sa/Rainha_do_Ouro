@@ -131,6 +131,12 @@ body {
     background-color: #4e2f1b;
     transform: scale(1.02);
 }
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* espaço entre os botões */
+  margin-top: 20px;
+}
 
 
 /* Notas adicionais */
