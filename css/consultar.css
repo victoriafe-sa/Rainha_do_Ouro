@@ -142,8 +142,4 @@ a:hover {
     td:nth-of-type(6):before { content: "Ativo"; }
     td:nth-of-type(7):before { content: "Editar"; }
     td:nth-of-type(8):before { content: "Deletar"; }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> gab_of
