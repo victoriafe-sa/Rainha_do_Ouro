@@ -1,19 +1,18 @@
 <?php
-require 'conexao.php';
+require '../conectarbd.php';
 
 if (isset($_POST['nome']) && isset($_FILES['imagem'])) {
-    $nome = $_POST['nome'];
+    $nome = mysqli_real_escape_string($conn, $_POST['nome']);
     $imagem = file_get_contents($_FILES['imagem']['tmp_name']);
+    $imagem = mysqli_real_escape_string($conn, $imagem);
 
-    $stmt = $pdo->prepare("INSERT INTO imagens (nome, imagem) VALUES (:nome, :imagem)");
-    $stmt->bindParam(':nome', $nome);
-    $stmt->bindParam(':imagem', $imagem, PDO::PARAM_LOB);
+    $sql = "INSERT INTO tb_imagens (nome, imagem) VALUES ('$nome', '$imagem')";
 
-    if ($stmt->execute()) {
+    if (mysqli_query($conn, $sql)) {
         echo "Imagem enviada com sucesso!<br>";
-        echo "<a href='../projeto/index.php'>Voltar</a>";
+        echo "<a href='index.php'>Voltar</a>";
     } else {
-        echo "Erro ao enviar imagem.";
+        echo "Erro ao enviar imagem: " . mysqli_error($conn);
     }
 }
 ?>
