@@ -1,6 +1,6 @@
 body {
     font-family: sans-serif;
-    background-color: #f7e4c1; /* Light gray background for the body */
+    background-color: #F8D39C; /* Light gray background for the body */
     display: flex;
     flex-direction: column; /* Arrange content in a column */
     align-items: center; /* Center horizontally */
@@ -142,8 +142,4 @@ a:hover {
     td:nth-of-type(6):before { content: "Ativo"; }
     td:nth-of-type(7):before { content: "Editar"; }
     td:nth-of-type(8):before { content: "Deletar"; }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> gab_of

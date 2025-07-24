@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos | Rainha do Ouro</title>
-    <link rel="stylesheet" href="../css/produtos.css">
+    <link rel="stylesheet" href="../css/produtos_php.css">
     <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
 </head>
 
@@ -17,15 +17,15 @@
         <nav>
             <ul>
                 <li><a href="../html/pagina_inicial.html">Inicio</a></li>
-                <li><a href="../html/produtos.html">Produtos</a></li>
-                <li><a href="../html/servicos.html">Serviços</a></li>
+                <li><a href="../html/produtos.php">Produtos</a></li>
+                <li><a href="../html/servicos.php">Serviços</a></li>
                 <li><a href="../html/agendamentos.html">Agendamento</a></li>
             </ul>
         </nav>
         <div class="icons">
             <a href="#"><img src="../img/lupa.png" alt="Buscar"></a>
-            <a href="../html/carrinho.html"><img src="../img/carrinho.png " alt="Carrinho"></a>
-            <a href=""><img src="../img/perfil.png" alt="Perfil"></a>
+            <a href="../html/carrinho.html"><img src="../img/carrinho.png" alt="Carrinho"></a>
+            <a href="../html/perfil_usuario.html"><img src="../img/perfil.png" alt="Perfil"></a>
         </div>
     </header>
 
@@ -86,16 +86,8 @@
             <div class="productSection">
             <h2>Nossos Produtos</h2>
             <div class="products">
-                <?php
-                $host = 'localhost';
-                $usuario = 'root';
-                $senha = '';
-                $banco = 'db_rainhadoouro';
                 
-                $conn = new mysqli($host, $usuario, $senha, $banco);
-                if ($conn->connect_error) {
-                    die("Erro de conexão: " . $conn->connect_error);
-                }
+                <?php
                 $sql = "SELECT * FROM tb_produtos WHERE ativo = 1";
                 $result = $conn->query($sql);
 
