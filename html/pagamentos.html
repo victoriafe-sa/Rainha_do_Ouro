@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamentos</title>
+    <link rel="stylesheet" href="../css/pagamentos.css">
+</head>
+
+<body class="fade-in">
+    <header>
+        <div class="logo">
+            <img src="../img/logo.png" alt="Rainha do Ouro">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../html/pagina_inicial.html">Inicio</a></li>
+                <li><a href="../html/produtos.html">Produtos</a></li>
+                <li><a href="../html/servicos.html">Serviços</a></li>
+                <li><a href="../html/agendamentos.html">Agendamento</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <a href="#"><img src="../img/lupa.png" alt="Buscar"></a>
+            <a href="../html/carrinho.html"><img src="../img/carrinho.png " alt="Carrinho"></a>
+            <a href=""><img src="../img/perfil.png" alt="Perfil"></a>
+        </div>
+    </header>
+    <div class="form-container">
+        <div class="payment-container">
+            <h1>Formulário de Pagamento</h1>
+            <form action="/processar-pagamento" method="POST" class="payment-form">
+                <div class="form-group">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Ex: João da Silva" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="numero">Número do cartão</label>
+                    <input type="text" id="numero" name="numero" placeholder="1234 5678 9012 3456" pattern="\d{13,19}"
+                        title="Digite entre 13 e 19 números" required />
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="codigo">CVV</label>
+                        <input type="text" id="codigo" name="codigo" placeholder="Ex: 123" pattern="\d{3,4}"
+                            title="Digite 3 ou 4 números" required />
+                    </div>
+
+                    <div class="form-group half">
+                        <label for="validade">Data de validade</label>
+                        <input type="text" id="validade" name="validade" placeholder="MM/AA" required />
+
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-pagar">Finalizar Pagamento</button>
+            </form>
+        </div>
+        <script src="../script/pagamentos.js"></script>
+
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2025 Rainha do Ouro. Todos os direitos reservados.</p>
+                <div class="footer-links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Contato</a>
+                </div>
+            </div>
+        </footer>
+</body>
+
+</html>
+
+</body>
+
+</html>
