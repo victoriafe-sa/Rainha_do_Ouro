@@ -3,12 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Cadastrar Clientes</title>
-    <link rel="stylesheet" href="../css/cadastro_usuario.css" />
+    <title>Cadastro de Clientes | Rainha do Ouro</title>
+    <link rel="stylesheet" href="../css/cadastro.css" />
+    <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
 </head>
 
 <body>
-    
+
     <div class="formulario">
         <h2>Cadastro Clientes</h2>
         <form method="post" action="CadastrarCliente.php" class="form-section">
@@ -67,13 +68,13 @@
                 <label for="estado">Estado:</label>
                 <input type="text" id="estado" name="estado" />
             </div>
-            <div class="form-group full-width">
-                <input type="submit" value="Cadastrar" class="submit-btn">
-                <a href="../index.php">
-                </a>
-            </div>
 
         </form>
+
+        <div class="form-buttons">
+            <button type="submit" class="btn">Cadastrar</button>
+            <button type="button" class="btn" onclick="window.location.href='../index.php'">Cancelar</button>
+        </div>
     </div>
 
 

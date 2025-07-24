@@ -102,25 +102,35 @@ textarea {
 	flex: 1 1 100%;
 }
 
-.submit-btn {
-	display: block;
-	margin: 30px auto 0;
-	padding: 12px 30px;
-	background-color: #4B2E1E;
-	color: white;
-	border: none;
-	border-radius: 25px;
-	font-size: 16px;
-	cursor: pointer;
-}
-
-.submit-btn:hover {
-	background-color: #27170e;
-	transition: 0.3s ease-in-out;
-}
-
 @media (max-width: 768px) {
 	.form-group {
 		flex: 1 1 100%;
 	}
+}
+
+.form-buttons {
+	display: flex;
+	justify-content: center; /* Centraliza os botões lado a lado */
+	gap: 20px;               /* Espaçamento entre os botões */
+	margin-top: 20px;
+}
+
+.btn,
+.btn-primary {
+	width: 200px; /* Tamanho fixo dos botões - pode ajustar conforme preferir */
+	height: 45px;
+	background-color: #643c27;
+	color: #fff;
+	font-weight: bold;
+	border: none;
+	border-radius: 10px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover,
+.btn-primary:hover {
+	background-color: #4e2f1b;
+	transform: scale(1.02);
 }

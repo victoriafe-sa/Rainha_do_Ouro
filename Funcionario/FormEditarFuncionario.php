@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Editar Funcionario</title>
-    <link rel="stylesheet" href="css/estiloforms.css"/>
+    <link rel="stylesheet" href="../css/editar.css"/>
   </head>
 
   <body>
