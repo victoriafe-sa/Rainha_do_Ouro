@@ -113,25 +113,44 @@ $conn->close();
     </div>
 
     <script>
-        function carregarPagina(caminhoPagina, caminhoCss = null) {
-            fetch(caminhoPagina)
-                .then(res => res.text())
-                .then(html => {
-                    document.getElementById('conteudo').innerHTML = html;
+       function carregarPagina(caminhoPagina, caminhoCss = null) {
+    fetch(caminhoPagina)
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById('conteudo').innerHTML = html;
 
-                    if (caminhoCss) {
-                        let cssExistente = document.getElementById('css-dinamico');
-                        if (cssExistente) cssExistente.remove();
+            // CSS dinâmico
+            if (caminhoCss) {
+                let cssExistente = document.getElementById('css-dinamico');
+                if (cssExistente) cssExistente.remove();
 
-                        const linkCss = document.createElement('link');
-                        linkCss.rel = 'stylesheet';
-                        linkCss.href = caminhoCss;
-                        linkCss.id = 'css-dinamico';
-                        document.head.appendChild(linkCss);
-                    }
-                })
-                .catch(err => console.error('Erro ao carregar página:', err));
-        }
+                const linkCss = document.createElement('link');
+                linkCss.rel = 'stylesheet';
+                linkCss.href = caminhoCss;
+                linkCss.id = 'css-dinamico';
+                document.head.appendChild(linkCss);
+            }
+
+            // Carregar script se for o formulário de produtos/serviços
+            if (caminhoPagina.includes('../Produtos_Serviços/FormCadastrarProduto_Serviço.html')) {
+                const script = document.createElement('script');
+                script.src = '../script/formCadastraProduto_Serviço.js';
+                script.defer = true;
+                document.body.appendChild(script);
+            }
+
+            // Carregar gráfico se for a página de vendas (ajuste conforme necessário)
+            if (caminhoPagina.includes('paginaVendas.html')) {
+                carregarGraficoVendas(); // Veja abaixo
+            }
+
+        })
+        .catch(err => {
+            console.error('Erro ao carregar página:', err);
+            document.getElementById('conteudo').innerHTML = "<p>Erro ao carregar a página.</p>";
+        });
+}
+
 
         const ctx = document.getElementById('graficoVendas').getContext('2d');
         const graficoVendas = new Chart(ctx, {
