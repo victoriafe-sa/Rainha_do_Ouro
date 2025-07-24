@@ -49,7 +49,7 @@
                 }
 
                 // CONSULTA OS SERVIÇOS
-                $sql = "SELECT nome, descricao FROM tb_servicos";
+                $sql = "SELECT nome, descricao, duracao_min FROM tb_servicos";
                 $result = $conn->query($sql);
 
                 // EXIBE OS SERVIÇOS
@@ -61,6 +61,7 @@
                             <div class="serv-info">
                                 <h3>' . htmlspecialchars($row["nome"]) . '</h3>
                                 <p>' . htmlspecialchars($row["descricao"]) . '</p>
+                                <p>Duração em minutos: ' . htmlspecialchars($row["duracao_min"]) . 'min</p>
                                 <a href="../html/agendamentos.html">Agendar</a>
                             </div>
                         </div>';
