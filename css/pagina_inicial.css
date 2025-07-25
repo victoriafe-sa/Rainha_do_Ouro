@@ -237,7 +237,6 @@ header {
 
 /* Seção Nossos Profissionais */
 .nossos-profissionais {
-  background-color: #fde0ae;
   text-align: center;
   padding: 45px 20px;
 }
@@ -255,15 +254,116 @@ header {
   flex-wrap: wrap;
 }
 
-.galeria-profissionais img {
-  width: 120px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 100px 100px 0 0; /* Borda superior arredondada */
+.profissional {
+  position: relative;
+  width: 250px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 100px 100px 0 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
 }
 
-.galeria-profissionais img:hover {
+.profissional img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+
+}
+
+.profissional:hover img {
   transform: scale(1.05);
+}
+
+.profissional .info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(33, 33, 33, 0.85);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.4s ease;
+  padding: 10px;
+  text-align: center;
+}
+
+.profissional:hover .info {
+  opacity: 1;
+}
+
+.profissional .info h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.profissional .info p {
+  font-size: 14px;
+}
+/*Avaliações --------------------------------------------------------------------*/
+.avaliacoes {
+  background-color: #d49e68;
+  padding: 20px ;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  margin: 40px;
+  border-radius: 20px;
+}
+
+.avaliacoes h2 {
+  font-size: 32px;
+}
+
+.avaliacao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  gap: 40px;
+  text-align: left;
+  flex-wrap: wrap;
+}
+
+.avaliacao blockquote {
+  border-left: 4px solid #333;
+  padding-left: 20px;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+.avaliacao footer {
+  margin-top: 15px;
+  font-size: 16px;
+  font-style: normal;
+  color: #333;
+}
+
+.estrelas {
+  color: #ffce00; /* Dourado */
+  font-size: 20px;
+}
+
+.avaliacao cite {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.foto-usuario img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
