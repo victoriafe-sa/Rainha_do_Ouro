@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rainha do Ouro - Profissionais</title>
   <link rel="stylesheet" href="../css/pagina_inicial.css">
+  <link rel="stylesheet" href="../script/pg.js">
+
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet"><!---->
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
@@ -33,9 +35,22 @@
   </header>
 
   <!-- Carrossel -->
-  <section class="carrossel">
-    <h1>CARROSSEL</h1>
-  </section>
+
+ <section class="carrossel">
+  <div class="slides">
+    <img src="../img/cabeleira.jpg" alt="Slide 1">
+    <img src="../img/produtos.jpeg" alt="Slide 2">
+    <img src="../img/proff.jpg" alt="Slide 3">
+    <img src="../img/trancista.jpeg" alt="Slide 4">
+  </div>
+
+  <!-- Botões de navegação -->
+  <button class="seta esquerda">&#10094;</button>
+  <button class="seta direita">&#10095;</button>
+</section>
+
+
+
 
   <!-- Boas-vindas -->
   <section class="boas-vindas">
@@ -76,35 +91,41 @@
 
   <!-- Lançamentos -->
   <section class="lancamentos">
-    <h2>Lançamentos</h2>
-
+    <h2 class="titulo-secao">Lançamentos</h2>
     <div class="produtos">
       <div class="produto">
         <img src="../img/lola.png" alt="Kit Meu Cacho Minha Vida - Lola">
         <h4>Kit Meu Cacho Minha Vida - Lola</h4>
-        <p>R$ 99,99</p>
+        <p><del>R$150,00</del></p> <p class="valor" >R$ 99,99</p>
+        <p>10x de 9,99</p>
         <button class="compra">Comprar</button>
       </div>
 
       <div class="produto">
         <img src="../img/salon line.png" alt="Kit Melancia Kids - Salon Line">
         <h4>Kit Melancia Kids - Salon Line</h4>
-        <p>R$ 129,99</p>
+       <p><del>R$200,00</del></p>
+        <p class="valor">R$ 129,99</p>
+        <p>10x de 12,99</p>
         <button class="compra">Comprar</button>
       </div>
 
      
       <div class="produto">      
         <img src="../img/juba.png" alt="Kit Juba - Widi Care">
-        <h4>Kit Juba - Widi Care</h4>
-        <p>R$ 99,99</p>
+        <h4>Kit Juba - <br>Widi Care</h4>
+         <p><del>R$250,00</del></p>
+        <p class="valor">R$ 200,00</p>
+        <p>10x de 20,00</p>
         <button class="compra">Comprar</button>
       </div>
   
   <div class="produto">   
     <img src="../img/apse.png" alt="Kit Crespo Power - Aeg">
-    <h4>Kit Crespo Power - Aeg</h4>
-    <p>R$ 99,99</p>
+    <h4>Kit Crespo Power - <br>Aeg</h4>
+     <p><del>R$350,00</del></p>
+    <p class="valor">R$ 250,00</p>
+    <p>10x de 25,00</p>
     <button class="compra">Comprar</button>
   </div>
 </section>
@@ -112,7 +133,7 @@
 
   <!-- Seção Nossos Profissionais -->
  <section class="nossos-profissionais">
-  <h2>Nossos Profissionais</h2>
+  <h2 class="titulo-secao">Nossos Profissionais</h2>
   <div class="galeria-profissionais">
 
     <div class="profissional">
@@ -161,11 +182,11 @@
 
   <!-- Seção Avaliações -->
   <section class="avaliacoes">
-    <h2>Avaliações</h2>
+    <h2 class="titulo-secao">Avaliações</h2>
     <div class="avaliacao">
       <blockquote>
         <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra ipsum ac velit pellentesque, ut feugiat orci dictum. Fusce vel posuere ex. Class aptent taciti."</p>
-        <footer>
+        <footer id="ava">
           <span class="estrelas">★★★★★</span> - <cite>Juliana Paes</cite>
         </footer>
       </blockquote>
@@ -177,42 +198,42 @@
 
   <!-- Seção Nossos Espaço -->
   <section class="nosso-espaco">
-    <h2>Nossos Espaço</h2>
+    <h2 class="titulo-secao">Nossos Espaço</h2>
     <div class="carrossel-fotos">
       <p>carrossel de fotos</p>
     </div>
   </section>
 
   <!-- Rodapé -->
-  <footer>
-    <div class="footer-content">
-      <div class="logo-footer">
-        <img src="logo-footer.png" alt="Rainha do Ouro">
+<footer class="site-footer">
+  <div class="footer-content">
+
+    <!-- Logo alinhada à esquerda -->
+    <div class="footer-esquerda">
+      <img src="../img/logo.png" alt="Rainha do Ouro" class="logo-footer">
+    </div>
+
+    <!-- Texto e ícones centralizados -->
+    <div class="info-footer">
+      <p>&copy; 2025 Rainha do Ouro. Todos os direitos reservados.</p>
+
+      <div class="footer-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Contato</a>
       </div>
-      <div class="informacoes-footer">
-        <div class="info">
-          <h4>Endereço</h4>
-          <p>Rua Comercial 45<br>Quadra 08 Bloco A Lojas 12/16</p>
-        </div>
-        <div class="info">
-          <h4>Contato</h4>
-          <p>(00) 99999-9999<br>rainhadoouroafro@gmail.com</p>
-        </div>
-        <div class="info">
-          <h4>Horário</h4>
-          <p>Seg - Sáb: 08h - 19h</p>
-        </div>
-        <div class="info">
-          <h4>Institucional</h4>
-          <p>Sobre nós<br>Política de Privacidade<br>Termos e Condições</p>
-        </div>
+
+      <div class="redes-sociais">
+        <a href="#"><img src="../img/instagram-icon.png" alt="Instagram"></a>
+        <a href="#"><img src="../img/facebook-icon.png" alt="Facebook"></a>
+        <a href="#"><img src="../img/x-icon.png" alt="X"></a>
       </div>
     </div>
-    <div class="redes-sociais">
-      <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
-      <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
-    </div>
-  </footer>
+
+  </div>
+</footer>
+
+
 
 </body>
 </html>
