@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rainha do Ouro - Profissionais</title>
   <link rel="stylesheet" href="../css/pagina_inicial.css">
+  <link rel="stylesheet" href="../script/pg.js">
+
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet"><!---->
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
@@ -27,15 +29,28 @@
     <div class="icons">
       <a href="#"><img src="../img/lupa.png" alt="Buscar"></a>
       <a href="#"><img src="../img/carrinho.png "alt="Carrinho"></a>
-      <a href="../html/user_login.html" id="login_cadastro"><img src="../img/perfil.png" alt="Perfil"></a>
+      <a href="#"><img src="../img/perfil.png" alt="Perfil"></a>
     
     </div>
   </header>
 
   <!-- Carrossel -->
-  <section class="carrossel">
-    <h1>CARROSSEL</h1>
-  </section>
+
+ <section class="carrossel">
+  <div class="slides">
+    <img src="../img/cabeleira.jpg" alt="Slide 1">
+    <img src="../img/produtos.jpeg" alt="Slide 2">
+    <img src="../img/proff.jpg" alt="Slide 3">
+    <img src="../img/trancista.jpeg" alt="Slide 4">
+  </div>
+
+  <!-- Botões de navegação -->
+  <button class="seta esquerda">&#10094;</button>
+  <button class="seta direita">&#10095;</button>
+</section>
+
+
+
 
   <!-- Boas-vindas -->
   <section class="boas-vindas">
@@ -76,95 +91,149 @@
 
   <!-- Lançamentos -->
   <section class="lancamentos">
-    <h2>Lançamentos</h2>
-
+    <h2 class="titulo-secao">Lançamentos</h2>
     <div class="produtos">
       <div class="produto">
         <img src="../img/lola.png" alt="Kit Meu Cacho Minha Vida - Lola">
         <h4>Kit Meu Cacho Minha Vida - Lola</h4>
-        <p>R$ 99,99</p>
+        <p><del>R$150,00</del></p> <p class="valor" >R$ 99,99</p>
+        <p>10x de 9,99</p>
         <button class="compra">Comprar</button>
       </div>
 
       <div class="produto">
         <img src="../img/salon line.png" alt="Kit Melancia Kids - Salon Line">
         <h4>Kit Melancia Kids - Salon Line</h4>
-        <p>R$ 129,99</p>
+       <p><del>R$200,00</del></p>
+        <p class="valor">R$ 129,99</p>
+        <p>10x de 12,99</p>
         <button class="compra">Comprar</button>
       </div>
 
      
       <div class="produto">      
         <img src="../img/juba.png" alt="Kit Juba - Widi Care">
-        <h4>Kit Juba - Widi Care</h4>
-        <p>R$ 99,99</p>
+        <h4>Kit Juba - <br>Widi Care</h4>
+         <p><del>R$250,00</del></p>
+        <p class="valor">R$ 200,00</p>
+        <p>10x de 20,00</p>
         <button class="compra">Comprar</button>
       </div>
   
   <div class="produto">   
     <img src="../img/apse.png" alt="Kit Crespo Power - Aeg">
-    <h4>Kit Crespo Power - Aeg</h4>
-    <p>R$ 99,99</p>
+    <h4>Kit Crespo Power - <br>Aeg</h4>
+     <p><del>R$350,00</del></p>
+    <p class="valor">R$ 250,00</p>
+    <p>10x de 25,00</p>
     <button class="compra">Comprar</button>
   </div>
 </section>
 
 
   <!-- Seção Nossos Profissionais -->
-  <section class="nossos-profissionais">
-    <h2>Nossos Profissionais</h2>
-    <div class="galeria-profissionais">
-      <img src="../img/Trancista.jpg" alt="Profissional">
-      <img src="../img/corte.jpg" alt="Profissional">
-      <img src="../img/corte2.jpg" alt="Profissional">
-      <img src="profissional4.png" alt="Profissional">
-      <img src="profissional5.png" alt="Profissional">
+ <section class="nossos-profissionais">
+  <h2 class="titulo-secao">Nossos Profissionais</h2>
+  <div class="galeria-profissionais">
+
+    <div class="profissional">
+      <img src="../img/jumboprof.jpg" alt="Rafaela Costa">
+      <div class="info">
+        <h3>Rafaela Costa</h3>
+        <p>Tranças Afro</p>
+      </div>
     </div>
-  </section>
+
+    <div class="profissional">
+      <img src="../img/proff.jpg" alt="Joana Lima">
+      <div class="info">
+        <h3>João Lima</h3>
+        <p>Barbearia & Cortes</p>
+      </div>
+    </div>
+
+    <div class="profissional">
+      <img src="../img/cabeleira.jpg" alt="Camila Rosa">
+      <div class="info">
+        <h3>Camila Rosa</h3>
+        <p>Coloração e Mechas</p>
+      </div>
+    </div>
+
+    <div class="profissional">
+      <img src="../img/mascu.png" alt="Bianca Luz">
+      <div class="info">
+        <h3>Breno Santos</h3>
+        <p>Tratamento Capilar</p>
+      </div>
+    </div>
+
+    <div class="profissional">
+      <img src="../img/corteprof.jpg" alt="Lívia Santana">
+      <div class="info">
+        <h3>Lívia Santana</h3>
+        <p>Cortes Femininos</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
   <!-- Seção Avaliações -->
   <section class="avaliacoes">
-    <h2>Avaliações</h2>
+    <h2 class="titulo-secao">Avaliações</h2>
     <div class="avaliacao">
       <blockquote>
         <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra ipsum ac velit pellentesque, ut feugiat orci dictum. Fusce vel posuere ex. Class aptent taciti."</p>
-        <footer>
+        <footer id="ava">
           <span class="estrelas">★★★★★</span> - <cite>Juliana Paes</cite>
         </footer>
       </blockquote>
       <div class="foto-usuario">
-        <img src="user-avatar.png" alt="Usuário">
+        <img src="../img/perfilava.jpg" alt="Usuário">
       </div>
     </div>
   </section>
 
   <!-- Seção Nossos Espaço -->
   <section class="nosso-espaco">
-    <h2>Nossos Espaço</h2>
+    <h2 class="titulo-secao">Nossos Espaço</h2>
     <div class="carrossel-fotos">
       <p>carrossel de fotos</p>
     </div>
   </section>
 
   <!-- Rodapé -->
-  <footer>
-    <div class="footer-content">
-      <div class="logo-footer">
-        <img src="logo-footer.png" alt="Rainha do Ouro">
-      </div>
-        <div class="footer-content">
-            <p>&copy; 2025 Rainha do Ouro. Todos os direitos reservados.</p>
-            <div class="footer-links">
-                <a href="#">Política de Privacidade</a>
-                <a href="#">Termos de Uso</a>
-                <a href="#">Contato</a>
-            </div>
-        </div>
-    <div class="redes-sociais">
-      <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
-      <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+<footer class="site-footer">
+  <div class="footer-content">
+
+    <!-- Logo alinhada à esquerda -->
+    <div class="footer-esquerda">
+      <img src="../img/logo.png" alt="Rainha do Ouro" class="logo-footer">
     </div>
-  </footer>
+
+    <!-- Texto e ícones centralizados -->
+    <div class="info-footer">
+      <p>&copy; 2025 Rainha do Ouro. Todos os direitos reservados.</p>
+
+      <div class="footer-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Contato</a>
+      </div>
+
+      <div class="redes-sociais">
+        <a href="#"><img src="../img/instagram-icon.png" alt="Instagram"></a>
+        <a href="#"><img src="../img/facebook-icon.png" alt="Facebook"></a>
+        <a href="#"><img src="../img/x-icon.png" alt="X"></a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
 
 </body>
 </html>
