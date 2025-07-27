@@ -1,4 +1,6 @@
 <?php
+// Baixar a biblioteca: 'composer require phpmailer/phpmailer'
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 

@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+  --marrom-escuro: #4B2E1E;
+  --marrom-claro: #e6c8b1;
+  --dourado-claro: #FFC72C;
+  --dourado-escuro: #F8B61F;
+  --branco: #fff9f3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif;
+  background-color: var(--marrom-claro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.screen-1 {
+  background-color: white;
+  padding: 60px 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+}
+
+.screen-1 img {
+  width: 200px;
+  margin-bottom: 0px;
+}
+
+.email, .password {
+  margin-top: 10px;
+  text-align: left;
+}
+
+label {
+  font-weight: 700;
+  color: var(--marrom-escuro);
+  font-size: 18px;
+}
+
+.sec-2 {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--marrom-claro);
+  border-radius: 10px;
+  padding: 9px 1px;
+  margin-top: 2px;
+  background-color: #f8f4f2;
+}
+
+.sec-2 ion-icon {
+  color: var(--marrom-escuro);
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+input {
+  border: none;
+  background: transparent;
+  outline: none;
+  flex: 1;
+  font-size: 15px;
+  color: var(--marrom-escuro);
+}
+
+input::placeholder {
+  color: #999;
+}
+
+.show-hide {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.login {
+  margin-top: 25px;
+  background-color: var(--dourado-claro);
+  color: var(--marrom-escuro);
+  font-weight: bold;
+  border: none;
+  padding: 10px;
+  width: 60%;
+  border-radius: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login:hover {
+  background-color: var(--dourado-escuro);
+}
+
+.footer {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--marrom-claro);
+}
+
+.footer span {
+  cursor: pointer;
+  transition: color 0. 3s;
+}
+
+.footer span:hover {
+  color: var(--dourado-escuro);
+}
