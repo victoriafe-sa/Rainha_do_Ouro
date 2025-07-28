@@ -21,7 +21,6 @@
      
           <h1>Alterar Funcionario</h1>
      
-<!esta linha cria um campo oculto para passar o id_evento, pois senão ao clicar em Salvar o código não saberá onde salvar.-->
 <input type="hidden" name="id" value="<?=$campo["id_funcionarios"]?>"> 
 
 <label>Nome completo</label><br> 

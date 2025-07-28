@@ -94,13 +94,13 @@ $conn->close();
                     </div>
                 </div>
                 <nav>
-                    <button onclick="carregarPagina('cadastro_serv-prod.html')">
+                    <button onclick="carregarPagina('FormCadastrarProduto_Serviço.html')">
                         <i class="ai-shipping-box-v1"></i>
                         <span class="tst">Cadastrar Produtos</span>
                     </button>
                     <button onclick="carregarPagina('FormCadastrarFuncionario.html')">
                         <i class="ai-person"></i>
-                        <span class="tst">Cadastrar Gerente</span>
+                        <span class="tst">Cadastrar Funcionario</span>
                     </button>
                 </nav>
             </div>
@@ -132,7 +132,9 @@ $conn->close();
         </section>
     </div>
 
-    <script src="../script/dahboard_adm.js"></script>
+    <script src="../script/dashboard_adm.js"></script>
+    <script src="../script/funcionario_cadastro.js"></script>
+    <script src="../script/cad_prod_serv.js"></script>
 
     <script>
         // Seleciona o canvas para o gráfico
@@ -189,6 +191,8 @@ $conn->close();
                     document.getElementById('conteudo').innerHTML = "<p>Erro ao carregar a página.</p>";
                 });
         }
+
+        
     </script>
 </body>
 

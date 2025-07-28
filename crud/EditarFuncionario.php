@@ -47,7 +47,7 @@ $observacoes = filter_input(INPUT_POST, 'observacoes');
   pis='$pis',
   status='$status',
   observacoes='$observacoes' WHERE id_funcionarios=$recid")) {
-    echo "<script>alert('Dados alterado com sucesso!'); window.location = 'FormConsultarFuncionario.php';</script>";
+    echo "<script>alert('Dados alterado com sucesso!'); window.location = '../crud/FormConsultarFuncionario.php';</script>";
   }else {
     echo "Não foi possível alterar os dados no Banco de Dados" . $recid . "<br>" . mysqli_error($conn);
   }

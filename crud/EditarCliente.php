@@ -18,7 +18,7 @@ $recativo = filter_input(type: INPUT_POST, var_name: 'ativo');
 
   if(mysqli_query($conn, "UPDATE tb_clientes SET nome='$recnome', telefone='$rectelefone', data_nascimento='$recdata_nascimento', email='$recemail', senha='$recsenha', 
   cep='$reccep',  rua='$recrua', numero='$recnumero', bairro='$recbairro', cidade='$reccidade', estado='$recestado', data_cadastro='$recdata_cadastro', ativo='$recativo' WHERE id_clientes=$recid")) {
-    echo "<script>alert('Dados alterado com sucesso!'); window.location = 'FormConsultarClientes.php';</script>";
+    echo "<script>alert('Dados alterado com sucesso!'); window.location = '../crud/FormConsultarClientes.php';</script>";
   }else {
     echo "Não foi possível alterar os dados no Banco de Dados" . $recid . "<br>" . mysqli_error($conn);
   }

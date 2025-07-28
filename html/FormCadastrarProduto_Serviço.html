@@ -19,7 +19,7 @@
 
         <!-- SERVIÇOS -->
         <div class="tab-content active" id="services">
-            <form class="form-container" method="post" action="CadastrarServico.php">
+            <form class="form-container" method="post" action="../crud/CadastrarServico.php">
                 <div class="form-group">
                     <label for="nome" class="form-label">Nome do Serviço:</label>
                     <input type="text" class="form-input" id="nome_servico" name="nome" placeholder="Serviço"
@@ -50,7 +50,7 @@
 
         <!-- PRODUTOS -->
         <div class="tab-content" id="products">
-            <form class="form-container" method="post" action="CadastrarProduto.php">
+            <form class="form-container" method="post" action="../crud/CadastrarProduto.php">
                 <div class="form-group">
                     <label for="nome_prod" class="form-label">Nome do Produto:</label>
                     <input type="text" name="nome" id="nome_prod" class="form-input" placeholder="Nome do Produto"
@@ -91,25 +91,7 @@
         </div>
     </div>
 
-    <script>
-        const tabs = document.querySelectorAll('.tab-btn');
-        const contents = document.querySelectorAll('.tab-content');
-
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Remove a classe 'active' de todos os botões e conteúdos
-                tabs.forEach(btn => btn.classList.remove('active'));
-                contents.forEach(content => content.classList.remove('active'));
-
-                // Adiciona a classe 'active' ao botão clicado e ao conteúdo correspondente
-                tab.classList.add('active');
-                const activeContent = document.getElementById(tab.dataset.tab);
-                if (activeContent) {
-                    activeContent.classList.add('active');
-                }
-            });
-        });
-    </script>
+    <script src="../script/cad_prod_serv.js"></script>
 </body>
 
 </html>

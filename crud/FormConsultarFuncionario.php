@@ -54,7 +54,7 @@
                             <td align="center"><?=$campo["cidade"]?></td>
                             <td align="center"><?=$campo["estado"]?></td>
                             <td align="center"><?=$campo["cargo"]?></td>
-                            <td align="center"><?=$campo["data_admissao"]?></td>
+                            <td align="center"><?=$campo["data_cadastro"]?></td>
                             <td align="center"><?=$campo["horario_trabalho"]?></td>
                             <td align="center"><?=$campo["salario"]?></td>
                             <td align="center"><?=$campo["tipo_contrato"]?></td>

@@ -9,7 +9,7 @@ $reccategoria= filter_input(INPUT_POST, 'categoria');
 $recativo= filter_input(INPUT_POST, 'ativo');
 
   if(mysqli_query($conn, "UPDATE tb_produtos SET nome='$recnome', descricao='$recdescricao',preco_venda='$recpreco_venda',categoria='$reccategoria',ativo='$recativo'  WHERE id_produtos=$recid")) {
-    echo "<script>alert('Dados alterado com sucesso!'); window.location = 'FormConsultarProduto.php';</script>";
+    echo "<script>alert('Dados alterado com sucesso!'); window.location = '../crud/FormConsultarProduto.php';</script>";
    }else {
     echo "Não foi possível alterar os dados no Banco de Dados" . $recid . "<br>" . mysqli_error($conn);
   }
