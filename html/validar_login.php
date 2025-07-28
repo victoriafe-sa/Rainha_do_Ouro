@@ -28,7 +28,7 @@ if ($result->num_rows === 1) {
 //Codigo novo para permissão de login cod antigo a cima//
 
 session_start();
-require 'conexao.php'; // este arquivo deve conectar ao banco `db_rainhadoouro`
+require '../conectarbd.php'; // este arquivo deve conectar ao banco `db_rainhadoouro`
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitiza os dados recebidos do formulário
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Busca o usuário pelo e-mail
-    $sql = "SELECT * FROM tb_usuarios_login WHERE email = ? AND ativo = 1";
+    $sql = "SELECT * FROM tb_login_gerencia WHERE email = ? AND ativo = 1";
     $stmt = $conn->prepare($sql);
     if (!$stmt) {
         echo "Erro na preparação da consulta.";

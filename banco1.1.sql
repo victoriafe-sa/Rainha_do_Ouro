@@ -254,7 +254,14 @@ CREATE TABLE IF NOT EXISTS `tb_historico_pagamentos` (
   FOREIGN KEY (`tb_pagamentos_id_pagamentos`) REFERENCES `tb_pagamentos` (`id_pagamentos`) ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
-
+-- TABELA DE LOGIN DE GERÊNCIA
+CREATE TABLE IF NOT EXISTS `tb_login_gerencia` (
+  `id_login` INT AUTO_INCREMENT PRIMARY KEY,
+  `id_funcionario` INT NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `senha` VARCHAR(255) NOT NULL,
+  FOREIGN KEY (`id_funcionario`) REFERENCES `tb_funcionarios`(`id_funcionarios`)
+) ENGINE = InnoDB;
 
 UPDATE tb_estoque
 SET quantidade = 5,
