@@ -6,6 +6,7 @@
         <meta charset="UTF-8">
         <title>Editar Serviço</title>
         <link rel="stylesheet" href="../css/editar.css"/>
+        <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
     </head>
 
     <body>
@@ -19,7 +20,7 @@
         <div class="formulario">
             <form method="post" action="EditarServico.php">
 
-                <h1>Alterar Serviço</h1>
+                <h1>Editar Serviço</h1>
 
                 <!--esta linha cria um campo oculto para passar o id_cliente, pois senão ao clicar em Salvar o código não saberá onde salvar.-->
                 <input type="hidden" name="id" value="<?= $campo["id_servicos"] ?>"> 

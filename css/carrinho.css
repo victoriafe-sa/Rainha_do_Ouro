@@ -259,6 +259,22 @@ main {
     background-color: #3a210f;
 }
 
+.remove-item {
+    margin-top: 10px;
+}
+
+.remove-item button {
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.remove-item button:hover {
+    background-color: #c9302c;
+}
 
 
 footer {

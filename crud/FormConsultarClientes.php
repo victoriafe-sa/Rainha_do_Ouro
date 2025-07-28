@@ -4,11 +4,11 @@
         <meta charset="UTF-8">
         <title>Consultar Clientes</title>
         <link type="text/css" rel="stylesheet" href="../css/consultar.css">
-    
+        <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
     </head>
 
      <body>
-                <h1>Consultar Clientes Cadastrados</h1>
+                <h1>Clientes Cadastrados</h1>
                 <table
                    width="100%"
                    border="1" 

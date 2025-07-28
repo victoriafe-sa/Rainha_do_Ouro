@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Editar Clientes</title>
     <link rel="stylesheet" href="../css/editar.css"/>
+    <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
 </head>
 
 <body>
@@ -17,7 +18,7 @@
 
     <div class="payment-tabs">
         <div class="form-container">
-            <h1>Alterar Clientes</h1>
+            <h1>Editar Clientes</h1>
             <form method="post" action="EditarCliente.php">
                 <input type="hidden" name="id" value="<?=$campo["id_clientes"]?>">
 

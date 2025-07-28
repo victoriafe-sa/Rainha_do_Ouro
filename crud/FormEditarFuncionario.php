@@ -4,8 +4,9 @@
 
   <head>
     <meta charset="UTF-8">
-    <title>Editar Funcionario</title>
+    <title>Editar Funcionário</title>
     <link rel="stylesheet" href="../css/editar.css"/>
+    <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
   </head>
 
   <body>
@@ -19,7 +20,7 @@
     <div class="formulario">
       <form method="post" action="EditarFuncionario.php">
      
-          <h1>Alterar Funcionario</h1>
+          <h1>Editar Funcionário</h1>
      
 <input type="hidden" name="id" value="<?=$campo["id_funcionarios"]?>"> 
 
