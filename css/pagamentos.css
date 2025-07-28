@@ -7,6 +7,52 @@ body {
   color: #4B2E1E;
 }
 
+header {
+  background-color: #4B2C1A;
+  color: #F7E1A0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 5px solid #F0B429;
+  padding: 6px 20px;
+  height: 80px;
+}
+
+header .logo img {
+  height: 150px;
+  margin-left: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #F7E1A0;
+  font-family: 'Georgia', serif;
+  font-size: 22px;
+}
+
+header .icons {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+  margin-right: 20px;
+}
+
+header .icons a img {
+  width: 28px;
+  height: 30px;
+}
+
+header .icons a:last-child img {
+  width: 42px;
+  height: 40px;
+}
+
 /* Animação de entrada */
 @keyframes fade {
   from {

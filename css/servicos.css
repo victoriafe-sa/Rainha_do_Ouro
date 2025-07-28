@@ -1,0 +1,189 @@
+/* Estilização geral para fontes */
+body {
+    margin: 0;
+    background-color: #F8D39C;
+}
+
+/*==============HEADER============*/
+header {
+    background-color: #4B2C1A;
+    color: #F7E1A0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 5px solid #F0B429;
+    padding: 6px 20px;
+    height: 80px;
+}
+
+header .logo img {
+    height: 150px;
+    margin-left: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #F7E1A0;
+    font-family: 'Georgia', serif;
+    font-size: 22px;
+}
+
+header .icons {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    margin-right: 20px;
+}
+
+header .icons a img {
+    width: 28px;
+    height: 30px;
+}
+
+header .icons a:last-child img {
+    width: 42px;
+    height: 40px;
+}
+
+.mainSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3em;
+}
+
+
+/*VIDEO DE ANUNCIO */
+.anuncio_mpR {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.anuncio_mpR video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* AREA DOS SERVIÇOS*/
+/* Container dos cards */
+.servicos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 30px;
+    padding: 40px;
+    margin-top: 50px;
+}
+
+/* Estilo de cada card */
+.serv-card {
+    background-color: #fff7ea;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    transition: transform 0.3s;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 50px;
+}
+
+.serv-card:hover {
+    transform: scale(1.02);
+}
+
+/* Imagem ocupa metade do card */
+.serv-card img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+}
+
+/* Parte inferior com info centralizada */
+.serv-info {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    text-align: center;
+    font-family: 'Georgia', serif;
+}
+
+.serv-info h3 {
+    margin: 10px 0 5px;
+    color: #4B2C1A;
+    font-size: 22px;
+}
+
+.serv-info p {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.serv-info a {
+    background-color: #F0B429;
+    color: #fff;
+    padding: 8px 18px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.serv-info a:hover {
+    background-color: #d89f1d;
+}
+
+
+/* ============FOOTER============*/
+footer {
+    width: 100%;
+    background-color: #4B2C1A;
+    color: #F7E1A0;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+    border-top: 4px solid #F0B429;
+    font-family: 'Georgia', serif;
+}
+
+
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #F7E1A0;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}

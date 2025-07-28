@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil | Rainha do Ouro</title>
+    <link rel="stylesheet" href="../css/perfil_usuario.css">
+    <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="../img/logo.png" alt="Rainha do Ouro">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../html/pagina_inicial.html">Inicio</a></li>
+                <li><a href="../html/produtos.php">Produtos</a></li>
+                <li><a href="../html/servicos.php">Serviços</a></li>
+                <li><a href="../html/agendamentos.html">Agendamento</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <a href="#"><img src="../img/lupa.png" alt="Buscar"></a>
+            <a href="../html/carrinho.html"><img src="../img/carrinho.png" alt="Carrinho"></a>
+            <a href="../html/perfil_usuario.html"><img src="../img/perfil.png" alt="Perfil"></a>
+        </div>
+    </header>
+
+    <main class="profile-container">
+        <h1>Meu Perfil</h1>
+
+        <section class="profile-section">
+            <h2>Meus Dados</h2>
+            <form class="profile-form">
+                <label>Nome Completo:</label>
+                <input type="text" value="Maria da Silva">
+                <label>Email:</label>
+                <input type="email" value="maria@example.com">
+                <label>Telefone:</label>
+                <input type="text" value="(11) 99999-9999">
+                <label>CEP:</label>
+                <input type="text" value="12345-678">
+                <button type="submit">Salvar Alterações</button>
+            </form>
+        </section>
+
+        <section class="profile-section">
+            <h2>Meus Pedidos</h2>
+            <ul class="orders-list">
+                <li>
+                    Pedido #2024 - Shampoo e Máscara de Hidratação - Entregue
+                    <div class="actions">
+                        <button class="edit-btn">Editar</button>
+                        <button class="cancel-btn">Cancelar</button>
+                    </div>
+                </li>
+                <li>
+                    Pedido #2023 - Kit Cabelos Loiros - Em andamento
+                    <div class="actions">
+                        <button class="edit-btn">Editar</button>
+                        <button class="cancel-btn">Cancelar</button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="profile-section">
+            <h2>Meus Agendamentos</h2>
+            <ul class="appointments-list">
+                <li>
+                    25/06/2025 - 14:00 - Corte e Hidratação
+                    <div class="actions">
+                        <button class="edit-btn">Editar</button>
+                        <button class="cancel-btn">Cancelar</button>
+                    </div>
+                </li>
+                <li>
+                    10/07/2025 - 16:00 - Escova e Nutrição
+                    <div class="actions">
+                        <button class="edit-btn">Editar</button>
+                        <button class="cancel-btn">Cancelar</button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Rainha do Ouro. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Uso</a>
+                <a href="#">Contato</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

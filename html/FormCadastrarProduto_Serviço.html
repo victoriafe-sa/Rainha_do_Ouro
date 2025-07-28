@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!--MUDANÇA DE CONTAINER NÃO FUNCIONA NO DASHBOARD-->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Serviços e Produtos | Rainha do Ouro</title>
+    <link rel="stylesheet" href="../css/cadastro_serv-prod.css">
+    <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
+
+</head>
+
+<body>
+    <div class="payment-tabs">
+        <div class="tab-header">
+            <button class="tab-btn active" data-tab="services">Serviços</button>
+            <button class="tab-btn" data-tab="products">Produtos</button>
+        </div>
+
+        <!-- SERVIÇOS -->
+        <div class="tab-content active" id="services">
+            <form class="form-container" method="post" action="../crud/CadastrarServico.php">
+                <div class="form-group">
+                    <label for="nome" class="form-label">Nome do Serviço:</label>
+                    <input type="text" class="form-input" id="nome_servico" name="nome" placeholder="Serviço"
+                        required />
+                </div>
+                <div class="form-group">
+                    <label for="descricao" class="form-label">Descrição:</label>
+                    <input type="text" class="form-input" id="descricao_servico" name="descricao"
+                        placeholder="Descrição" required />
+                </div>
+                <div class="form-group">
+                    <label for="duracao_min" class="form-label">Duração:</label>
+                    <input type="text" class="form-input" id="duracao_servico" name="duracao_min" placeholder="Duração"
+                        required />
+                </div>
+                <div class="form-group">
+                    <label for="preco" class="form-label">Preço:</label>
+                    <input type="number" class="form-input" id="preco" name="preco" placeholder="Valor" required />
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn">Cadastrar</button>
+                    <button type="button" class="btn" onclick="window.location.href='../index.php'">Cancelar</button>
+                </div>
+
+
+            </form>
+        </div>
+
+        <!-- PRODUTOS -->
+        <div class="tab-content" id="products">
+            <form class="form-container" method="post" action="../crud/CadastrarProduto.php">
+                <div class="form-group">
+                    <label for="nome_prod" class="form-label">Nome do Produto:</label>
+                    <input type="text" name="nome" id="nome_prod" class="form-input" placeholder="Nome do Produto"
+                        required />
+                </div>
+                <div class="form-group">
+                    <label for="descricao_prod" class="form-label">Descrição:</label>
+                    <input type="text" name="descricao" id="descricao_prod" class="form-input" placeholder="Descrição"
+                        required />
+                </div>
+                <div class="form-group">
+                    <label for="preco_venda" class="form-label">Preço:</label>
+                    <input type="number" name="preco_venda" id="preco_venda" class="form-input" placeholder="Preço"
+                        required />
+                </div>
+                <div class="form-group">
+                    <label for="categoria_prod" class="form-label">Categoria:</label>
+                    <input type="text" name="categoria" id="categoria_prod" class="form-input" placeholder="Categoria"
+                        required />
+                </div>
+                <div class="form-group">
+                    <label for="fornecedor" class="form-label">Fornecedor:</label>
+                    <input type="text" name="fornecedor" id="fornecedor" class="form-input" placeholder="Fornecedor"
+                        required />
+                </div>
+                <div class="form-group">
+                    <label for="estoque" class="form-label">Estoque:</label>
+                    <input type="number" name="estoque" id="estoque" class="form-input" placeholder="Estoque"
+                        required />
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn">Cadastrar</button>
+                    <button type="button" class="btn" onclick="window.location.href='../index.php'">Cancelar</button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+    <script src="../script/cad_prod_serv.js"></script>
+</body>
+
+</html>
