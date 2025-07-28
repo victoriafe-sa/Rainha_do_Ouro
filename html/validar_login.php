@@ -1,4 +1,6 @@
 <?php
+// SERVE PARA VERIFICAR O LOGIN DOS ADMS
+
 /*session_start();
 include 'conexao.php';
 
