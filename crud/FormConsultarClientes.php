@@ -61,6 +61,6 @@
                             </tr>
                     <?php }?>
                 </table><br>
-                    <a href="../index.php"><input type="button" class="botoes" value="Cancelar"/></a>
+                    <a href="../html/dashboard.php"><input type="button" class="botoes" value="Cancelar"/></a>
     </body>
 </html>

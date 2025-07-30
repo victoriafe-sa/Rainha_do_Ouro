@@ -89,8 +89,7 @@ function pesquisacep(valor) {
 }
 
 // FORM SUBMIT
-document.querySelector('form').addEventListener('submit', function (e) {
-    e.preventDefault();
+/*document.querySelector('form').addEventListener('submit', function () {
 
     const cpf = document.getElementById('cpf').value;
     if (!validaCPF(cpf)) {
@@ -109,5 +108,5 @@ document.querySelector('form').addEventListener('submit', function (e) {
     // Prosseguir com o cadastro
     alert('Cadastro realizado com sucesso!');
 });
-
+*/
 

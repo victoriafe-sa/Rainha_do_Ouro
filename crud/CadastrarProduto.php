@@ -20,7 +20,7 @@ $sql = "INSERT INTO tb_produtos(nome, descricao, preco_venda, categoria, imagem)
         VALUES ('$nome', '$descricao', '$preco_venda', '$categoria', '$imagem')";
 
 if (mysqli_query($conn, $sql)) {
-    echo "<script>alert('Produto adicionado com sucesso!'); window.location = '../index.php';</script>";
+    echo "<script>alert('Produto adicionado com sucesso!'); window.location = '../html/dashboard.php';</script>";
 } else {
     echo "Erro: " . $sql . "<br>" . mysqli_error($conn);
 }

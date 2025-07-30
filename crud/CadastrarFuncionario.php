@@ -26,7 +26,7 @@ include_once "../conectarbd.php";
         mysqli_select_db($conn, 'db_rainhadoouro');
         $sql = "INSERT INTO tb_funcionarios(nome_completo,data_nascimento,cpf,rg,sexo,estado_civil,telefone,email,cep,rua,numero,bairro,cidade,estado,cargo,horario_trabalho,salario,tipo_contrato,carteira_trabalho,pis,observacoes) VALUES ('$nome_completo','$data_nascimento', '$cpf', '$rg', '$sexo', '$estado_civil','$telefone','$email','$cep','$rua','$numero','$bairro','$cidade','$estado','$cargo','$horario_trabalho','$salario','$tipo_contrato','$carteira_trabalho','$pis','$observacoes')";
         if (mysqli_query($conn, $sql)) {
-            echo "<script>alert('Seus dados foram salvos !'); window.location = '../index.php';</script>";
+            echo "<script>alert('Seus dados foram salvos !'); window.location = '../html/dashboard.php';</script>";
         } else {
             echo "Deu erro: " . $sql . "<br>" . mysqli_error($conn);
         }
