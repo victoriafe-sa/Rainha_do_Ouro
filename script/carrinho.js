@@ -1,9 +1,27 @@
 function changeQuantity(button, amount) {
     const input = button.parentElement.querySelector('input');
+    const cartItems = [...document.querySelectorAll('.cart-item')];
+    const index = cartItems.indexOf(button.closest('.cart-item'));
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
     let value = parseInt(input.value) || 1;
+
+    if (amount === -1 && value === 1) {
+        // Se a quantidade for 1 e clicar em "-", remove o item
+        removeItem(index);
+        return;
+    }
+
     value = Math.max(1, value + amount);
     input.value = value;
-    updateTotal(); // Atualiza total sempre que muda a quantidade
+
+    // Atualiza quantidade no localStorage
+    if (cart[index]) {
+        cart[index].quantity = value;
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    updateTotal();
 }
 
 function updateTotal() {
@@ -17,7 +35,7 @@ function updateTotal() {
         subtotal += price * quantity;
     });
 
-    const frete = calculateFrete(); // Frete baseado no CEP
+    const frete = calculateFrete();
     const total = subtotal + frete;
 
     const resumo = document.querySelector('.prices-resumo');
@@ -30,39 +48,28 @@ function updateTotal() {
 }
 
 function calculateFrete() {
-    // Obtém o valor do campo de CEP
     const rawCep = document.getElementById('CEP').value;
-
-    // Remove tudo que não for número
     const cep = rawCep.replace(/\D/g, '');
 
-    // Verifica se o CEP tem exatamente 8 dígitos
-    if (!cep || cep.length !== 8) {
-        console.warn('CEP inválido');
-        return 0;
-    }
+    if (!cep || cep.length !== 8) return 0;
 
-    // Simulação de cálculo de frete baseado nos primeiros dígitos do CEP
-    // Você pode substituir isso por uma API dos Correios ou transportadora real
-    if (cep.startsWith('01')) {
-        return 10.00;
-    } else if (cep.startsWith('20')) {
-        return 12.50;
-    } else if (cep.startsWith('30')) {
-        return 14.00;
-    } else {
-        return 18.90;
-    }
+    if (cep.startsWith('01')) return 10.00;
+    if (cep.startsWith('20')) return 12.50;
+    if (cep.startsWith('30')) return 14.00;
+    return 18.90;
 }
 
+function removeItem(index) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    loadCart(); // recarrega os itens do carrinho
+}
 
-document.getElementById('CEP').addEventListener('input', updateTotal);
-
-
-document.addEventListener('DOMContentLoaded', () => {
+function loadCart() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartSection = document.querySelector('.cartSection');
-    cartSection.innerHTML = ''; // limpa os itens existentes
+    cartSection.innerHTML = '';
 
     cart.forEach((item, index) => {
         const div = document.createElement('div');
@@ -88,4 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     updateTotal();
-});
+}
+
+document.getElementById('CEP').addEventListener('input', updateTotal);
+document.addEventListener('DOMContentLoaded', loadCart);

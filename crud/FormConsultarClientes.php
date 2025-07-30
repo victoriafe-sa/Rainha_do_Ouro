@@ -4,11 +4,11 @@
         <meta charset="UTF-8">
         <title>Consultar Clientes</title>
         <link type="text/css" rel="stylesheet" href="../css/consultar.css">
-    
+        <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
     </head>
 
      <body>
-                <h1>Consultar Clientes Cadastrados</h1>
+                <h1>Clientes Cadastrados</h1>
                 <table
                    width="100%"
                    border="1" 
@@ -57,10 +57,10 @@
                                 <td align="center"><?=$campo["data_cadastro"]?></td>
                                 <td align="center"><?=$campo["ativo"]?></td>
                                 <td align="center"><a href="FormEditarClientes.php?editarid=<?php echo $campo ['id_clientes'];?>">Editar</a></td>
-                                <td align="center"><i><a href="ExcluirClientes.php?p=excluir&clientes=<?php echo $campo['id_clientes'];?>">Excluir</i></a></td>
+                                <td align="center"><a href="ExcluirClientes.php?p=excluir&clientes=<?php echo $campo['id_clientes'];?>">Excluir</a></td>
                             </tr>
                     <?php }?>
                 </table><br>
-                    <a href="../index.php"><input type="button" class="botoes" value="Cancelar"/></a>
+                    <a href="../html/dashboard.php"><input type="button" class="botoes" value="Cancelar"/></a>
     </body>
 </html>

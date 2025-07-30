@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
+<!--MUDANÇA DE CONTAINER NÃO FUNCIONA NO DASHBOARD-->
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,7 +41,7 @@
                 </div>
                 <div class="form-buttons">
                     <button type="submit" class="btn">Cadastrar</button>
-                    <button type="button" class="btn" onclick="window.location.href='../index.php'">Cancelar</button>
+                    <button type="button" class="btn" onclick="window.location.href='../html/dashboard_adm.php'">Cancelar</button>
                 </div>
 
 
@@ -50,7 +50,7 @@
 
         <!-- PRODUTOS -->
         <div class="tab-content" id="products">
-            <form class="form-container" method="post" action="../crud/CadastrarProduto.php">
+            <form class="form-container" method="post" action="../crud/CadastrarProduto.php" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="nome_prod" class="form-label">Nome do Produto:</label>
                     <input type="text" name="nome" id="nome_prod" class="form-input" placeholder="Nome do Produto"
@@ -81,12 +81,15 @@
                     <input type="number" name="estoque" id="estoque" class="form-input" placeholder="Estoque"
                         required />
                 </div>
+                <div class="form-group">
+                    <label for="imagem" class="form-label">Imagem:</label>
+                    <input type="file" name="imagem" id="imagem" class="form-input" accept="image/*" required />
+                </div>
+            
                 <div class="form-buttons">
                     <button type="submit" class="btn">Cadastrar</button>
-                    <button type="button" class="btn" onclick="window.location.href='../index.php'">Cancelar</button>
+                    <button type="button" class="btn" onclick="window.location.href='../html/dashboard_adm.php'">Cancelar</button>
                 </div>
-
-
             </form>
         </div>
     </div>

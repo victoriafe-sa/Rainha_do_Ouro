@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
+<!--PAGINA COMPLETA-->
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Clientes | Rainha do Ouro</title>
@@ -12,7 +12,7 @@
 
     <div class="formulario">
         <h2>Cadastro Clientes</h2>
-        <form method="post" action="../crud/CadastrarCliente.php" class="form-section">
+        <form class="form-section" method="post" action="../crud/CadastrarCliente.php">
 
             <div class="form-group">
                 <label for="nome">Nome dos Clientes:</label>
@@ -66,17 +66,16 @@
 
             <div class="form-group">
                 <label for="estado">Estado:</label>
-                <input type="text" id="estado" name="estado" />
+                <input type="text" id="estado" name="estado"/>
             </div>
-
+            <div class="form-buttons">
+                <button type="submit" class="btn">Cadastrar</button>
+                <button type="button" class="btn" onclick="window.location.href='../html/dashboard_adm.php'">Cancelar</button>
+            </div>
         </form>
 
-        <div class="form-buttons">
-            <button type="submit" class="btn">Cadastrar</button>
-            <button type="button" class="btn" onclick="window.location.href='../index.php'">Cancelar</button>
-        </div>
+        
     </div>
-
 
     <footer>
         <div class="footer-content">
@@ -89,8 +88,7 @@
         </div>
     </footer>
 
-
     <script src="../script/cadastrar_cliente.js"></script>
-</body>
 
+</body>
 </html>

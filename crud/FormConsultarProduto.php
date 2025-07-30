@@ -4,11 +4,11 @@
         <meta charset="UTF-8">
         <title>Consultar Produtos</title>
         <link type="text/css" rel="stylesheet" href="../css/consultar.css">
-    
+        <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
     </head>
 
      <body>
-                <h1>Consultar Produtos Cadastrados</h1>
+                <h1>Produtos Cadastrados</h1>
                 <table
                    width="100%"
                    border="1" 
@@ -41,11 +41,11 @@
                                 
                                 
 
-                                <td align="center" ><ahref="FormEditarProduto.php?editarid=<?php echo $campo ['id_produtos'];?>">Editar</a></td>
+                                <td align="center"><a href="FormEditarProduto.php?editarid=<?php echo $campo ['id_produtos'];?>">Editar</a></td>
                                 <td align="center"><a href="ExcluirProduto.php?p=excluir&produto=<?php echo $campo['id_produtos'];?>">Excluir</a></td>
                             </tr>
                     <?php }?>
                 </table><br>
-                    <a href="../index.php"><input type="button" class="botoes" value="Cancelar"/></a>
+                    <a href="../html/dashboard.php"><input type="button" class="botoes" value="Cancelar"/></a>
     </body>
 </html>

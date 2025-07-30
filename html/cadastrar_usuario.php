@@ -1,5 +1,5 @@
 <?php
-include 'conexao.php';
+include '../conectarbd.php';
 
 $email = $_POST['email'];
 $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT); // Criptografar a senha
@@ -12,7 +12,7 @@ $stmt_check->execute();
 $result = $stmt_check->get_result();
 
 if ($result->num_rows > 0) {
-    echo "Este email já está cadastrado. <a href='cadastro.php'>Tente outro</a>";
+    echo "Este email já está cadastrado. <a href='../html/cadastro.php'>Tente outro</a>";
     exit();
 }
 

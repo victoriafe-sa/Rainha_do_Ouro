@@ -4,8 +4,9 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Editar Advogado</title>
+        <title>Editar Produto</title>
         <link rel="stylesheet" href="../css/editar.css"/>
+        <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
     </head>
 
     <body>
@@ -19,7 +20,7 @@
         <div class="formulario">
             <form method="post" action="EditarProduto.php">
 
-                <h1>Alterar Produto</h1>
+                <h1>Editar Produto</h1>
 
                 <!--esta linha cria um campo oculto para passar o id_cliente, pois senão ao clicar em Salvar o código não saberá onde salvar.-->
                 <input type="hidden" name="id" value="<?= $campo["id_produtos"] ?>"> 
