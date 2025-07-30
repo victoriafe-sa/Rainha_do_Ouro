@@ -99,7 +99,7 @@
             <input type="date" name="data_cadastro" value="<?=$campo["data_cadastro"]?>">
 
             <input type="submit" class="botoes" value="Salvar">
-            <a href="FormConsultarProduto.php"><input type="button" class="botoes" value="Cancelar" /></a>
+            <a href="FormConsultarFuncionario.php"><input type="button" class="botoes" value="Cancelar" /></a>
 
         </form>
     </div>
