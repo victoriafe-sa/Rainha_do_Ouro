@@ -12,6 +12,11 @@ CREATE TABLE IF NOT EXISTS `tb_produtos` (
   PRIMARY KEY (`id_produtos`)
 ) ENGINE = InnoDB;
 
+ALTER TABLE `db_rainhadoouro`.`tb_produtos` 
+ADD COLUMN `imagem` LONGBLOB NOT NULL AFTER `ativo`,
+CHANGE COLUMN `nome` `nome` VARCHAR(255) NOT NULL ;
+
+
 -- Serviços
 CREATE TABLE IF NOT EXISTS `tb_servicos` (
   `id_servicos` INT NOT NULL AUTO_INCREMENT,
@@ -22,6 +27,10 @@ CREATE TABLE IF NOT EXISTS `tb_servicos` (
   `ativo` TINYINT(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_servicos`)
 ) ENGINE = InnoDB;
+
+ALTER TABLE `db_rainhadoouro`.`tb_servicos` 
+ADD COLUMN `imagem` LONGBLOB NOT NULL AFTER `ativo`,
+CHANGE COLUMN `nome` `nome` VARCHAR(255) NOT NULL ;
 
 -- Fornecedores
 CREATE TABLE IF NOT EXISTS `tb_fornecedores` (
@@ -254,14 +263,7 @@ CREATE TABLE IF NOT EXISTS `tb_historico_pagamentos` (
   FOREIGN KEY (`tb_pagamentos_id_pagamentos`) REFERENCES `tb_pagamentos` (`id_pagamentos`) ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
--- TABELA DE LOGIN DE GERÊNCIA
-CREATE TABLE IF NOT EXISTS `tb_login_gerencia` (
-  `id_login` INT AUTO_INCREMENT PRIMARY KEY,
-  `id_funcionario` INT NOT NULL,
-  `email` VARCHAR(100) NOT NULL,
-  `senha` VARCHAR(255) NOT NULL,
-  FOREIGN KEY (`id_funcionario`) REFERENCES `tb_funcionarios`(`id_funcionarios`)
-) ENGINE = InnoDB;
+
 
 UPDATE tb_estoque
 SET quantidade = 5,
@@ -275,6 +277,14 @@ CREATE TABLE IF NOT EXISTS `tb_vendas` (
   `valor` DECIMAL(10,2) NOT NULL             -- Valor total da venda
 );
 
+-- TABELA DE LOGIN DE GERÊNCIA
+CREATE TABLE tb_login_gerencia (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    id_funcionario INT,
+    FOREIGN KEY (id_funcionario) REFERENCES tb_funcionarios(id_funcionarios)
+)ENGINE = InnoDB;
 
 -- Gatilho que insere automaticamente uma venda quando uma nova compra é registrada
 DELIMITER //

@@ -1,7 +1,5 @@
-<?php include_once "../conectarbd.php"; ?>
-<html>
-    <body>
-        <?php
+<?php 
+include_once "../conectarbd.php";
         $nome_completo = $_POST["nome_completo"];
         $data_nascimento = $_POST["data_nascimento"];
         $cpf = $_POST["cpf"];
@@ -34,5 +32,3 @@
         }
         mysqli_close($conn);
         ?>
-    </body>
-</html>

@@ -11,6 +11,7 @@ include_once "../conectarbd.php";
         $bairro = $_POST["bairro"];
         $cidade = $_POST["cidade"];
         $estado = $_POST["estado"];
+        
         $conn = mysqli_connect($servidor, $dbusuario, $dbsenha, $dbname);
         mysqli_select_db($conn, 'db_rainhadoouro');
         $sql = "INSERT INTO tb_clientes(nome, telefone, data_nascimento, email, senha, cep, rua, numero, bairro, cidade, estado) VALUES ('$nome', '$telefone', '$data_nascimento', '$email', '$senha', '$cep', '$rua', '$numero', '$bairro', '$cidade', '$estado')";
