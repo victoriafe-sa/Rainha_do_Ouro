@@ -1,7 +1,5 @@
-<?php include_once "../conectarbd.php"; ?>
-<html>
-    <body>
-        <?php
+<?php 
+include_once "../conectarbd.php";
         $nome = $_POST["nome"];
         $telefone = $_POST["telefone"];
         $data_nascimento = $_POST["data_nascimento"];
@@ -23,7 +21,3 @@
         }
         mysqli_close($conn);
         ?>
-    </body>
-</html>
-
-/

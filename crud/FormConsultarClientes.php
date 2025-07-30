@@ -57,7 +57,7 @@
                                 <td align="center"><?=$campo["data_cadastro"]?></td>
                                 <td align="center"><?=$campo["ativo"]?></td>
                                 <td align="center"><a href="FormEditarClientes.php?editarid=<?php echo $campo ['id_clientes'];?>">Editar</a></td>
-                                <td align="center"><i><a href="ExcluirClientes.php?p=excluir&clientes=<?php echo $campo['id_clientes'];?>">Excluir</i></a></td>
+                                <td align="center"><a href="ExcluirClientes.php?p=excluir&clientes=<?php echo $campo['id_clientes'];?>">Excluir</a></td>
                             </tr>
                     <?php }?>
                 </table><br>
