@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <!--Conectar ao banco-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,15 +35,40 @@
 
         <section class="profile-section">
             <h2>Meus Dados</h2>
-            <form class="profile-form">
+            <form class="profile-form" action="perfil_usuario.php" method="post" action="../crud/EditarClinte.php">
                 <label>Nome Completo:</label>
-                <input type="text" value="Maria da Silva">
+                <input type="text" name="nome" value="">
+
                 <label>Email:</label>
-                <input type="email" value="maria@example.com">
+                <input type="email" name="email" value="">
+
                 <label>Telefone:</label>
-                <input type="text" value="(11) 99999-9999">
-                <label>CEP:</label>
-                <input type="text" value="12345-678">
+                <input type="text" name="telefone" value="">
+
+                <label for="cep">CEP</label>
+                <input type="text" id="cep" name="cep" onblur="pesquisacep(this.value)"
+                    value="">
+
+                <label for="rua">Endereço</label>
+                <input type="text" id="logradouro" name="rua"
+                    value="">
+
+                <label for="numero">Número</label>
+                <input type="text" id="numero" name="numero"
+                    value="">
+
+                <label for="bairro">Bairro</label>
+                <input type="text" id="bairro" name="bairro"
+                    value="">
+
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" name="cidade"
+                    value="">
+
+                <label for="estado">Estado</label>
+                <input type="text" id="estado" name="estado"
+                    value="">
+
                 <button type="submit">Salvar Alterações</button>
             </form>
         </section>
@@ -97,6 +123,9 @@
                 <a href="#">Contato</a>
             </div>
         </div>
+
+        <script src="../script/perfil_usuario.js"></script>
     </footer>
 </body>
+
 </html>
