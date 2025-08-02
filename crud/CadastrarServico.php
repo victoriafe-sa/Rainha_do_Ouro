@@ -1,23 +1,42 @@
-<?php include_once "../conectarbd.php"; ?>
-<html>
-    <body>
-        <?php
-        $nome = $_POST["nome"];
-        $descricao = $_POST["descricao"];
-        $preco = $_POST["preco"];
-        $duracao_min = $_POST["duracao_min"];
-        
-      
-        $conn = mysqli_connect($servidor, $dbusuario, $dbsenha, $dbname);
-        mysqli_select_db($conn, 'db_rainhadoouro');
-        $sql = "INSERT INTO tb_servicos(nome,descricao,preco,duracao_min) VALUES ('$nome', '$descricao', '$preco', '$duracao_min')";
-        if (mysqli_query($conn, $sql)) {
+<?php
+include_once "../conectarbd.php";
+
+// Dados do formulário
+$nome = $_POST["nome"];
+$descricao = $_POST["descricao"];
+$preco = $_POST["preco"];
+$duracao_min = $_POST["duracao_min"];
+
+// Verifica se o arquivo foi enviado
+if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === 0) {
+    $nomeArquivo = $_FILES['arquivo']['name'];
+    $extensao = strtolower(pathinfo($nomeArquivo, PATHINFO_EXTENSION));
+
+    if (!in_array($extensao, ['jpg', 'jpeg', 'png'])) {
+        die("Tipo de arquivo não permitido.");
+    }
+
+    $novoNome = uniqid() . "." . $extensao;
+    $pasta = "../arquivo/";
+
+    // Cria a pasta se não existir
+    if (!is_dir($pasta)) {
+        mkdir($pasta, 0755, true);
+    }
+
+    $caminhoCompleto = $pasta . $novoNome;
+    if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $caminhoCompleto)) {
+        $query = "INSERT INTO tb_servicos(nome, descricao, preco, duracao_min, path, data_upload)
+                  VALUES ('$nome', '$descricao', '$preco', '$duracao_min', '$caminhoCompleto', NOW())";
+        if (mysqli_query($conn, $query)) {
             echo "<script>alert('Serviço adicionado com sucesso!'); window.location = '../html/dashboard.php';</script>";
         } else {
-            echo "Deu erro: " . $sql . "<br>" . mysqli_error($conn);
+            echo "Erro ao inserir: " . mysqli_error($conn);
         }
-        mysqli_close($conn);
-        ?>
-    </body>
-</html>
-
+    } else {
+        die("Erro ao mover o arquivo.");
+    }
+} else {
+    die("Erro no envio da imagem.");
+}
+?>

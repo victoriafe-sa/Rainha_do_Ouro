@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <!--conectar pagina com as imagens, verificar o imagem upload-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,38 +41,41 @@
         <section class="servContent">
             <div class="servicos">
                 <?php
-                // CONEXÃO COM O BANCO
-                include ("../conectarbd.php");
+// CONEXÃO COM O BANCO
+include("../conectarbd.php");
 
-                // VERIFICAR ERROS
-                if ($conn->connect_error) {
-                    die("Erro de conexão: " . $conn->connect_error);
-                }
+// VERIFICAR ERROS
+if ($conn->connect_error) {
+    die("Erro de conexão: " . $conn->connect_error);
+}
 
-                // CONSULTA OS SERVIÇOS
-                $sql = "SELECT nome, descricao, duracao_min FROM tb_servicos";
-                $result = $conn->query($sql);
+// CONSULTA OS SERVIÇOS, incluindo o campo da imagem
+$sql = "SELECT nome, descricao, duracao_min, path FROM tb_servicos";
+$result = $conn->query($sql);
 
-                // EXIBE OS SERVIÇOS
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo '
-                        <div class="serv-card">
-                            <img src="../img/trancista.jpeg">
-                            <div class="serv-info">
-                                <h3>' . htmlspecialchars($row["nome"]) . '</h3>
-                                <p>' . htmlspecialchars($row["descricao"]) . '</p>
-                                <p>Duração em minutos: ' . htmlspecialchars($row["duracao_min"]) . 'min</p>
-                                <a href="../html/agendamentos.html">Agendar</a>
-                            </div>
-                        </div>';
-                    }
-                } else {
-                    echo "<p>Nenhum serviço cadastrado ainda.</p>";
-                }
+// EXIBE OS SERVIÇOS
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $imgPath = (!empty($row["path"]) && file_exists($row["path"])) ? $row["path"] : "../img/default.jpg";
 
-                $conn->close();
-                ?>
+        echo '
+        <div class="serv-card">
+            <img src="' . htmlspecialchars($imgPath) . '" alt="Imagem do Serviço">
+            <div class="serv-info">
+                <h3>' . htmlspecialchars($row["nome"]) . '</h3>
+                <p>' . htmlspecialchars($row["descricao"]) . '</p>
+                <p>Duração em minutos: ' . htmlspecialchars($row["duracao_min"]) . 'min</p>
+                <a href="../html/agendamentos.html">Agendar</a>
+            </div>
+        </div>';
+    }
+} else {
+    echo "<p>Nenhum serviço cadastrado ainda.</p>";
+}
+
+$conn->close();
+?>
+
             </div>
         </section>
     </main>

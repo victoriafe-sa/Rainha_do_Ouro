@@ -89,40 +89,44 @@
             <div class="products">
                 
             <?php
-            include("../conectarbd.php");
+include("../conectarbd.php");
 
-            $busca = isset($_GET['busca']) ? trim($_GET['busca']) : '';
+$busca = isset($_GET['busca']) ? trim($_GET['busca']) : '';
 
-            if ($busca !== '') {
-                $sql = "SELECT * FROM tb_produtos WHERE ativo = 1 AND nome LIKE ?";
-                $stmt = $conn->prepare($sql);
-                $busca_param = "%$busca%";
-                $stmt->bind_param("s", $busca_param);
-                $stmt->execute();
-                $result = $stmt->get_result();
-            } else {
-                $sql = "SELECT * FROM tb_produtos WHERE ativo = 1";
-                $result = $conn->query($sql);
-            }
+if ($busca !== '') {
+    $sql = "SELECT * FROM tb_produtos WHERE ativo = 1 AND nome LIKE ?";
+    $stmt = $conn->prepare($sql);
+    $busca_param = "%$busca%";
+    $stmt->bind_param("s", $busca_param);
+    $stmt->execute();
+    $result = $stmt->get_result();
+} else {
+    $sql = "SELECT * FROM tb_produtos WHERE ativo = 1";
+    $result = $conn->query($sql);
+}
 
-            if ($result->num_rows > 0) {
-                while($produto = $result->fetch_assoc()) {
-                    echo '
-                    <div class="product-card">
-                        <img src="exibir_imagem_produto.php?id=' . $produto['id_produtos'] . '" alt="Imagem do produto">
-                        <p id="product-name">' . htmlspecialchars($produto["nome"]) . '</p>
-                        <p id="product-brand">' . htmlspecialchars($produto["categoria"]) . '</p>
-                        <span>R$ ' . number_format($produto["preco_venda"] + 10, 2, ',', '.') . '</span>
-                        <p id="product-price">R$ ' . number_format($produto["preco_venda"], 2, ',', '.') . '</p>
-                        <button onclick="addToCart(this)">comprar</button>
-                    </div>';
-                }
-            } else {
-                echo "<p>Nenhum produto encontrado.</p>";
-            }
+if ($result->num_rows > 0) {
+    while ($produto = $result->fetch_assoc()) {
+        // Define caminho da imagem com fallback
+        $imgPath = (!empty($produto["path"]) && file_exists($produto["path"])) ? $produto["path"] : "../img/default.jpg";
 
-            $conn->close();
-            ?>
+        echo '
+        <div class="product-card">
+            <img src="' . htmlspecialchars($imgPath) . '" alt="Imagem do produto">
+            <p id="product-name">' . htmlspecialchars($produto["nome"]) . '</p>
+            <p id="product-brand">' . htmlspecialchars($produto["categoria"]) . '</p>
+            <span>R$ ' . number_format($produto["preco_venda"] + 10, 2, ',', '.') . '</span>
+            <p id="product-price">R$ ' . number_format($produto["preco_venda"], 2, ',', '.') . '</p>
+            <button onclick="addToCart(this)">comprar</button>
+        </div>';
+    }
+} else {
+    echo "<p>Nenhum produto encontrado.</p>";
+}
+
+$conn->close();
+?>
+
 
             </div>
         </div>
