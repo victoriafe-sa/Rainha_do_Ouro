@@ -135,6 +135,7 @@ $conn->close();
     <script src="../script/dashboard_adm.js"></script>
     <script src="../script/funcionario_cadastro.js"></script>
     <script src="../script/cad_prod_serv.js"></script>
+    
 
     <script>
         // Seleciona o canvas para o gráfico
