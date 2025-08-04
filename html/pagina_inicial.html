@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rainha do Ouro</title>
   <link rel="stylesheet" href="../css/pagina_inicial.css">
-  <link rel="stylesheet" href="../script/pg.js">
+<script src="../script/teste-fotos.js" defer></script>
   <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet"><!---->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
@@ -35,44 +36,25 @@
     </div>
   </header>
 
-  <!-- Carrossel -->
+  <!-- Video -->
+ <section class="anuncio_mpR">
+  <div class="banner"></div>
+            <video autoplay loop muted poster="../img/01.mp4">
+                <source src="../img/queen (2).mp4" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+            </div>
+        </section>
 
-  <section class="carrossel">
-    <div class="slides">
-      <img src="../img/cabeleira.jpg" alt="Slide 1">
-      <img src="../img/produtos.jpeg" alt="Slide 2">
-      <img src="../img/proff.jpg" alt="Slide 3">
-      <img src="../img/trancista.jpeg" alt="Slide 4">
-    </div>
-
-    <!-- Botões de navegação -->
-    <button class="seta esquerda">&#10094;</button>
-    <button class="seta direita">&#10095;</button>
-  </section>
-
-
-
-
-  <!-- Boas-vindas -->
-  <section class="boas-vindas">
-    <h2>Bem-vinda(o) ao Rainha do Ouro</h2>
-    <p>Um espaço adequado para cuidar do seu cabelo afro.</p>
-
-    <div class="diferenciais">
-      <div class="item">
-        <img src="../img/profissional.png" alt="Profissionais qualificados">
-        <p>Profissionais qualificados para cuidar de você</p>
-      </div>
-      <div class="item">
-        <img src="../img/qual.png" alt="Qualidade nos serviços">
-        <p>Qualidade nos serviços e produtos oferecidos</p>
-      </div>
-      <div class="item">
-        <img src="../img/coroa.png" alt="Seu cabelo é sua coroa">
-        <p>Seu cabelo é sua coroa, use-o com orgulho</p>
-      </div>
-    </div>
-  </section>
+  <!-- FRASE -->
+<div id="Diferenciais" class="frase-com-coroa" >
+  <img src="../img/cra.png" alt="Coroa" >
+  <h2>Um ambiente pensado para realçar o que você tem de mais bonito:<br>
+    <strong>você mesma.</strong>
+  </h2>
+  <img src="../img/cra2.png" alt="Coroa" >
+</div>
+  
 
   <!-- Seções de serviços, produtos e tranças -->
   <section class="categorias">
@@ -182,9 +164,9 @@
   </section>
 
 
-  <!-- Seção Avaliações -->
+  <!-- Seção Avaliações --> 
+   <h2 class="titulo-secao">Avaliações</h2>
   <section class="avaliacoes">
-    <h2 class="titulo-secao">Avaliações</h2>
     <div class="avaliacao">
       <blockquote>
         <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra ipsum ac velit pellentesque, ut
@@ -201,11 +183,22 @@
 
   <!-- Seção Nossos Espaço -->
   <section class="nosso-espaco">
-    <h2 class="titulo-secao">Nossos Espaço</h2>
-    <div class="carrossel-fotos">
-      <p>carrossel de fotos</p>
-    </div>
-  </section>
+  <h2 class="titulo-secao">Nosso Espaço</h2>
+  <div class="galeria">
+    <img src="../img/salon.jpg" alt="Imagem 1" class="imagem-expandir">
+    <img src="../img/fachada.jpg" alt="Imagem 2" class="imagem-expandir">
+    <img src="../img/produtos.jpg" alt="Imagem 3" class="imagem-expandir">
+     <img src="../img/lavatorio.jpg" alt="Imagem 3" class="imagem-expandir">
+    <!-- Adicione quantas quiser -->
+  </div>
+
+  <!-- Pop-up da imagem expandida -->
+  <div class="popup-imagem" id="popup">
+    <span class="fechar" onclick="fecharImagem()">&times;</span>
+    <img id="imagemExpandida" src="" alt="Imagem Expandida">
+  </div>
+</section>
+
 
   <!-- Rodapé -->
   <footer class="site-footer">
