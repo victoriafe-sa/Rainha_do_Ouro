@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<!--falta o banner inicial e o carrossel de fotos-->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rainha do Ouro</title>
   <link rel="stylesheet" href="../css/pagina_inicial.css">
-<script src="../script/teste-fotos.js" defer></script>
   <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
-
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet"><!---->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 
@@ -19,57 +16,57 @@
   <!-- Cabeçalho -->
   <header>
     <div class="logo">
-        <img src="../img/logo.png" alt="Rainha do Ouro">
+      <img src="../img/logo.png" alt="Rainha do Ouro">
     </div>
     <nav>
-        <ul>
-            <li><a href="../html/pagina_inicial.html">Inicio</a></li>
-            <li><a href="produtos.php">Produtos</a></li>
-            <li><a href="servicos.php">Serviços</a></li>
-            <li><a href="../html/agendamentos.html">Agendamento</a></li>
-        </ul>
+      <ul>
+        <li><a href="../html/pagina_inicial.html">Inicio</a></li>
+        <li><a href="produtos.php">Produtos</a></li>
+        <li><a href="servicos.php">Serviços</a></li>
+        <li><a href="../html/agendamentos.html">Agendamento</a></li>
+      </ul>
     </nav>
     <div class="icons">
-        <a href="#"><img src="../img/lupa.png" alt="Buscar"></a>
-        <a href="../html/carrinho.html"><img src="../img/carrinho.png" alt="Carrinho"></a>
-        <a href="../html/perfil_usuario.html"><img src="../img/perfil.png" alt="Perfil"></a>
+      <a href="#"><img src="../img/lupa.png" alt="Buscar"></a>
+      <a href="../html/carrinho.html"><img src="../img/carrinho.png" alt="Carrinho"></a>
+      <a href="../html/perfil_usuario.html"><img src="../img/perfil.png" alt="Perfil"></a>
     </div>
-</header>
+  </header>
 
   <!-- Video -->
- <section class="anuncio_mpR">
-  <div class="banner"></div>
-            <video autoplay loop muted poster="../img/01.mp4">
-                <source src="../img/queen (2).mp4" type="video/mp4">
-                Seu navegador não suporta o elemento de vídeo.
-            </video>
-            </div>
-        </section>
+  <section class="anuncio_mpR">
+    <div class="banner"></div>
+    <video autoplay loop muted poster="../img/01.mp4">
+      <source src="../img/queen (2).mp4" type="video/mp4">
+      Seu navegador não suporta o elemento de vídeo.
+    </video>
+    </div>
+  </section>
 
   <!-- FRASE -->
-<div id="Diferenciais" class="frase-com-coroa" >
-  <img src="../img/cra.png" alt="Coroa" >
-  <h2>Um ambiente pensado para realçar o que você tem de mais bonito:<br>
-    <strong>você mesma.</strong>
-  </h2>
-  <img src="../img/cra2.png" alt="Coroa" >
-</div>
-  
+  <div id="Diferenciais" class="frase-com-coroa">
+    <img src="../img/cra.png" alt="Coroa">
+    <h2>Um ambiente pensado para realçar o que você tem de mais bonito:<br>
+      <strong>você mesma.</strong>
+    </h2>
+    <img src="../img/cra2.png" alt="Coroa">
+  </div>
+
 
   <!-- Seções de serviços, produtos e tranças -->
   <section class="categorias">
-    <div class="categoria">
-      <img src="../img/salão.jpeg" alt="Serviços">
-      <h3>Serviços</h3>
-    </div>
-    <div class="categoria">
-      <img src="../img/produtos.jpeg" alt="Produtos">
-      <h3>Produtos</h3>
-    </div>
-    <div class="categoria">
-      <img src="../img/trancista.jpeg" alt="Tranças">
-      <h3>Tranças</h3>
-    </div>
+    <div class="categoria"><a href="../html/servicos.php">
+        <img src="../img/salão.jpeg" alt="Serviços">
+        <h3>Serviços</h3>
+    </div></a>
+    <div class="categoria"><a href="../html/produtos.php">
+        <img src="../img/produtos.jpeg" alt="Produtos">
+        <h3>Produtos</h3>
+    </div></a>
+    <div class="categoria"><a href="../html/servicos.php">
+        <img src="../img/trancista.jpeg" alt="Tranças">
+        <h3>Tranças</h3>
+    </div></a>
   </section>
 
   <!-- Lançamentos -->
@@ -82,7 +79,7 @@
         <p><del>R$150,00</del></p>
         <p class="valor">R$ 99,99</p>
         <p>10x de 9,99</p>
-        <button class="compra">Comprar</button>
+        <button class="compra" onclick="addToCart(this)">Comprar</button>
       </div>
 
       <div class="produto">
@@ -91,7 +88,7 @@
         <p><del>R$200,00</del></p>
         <p class="valor">R$ 129,99</p>
         <p>10x de 12,99</p>
-        <button class="compra">Comprar</button>
+        <button class="compra" onclick="addToCart(this)">Comprar</button>
       </div>
 
 
@@ -101,7 +98,7 @@
         <p><del>R$250,00</del></p>
         <p class="valor">R$ 200,00</p>
         <p>10x de 20,00</p>
-        <button class="compra">Comprar</button>
+        <button class="compra" onclick="addToCart(this)">Comprar</button>
       </div>
 
       <div class="produto">
@@ -110,7 +107,7 @@
         <p><del>R$350,00</del></p>
         <p class="valor">R$ 250,00</p>
         <p>10x de 25,00</p>
-        <button class="compra">Comprar</button>
+        <button class="compra" onclick="addToCart(this)">Comprar</button>
       </div>
   </section>
 
@@ -164,8 +161,8 @@
   </section>
 
 
-  <!-- Seção Avaliações --> 
-   <h2 class="titulo-secao">Avaliações</h2>
+  <!-- Seção Avaliações -->
+  <h2 class="titulo-secao">Avaliações</h2>
   <section class="avaliacoes">
     <div class="avaliacao">
       <blockquote>
@@ -183,21 +180,21 @@
 
   <!-- Seção Nossos Espaço -->
   <section class="nosso-espaco">
-  <h2 class="titulo-secao">Nosso Espaço</h2>
-  <div class="galeria">
-    <img src="../img/salon.jpg" alt="Imagem 1" class="imagem-expandir">
-    <img src="../img/fachada.jpg" alt="Imagem 2" class="imagem-expandir">
-    <img src="../img/produtos.jpg" alt="Imagem 3" class="imagem-expandir">
-     <img src="../img/lavatorio.jpg" alt="Imagem 3" class="imagem-expandir">
-    <!-- Adicione quantas quiser -->
-  </div>
+    <h2 class="titulo-secao">Nosso Espaço</h2>
+    <div class="galeria">
+      <img src="../img/salon.jpg" alt="Imagem 1" class="imagem-expandir">
+      <img src="../img/fachada.jpg" alt="Imagem 2" class="imagem-expandir">
+      <img src="../img/produtos.jpg" alt="Imagem 3" class="imagem-expandir">
+      <img src="../img/lavatorio.jpg" alt="Imagem 3" class="imagem-expandir">
+      <!-- Adicione quantas quiser -->
+    </div>
 
-  <!-- Pop-up da imagem expandida -->
-  <div class="popup-imagem" id="popup">
-    <span class="fechar" onclick="fecharImagem()">&times;</span>
-    <img id="imagemExpandida" src="" alt="Imagem Expandida">
-  </div>
-</section>
+    <!-- Pop-up da imagem expandida -->
+    <div class="popup-imagem" id="popup">
+      <span class="fechar" onclick="fecharImagem()">&times;</span>
+      <img id="imagemExpandida" src="" alt="Imagem Expandida">
+    </div>
+  </section>
 
 
   <!-- Rodapé -->
@@ -229,6 +226,45 @@
     </div>
   </footer>
 
+  <script src="../script/teste-fotos.js"></script>
+  <script>
+    function addToCart(button) {
+        const productCard = button.closest('.produto');
+
+        // Captura o nome completo do produto
+        const name = productCard.querySelector('h4')?.textContent.replace(/\s+/g, ' ').trim() || 'Produto';
+
+        // Neste HTML não há marca separada, então deixamos em branco ou tentamos extrair
+        const brandMatch = name.match(/-\s*(.+)$/);
+        const brand = brandMatch ? brandMatch[1] : '';
+
+        // Captura o preço do produto, da tag com classe 'valor'
+        const priceText = productCard.querySelector('.valor')?.textContent.replace('R$', '').replace(',', '.').trim();
+        const price = parseFloat(priceText) || 0;
+
+        const imageUrl = productCard.querySelector('img')?.getAttribute('src') || '';
+
+        const product = {
+            name: name,
+            brand: brand,
+            price: price,
+            imageUrl: imageUrl,
+            quantity: 1
+        };
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        const existingProduct = cart.find(item => item.name === product.name && item.brand === product.brand);
+        if (existingProduct) {
+            existingProduct.quantity += 1;
+        } else {
+            cart.push(product);
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${product.name} foi adicionado ao carrinho!`);
+    }
+</script>
 
 
 </body>

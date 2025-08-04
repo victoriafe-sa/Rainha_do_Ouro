@@ -29,8 +29,12 @@ function updateTotal() {
     let subtotal = 0;
 
     items.forEach(item => {
-        const priceText = item.querySelector('.current-price').textContent.replace('R$', '').replace(',', '.');
-        const price = parseFloat(priceText);
+        const priceText = item.querySelector('.current-price').textContent;
+        
+        // Extrai apenas o valor numérico do texto (ignora "por", espaços, etc.)
+        const match = priceText.match(/R\$\s*([\d,]+)/);
+        const price = match ? parseFloat(match[1].replace(',', '.')) : 0;
+
         const quantity = parseInt(item.querySelector('input').value) || 1;
         subtotal += price * quantity;
     });
@@ -46,6 +50,7 @@ function updateTotal() {
         <p><strong>Total: R$ ${total.toFixed(2).replace('.', ',')}</strong></p>
     `;
 }
+
 
 function calculateFrete() {
     const rawCep = document.getElementById('CEP').value;
@@ -72,6 +77,8 @@ function loadCart() {
     cartSection.innerHTML = '';
 
     cart.forEach((item, index) => {
+        const oldPrice = (item.price * 2).toFixed(2).replace('.', ',');
+
         const div = document.createElement('div');
         div.className = 'cart-item';
         div.innerHTML = `
@@ -81,8 +88,8 @@ function loadCart() {
             <div class="item-details">
                 <p class="item-name">${item.name}</p>
                 <div class="price-info">
-                    <span class="old-price">De R$ 40,00 por</span>
-                    <span class="current-price">R$ ${item.price.toFixed(2).replace('.', ',')}</span>
+                    <span class="old-price">De R$ ${oldPrice} </span>
+                    <span class="current-price">por R$ ${item.price.toFixed(2).replace('.', ',')}</span>
                 </div>
             </div>
             <div class="quantity-wrapper">
@@ -96,6 +103,7 @@ function loadCart() {
 
     updateTotal();
 }
+
 
 document.getElementById('CEP').addEventListener('input', updateTotal);
 document.addEventListener('DOMContentLoaded', loadCart);
