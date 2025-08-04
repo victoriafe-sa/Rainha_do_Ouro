@@ -50,23 +50,6 @@ header .icons a:last-child img {
   height: 40px;
 }
 
-/* Carrossel */
-.carrossel img {
-  text-align: center;
-  width:1200px ;
-  height:500px ;
-  align-items: center;
-}
-
-/* Boas-Vindas */
-.boas-vindas h2, .lancamentos h2, .nosso-espaco h2, .nossos-profissionais h2 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  text-align: center;
-}
-
-.boas-vindas h2 { font-size: 2.5rem; }
-.boas-vindas p { text-align: center; font-size: 35px; }
 
 /* Diferenciais */
 .diferenciais {
@@ -79,7 +62,7 @@ header .icons a:last-child img {
 .item {
   background-color: #a67c52;
   border-radius: 20px;
-  padding: 20px;
+  padding: 15px;
   width: 300px;
   height: 300px;
   text-align: center;
@@ -267,23 +250,27 @@ header .icons a:last-child img {
 /* Avaliações */
 .avaliacoes {
   background-color: #d49e68;
-  padding: 20px;
-  margin: 40px;
-  border-radius: 20px;
+  padding: 40px;
+  margin: 60px auto; /* centraliza horizontalmente */
+  border-radius: 50px;
   text-align: center;
   font-family: 'Playfair Display', serif;
+  width: 100%;
+  max-width: 800px; /* limite de largura */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centraliza conteúdo */
 }
 
 .avaliacoes h2 {
   font-size: 32px;
+  margin-bottom: 30px;
 }
 
 .avaliacao {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 800px;
-  margin: 0 auto;
   gap: 40px;
   text-align: left;
   flex-wrap: wrap;
@@ -304,8 +291,21 @@ header .icons a:last-child img {
   color: #333;
 }
 
-.estrelas { color: #ffce00; font-size: 20px; }
-.avaliacao cite { font-size: 18px; font-weight: bold; }
+.estrelas {
+  color: #ffce00;
+  font-size: 20px;
+}
+
+.avaliacao cite {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.foto-usuario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .foto-usuario img {
   width: 140px;
@@ -315,6 +315,8 @@ header .icons a:last-child img {
   border: 3px solid #fff;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
+
+
 
 /* Nosso Espaço */
 .carrossel-fotos {
@@ -330,6 +332,8 @@ header .icons a:last-child img {
   color: #F7E1A0;
   margin-top: 40px;
   border-top: 4px solid #F0B429;
+    margin-top: 0;
+  padding-top: 0;
 }
 
 .footer-content {
@@ -407,87 +411,131 @@ padding-bottom: -100px;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 30px;
+  font-family: 'Playfair Display', serif;
+  padding-top: 10px;
 }
-
 .titulo-secao::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90px;
+  content: '';
+  display: block;
+  width: 70px;
   height: 5px;
-  background-color: #66492e; /* verde */
-  border-radius: 10px;
+  background-color: #4B2C1A; /* Troque pela cor visível no fundo (ex: #fff ou #F8D39C) */
+  margin: 8px auto 0;
+  border-radius: 20px;
 }
-.carrossel {
+
+
+/*video*/
+.anuncio_mpR {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.anuncio_mpR video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Gradiente na parte inferior */
+.anuncio_mpR::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; /* ajuste conforme o efeito desejado */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #F8D39C 50%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.frase-com-coroa {
+  width: 100vw; /* ocupa toda a largura da tela */
+  background: linear-gradient(to bottom, rgba(248, 211, 156, 0) 0%, #f8c983 40%, #fdd395 70%, #f8c983 100%);
+  padding: 30px 20px;
+  margin: 0; /* remove margens que limitam a largura */
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: 'Georgia', serif;
+  color: #5c3b19;
+  font-size: 20px;
+  font-style: italic;
   position: relative;
-  max-width: 1200px;
-  height: 500px;
-  margin: auto;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.slides {
+
+
+.frase-com-coroa img {
+  width: 60px;
+  margin: 10px auto;
+  display: block;
+}
+
+/*nosso espaço*/
+.nosso-espaco {
+  padding: 20px 0 0; /* padding inferior removido para encostar no footer */
+  text-align: center;
+  margin-bottom: 0; /* garante que não haja espaço depois */
+}
+
+.titulo-secao {
+  font-size: 32px;
+  margin-bottom: 30px;
+  font-family: 'Playfair Display', serif;
+}
+
+.galeria {
   display: flex;
-  transition: transform 0.5s ease;
-  width: 400%; /* 4 imagens */
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  padding-bottom: 40px; /* se quiser um respiro acima do rodapé */
 }
 
-.slides img {
-  width: 100%;
-  height: 500px;
+.imagem-expandir {
+  width: 200px;
+  height: 150px;
   object-fit: cover;
-}
-
-/* Setas */
-.seta {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  font-size: 30px;
-  padding: 10px;
   cursor: pointer;
-  z-index: 1;
-  border-radius: 50%;
-  transition: background 0.3s;
+  border-radius: 12px;
+  transition: transform 0.3s;
 }
 
-.seta:hover {
-  background-color: rgba(0,0,0,0.7);
+.imagem-expandir:hover {
+  transform: scale(1.05);
 }
 
-.esquerda {
-  left: 20px;
+.popup-imagem {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(32, 13, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
 
-.direita {
-  right: 20px;
-}
-.carrossel {
-  position: relative;
-  max-width: 1200px;
-  height: 500px;
-  margin: auto;
-  overflow: hidden;
+.popup-imagem img {
+  max-width: 90%;
+  max-height: 90%;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.slides {
-  display: flex;
-  transition: transform 0.5s ease;
-  width: 400%; /* 4 imagens */
+.popup-imagem .fechar {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
 }
-
-.slides img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-}
-
