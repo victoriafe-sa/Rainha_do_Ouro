@@ -12,6 +12,11 @@ CREATE TABLE IF NOT EXISTS `tb_produtos` (
   PRIMARY KEY (`id_produtos`)
 ) ENGINE = InnoDB;
 
+ALTER TABLE `db_rainhadoouro`.`tb_produtos` 
+ADD COLUMN `imagem` LONGBLOB NOT NULL AFTER `ativo`,
+CHANGE COLUMN `nome` `nome` VARCHAR(255) NOT NULL ;
+
+
 -- Serviços
 CREATE TABLE IF NOT EXISTS `tb_servicos` (
   `id_servicos` INT NOT NULL AUTO_INCREMENT,
@@ -22,6 +27,10 @@ CREATE TABLE IF NOT EXISTS `tb_servicos` (
   `ativo` TINYINT(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_servicos`)
 ) ENGINE = InnoDB;
+
+ALTER TABLE `db_rainhadoouro`.`tb_servicos` 
+ADD COLUMN `imagem` LONGBLOB NOT NULL AFTER `ativo`,
+CHANGE COLUMN `nome` `nome` VARCHAR(255) NOT NULL ;
 
 -- Fornecedores
 CREATE TABLE IF NOT EXISTS `tb_fornecedores` (
@@ -64,15 +73,14 @@ CREATE TABLE IF NOT EXISTS `tb_funcionarios` (
   `cidade` VARCHAR(50) NOT NULL,
   `estado` CHAR(2) NOT NULL,
   `cargo` VARCHAR(50) NOT NULL,
-  `data_admissao` DATE NOT NULL,
   `horario_trabalho` TIME NOT NULL,
   `salario` DECIMAL(10,2) NOT NULL,
   `tipo_contrato` ENUM('CLT', 'Autônomo', 'Freelancer') NOT NULL,
   `carteira_trabalho` VARCHAR(20) NOT NULL,
   `pis` VARCHAR(20) NOT NULL,
-  `status` ENUM('Ativo', 'Inativo') NOT NULL,
+  `status` ENUM('Ativo', 'Inativo') NOT NULL DEFAULT ('Ativo'),
   `observacoes` TEXT NOT NULL,
-  `data_cadastro` DATETIME NOT NULL,
+  `data_cadastro` DATE NOT NULL DEFAULT (CURRENT_DATE),
   PRIMARY KEY (`id_funcionarios`)
 ) ENGINE = InnoDB;
 
@@ -191,6 +199,22 @@ CREATE TABLE IF NOT EXISTS `tb_agendamentos` (
   CONSTRAINT `fk_agendamento_pagamento` FOREIGN KEY (`tb_pagamentos_id_pagamentos`) REFERENCES `tb_pagamentos` (`id_pagamentos`) ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
+ALTER TABLE `db_rainhadoouro`.`tb_agendamentos` 
+DROP FOREIGN KEY `fk_agendamento_pagamento`,
+DROP FOREIGN KEY `fk_agendamento_funcionario`;
+ALTER TABLE `db_rainhadoouro`.`tb_agendamentos` 
+DROP COLUMN `tb_pagamentos_id_pagamentos`,
+DROP COLUMN `tb_funcionarios_id_funcionarios`,
+ADD COLUMN `tipoServico` VARCHAR(95) NOT NULL AFTER `servico`,
+ADD COLUMN `data` DATE NOT NULL AFTER `tipoServico`,
+ADD COLUMN `hora` TIME NOT NULL AFTER `data`,
+CHANGE COLUMN `data_hora` `servico` VARCHAR(60) NOT NULL ,
+DROP INDEX `fk_agendamento_pagamento` ,
+DROP INDEX `fk_agendamento_funcionario` ;
+;
+ALTER TABLE `db_rainhadoouro`.`tb_agendamentos` 
+CHANGE COLUMN `hora` `horario` TIME NOT NULL ;
+
 -- Agendamento x Serviços
 CREATE TABLE IF NOT EXISTS `tb_agendamento_servicos` (
   `id_agendamento_servico` INT NOT NULL AUTO_INCREMENT,
@@ -239,49 +263,6 @@ CREATE TABLE IF NOT EXISTS `tb_historico_pagamentos` (
   FOREIGN KEY (`tb_pagamentos_id_pagamentos`) REFERENCES `tb_pagamentos` (`id_pagamentos`) ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
-INSERT INTO tb_estoque_atualizacao (tb_produtos_id_produtos, ultima_atualizacao)
-VALUES (3, NOW())
-ON DUPLICATE KEY UPDATE ultima_atualizacao = NOW();
-
-UPDATE tb_estoque
-SET quantidade = 5,
-    atualizado_em = NOW()
-WHERE tb_produtos_id_produtos = 3;
-
-
--- produtos
-INSERT INTO tb_produtos (nome, descricao, preco_venda, categoria, ativo) VALUES
-('Shampoo Hidratante para Cachos', 'Shampoo suave para limpar e hidratar cabelos cacheados, mantendo a definição e maciez.', 29.90, 'Shampoo', 1),
-('Condicionador Nutritivo para Cachos', 'Condicionador rico em óleos naturais que nutre profundamente os fios cacheados.', 34.50, 'Condicionador', 1),
-('Máscara de Hidratação Profunda Cachos', 'Máscara concentrada para reconstrução e hidratação intensa dos cachos.', 45.00, 'Máscara', 1),
-('Creme de Pentear Definição e Controle', 'Creme leve para definir cachos e controlar o frizz durante o dia.', 27.90, 'Leave-in', 1),
-('Gel Ativador de Cachos', 'Gel que ativa a forma natural dos cachos sem deixar resíduo.', 24.90, 'Gel', 1),
-('Óleo de Argan para Cabelos Cacheados', 'Óleo nutritivo que promove brilho e combate o ressecamento dos cachos.', 39.90, 'Óleo', 1),
-('Spray de Brilho para Cachos', 'Spray leve que adiciona brilho e controla o frizz.', 22.00, 'Spray', 1),
-('Shampoo Sem Sulfato para Cachos', 'Shampoo livre de sulfatos que limpa delicadamente os cabelos cacheados.', 32.00, 'Shampoo', 1),
-('Condicionador Sem Silicone', 'Condicionador que hidrata sem pesar nos fios cacheados.', 35.00, 'Condicionador', 1),
-('Máscara Reconstrutora para Cachos Danificados', 'Máscara que reconstrói fios danificados e fortalece os cachos.', 49.90, 'Máscara', 1),
-('Leave-in Hidratante', 'Leave-in hidratante para cachos definidos e sem frizz.', 28.50, 'Leave-in', 1),
-('Creme Noturno para Cachos', 'Creme para uso noturno que hidrata profundamente durante o sono.', 33.00, 'Creme', 1),
-('Gel Fixador para Cachos', 'Gel fixador de longa duração para definição de cachos.', 26.00, 'Gel', 1),
-('Óleo de Coco para Cabelos Cacheados', 'Óleo natural que nutre e fortalece os cachos.', 37.90, 'Óleo', 1),
-('Máscara de Umectação Profunda', 'Máscara para umectação que revitaliza cabelos secos e quebradiços.', 44.00, 'Máscara', 1),
-('Spray Finalizador Anti-Frizz', 'Spray finalizador que controla o frizz e sela as cutículas.', 23.50, 'Spray', 1),
-('Shampoo Detox para Cachos', 'Shampoo detox que remove impurezas e resíduos.', 30.00, 'Shampoo', 1),
-('Condicionador Reparador', 'Condicionador que repara as pontas e sela a hidratação.', 36.50, 'Condicionador', 1),
-('Máscara Hidratante com Babosa', 'Máscara enriquecida com babosa para hidratação natural.', 42.00, 'Máscara', 1),
-('Creme de Pentear com Manteiga de Karité', 'Creme que define e hidrata os cachos com manteiga de karité.', 29.90, 'Leave-in', 1),
-('Gel Modelador Natural', 'Gel modelador com fixação natural sem ressecar.', 25.00, 'Gel', 1),
-('Óleo de Rícino para Crescimento', 'Óleo que auxilia no crescimento saudável dos cachos.', 38.00, 'Óleo', 1),
-('Spray Fixador Leve', 'Spray para fixação leve e brilho natural.', 21.00, 'Spray', 1),
-('Shampoo Antirresíduo', 'Shampoo que remove resíduos para limpeza profunda.', 31.50, 'Shampoo', 1),
-('Condicionador com Proteínas', 'Condicionador enriquecido com proteínas para fortalecer os fios.', 37.00, 'Condicionador', 1),
-('Máscara Nutritiva com Óleo de Abacate', 'Máscara nutritiva com óleo de abacate para cachos saudáveis.', 46.00, 'Máscara', 1),
-('Creme Leave-in Anti-Frizz', 'Leave-in que controla o frizz e define os cachos.', 28.00, 'Leave-in', 1),
-('Gel de Alta Definição', 'Gel que oferece alta definição para cachos duradouros.', 27.50, 'Gel', 1),
-('Óleo Essencial de Lavanda', 'Óleo essencial que hidrata e acalma o couro cabeludo.', 40.00, 'Óleo', 1),
-('Spray Umidificador de Cachos', 'Spray que umidifica e revigora cachos ressecados.', 22.50, 'Spray', 1),
-('Shampoo Suave com Camomila', 'Shampoo suave com extrato de camomila para limpeza delicada.', 29.00, 'Shampoo', 1);
 
 -- Tabela que armazena as vendas realizadas com data e valor
 CREATE TABLE IF NOT EXISTS `tb_vendas` (
@@ -289,14 +270,15 @@ CREATE TABLE IF NOT EXISTS `tb_vendas` (
   `data_venda` DATE NOT NULL,                -- Data em que a venda ocorreu
   `valor` DECIMAL(10,2) NOT NULL             -- Valor total da venda
 );
-INSERT INTO tb_vendas (data_venda, valor) VALUES
-('2025-01-15', 120.00),
-('2025-01-22', 80.00),
-('2025-02-03', 200.00),
-('2025-02-15', 90.00),
-('2025-03-10', 150.00),
-('2025-04-05', 300.00),
-('2025-07-01', 450.00);
+
+-- TABELA DE LOGIN DE GERÊNCIA
+CREATE TABLE tb_login_gerencia (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    id_funcionario INT,
+    FOREIGN KEY (id_funcionario) REFERENCES tb_funcionarios(id_funcionarios)
+)ENGINE = InnoDB;
 
 -- Gatilho que insere automaticamente uma venda quando uma nova compra é registrada
 DELIMITER //
@@ -311,31 +293,3 @@ END;
 //
 
 DELIMITER ;
-
-
-
--- Inserir um fornecedor para usar no teste (se ainda não tiver)
-INSERT INTO tb_fornecedores (nome, cnpj, telefone, email, endereco) VALUES
-('Fornecedor Teste', '12.345.678/0001-99', '(11) 99999-9999', 'fornecedor@teste.com', 'Rua Teste, 123');
-
--- Inserir compra associada ao fornecedor (use o ID do fornecedor inserido acima, aqui supondo id = 1)
-INSERT INTO tb_compras (data_compra, valor_total, observacoes, tb_fornecedores_id_fornecedores) VALUES
-(NOW(), 200.00, 'Compra teste 1', 1);
-
--- Inserir venda correspondente para refletir no gráfico
-INSERT INTO tb_vendas (data_venda, valor) VALUES
-(CURDATE(), 200.00);
-
--- Outra compra e venda para outro teste
-INSERT INTO tb_compras (data_compra, valor_total, observacoes, tb_fornecedores_id_fornecedores) VALUES
-(NOW(), 350.50, 'Compra teste 2', 1);
-
-INSERT INTO tb_vendas (data_venda, valor) VALUES
-(CURDATE(), 350.50);
-
--- Mais um exemplo de compra e venda com valor diferente
-INSERT INTO tb_compras (data_compra, valor_total, observacoes, tb_fornecedores_id_fornecedores) VALUES
-(NOW(), 125.75, 'Compra teste 3', 1);
-
-INSERT INTO tb_vendas (data_venda, valor) VALUES
-(CURDATE(), 125.75);
