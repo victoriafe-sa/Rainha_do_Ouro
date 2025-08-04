@@ -332,6 +332,8 @@ header .icons a:last-child img {
   color: #F7E1A0;
   margin-top: 40px;
   border-top: 4px solid #F0B429;
+    margin-top: 0;
+  padding-top: 0;
 }
 
 .footer-content {
@@ -474,4 +476,66 @@ padding-bottom: -100px;
   width: 60px;
   margin: 10px auto;
   display: block;
+}
+
+/*nosso espaço*/
+.nosso-espaco {
+  padding: 20px 0 0; /* padding inferior removido para encostar no footer */
+  text-align: center;
+  margin-bottom: 0; /* garante que não haja espaço depois */
+}
+
+.titulo-secao {
+  font-size: 32px;
+  margin-bottom: 30px;
+  font-family: 'Playfair Display', serif;
+}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  padding-bottom: 40px; /* se quiser um respiro acima do rodapé */
+}
+
+.imagem-expandir {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.imagem-expandir:hover {
+  transform: scale(1.05);
+}
+
+.popup-imagem {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(32, 13, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-imagem img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.popup-imagem .fechar {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
 }

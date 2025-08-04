@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rainha do Ouro</title>
   <link rel="stylesheet" href="../css/pagina_inicial.css">
-  <link rel="stylesheet" href="../script/pg.js">
+<script src="../script/teste-fotos.js" defer></script>
   <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet"><!---->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
@@ -182,11 +183,22 @@
 
   <!-- Seção Nossos Espaço -->
   <section class="nosso-espaco">
-    <h2 class="titulo-secao">Nossos Espaço</h2>
-    <div class="carrossel-fotos">
-      <p>carrossel de fotos</p>
-    </div>
-  </section>
+  <h2 class="titulo-secao">Nosso Espaço</h2>
+  <div class="galeria">
+    <img src="../img/salon.jpg" alt="Imagem 1" class="imagem-expandir">
+    <img src="../img/fachada.jpg" alt="Imagem 2" class="imagem-expandir">
+    <img src="../img/produtos.jpg" alt="Imagem 3" class="imagem-expandir">
+     <img src="../img/lavatorio.jpg" alt="Imagem 3" class="imagem-expandir">
+    <!-- Adicione quantas quiser -->
+  </div>
+
+  <!-- Pop-up da imagem expandida -->
+  <div class="popup-imagem" id="popup">
+    <span class="fechar" onclick="fecharImagem()">&times;</span>
+    <img id="imagemExpandida" src="" alt="Imagem Expandida">
+  </div>
+</section>
+
 
   <!-- Rodapé -->
   <footer class="site-footer">
