@@ -24,7 +24,6 @@
             </ul>
         </nav>
         <div class="icons">
-            <a href="#"><img src="../img/lupa.png" alt="Buscar"></a>
             <a href="../html/carrinho.html"><img src="../img/carrinho.png" alt="Carrinho"></a>
             <a href="../html/perfil_usuario.html"><img src="../img/perfil.png" alt="Perfil"></a>
         </div>
@@ -80,16 +79,33 @@ $conn->close();
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Rainha do Ouro. Todos os direitos reservados.</p>
-            <div class="footer-links">
-                <a href="#">Política de Privacidade</a>
-                <a href="#">Termos de Uso</a>
-                <a href="#">Contato</a>
-            </div>
+    <footer class="site-footer">
+    <div class="footer-content">
+
+      <!-- Logo alinhada à esquerda -->
+      <div class="footer-esquerda">
+        <img src="../img/logo.png" alt="Rainha do Ouro" class="logo-footer">
+      </div>
+
+      <!-- Texto e ícones centralizados -->
+      <div class="info-footer">
+        <p>&copy; 2025 Rainha do Ouro. Todos os direitos reservados.</p>
+
+        <div class="footer-links">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#">Contato</a>
         </div>
-    </footer>
+
+        <div class="redes-sociais">
+          <a href="#"><img src="../img/instagram-icon.png" alt="Instagram"></a>
+          <a href="#"><img src="../img/facebook-icon.png" alt="Facebook"></a>
+          <a href="#"><img src="../img/x-icon.png" alt="X"></a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
 </body>
 
 </html>

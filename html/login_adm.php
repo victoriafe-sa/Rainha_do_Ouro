@@ -31,11 +31,6 @@
       </div>
 
       <button class="login" type="submit">Login</button>
-
-      <div class="footer">
-        <span>Inscrever-se</span>
-        <span>Esqueceu a senha?</span>
-      </div>
     </div>
   </form>
 

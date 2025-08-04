@@ -151,39 +151,68 @@ header .icons a:last-child img {
 }
 
 
-/* ============FOOTER============*/
-footer {
+/* Footer */
+.site-footer {
     width: 100%;
     background-color: #4B2C1A;
     color: #F7E1A0;
-    padding: 20px 0;
-    text-align: center;
     margin-top: 40px;
     border-top: 4px solid #F0B429;
-    font-family: 'Georgia', serif;
+    margin-top: 0;
+    padding-top: 0;
 }
 
-
-
 .footer-content {
-    max-width: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
     margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.logo-footer {
+    width: 110px;
+    margin-left: -80px;
+    padding-bottom: -100px;
+}
+
+.info-footer {
+    flex: 1;
+    text-align: center;
+    font-size: 15px;
 }
 
 .footer-links {
-    margin-top: 10px;
     display: flex;
+    gap: 15px;
     justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    margin-top: 10px;
 }
 
 .footer-links a {
     color: #F7E1A0;
     text-decoration: none;
-    font-size: 14px;
 }
 
 .footer-links a:hover {
-    text-decoration: underline;
+    color: #ffffff;
+}
+
+.redes-sociais {
+    display: flex;
+    justify-content: right;
+    gap: 15px;
+    margin-top: -50px;
+}
+
+.redes-sociais img {
+    width: 25px;
+    height: 25px;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
+}
+
+.redes-sociais img:hover {
+    transform: scale(1.2);
 }

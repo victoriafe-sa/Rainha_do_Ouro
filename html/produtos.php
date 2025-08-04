@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos | Rainha do Ouro</title>
-    <link rel="stylesheet" href="../css/produtos_php.css">
+    <link rel="stylesheet" href="../css/produtos.css">
     <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
 </head>
 
@@ -24,7 +24,6 @@
             </ul>
         </nav>
         <div class="icons">
-            <a href="#"><img src="../img/lupa.png" alt="Buscar"></a>
             <a href="../html/carrinho.html"><img src="../img/carrinho.png" alt="Carrinho"></a>
             <a href="../html/perfil_usuario.html"><img src="../img/perfil.png" alt="Perfil"></a>
         </div>
@@ -42,7 +41,11 @@
         </div>
         <div class="mainSection">
             <div class="productSection">
-                <h2>Nossos Produtos</h2>
+                <div class="frase-com-coroa">
+                    <img src="../img/cra.png" alt="Coroa">
+                    <h2>Nossos Produtos</h2>
+                    <img src="../img/cra2.png" alt="Coroa">
+                </div>
                 <div class="products">
 
                     <?php
@@ -87,16 +90,33 @@
             </div>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Rainha do Ouro. Todos os direitos reservados.</p>
-            <div class="footer-links">
-                <a href="#">Política de Privacidade</a>
-                <a href="#">Termos de Uso</a>
-                <a href="#">Contato</a>
-            </div>
+    <footer class="site-footer">
+    <div class="footer-content">
+
+      <!-- Logo alinhada à esquerda -->
+      <div class="footer-esquerda">
+        <img src="../img/logo.png" alt="Rainha do Ouro" class="logo-footer">
+      </div>
+
+      <!-- Texto e ícones centralizados -->
+      <div class="info-footer">
+        <p>&copy; 2025 Rainha do Ouro. Todos os direitos reservados.</p>
+
+        <div class="footer-links">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#">Contato</a>
         </div>
-    </footer>
+
+        <div class="redes-sociais">
+          <a href="#"><img src="../img/instagram-icon.png" alt="Instagram"></a>
+          <a href="#"><img src="../img/facebook-icon.png" alt="Facebook"></a>
+          <a href="#"><img src="../img/x-icon.png" alt="X"></a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
 
     <script>
     function addToCart(button) {

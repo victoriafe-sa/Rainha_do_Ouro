@@ -104,6 +104,18 @@ function loadCart() {
     updateTotal();
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    const finalizarBtn = document.querySelector('.price-section button:nth-of-type(1) a');
+    const cepInput = document.getElementById("CEP");
+
+    finalizarBtn.addEventListener("click", function (event) {
+        if (cepInput.value.trim() === "") {
+            event.preventDefault(); // Impede o link de redirecionar
+            alert("Por favor, digite seu CEP antes de finalizar a compra.");
+        }
+    });
+});
+
 
 document.getElementById('CEP').addEventListener('input', updateTotal);
 document.addEventListener('DOMContentLoaded', loadCart);
