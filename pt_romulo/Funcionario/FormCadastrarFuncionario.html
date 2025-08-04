@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Funcionário - Salão Rainha do Ouro</title>
+    <link rel="stylesheet" href="../css/funcionario_cadastro.css" />
+    <style>
+.botao-lista {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	list-style: none;
+	padding: 0;
+	margin-top: 30px;
+	flex-wrap: wrap;
+}
+
+.botao {
+	display: inline-block;
+	padding: 12px 30px;
+	font-size: 16px;
+	border: none;
+	border-radius: 25px;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	color: white;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.botao-cadastrar {
+	background-color: #4B2E1E;
+}
+
+.botao-cadastrar:hover {
+	background-color: #27170e;
+}
+
+.botao-cancelar {
+	background-color: #888;
+}
+
+.botao-cancelar:hover {
+	background-color: #555;
+}
+#salario {
+  width: 95%;
+  padding: 10px 15px;
+  border: 2px solid #b28561;
+  border-radius: 8px;
+  background-color: #fff7f0;
+  font-size: 15px;
+  box-shadow: 0 2px 6px rgba(75, 46, 30, 0.2);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  
+}
+
+label[for="salario"] {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #4B2E1E;
+  font-size: 15px;
+}
+
+
+
+</style>
+</head>
+
+<body class="fade-in">
+    <div class="form-container">
+        <h1>Cadastro de Funcionário</h1>
+        <form method="post" action="CadastrarFuncionario.php">
+
+            <!-- SEÇÃO: INFORMAÇÕES PESSOAIS -->
+            <h2 class="section-title">Informações Pessoais</h2>
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" name="nome_completo" placeholder="Nome Completo" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="nascimento">Data de nascimento</label>
+                    <input type="date" id="nascimento" name="data_nascimento" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" name="cpf" placeholder="CPF" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="rg">RG</label>
+                    <input type="text" id="rg" name="rg" placeholder="RG" />
+                </div>
+
+                <div class="form-group">
+                    <label for="sexo">Sexo/Gênero</label>
+                    <select id="sexo" name="sexo" required>
+                        <option value="">Selecione</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Outro">Outro</option>
+                        <option value="Prefiro não informar">Prefiro não informar</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="estado-civil">Estado civil</label>
+                    <select id="estado-civil" name="estado_civil">
+                        <option value="">Selecione</option>
+                        <option value="Solteiro(a)">Solteiro(a)</option>
+                        <option value="Casado(a)">Casado(a)</option>
+                        <option value="Divorciado(a)">Divorciado(a)</option>
+                        <option value="Viúvo(a)">Viúvo(a)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="Telefone" />
+                </div>
+
+                <!-- Removido campo de email (é gerado automaticamente no PHP) -->
+
+                <div class="form-group">
+                    <label for="cep">CEP</label>
+                    <input type="text" id="cep" name="cep" onblur="pesquisacep(this.value)" placeholder="CEP" />
+                </div>
+
+                <div class="form-group">
+                    <label for="rua">Endereço</label>
+                    <input type="text" id="logradouro" name="rua" placeholder="Endereço" />
+                </div>
+
+                <div class="form-group">
+                    <label for="numero">Número</label>
+                    <input type="text" id="numero" name="numero" placeholder="Número" />
+                </div>
+
+                <div class="form-group">
+                    <label for="bairro">Bairro</label>
+                    <input type="text" id="bairro" name="bairro" placeholder="Bairro" />
+                </div>
+
+                <div class="form-group">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" id="cidade" name="cidade" placeholder="Cidade" />
+                </div>
+
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <input type="text" id="estado" name="estado" placeholder="Estado" />
+                </div>
+            </div>
+
+            <!-- SEÇÃO: INFORMAÇÕES PROFISSIONAIS -->
+            <h2 class="section-title">Informações Profissionais</h2>
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="cargo">Cargo/Função</label>
+                    <input type="text" id="cargo" name="cargo" required placeholder="Cargo" />
+                </div>
+
+                <div class="form-group">
+                    <label for="tipo_funcionario">Tipo de Funcionário</label>
+                    <select id="tipo_funcionario" name="tipo_funcionario" required>
+                        <option value="">Selecione o tipo</option>
+                        <option value="adm">Administrador</option>
+                        <option value="recepcionista">Recepcionista</option>
+                        <option value="cabeleireiro">Cabeleireiro</option>
+                        <option value="atendente">Atendente</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="horario">Horário de trabalho</label>
+                    <input type="text" id="horario" name="horario_trabalho" placeholder="Horário" />
+                </div>
+
+                <div class="form-group">
+                    <label for="salario">Salário / Comissão</label>
+                    <input type="number" id="salario" name="salario" placeholder="Salário" step="0.01" />
+                </div>
+
+                <div class="form-group">
+                    <label for="tipo-contrato">Tipo de contratação</label>
+                    <select id="tipo-contrato" name="tipo_contrato">
+                        <option value="">Selecione</option>
+                        <option value="CLT">CLT</option>
+                        <option value="Autônomo">Autônomo</option>
+                        <option value="Freelancer">Freelancer</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="carteira">Nº Carteira de Trabalho</label>
+                    <input type="text" id="carteira" name="carteira_trabalho" placeholder="Carteira de Trabalho" />
+                </div>
+
+                <div class="form-group">
+                    <label for="pis">Número do PIS</label>
+                    <input type="text" id="pis" name="pis" placeholder="PIS" />
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="observacoes">Observações</label>
+                    <textarea id="observacoes" name="observacoes" placeholder="Observações adicionais..."></textarea>
+                </div>
+            </div>
+
+            <ul class="botao-lista">
+                <li><button type="submit" class="botao botao-cadastrar">Cadastrar</button></li>
+                <li><a href="../index.php" class="botao botao-cancelar">Cancelar</a></li>
+            </ul>
+
+        </form>
+    </div>
+
+
+</body>
+
+</html>
