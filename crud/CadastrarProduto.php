@@ -5,8 +5,7 @@ include_once "../conectarbd.php";
 $nome = $_POST["nome"];
 $descricao = $_POST["descricao"];
 $preco_venda = $_POST["preco_venda"];
-$categoria = $_POST["categoria"];
-$estoque = $_POST["estoque"];
+$quantidade_estoque = $_POST["quantidade_estoque"];
 
 if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
     $nomeImagem = $_FILES['imagem']['name'];
@@ -25,8 +24,8 @@ if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
 
     $caminhoImagem = $pasta . $novoNomeImagem;
     if (move_uploaded_file($_FILES['imagem']['tmp_name'], $caminhoImagem)) {
-        $query = "INSERT INTO tb_produtos(nome, descricao, preco_venda, categoria, estoque, path, data_upload)
-                  VALUES ('$nome', '$descricao', '$preco_venda', '$categoria', '$estoque', '$caminhoImagem', NOW())";
+        $query = "INSERT INTO tb_produtos(nome, descricao, preco_venda, quantidade_estoque, path, data_upload)
+                  VALUES ('$nome', '$descricao', '$preco_venda', '$quantidade_estoque', '$caminhoImagem', NOW())";
         if (mysqli_query($conn, $query)) {
             echo "<script>alert('Produto adicionado com sucesso!'); window.location = '../html/dashboard.php';</script>";
         } else {
