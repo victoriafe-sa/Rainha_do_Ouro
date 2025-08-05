@@ -1,14 +1,5 @@
 <?php
-$host = 'localhost';
-$usuario = 'root';
-$senha = '';
-$banco = 'db_rainhadoouro';
-
-$conn = new mysqli($host, $usuario, $senha, $banco);
-
-if ($conn->connect_error) {
-    die("Erro na conexão: " . $conn->connect_error);
-}
+include("../conectarbd.php");
 
 $qtd_funcionarios = $conn->query("SELECT COUNT(*) as total FROM tb_funcionarios")->fetch_assoc()['total'];
 $qtd_produtos = $conn->query("SELECT COUNT(*) as total FROM tb_produtos")->fetch_assoc()['total'];
@@ -77,20 +68,20 @@ $conn->close();
                     </div>
                 </div>
                 <nav>
-                    <button onclick="carregarPagina('../Funcionario/FormCadastrarFuncionario.html', '../css/funcionario_cadastro.css', '../script/formCadastraFuncionario.js')">
+                    <button onclick="carregarPagina('../html/FormCadastrarFuncionario.html', '../css/funcionario_cadastro.css', '../script/formCadastraFuncionario.js')">
                         <i class="ai-person"></i>
                         <span class="tst">Cadastrar Funcionários</span>
                     </button>
 
-                    <button onclick="carregarPagina('../Produto_Servico/FormCadastrarProduto_Serviço.html', '../css/prod_serv_php.css', '../script/formCadastraProduto_Serviço.js')">
+                    <button onclick="carregarPagina('../html/FormCadastrarProduto_Serviço.html', '../css/prod_serv_php.css', '../script/formCadastraProduto_Serviço.js')">
                         <i class="ai-shipping-box-v1"></i>
-                        <span class="tst">Cadastrar Produtos</span>
+                        <span class="tst">Cadastrar Produtos e Serviços</span>
                     </button>
 
                     <!-- Exemplo em branco para adicionar novas páginas -->
-                    <button onclick="carregarPagina('../Funcionario/consultar_atend.php', null, null)">
+                    <button onclick="carregarPagina('../html/consultar_atend.php', null, null)">
                         <i class="ai-file"></i>
-                        <span class="tst">Nova Página</span>
+                        <span class="tst">Consultar Atendimento</span>
                     </button>
                 </nav>
             </div>

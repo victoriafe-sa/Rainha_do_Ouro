@@ -8,29 +8,26 @@ CREATE TABLE IF NOT EXISTS `tb_produtos` (
   `descricao` TEXT NOT NULL,
   `preco_venda` DECIMAL(10,2) NOT NULL,
   `categoria` VARCHAR(50) NOT NULL,
+  `quantidade_estoque` INT NOT NULL,
+  `path` VARCHAR(100) NOT NULL,
+  `data_upload` DATE NOT NULL,
   `ativo` TINYINT(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_produtos`)
-) ENGINE = InnoDB;
-
-ALTER TABLE `db_rainhadoouro`.`tb_produtos` 
-ADD COLUMN `imagem` LONGBLOB NOT NULL AFTER `ativo`,
-CHANGE COLUMN `nome` `nome` VARCHAR(255) NOT NULL ;
+);
 
 
 -- Serviços
 CREATE TABLE IF NOT EXISTS `tb_servicos` (
   `id_servicos` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NOT NULL,
+  `nome` VARCHAR(100) NOT NULL,
   `descricao` TEXT NOT NULL,
-  `preco` DECIMAL(10,2) NOT NULL,
   `duracao_min` INT NOT NULL,
+  `preco` DECIMAL(10,2) NOT NULL,
+  `path` VARCHAR(100) NOT NULL,
+  `data_upload` DATE NOT NULL,
   `ativo` TINYINT(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_servicos`)
-) ENGINE = InnoDB;
-
-ALTER TABLE `db_rainhadoouro`.`tb_servicos` 
-ADD COLUMN `imagem` LONGBLOB NOT NULL AFTER `ativo`,
-CHANGE COLUMN `nome` `nome` VARCHAR(255) NOT NULL ;
+);
 
 -- Fornecedores
 CREATE TABLE IF NOT EXISTS `tb_fornecedores` (
@@ -98,6 +95,7 @@ CREATE TABLE IF NOT EXISTS `tb_clientes` (
   `id_clientes` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(60) NOT NULL,
   `telefone` VARCHAR(20) NOT NULL,
+  `cpf` VARCHAR(14) NOT NULL,
   `data_nascimento` DATE NOT NULL,
   `email` VARCHAR(100) NOT NULL,
   `senha` VARCHAR(45) NOT NULL,
@@ -190,40 +188,17 @@ CREATE TABLE IF NOT EXISTS `tb_pagamentos` (
 -- Agendamentos
 CREATE TABLE IF NOT EXISTS `tb_agendamentos` (
   `id_agendamentos` INT NOT NULL AUTO_INCREMENT,
-  `data_hora` DATETIME NULL,
-  `status` ENUM('agendado', 'realizado', 'cancelado') NULL DEFAULT 'agendado',
-  `tb_funcionarios_id_funcionarios` INT NOT NULL,
-  `tb_pagamentos_id_pagamentos` INT NOT NULL,
-  PRIMARY KEY (`id_agendamentos`),
-  CONSTRAINT `fk_agendamento_funcionario` FOREIGN KEY (`tb_funcionarios_id_funcionarios`) REFERENCES `tb_funcionarios` (`id_funcionarios`) ON DELETE CASCADE,
-  CONSTRAINT `fk_agendamento_pagamento` FOREIGN KEY (`tb_pagamentos_id_pagamentos`) REFERENCES `tb_pagamentos` (`id_pagamentos`) ON DELETE CASCADE
-) ENGINE = InnoDB;
-
-ALTER TABLE `db_rainhadoouro`.`tb_agendamentos` 
-DROP FOREIGN KEY `fk_agendamento_pagamento`,
-DROP FOREIGN KEY `fk_agendamento_funcionario`;
-ALTER TABLE `db_rainhadoouro`.`tb_agendamentos` 
-DROP COLUMN `tb_pagamentos_id_pagamentos`,
-DROP COLUMN `tb_funcionarios_id_funcionarios`,
-ADD COLUMN `tipoServico` VARCHAR(95) NOT NULL AFTER `servico`,
-ADD COLUMN `data` DATE NOT NULL AFTER `tipoServico`,
-ADD COLUMN `hora` TIME NOT NULL AFTER `data`,
-CHANGE COLUMN `data_hora` `servico` VARCHAR(60) NOT NULL ,
-DROP INDEX `fk_agendamento_pagamento` ,
-DROP INDEX `fk_agendamento_funcionario` ;
-;
-ALTER TABLE `db_rainhadoouro`.`tb_agendamentos` 
-CHANGE COLUMN `hora` `horario` TIME NOT NULL ;
-
--- Agendamento x Serviços
-CREATE TABLE IF NOT EXISTS `tb_agendamento_servicos` (
-  `id_agendamento_servico` INT NOT NULL AUTO_INCREMENT,
-  `tb_agendamentos_id_agendamentos` INT NOT NULL,
-  `tb_servicos_id_servicos` INT NOT NULL,
-  PRIMARY KEY (`id_agendamento_servico`),
-  CONSTRAINT `fk_agendamento_servico_agendamento` FOREIGN KEY (`tb_agendamentos_id_agendamentos`) REFERENCES `tb_agendamentos` (`id_agendamentos`) ON DELETE CASCADE,
-  CONSTRAINT `fk_agendamento_servico_servico` FOREIGN KEY (`tb_servicos_id_servicos`) REFERENCES `tb_servicos` (`id_servicos`) ON DELETE CASCADE
-) ENGINE = InnoDB;
+  `servico` VARCHAR(60) NOT NULL,
+  `tipoServico` VARCHAR(95) NOT NULL,
+  `data` DATE NOT NULL,
+  `horario` TIME NOT NULL,
+  `status` ENUM('agendado', 'realizado', 'cancelado') DEFAULT 'agendado',
+  `nome` VARCHAR(255),
+  `sobrenome` VARCHAR(255),
+  `email` VARCHAR(255),
+  `telefone` VARCHAR(20),
+    PRIMARY KEY (`id_agendamentos`)
+);
 
 -- Histórico de Estoque
 CREATE TABLE IF NOT EXISTS `tb_historico_estoque` (
@@ -271,14 +246,6 @@ CREATE TABLE IF NOT EXISTS `tb_vendas` (
   `valor` DECIMAL(10,2) NOT NULL             -- Valor total da venda
 );
 
--- TABELA DE LOGIN DE GERÊNCIA
-CREATE TABLE tb_login_gerencia (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    senha VARCHAR(255) NOT NULL,
-    id_funcionario INT,
-    FOREIGN KEY (id_funcionario) REFERENCES tb_funcionarios(id_funcionarios)
-)ENGINE = InnoDB;
 
 -- Gatilho que insere automaticamente uma venda quando uma nova compra é registrada
 DELIMITER //
@@ -303,5 +270,3 @@ CREATE TABLE tb_login_gerencia (
     ativo TINYINT(1) DEFAULT 1,
     FOREIGN KEY (id_funcionario) REFERENCES tb_funcionarios(id_funcionarios)
 ) ENGINE=InnoDB;
-
-

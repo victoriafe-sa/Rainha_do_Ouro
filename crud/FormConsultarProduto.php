@@ -22,6 +22,7 @@
                         <td align="center"> <strong>Descrição</strong></td>
                         <td align="center"> <strong>Preço de Venda</strong></td>
                         <td align="center"> <strong>Categoria</strong></td>
+                        <td align="center"> <strong>Estoque</strong></td>
                         <td align="center"> <strong>Ativo</strong></td>
                         <td width="10"> <strong>Editar</strong></td>
                         <td width="10"> <strong>Deletar</strong></td>
@@ -37,6 +38,7 @@
                                 <td align="center"><?=$campo["descricao"]?></td>
                                 <td align="center"><?=$campo["preco_venda"]?></td>
                                 <td align="center"><?=$campo["categoria"]?></td>
+                                <td align="center"><?=$campo["quantidade_estoque"]?></td>
                                 <td align="center"><?=$campo["ativo"]?></td>
                                 
                                 

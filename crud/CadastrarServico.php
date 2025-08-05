@@ -4,8 +4,8 @@ include_once "../conectarbd.php";
 // Dados do formulário
 $nome = $_POST["nome"];
 $descricao = $_POST["descricao"];
-$preco = $_POST["preco"];
 $duracao_min = $_POST["duracao_min"];
+$preco = $_POST["preco"];
 
 // Verifica se o arquivo foi enviado
 if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === 0) {
@@ -26,10 +26,10 @@ if (isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === 0) {
 
     $caminhoCompleto = $pasta . $novoNome;
     if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $caminhoCompleto)) {
-        $query = "INSERT INTO tb_servicos(nome, descricao, preco, duracao_min, path, data_upload)
-                  VALUES ('$nome', '$descricao', '$preco', '$duracao_min', '$caminhoCompleto', NOW())";
+        $query = "INSERT INTO tb_servicos(nome, descricao, duracao_min, preco,  path, data_upload)
+                  VALUES ('$nome', '$descricao','$duracao_min', '$preco',  '$caminhoCompleto', NOW())";
         if (mysqli_query($conn, $query)) {
-            echo "<script>alert('Serviço adicionado com sucesso!'); window.location = '../html/dashboard.php';</script>";
+            echo "<script>alert('Serviço adicionado com sucesso!'); window.location = '../html/dashboard_adm.php';</script>";
         } else {
             echo "Erro ao inserir: " . mysqli_error($conn);
         }

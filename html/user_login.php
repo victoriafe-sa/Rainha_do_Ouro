@@ -13,20 +13,13 @@
 
     <!-- Cadastro -->
     <div class="form-container sign-up-container">
-      <form action="../crud/CadastrarCliente.php" method="POST">
+      <form action="../crud/CadastrarCliente_cliente.php" method="POST">
         <h1>Criar Conta</h1>
         <input type="text" name="nome" placeholder="Nome completo" required />
         <input type="text" name="telefone" id="phone" placeholder="Telefone" required />
-        <input type="date" name="data_nascimento" id="data" required />
+        <input type="date" name="data_nascimento" id="data" required placeholder="Data de Nascimento"/>
         <input type="email" name="email" placeholder="Email" required />
         <input type="password" name="senha" id="senha" placeholder="Senha" required />
-        <input type="text" name="cpf" id="cpf" placeholder="CPF" required />
-        <input type="text" name="cep" id="cep" placeholder="CEP" required />
-        <input type="text" name="rua" placeholder="Rua" required />
-        <input type="number" name="numero" placeholder="Número" required />
-        <input type="text" name="bairro" placeholder="Bairro" required />
-        <input type="text" name="cidade" placeholder="Cidade" required />
-        <input type="text" name="estado" placeholder="Estado (ex: SP)" maxlength="2" required />
         <button type="submit">Cadastrar</button>
       </form>
     </div>

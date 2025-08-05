@@ -54,9 +54,6 @@
                 <label>Estado</label>
                 <input type="text" name="estado" placeholder="Estado" value="<?=$campo["estado"]?>">
 
-                <label>Data de Cadastro</label>
-                <input type="text" name="data_cadastro" placeholder="Data de cadastro" value="<?=$campo["data_cadastro"]?>">
-
                 <label>Ativo</label>
                 <input class="form-input" type="text" name="ativo" placeholder="Ativo" value="<?=$campo["ativo"]?>">
 

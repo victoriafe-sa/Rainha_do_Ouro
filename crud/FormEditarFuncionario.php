@@ -95,9 +95,6 @@
             <label>Observações</label>
             <input type="text" name="observacoes" placeholder="Observações" value="<?=$campo["observacoes"]?>">
 
-            <label>Data de cadastro</label>
-            <input type="date" name="data_cadastro" value="<?=$campo["data_cadastro"]?>">
-
             <input type="submit" class="botoes" value="Salvar">
             <a href="FormConsultarFuncionario.php"><input type="button" class="botoes" value="Cancelar" /></a>
 

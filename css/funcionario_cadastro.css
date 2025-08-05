@@ -10,6 +10,7 @@ body {
 		opacity: 0;
 		transform: translateY(-20px);
 	}
+
 	to {
 		opacity: 1;
 		transform: translateY(0);
@@ -113,3 +114,37 @@ textarea {
 		flex-direction: column;
 	}
 }
+
+.botao-lista {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	list-style: none;
+	padding: 0;
+	margin-top: 30px;
+	flex-wrap: wrap;
+}
+
+.botao {
+	display: inline-block;
+	padding: 12px 30px;
+	font-size: 16px;
+	border: none;
+	border-radius: 25px;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	color: white;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.botao-cadastrar, .botao-cancelar {
+	background-color: #4B2E1E;
+}
+
+.botao-cadastrar:hover, .botao-cancelar:hover {
+	background-color: #27170e;
+}
+
