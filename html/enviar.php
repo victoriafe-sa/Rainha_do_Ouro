@@ -1,85 +1,71 @@
 <?php
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require '../vendor/autoload.php';
-
-$servidor = "localhost";
-$dbusuario = "root";
-$dbsenha = "";
+$servername = "localhost";
+$username = "root";
+$password = "";
 $dbname = "db_rainhadoouro";
 
-$conn = mysqli_connect($servidor, $dbusuario, $dbsenha, $dbname);
-mysqli_select_db($conn, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Conexão falhou: " . $conn->connect_error);
+}
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $servico = $_POST["service"] ?? '';
-    $tipoServico = $_POST["tipoServico"] ?? '';
-    $data = $_POST["data"] ?? '';
-    $horario = $_POST["horario"] ?? '';
-    $nome = $_POST["nome"] ?? '';
-    $sobrenome = $_POST["sobrenome"] ?? '';
-    $email = $_POST["email"] ?? '';
-    $telefone = $_POST["telefone"] ?? '';
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $servico = $_POST['service'] ?? '';
+    $tipoServico = $_POST['tipoServico'] ?? '';
+    $data = $_POST['data'] ?? '';
+    $horario = $_POST['horario'] ?? '';
+    $nome = $_POST['nome'] ?? '';
+    $sobrenome = $_POST['sobrenome'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $telefone = $_POST['telefone'] ?? '';
 
-    $horario = $horario . ':00'; // formata como TIME (HH:MM:SS)
+    $horario = $horario . ":00"; // formato HH:MM:SS
 
-    // Verifica se já existe agendamento nesse dia e horário para o mesmo serviço
-    $stmt = $conn->prepare("SELECT * FROM tb_agendamentos WHERE data = ? AND horario = ?");
-    $stmt->bind_param("ss", $data, $horario);
-    $stmt->execute();
-    $resultado = $stmt->get_result();
+    // Montar nome completo do cliente
+    $nomeCompleto = trim($nome . ' ' . $sobrenome);
 
-    if ($resultado->num_rows > 0) {
-        echo "Já existe um agendamento para essa data e horário.";
+    // Verificar se cliente já existe (opcional)
+    $stmtVerificaCliente = $conn->prepare("SELECT id_clientes FROM tb_clientes WHERE email = ?");
+    $stmtVerificaCliente->bind_param("s", $email);
+    $stmtVerificaCliente->execute();
+    $res = $stmtVerificaCliente->get_result();
+
+    if ($res->num_rows > 0) {
+        // Cliente já existe, pegar id
+        $row = $res->fetch_assoc();
+        $idCliente = $row['id_clientes'];
     } else {
-        // Insere agendamento (status usa valor default)
-        $stmt = $conn->prepare("INSERT INTO tb_agendamentos (servico, tipoServico, data, horario) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $servico, $tipoServico, $data, $horario);
-
-        if ($stmt->execute()) {
-            // Enviar e-mail de confirmação
-            $mail = new PHPMailer(true);
-            try {
-                $mail->isSMTP();
-                $mail->Host = 'smtp.gmail.com';
-                $mail->SMTPAuth = true;
-                $mail->Username = 'victoria.senac.13@gmail.com';
-                $mail->Password = 'bwxl jxgi luso gbtr';
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                $mail->Port = 587;
-
-                $mail->setFrom('victoria.senac.13@gmail.com', 'Rainha do Ouro');
-                $mail->addAddress($email, "$nome $sobrenome");
-
-                $mail->isHTML(true);
-                $mail->Subject = 'Agendamento de Serviço - Rainha do Ouro';
-                $mail->Body = "
-                    <h2>Agendamento Confirmado!</h2>
-                    <p><strong>Nome:</strong> $nome $sobrenome</p>
-                    <p><strong>Email:</strong> $email</p>
-                    <p><strong>Telefone:</strong> $telefone</p>
-                    <p><strong>Serviço:</strong> $servico</p>
-                    <p><strong>Tipo de Serviço:</strong> $tipoServico</p>
-                    <p><strong>Data:</strong> $data</p>
-                    <p><strong>Horário:</strong> $horario</p>
-                    <br>
-                    <p>Obrigada por agendar com a gente! 💛</p>
-                ";
-                $mail->AltBody = "Agendamento confirmado para $nome $sobrenome - Serviço: $servico - Tipo: $tipoServico - Data: $data - Horário: $horario";
-
-                $mail->send();
-                header("Location: agendamentos.html#sucesso");
-                exit;
-            } catch (Exception $e) {
-                echo "Erro ao enviar o e-mail: {$mail->ErrorInfo}";
-            }
-        } else {
-            echo "Erro ao salvar no banco: " . $stmt->error;
+        // Inserir cliente
+        // Para simplificar, só vamos inserir nome, email e telefone. Outros campos você pode preencher depois
+        $stmtCliente = $conn->prepare("INSERT INTO tb_clientes (nome, telefone, email, data_nascimento, senha, cep, rua, numero, bairro, cidade, estado) VALUES (?, ?, ?, '1900-01-01', '', '', '', 0, '', '', '')");
+        $stmtCliente->bind_param("sss", $nomeCompleto, $telefone, $email);
+        if (!$stmtCliente->execute()) {
+            die("Erro ao inserir cliente: " . $stmtCliente->error);
         }
+        $idCliente = $stmtCliente->insert_id;
+    }
+
+    // Verificar se já existe agendamento no mesmo dia e horário para esse serviço
+    $stmtVerificaAgendamento = $conn->prepare("SELECT * FROM tb_agendamentos WHERE data = ? AND horario = ? AND servico = ?");
+    $stmtVerificaAgendamento->bind_param("sss", $data, $horario, $servico);
+    $stmtVerificaAgendamento->execute();
+    $resAgendamento = $stmtVerificaAgendamento->get_result();
+
+    if ($resAgendamento->num_rows > 0) {
+        die("Já existe um agendamento para essa data, horário e serviço.");
+    }
+
+    // Inserir agendamento
+    $stmtAgendamento = $conn->prepare("INSERT INTO tb_agendamentos (servico, tipoServico, data, horario, status) VALUES (?, ?, ?, ?, 'agendado')");
+    $stmtAgendamento->bind_param("ssss", $servico, $tipoServico, $data, $horario);
+
+    if ($stmtAgendamento->execute()) {
+        echo "Agendamento realizado com sucesso!";
+        // Aqui você pode colocar o código para enviar email usando PHPMailer
+    } else {
+        die("Erro ao inserir agendamento: " . $stmtAgendamento->error);
     }
 }
 
-mysqli_close($conn);
+$conn->close();
 ?>

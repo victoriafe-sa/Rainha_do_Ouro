@@ -275,3 +275,21 @@ CREATE TABLE tb_login_gerencia (
 --Adicione a restrição para evitar duplicidade futura
 ALTER TABLE tb_funcionarios
 ADD CONSTRAINT unique_cpf UNIQUE (cpf);
+
+DESCRIBE tb_agendamentos;
+ALTER TABLE tb_agendamentos ADD COLUMN tb_clientes_id_clientes INT NOT NULL AFTER status;
+
+SELECT tb_clientes_id_clientes
+FROM tb_agendamentos
+WHERE tb_clientes_id_clientes NOT IN (SELECT id_clientes FROM tb_clientes);
+
+
+SELECT tb_pagamentos_id_pagamentos
+FROM tb_agendamentos
+WHERE tb_pagamentos_id_pagamentos NOT IN (SELECT id_pagamentos FROM tb_pagamentos);
+
+UPDATE tb_agendamentos
+SET tb_clientes_id_clientes = 5,
+    tb_pagamentos_id_pagamentos = 10
+WHERE tb_clientes_id_clientes = 0
+  AND tb_pagamentos_id_pagamentos = 0;
