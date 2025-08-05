@@ -293,3 +293,15 @@ END;
 //
 
 DELIMITER ;
+--Gerenciamento de  login
+CREATE TABLE tb_login_gerencia (
+    id_login INT AUTO_INCREMENT PRIMARY KEY,
+    id_funcionario INT NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    tipo_usuario ENUM('adm', 'recepcionista', 'cabeleireiro', 'atendente') NOT NULL,
+    ativo TINYINT(1) DEFAULT 1,
+    FOREIGN KEY (id_funcionario) REFERENCES tb_funcionarios(id_funcionarios)
+) ENGINE=InnoDB;
+
+
