@@ -70,6 +70,7 @@ CREATE TABLE IF NOT EXISTS `tb_funcionarios` (
   `cidade` VARCHAR(50) NOT NULL,
   `estado` CHAR(2) NOT NULL,
   `cargo` VARCHAR(50) NOT NULL,
+  `tipo_funcionario` VARCHAR(50) NOT NULL,
   `horario_trabalho` TIME NOT NULL,
   `salario` DECIMAL(10,2) NOT NULL,
   `tipo_contrato` ENUM('CLT', 'Autônomo', 'Freelancer') NOT NULL,
@@ -260,7 +261,8 @@ END;
 //
 
 DELIMITER ;
---Gerenciamento de  login
+
+-- Gerenciamento de  login
 CREATE TABLE tb_login_gerencia (
     id_login INT AUTO_INCREMENT PRIMARY KEY,
     id_funcionario INT NOT NULL,
