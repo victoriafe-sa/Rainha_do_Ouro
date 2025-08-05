@@ -73,7 +73,7 @@ $conn->close();
                         <span class="tst">Cadastrar Funcionários</span>
                     </button>
 
-                    <button onclick="carregarPagina('../html/FormCadastrarProduto_Serviço.html', '../css/prod_serv_php.css', '../script/formCadastraProduto_Serviço.js')">
+                    <button onclick="carregarPagina('../html/FormCadastrarProduto_Serviço.html', '../css/prod_serv_php.css', '../script/cad_prod_serv.js')">
                         <i class="ai-shipping-box-v1"></i>
                         <span class="tst">Cadastrar Produtos e Serviços</span>
                     </button>
