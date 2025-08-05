@@ -272,3 +272,6 @@ CREATE TABLE tb_login_gerencia (
     ativo TINYINT(1) DEFAULT 1,
     FOREIGN KEY (id_funcionario) REFERENCES tb_funcionarios(id_funcionarios)
 ) ENGINE=InnoDB;
+--Adicione a restrição para evitar duplicidade futura
+ALTER TABLE tb_funcionarios
+ADD CONSTRAINT unique_cpf UNIQUE (cpf);

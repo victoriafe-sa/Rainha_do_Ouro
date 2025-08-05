@@ -2,17 +2,64 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login ADM</title>
-    <link rel="stylesheet" href="../css/login_adm.css">
+    <link rel="stylesheet" href="../css/login_adm.css" />
+    <style>
+        /* Estilos dos modais */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            overflow: auto;
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            box-shadow: 0 0 10px #00000033;
+        }
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .modal-content button {
+            background-color: #a65e2e;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .modal-content .close {
+            position: absolute;
+            top: 10px; right: 15px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
+    <!-- Formulário de login -->
     <form action="/Rainha_do_Ouro/crud/ValidarLoginFuncionarios.php" method="POST">
         <div class="screen-1">
-            <img src="../img/logo.png" alt="">
+            <img src="../img/logo.png" alt="Logo Rainha do Ouro" />
 
             <div class="email">
                 <label for="email">Email</label>
@@ -32,8 +79,126 @@
             </div>
 
             <button class="login" type="submit">Login</button>
+
+            <div class="footer">
+                <span><a href="#">Inscrever-se</a></span>
+                <span><a href="#" id="openModal">Esqueceu a senha?</a></span>
+            </div>
         </div>
     </form>
+
+    <!-- Modal 1: Validar email + CPF -->
+    <div id="modalValidar" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeValidar">&times;</span>
+            <h2>Validar Identidade</h2>
+            <form id="formValidar">
+                <label for="login_validar">Email:</label>
+                <input type="email" id="login_validar" name="login" required>
+
+                <label for="cpf_validar">CPF:</label>
+                <input type="text" id="cpf_validar" name="cpf" required placeholder="Somente números">
+
+                <button type="submit">Validar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 2: Nova senha -->
+    <div id="modalNovaSenha" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeNovaSenha">&times;</span>
+            <h2>Alterar Senha</h2>
+            <form id="formNovaSenha">
+                <input type="hidden" id="login_confirmado" name="login">
+                <label for="nova_senha">Nova senha:</label>
+                <input type="password" id="nova_senha" name="nova_senha" required>
+
+                <button type="submit">Alterar Senha</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        const modalValidar = document.getElementById('modalValidar');
+        const modalNovaSenha = document.getElementById('modalNovaSenha');
+        const openModalBtn = document.getElementById('openModal');
+        const closeValidar = document.getElementById('closeValidar');
+        const closeNovaSenha = document.getElementById('closeNovaSenha');
+
+        openModalBtn.onclick = e => {
+            e.preventDefault();
+            modalValidar.style.display = 'block';
+        };
+        closeValidar.onclick = () => modalValidar.style.display = 'none';
+        closeNovaSenha.onclick = () => modalNovaSenha.style.display = 'none';
+
+        window.onclick = (event) => {
+            if (event.target == modalValidar) modalValidar.style.display = 'none';
+            if (event.target == modalNovaSenha) modalNovaSenha.style.display = 'none';
+        };
+
+        // AJAX para validar email + CPF
+        document.getElementById('formValidar').onsubmit = function (e) {
+            e.preventDefault();
+            const login = this.login.value.trim();
+            const cpf = this.cpf.value.trim();
+
+            if (!login || !cpf) {
+                alert('Preencha email e CPF.');
+                return;
+            }
+
+            fetch('/Rainha_do_Ouro/crud/ValidarLoginCPF.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ login, cpf })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.sucesso) {
+                    modalValidar.style.display = 'none';
+                    modalNovaSenha.style.display = 'block';
+                    document.getElementById('login_confirmado').value = login;
+                } else {
+                    alert(data.mensagem || 'Email ou CPF incorretos.');
+                }
+            })
+            .catch(() => alert('Erro ao validar dados.'));
+        };
+
+        // AJAX para alterar senha
+        document.getElementById('formNovaSenha').onsubmit = function (e) {
+            e.preventDefault();
+            const login = this.login.value.trim();
+            const nova_senha = this.nova_senha.value.trim();
+
+            if (!nova_senha) {
+                alert('Digite a nova senha.');
+                return;
+            }
+
+            fetch('/Rainha_do_Ouro/crud/AlterarSenhaLoginFuncionario.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ login, nova_senha })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.sucesso) {
+                    alert('Senha alterada com sucesso!');
+                    modalNovaSenha.style.display = 'none';
+                } else {
+                    alert(data.mensagem || 'Erro ao alterar a senha.');
+                }
+            })
+            .catch(() => alert('Erro ao alterar a senha.'));
+        };
+    </script>
 </body>
 
 </html>
