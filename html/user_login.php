@@ -52,7 +52,7 @@ if (isset($_GET['msg'])) {
 
     <!-- Login -->
     <div class="form-container sign-in-container">
-      <form action="login_cliente.php" method="POST">
+      <form action="validar_login_fun.php" method="POST">
         <h1>Login</h1>
         <input type="email" name="email" placeholder="Email" required />
         <input type="password" name="senha" placeholder="Senha" required />
@@ -77,6 +77,6 @@ if (isset($_GET['msg'])) {
     </div>
   </div>
 
-  <script src="../script/user_login.js"></script>
+  <script src="../script2/user_login.js"></script>
 </body>
 </html>

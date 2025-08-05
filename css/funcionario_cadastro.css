@@ -1,6 +1,6 @@
 body {
 	font-family: Arial, sans-serif;
-	background-color: #F8D39C;
+	background-color: #f7e4c1;
 	margin: 0;
 	padding: 20px;
 }
@@ -10,7 +10,6 @@ body {
 		opacity: 0;
 		transform: translateY(-20px);
 	}
-
 	to {
 		opacity: 1;
 		transform: translateY(0);
@@ -25,7 +24,6 @@ img {
 	display: block;
 	margin: 0 auto;
 	width: 200px;
-	/* ajuste conforme o tamanho desejado */
 	height: auto;
 }
 
@@ -72,6 +70,7 @@ input[type="date"],
 input[type="email"],
 input[type="tel"],
 input[type="file"],
+input[type="number"],
 select,
 textarea {
 	width: 100%;
@@ -82,17 +81,15 @@ textarea {
 	box-shadow: 0 4px 8px rgba(75, 46, 30, 0.2), 0 2px 4px rgba(75, 46, 30, 0.1);
 	background-color: #ffffffc6;
 }
-input[type="text"],
-input[type="date"],
-input[type="email"],
-input[type="tel"],
-input[type="file"],
-select,
+
+input:focus,
+select:focus,
 textarea:focus {
-    outline: none;
-    border: none;
-    box-shadow: none;
+	outline: none;
+	border: none;
+	box-shadow: 0 0 0 2px #4B2E1E50;
 }
+
 textarea {
 	resize: vertical;
 	height: 100px;
@@ -102,35 +99,17 @@ textarea {
 	flex: 1 1 100%;
 }
 
+
+
+/* Responsividade */
 @media (max-width: 768px) {
 	.form-group {
 		flex: 1 1 100%;
 	}
 }
 
-.form-buttons {
-	display: flex;
-	justify-content: center; /* Centraliza os botões lado a lado */
-	gap: 20px;               /* Espaçamento entre os botões */
-	margin-top: 20px;
-}
-
-.btn,
-.btn-primary {
-	width: 200px; /* Tamanho fixo dos botões - pode ajustar conforme preferir */
-	height: 45px;
-	background-color: #643c27;
-	color: #fff;
-	font-weight: bold;
-	border: none;
-	border-radius: 10px;
-	font-size: 16px;
-	cursor: pointer;
-	transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn:hover,
-.btn-primary:hover {
-	background-color: #4e2f1b;
-	transform: scale(1.02);
+@media (max-width: 600px) {
+	.botao-lista {
+		flex-direction: column;
+	}
 }

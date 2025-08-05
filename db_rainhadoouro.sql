@@ -384,4 +384,27 @@ CREATE TABLE IF NOT EXISTS tb_login (
 ALTER TABLE tb_funcionarios
 ADD COLUMN tipo_funcionario ENUM('Administrador', 'Recepcionista', 'Cabeleireiro') NOT NULL AFTER `status`;
 
-select * from tb_funcionarios;
+select * from tb_clientes;
+use db_rainhadoouro;
+
+
+SELECT * FROM tb_funcionarios;
+DELETE FROM tb_funcionarios
+where id_funcionarios in (13);
+
+SELECT id_funcionarios, nome_completo FROM tb_funcionarios WHERE id_funcionarios IN (14,15,16,17,18);
+SELECT id_pagamentos, valor, tb_clientes_id_clientes FROM tb_pagamentos WHERE id_pagamentos IN (21,22,23,24,25);
+SELECT id_clientes, nome FROM tb_clientes WHERE id_clientes IN (11,12,13,14,15);
+
+SELECT ag.id_agendamentos, ag.data_hora, ag.status, cli.nome, func.nome_completo 
+FROM tb_agendamentos ag
+INNER JOIN tb_pagamentos pag ON pag.id_pagamentos = ag.tb_pagamentos_id_pagamentos
+INNER JOIN tb_clientes cli ON cli.id_clientes = pag.tb_clientes_id_clientes
+INNER JOIN tb_funcionarios func ON func.id_funcionarios = ag.tb_funcionarios_id_funcionarios
+ORDER BY ag.data_hora DESC;
+
+
+
+
+
+
