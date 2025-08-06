@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Agendamentos - Rainha do Ouro</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-   <link href="../css/consultarAgendamento.css" rel="stylesheet" />
+  <link href="../css/consultarAgendamento.css" rel="stylesheet" />
   <style>
     .modal {
       display: none;
@@ -18,7 +18,6 @@
       overflow: auto;
       background-color: rgba(0, 0, 0, 0.4);
     }
-
     .modal-content {
       background-color: #fff;
       margin: 10% auto;
@@ -28,7 +27,6 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       position: relative;
     }
-
     .close-btn {
       position: absolute;
       right: 10px;
@@ -40,21 +38,7 @@
       background: none;
     }
   </style>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    fetch('../crud/carregar_agendamentos.php')
-    .then(response => response.text())
-    .then(html => {
-        document.getElementById('appointmentsTable').innerHTML = html;
-      })
-      .catch(error => {
-        document.getElementById('appointmentsTable').innerHTML = `
-          <tr><td colspan="7" class="text-danger text-center">Erro ao carregar agendamentos.</td></tr>`;
-          console.error(error);
-        });
-      });
-    </script>
-      </head>
+</head>
 <body>
   <div class="container mt-4">
     <h1>Agendamentos</h1>
@@ -77,42 +61,7 @@
           </tr>
         </thead>
         <tbody id="appointmentsTable">
-          <tr data-id="1" data-data="2025-08-10" data-horario="14:00" data-status="agendado" data-servico="Corte Feminino" data-tiposervico="Cabelo Cacheado">
-            <td>Jéssica Silva</td>
-            <td>10/08/2025</td>
-            <td>14:00</td>
-            <td class="status-agendado">Agendado</td>
-            <td>Corte Feminino</td>
-            <td>Cabelo Cacheado</td>
-            <td>
-              <button class="btn btn-sm btn-primary" onclick="abrirModalEditar(this)">✏️ Editar</button>
-              <button class="btn btn-sm btn-danger" onclick="excluirAgendamento(1)">🗑️ Excluir</button>
-            </td>
-          </tr>
-          <tr data-id="2" data-data="2025-08-08" data-horario="10:30" data-status="realizado" data-servico="Trança Nagô" data-tiposervico="Trança">
-            <td>Bruna Rocha</td>
-            <td>08/08/2025</td>
-            <td>10:30</td>
-            <td class="status-realizado">Realizado</td>
-            <td>Trança Nagô</td>
-            <td>Trança</td>
-            <td>
-              <button class="btn btn-sm btn-primary" onclick="abrirModalEditar(this)">✏️ Editar</button>
-              <button class="btn btn-sm btn-danger" onclick="excluirAgendamento(2)">🗑️ Excluir</button>
-            </td>
-          </tr>
-          <tr data-id="3" data-data="2025-08-01" data-horario="16:00" data-status="cancelado" data-servico="Hidratação" data-tiposervico="Tratamento Capilar">
-            <td>Ana Paula</td>
-            <td>01/08/2025</td>
-            <td>16:00</td>
-            <td class="status-cancelado">Cancelado</td>
-            <td>Hidratação</td>
-            <td>Tratamento Capilar</td>
-            <td>
-              <button class="btn btn-sm btn-primary" onclick="abrirModalEditar(this)">✏️ Editar</button>
-              <button class="btn btn-sm btn-danger" onclick="excluirAgendamento(3)">🗑️ Excluir</button>
-            </td>
-          </tr>
+          <!-- Dados carregados dinamicamente via fetch -->
         </tbody>
       </table>
     </div>
@@ -153,6 +102,111 @@
       </form>
     </div>
   </div>
-<script src="../script/consultar_agendamentos.js"></script>
+
+<script>
+  // Carregar agendamentos ao abrir a página
+  function carregarAgendamentos() {
+    fetch('../crud/carregar_agendamentos.php')
+      .then(response => {
+        if (!response.ok) throw new Error('Erro ao carregar agendamentos');
+        return response.text();
+      })
+      .then(html => {
+        document.getElementById('appointmentsTable').innerHTML = html;
+      })
+      .catch(err => {
+        document.getElementById('appointmentsTable').innerHTML = `<tr><td colspan="7" class="text-danger text-center">Erro ao carregar agendamentos.</td></tr>`;
+        console.error(err);
+      });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    carregarAgendamentos();
+
+    // Filtro de busca
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', () => {
+      const filter = searchInput.value.toLowerCase();
+      const rows = document.querySelectorAll('#appointmentsTable tr');
+      rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        const match = Array.from(cells).some(td => td.textContent.toLowerCase().includes(filter));
+        row.style.display = match ? '' : 'none';
+      });
+    });
+
+    // Submissão do formulário de edição
+    const formEditar = document.getElementById('formEditar');
+    formEditar.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(formEditar);
+      fetch('../crud/editar_agendamento.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert('Agendamento atualizado com sucesso!');
+          fecharModal();
+          carregarAgendamentos();
+        } else {
+          alert('Erro ao atualizar: ' + data.message);
+        }
+      })
+      .catch(() => {
+        alert('Erro ao conectar ao servidor.');
+      });
+    });
+  });
+
+  // Abrir modal e preencher com dados da linha
+  function abrirModalEditar(button) {
+    const tr = button.closest('tr');
+    document.getElementById('id_agendamento').value = tr.dataset.id;
+    document.getElementById('data').value = tr.dataset.data;
+    document.getElementById('horario').value = tr.dataset.horario;
+    document.getElementById('status').value = tr.dataset.status;
+    document.getElementById('servico').value = tr.dataset.servico;
+    document.getElementById('tipoServico').value = tr.dataset.tiposervico;
+    document.getElementById('modalEditar').style.display = 'block';
+  }
+
+  function fecharModal() {
+    document.getElementById('modalEditar').style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById('modalEditar');
+    if (event.target == modal) {
+      fecharModal();
+    }
+  }
+
+  // Função para excluir agendamento
+  function excluirAgendamento(id) {
+    if (confirm('Deseja realmente excluir o agendamento ID ' + id + '?')) {
+      fetch('../crud/excluir_agendamento.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'id_agendamento=' + encodeURIComponent(id)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert('Agendamento excluído com sucesso!');
+          carregarAgendamentos();
+        } else {
+          alert('Erro ao excluir: ' + data.message);
+        }
+      })
+      .catch(() => {
+        alert('Erro ao conectar ao servidor.');
+      });
+    }
+  }
+</script>
+
 </body>
 </html>

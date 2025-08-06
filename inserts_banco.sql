@@ -85,4 +85,15 @@ INSERT INTO tb_vendas (data_venda, valor) VALUES
 -- INSERT INTO tb_estoque_atualizacao (tb_produtos_id_produtos, ultima_atualizacao)
 -- VALUES (3, NOW())
 -- ON DUPLICATE KEY UPDATE ultima_atualizacao = NOW();
-
+-- Aqui está um INSERT de vendas
+INSERT INTO tb_vendas (data_venda, valor) VALUES
+('2025-01-05', 100.00),
+('2025-01-20', 150.00),
+('2025-02-10', 200.00),
+('2025-02-25', 180.00),
+('2025-03-05', 250.00),
+('2025-04-12', 220.00),
+('2025-05-03', 300.00),
+('2025-06-18', 270.00),
+('2025-07-08', 350.00),
+('2025-08-01', 400.00);

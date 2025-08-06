@@ -1,15 +1,18 @@
 <?php
 session_start();
-
-if (!isset($_SESSION['id_cliente'])) {
-    echo '<tr><td colspan="7" class="text-danger text-center">Sessão expirada. Faça login novamente.</td></tr>';
-    exit;
-}
-
-$id_cliente_logado = $_SESSION['id_cliente'];
+header('Content-Type: text/html; charset=utf-8');
 
 include("../conectarbd.php");
 
+// Variável para filtro, default sem filtro
+$id_cliente_filtro = null;
+
+// Se for cliente logado, usa o id_cliente da sessão
+if (isset($_SESSION['id_cliente'])) {
+    $id_cliente_filtro = $_SESSION['id_cliente'];
+}
+
+// Se for funcionário, pode visualizar tudo (sem filtro)
 $sql = "
 SELECT 
     ag.id_agendamentos,
@@ -21,13 +24,21 @@ SELECT
     cli.nome AS nome_cliente
 FROM tb_agendamentos ag
 LEFT JOIN tb_clientes cli ON cli.id_clientes = ag.tb_clientes_id_clientes
-WHERE ag.tb_clientes_id_clientes = ?
-ORDER BY ag.data DESC, ag.horario DESC
-LIMIT 20;
 ";
 
+// Se tem filtro por cliente, acrescenta WHERE
+if ($id_cliente_filtro !== null) {
+    $sql .= " WHERE ag.tb_clientes_id_clientes = ? ";
+}
+
+$sql .= " ORDER BY ag.data DESC, ag.horario DESC LIMIT 50";
+
 $stmt = $conn->prepare($sql);
-$stmt->bind_param('i', $id_cliente_logado);
+
+if ($id_cliente_filtro !== null) {
+    $stmt->bind_param("i", $id_cliente_filtro);
+}
+
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -70,4 +81,3 @@ while ($row = $result->fetch_assoc()) {
     </tr>
     ";
 }
-?>
