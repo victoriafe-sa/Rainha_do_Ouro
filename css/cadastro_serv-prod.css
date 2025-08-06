@@ -1,6 +1,6 @@
 /* ====== Estilo Geral ====== */
 body {
-  background-color: #f7e4c1;
+  background-color: #F8D39C;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #2e1e0f;
   margin: 0;
@@ -39,7 +39,7 @@ body {
 }
 
 .tab-header button:hover {
-  background-color: #dfc09c;
+  background-color: #e2d1be;
 }
 
 .tab-header button.active {
