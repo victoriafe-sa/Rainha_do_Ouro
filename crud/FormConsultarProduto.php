@@ -41,10 +41,8 @@
                                 <td align="center"><?=$campo["quantidade_estoque"]?></td>
                                 <td align="center"><?=$campo["ativo"]?></td>
                                 
-                                
-
-                                <td align="center"><a href="FormEditarProduto.php?editarid=<?php echo $campo ['id_produtos'];?>">Editar</a></td>
-                                <td align="center"><a href="ExcluirProduto.php?p=excluir&produto=<?php echo $campo['id_produtos'];?>">Excluir</a></td>
+                                <td align="center"><a href="../crud/FormEditarProduto.php?editarid=<?php echo $campo ['id_produtos'];?>">Editar</a></td>
+                                <td align="center"><a href="../crud/ExcluirProduto.php?p=excluir&produto=<?php echo $campo['id_produtos'];?>">Excluir</a></td>
                             </tr>
                     <?php }?>
                 </table><br>

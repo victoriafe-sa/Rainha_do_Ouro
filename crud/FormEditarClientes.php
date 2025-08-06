@@ -58,7 +58,7 @@
                 <input class="form-input" type="text" name="ativo" placeholder="Ativo" value="<?=$campo["ativo"]?>">
 
                 <input type="submit" class="botoes" value="Salvar">
-                <a href="FormConsultarClientes.php"><button type="button" class="botoes">Cancelar</button></a>
+                <a href="../crud/FormConsultarClientes.php"><button type="button" class="botoes">Cancelar</button></a>
             </form>
         </div>
 

@@ -96,7 +96,7 @@
             <input type="text" name="observacoes" placeholder="Observações" value="<?=$campo["observacoes"]?>">
 
             <input type="submit" class="botoes" value="Salvar">
-            <a href="FormConsultarFuncionario.php"><input type="button" class="botoes" value="Cancelar" /></a>
+            <a href="../crud/FormConsultarFuncionario.php"><input type="button" class="botoes" value="Cancelar" /></a>
 
         </form>
     </div>

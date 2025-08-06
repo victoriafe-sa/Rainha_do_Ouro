@@ -41,8 +41,8 @@
                                 
                                 
 
-                                <td align="center"><a href="FormEditarServico.php?editarid=<?php echo $campo ['id_servicos'];?>">Editar</a></td>
-                                <td align="center"><a href="ExcluirServico.php?p=excluir&servico=<?php echo $campo['id_servicos'];?>">Excluir</a></td>
+                                <td align="center"><a href="../crud/FormEditarServico.php?editarid=<?php echo $campo ['id_servicos'];?>">Editar</a></td>
+                                <td align="center"><a href="../crud/ExcluirServico.php?p=excluir&servico=<?php echo $campo['id_servicos'];?>">Excluir</a></td>
                             </tr>
                     <?php }?>
                 </table><br>

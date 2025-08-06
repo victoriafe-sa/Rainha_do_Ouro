@@ -69,7 +69,7 @@ if ($stmt->execute()) {
         // Sucesso: mostrar alert com email e senha gerada
         echo "<script>
             alert('Funcionário cadastrado com sucesso!\\n\\nLogin (email): $email_gerado\\nSenha: $senha_crua');
-            window.location.href = '../html/funcionario_cadastro.php';
+            window.location.href = '../html/dashboard_adm.php';
         </script>";
         exit();
     } else {

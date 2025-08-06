@@ -52,8 +52,8 @@
                             <td align="center"><?=$campo["horario_trabalho"]?></td>
                             <td align="center"><?=$campo["tipo_contrato"]?></td>
                             <td align="center"><?=$campo["status"]?></td>
-                                <td align="center"><a href="FormEditarFuncionario.php?editarid=<?php echo $campo ['id_funcionarios'];?>">Editar</a></td>
-                                <td align="center"><i><a href="ExcluirFuncionario.php?p=excluir&funcionario=<?php echo $campo['id_funcionarios'];?>">Excluir</i></a></td>
+                                <td align="center"><a href="../crud/FormEditarFuncionario.php?editarid=<?php echo $campo ['id_funcionarios'];?>">Editar</a></td>
+                                <td align="center"><i><a href="../crud/ExcluirFuncionario.php?p=excluir&funcionario=<?php echo $campo['id_funcionarios'];?>">Excluir</i></a></td>
                             </tr>
                     <?php }?>
                 </table><br>

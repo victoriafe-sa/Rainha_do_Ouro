@@ -42,7 +42,7 @@
 
 
                 <input type="submit" class="botoes" value="Salvar" >
-                <a href="FormConsultarServico.php">
+                <a href="../crud/FormConsultarServico.php">
                     <input type="button" class="botoes" value="Cancelar"/>
                 </a>
 

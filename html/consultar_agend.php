@@ -151,6 +151,9 @@ $result = $stmt->get_result();
         </tbody>
       </table>
     </div>
+    <div class="buttonBack">
+        <button><a href="../html/dashboard_cabeleireira.php">Cancelar</a> </button>
+    </div>
   </div>
 
   <!-- Modal Editar Agendamento -->
@@ -186,8 +189,10 @@ $result = $stmt->get_result();
         </div>
         <button type="submit" class="btn btn-success">Salvar Alterações</button>
       </form>
+      
     </div>
   </div>
+
 
 <script>
   const searchInput = document.getElementById('searchInput');

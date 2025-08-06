@@ -1,25 +1,33 @@
 <?php
-include("../conectarbd.php");
+// Conexão com banco
+$host = 'localhost';
+$usuario = 'root';
+$senha = '';
+$banco = 'db_rainhadoouro';
 
+$conn = new mysqli($host, $usuario, $senha, $banco);
+if ($conn->connect_error) {
+    die("Erro na conexão: " . $conn->connect_error);
+}
+
+// Dados para os cards resumo
 $qtd_funcionarios = $conn->query("SELECT COUNT(*) as total FROM tb_funcionarios")->fetch_assoc()['total'];
 $qtd_produtos = $conn->query("SELECT COUNT(*) as total FROM tb_produtos")->fetch_assoc()['total'];
 $qtd_agendamentos = $conn->query("SELECT COUNT(*) as total FROM tb_agendamentos")->fetch_assoc()['total'];
 
+// Dados para o gráfico de vendas do ano atual
 $anoAtual = date('Y');
 $mesesNomes = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
 $mesesLabel = [];
-
 for ($i = 1; $i <= 12; $i++) {
     $mesesLabel[] = $mesesNomes[$i - 1] . '/' . $anoAtual;
 }
 
 $quantidadesVendas = array_fill(0, 12, 0);
-
 $sql = "SELECT MONTH(data_venda) AS mes, COUNT(*) AS total_vendas
         FROM tb_vendas
         WHERE YEAR(data_venda) = $anoAtual
         GROUP BY mes";
-
 $result = $conn->query($sql);
 if ($result) {
     while ($row = $result->fetch_assoc()) {
@@ -35,25 +43,18 @@ $conn->close();
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard - Rainha do Ouro</title>
-
-    <link rel="stylesheet" href="../css/dashboard_cabel.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/dashboard_adm.css" />
     <script src="https://unpkg.com/akar-icons-fonts"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
     <aside class="sidebar">
         <div class="left">
             <img src="../img/logo.png" alt="Logo Rainha do Ouro" />
             <div class="test">
-                <button><i class="ai-home-alt1"></i></button>
-                <div class="texto-hover">Início</div>
-            </div>
-            <div class="test">
-                <button onclick=""><i class="ai-calendar"></i></button>
+                <button onclick="carregarPagina('../html/consultar_agend.php', '../css/consultarAgendamento.css', '../script/consultar_agendamentos.js')"><i class="ai-calendar"></i></button>
                 <div class="texto-hover texto-hover-relatorio">Agenda</div>
             </div>
         </div>
@@ -67,14 +68,18 @@ $conn->close();
                     </div>
                 </div>
                 <nav>
-                    <button onclick="carregarPagina('../Produto_Servico/FormCadastrarProduto_Serviço.html', '../css/prod_serv_php.css')">
-                        <i class="ai-shipping-box-v1"></i>
-                        <span class="tst">Cadastrar Produtos</span>
+                    
+                    <button onclick="carregarPagina('../html/FormCadastrarClientes.html')">
+                        <i class="ai-file"></i>
+                        <span class="tst">Cadastrar Cliente </span>
                     </button>
-                    <button onclick="carregarPagina('FormCadastrarFuncionario.html')">
-                        <i class="ai-person"></i>
-                        <span class="tst">Cadastrar Gerente</span>
+                    
+                    
+                    <button onclick="carregarPagina('../crud/FormConsultarClientes.php','../css/consultar.css')">
+                        <i class="ai-file"></i>
+                        <span class="tst">Consulta Cliente</span>
                     </button>
+                    
                 </nav>
             </div>
         </div>
@@ -104,96 +109,79 @@ $conn->close();
     </div>
 
     <script>
-       function carregarPagina(caminhoPagina, caminhoCss = null) {
-    fetch(caminhoPagina)
-        .then(res => res.text())
-        .then(html => {
-            document.getElementById('conteudo').innerHTML = html;
-
-            // CSS dinâmico
-            if (caminhoCss) {
-                let cssExistente = document.getElementById('css-dinamico');
-                if (cssExistente) cssExistente.remove();
-
-                const linkCss = document.createElement('link');
-                linkCss.rel = 'stylesheet';
-                linkCss.href = caminhoCss;
-                linkCss.id = 'css-dinamico';
-                document.head.appendChild(linkCss);
+        function carregarPagina(caminhoPagina, caminhoCss = null, caminhoJs = null) {
+            if (!caminhoPagina) {
+                document.getElementById('conteudo').innerHTML = "<p>Nenhuma página selecionada.</p>";
+                return;
             }
 
-            // Carregar script se for o formulário de produtos/serviços
-            if (caminhoPagina.includes('../Produtos_Serviços/FormCadastrarProduto_Serviço.html')) {
-                const script = document.createElement('script');
-                script.src = '../script/formCadastraProduto_Serviço.js';
-                script.defer = true;
-                document.body.appendChild(script);
-            }
-
-            // Carregar gráfico se for a página de vendas (ajuste conforme necessário)
-            if (caminhoPagina.includes('paginaVendas.html')) {
-                carregarGraficoVendas(); // Veja abaixo
-            }
-
-        })
-        .catch(err => {
-            console.error('Erro ao carregar página:', err);
-            document.getElementById('conteudo').innerHTML = "<p>Erro ao carregar a página.</p>";
-        });
-}
-
-
-        const ctx = document.getElementById('graficoVendas').getContext('2d');
-        const graficoVendas = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: <?= json_encode($mesesLabel) ?>,
-                datasets: [{
-                    label: 'Quantidade de Vendas',
-                    data: <?= json_encode($quantidadesVendas) ?>,
-                    backgroundColor: 'rgba(75, 192, 85, 0.7)',
-                    borderColor: 'rgba(75, 192, 85, 0.7)',
-                    borderWidth: 1,
-                    borderRadius: 4,
-                    maxBarThickness: 40
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            stepSize: 1,
-                            precision: 0
-                        }
-                    }
-                },
-                plugins: {
-                    legend: { display: true },
-                    tooltip: { enabled: true }
-                }
-            }
-        });
-          function carregarPagina(caminho) {
-            fetch(caminho)
-                .then(response => response.text())
+            fetch(caminhoPagina)
+                .then(res => {
+                    if (!res.ok) throw new Error('Erro ao carregar página');
+                    return res.text();
+                })
                 .then(html => {
                     document.getElementById('conteudo').innerHTML = html;
 
-                    if (caminho.includes('../Produtos_Serviços/FormCadastrarProduto_Serviço.html')) {
+                    if (caminhoCss) {
+                        const cssExistente = document.getElementById('css-dinamico');
+                        if (cssExistente) cssExistente.remove();
+
+                        const linkCss = document.createElement('link');
+                        linkCss.rel = 'stylesheet';
+                        linkCss.href = caminhoCss;
+                        linkCss.id = 'css-dinamico';
+                        document.head.appendChild(linkCss);
+                    }
+
+                    if (caminhoJs) {
+                        const scriptExistente = document.getElementById('js-dinamico');
+                        if (scriptExistente) scriptExistente.remove();
+
                         const script = document.createElement('script');
-                        script.src = '../script/formCadastraProduto_Serviço.js';
-                        script.defer = true;
+                        script.src = caminhoJs;
+                        script.id = 'js-dinamico';
                         document.body.appendChild(script);
                     }
                 })
-                .catch(() => {
+                .catch(err => {
+                    console.error('Erro ao carregar página:', err);
                     document.getElementById('conteudo').innerHTML = "<p>Erro ao carregar a página.</p>";
                 });
         }
+
+        // Inicializa gráfico
+        const ctx = document.getElementById('graficoVendas')?.getContext('2d');
+        if (ctx) {
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: <?= json_encode($mesesLabel) ?>,
+                    datasets: [{
+                        label: 'Quantidade de Vendas',
+                        data: <?= json_encode($quantidadesVendas) ?>,
+                        backgroundColor: 'rgba(75, 192, 85, 0.7)',
+                        borderColor: 'rgba(75, 192, 85, 0.7)',
+                        borderWidth: 1,
+                        borderRadius: 4,
+                        maxBarThickness: 40
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { stepSize: 1, precision: 0 }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: true },
+                        tooltip: { enabled: true }
+                    }
+                }
+            });
+        }
     </script>
-
-
 </body>
 </html>

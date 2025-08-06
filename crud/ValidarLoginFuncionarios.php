@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 case 'adm':
                     header("Location: ../html/dashboard_adm.php");
                     exit;
-                case 'recepcionista':
+                case 'recepcionista' :
                 case 'atendente':
                     header("Location: ../html/dashboard_recepcionista.php");
                     exit;
