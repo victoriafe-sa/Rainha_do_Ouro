@@ -46,6 +46,6 @@
                             </tr>
                     <?php }?>
                 </table><br>
-                    <a href="../html/dashboard.php"><input type="button" class="botoes" value="Cancelar"/></a>
-    </body>
+                    <a href="../html/dashboard_adm.php"><input type="button" class="botoes" value="Cancelar"/></a>
+    </body>7
 </html>
