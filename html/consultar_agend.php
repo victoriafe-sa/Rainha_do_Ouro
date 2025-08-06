@@ -140,8 +140,8 @@ $result = $stmt->get_result();
                     <td>{$servico}</td>
                     <td>{$tipo}</td>
                     <td>
-                      <button class=\"btn btn-sm btn-primary\" onclick=\"abrirModalEditar(this)\">✏️ Editar</button>
-                      <button class=\"btn btn-sm btn-danger\" onclick=\"excluirAgendamento({$row['id_agendamentos']})\">🗑️ Excluir</button>
+                      <button class=\"btn btn-sm btn-primary\" onclick=\"abrirModalEditar(this)\">Editar</button>
+                      <button class=\"btn btn-sm btn-danger\" onclick=\"excluirAgendamento({$row['id_agendamentos']})\">Excluir</button>
                     </td>
                   </tr>
                   ";
@@ -226,7 +226,7 @@ $result = $stmt->get_result();
   document.getElementById('formEditar').addEventListener('submit', e => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    fetch('editar_agendamento.php', {
+    fetch('../crud/Editar_agendamento.php', {
       method: 'POST',
       body: formData,
     })
@@ -244,12 +244,12 @@ $result = $stmt->get_result();
   });
 
   function excluirAgendamento(id) {
-    if (!confirm('Deseja realmente excluir o agendamento ID ' + id + '?')) return;
+    if (!confirm('Deseja realmente excluir o agendamento?')) return;
 
     const formData = new FormData();
     formData.append('id_agendamento', id);
 
-    fetch('excluir_agendamento.php', {
+    fetch('../crud/Excluir_agendamento.php', {
       method: 'POST',
       body: formData,
     })
