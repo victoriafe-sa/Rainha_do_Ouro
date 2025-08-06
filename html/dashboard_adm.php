@@ -54,10 +54,6 @@ $conn->close();
         <div class="left">
             <img src="../img/logo.png" alt="Logo Rainha do Ouro" />
             <div class="test">
-                <button onclick="carregarPagina('dashboard.php')"><i class="ai-home-alt1"></i></button>
-                <div class="texto-hover">Início</div>
-            </div>
-            <div class="test">
                 <button onclick="carregarPagina('../html/consultar_agend.php', '../css/consultarAgendamento.css', '../script/consultar_agendamentos.js')"><i class="ai-calendar"></i></button>
                 <div class="texto-hover texto-hover-relatorio">Agenda</div>
             </div>
