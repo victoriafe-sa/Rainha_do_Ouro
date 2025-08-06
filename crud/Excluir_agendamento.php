@@ -3,12 +3,12 @@ session_start();
 header('Content-Type: application/json');
 include("../conectarbd.php");
 
-if (!isset($_POST['id'])) {
+if (!isset($_POST['id_agendamento'])) {
     echo json_encode(['success' => false, 'message' => 'ID do agendamento não informado']);
     exit;
 }
 
-$id = intval($_POST['id']);
+$id = intval($_POST['id_agendamento']);
 
 // Validação de permissão para exclusão
 if (isset($_SESSION['id_cliente'])) {
