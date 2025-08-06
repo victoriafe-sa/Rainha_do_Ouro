@@ -76,15 +76,29 @@ $conn->close();
                         <i class="ai-person"></i>
                         <span class="tst">Cadastrar Funcionários</span>
                     </button>
-
-                    <button onclick="carregarPagina('../html/FormCadastrarProduto_Serviço.html', '../css/cadastro_serv-prod.css', '../js/formCadastraProduto_Serviço.js')">
-                        <i class="ai-shipping-box-v1"></i>
-                        <span class="tst">Cadastrar Produtos</span>
-                    </button>
-
-                    <button onclick="carregarPagina('../Funcionario/consultar_atend.php')">
+                    <button onclick="carregarPagina('../html/FormCadastrarClientes.html')">
                         <i class="ai-file"></i>
-                        <span class="tst">Nova Página</span>
+                        <span class="tst">Cadastrar Cliente </span>
+                    </button>
+                    <button onclick="carregarPagina('../html/FormCadastrarProduto_Serviço.html', '../css/cadastro_serv-prod.css', '../script/cad_prod_serv.js')">
+                        <i class="ai-shipping-box-v1"></i>
+                        <span class="tst">Cadastrar Produtos e Serviço</span>
+                    </button>
+                    <button onclick="carregarPagina('../crud/FormConsultarFuncionario.php','../css/consultar.css')">
+                        <i class="ai-file"></i>
+                        <span class="tst">Consulta Funcionario</span>
+                    </button>
+                    <button onclick="carregarPagina('../crud/FormConsultarClientes.php','../css/consultar.css')">
+                        <i class="ai-file"></i>
+                        <span class="tst">Consulta Cliente</span>
+                    </button>
+                    <button onclick="carregarPagina('../crud/FormConsultarProduto.php','../css/consultar.css')">
+                        <i class="ai-file"></i>
+                        <span class="tst">Consulta Produto</span>
+                    </button>
+                    <button onclick="carregarPagina('../crud/FormConsultarServico.php','../css/consultar.css')">
+                        <i class="ai-file"></i>
+                        <span class="tst">Consulta Serviço</span>
                     </button>
                 </nav>
             </div>
