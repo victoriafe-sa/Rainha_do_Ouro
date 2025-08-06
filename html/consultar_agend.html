@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agendamentos - Rainha do Ouro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+   <link href="../css/consultarAgendamento.css" rel="stylesheet" />
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 400px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+  </style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    fetch('../crud/carregar_agendamentos.php')
+    .then(response => response.text())
+    .then(html => {
+        document.getElementById('appointmentsTable').innerHTML = html;
+      })
+      .catch(error => {
+        document.getElementById('appointmentsTable').innerHTML = `
+          <tr><td colspan="7" class="text-danger text-center">Erro ao carregar agendamentos.</td></tr>`;
+          console.error(error);
+        });
+      });
+    </script>
+      </head>
+<body>
+  <div class="container mt-4">
+    <h1>Agendamentos</h1>
+
+    <div class="search-container mb-3">
+      <input type="text" id="searchInput" class="form-control" placeholder="Filtrar por cliente, status, serviço ou data..." />
+    </div>
+
+    <div class="table-wrapper">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Data</th>
+            <th>Horário</th>
+            <th>Status</th>
+            <th>Serviço</th>
+            <th>Tipo de Serviço</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="appointmentsTable">
+          <tr data-id="1" data-data="2025-08-10" data-horario="14:00" data-status="agendado" data-servico="Corte Feminino" data-tiposervico="Cabelo Cacheado">
+            <td>Jéssica Silva</td>
+            <td>10/08/2025</td>
+            <td>14:00</td>
+            <td class="status-agendado">Agendado</td>
+            <td>Corte Feminino</td>
+            <td>Cabelo Cacheado</td>
+            <td>
+              <button class="btn btn-sm btn-primary" onclick="abrirModalEditar(this)">✏️ Editar</button>
+              <button class="btn btn-sm btn-danger" onclick="excluirAgendamento(1)">🗑️ Excluir</button>
+            </td>
+          </tr>
+          <tr data-id="2" data-data="2025-08-08" data-horario="10:30" data-status="realizado" data-servico="Trança Nagô" data-tiposervico="Trança">
+            <td>Bruna Rocha</td>
+            <td>08/08/2025</td>
+            <td>10:30</td>
+            <td class="status-realizado">Realizado</td>
+            <td>Trança Nagô</td>
+            <td>Trança</td>
+            <td>
+              <button class="btn btn-sm btn-primary" onclick="abrirModalEditar(this)">✏️ Editar</button>
+              <button class="btn btn-sm btn-danger" onclick="excluirAgendamento(2)">🗑️ Excluir</button>
+            </td>
+          </tr>
+          <tr data-id="3" data-data="2025-08-01" data-horario="16:00" data-status="cancelado" data-servico="Hidratação" data-tiposervico="Tratamento Capilar">
+            <td>Ana Paula</td>
+            <td>01/08/2025</td>
+            <td>16:00</td>
+            <td class="status-cancelado">Cancelado</td>
+            <td>Hidratação</td>
+            <td>Tratamento Capilar</td>
+            <td>
+              <button class="btn btn-sm btn-primary" onclick="abrirModalEditar(this)">✏️ Editar</button>
+              <button class="btn btn-sm btn-danger" onclick="excluirAgendamento(3)">🗑️ Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal Editar Agendamento -->
+  <div id="modalEditar" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="fecharModal()">&times;</button>
+      <h4>Editar Agendamento</h4>
+      <form id="formEditar">
+        <input type="hidden" name="id_agendamento" id="id_agendamento" />
+        <div class="mb-3">
+          <label for="data" class="form-label">Data</label>
+          <input type="date" name="data" id="data" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="horario" class="form-label">Horário</label>
+          <input type="time" name="horario" id="horario" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="status" class="form-label">Status</label>
+          <select name="status" id="status" class="form-select" required>
+            <option value="agendado">Agendado</option>
+            <option value="realizado">Realizado</option>
+            <option value="cancelado">Cancelado</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="servico" class="form-label">Serviço</label>
+          <input type="text" name="servico" id="servico" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="tipoServico" class="form-label">Tipo de Serviço</label>
+          <input type="text" name="tipoServico" id="tipoServico" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-success">Salvar Alterações</button>
+      </form>
+    </div>
+  </div>
+<script src="../script/consultar_agendamentos.js"></script>
+</body>
+</html>

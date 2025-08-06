@@ -63,7 +63,7 @@ $conn->close();
                 <div class="texto-hover">Início</div>
             </div>
             <div class="test">
-                <button onclick=""><i class="ai-calendar"></i></button>
+                <button onclick="carregarPagina('../html/consultar_agend.html', '../css/consultarAgendamento.css', '../script/consultar_agendamentos.js')"><i class="ai-calendar"></i></button>
                 <div class="texto-hover texto-hover-relatorio">Agenda</div>
             </div>
         </div>
@@ -82,7 +82,7 @@ $conn->close();
                         <span class="tst">Cadastrar Funcionários</span>
                     </button>
 
-                    <button onclick="carregarPagina('../html/FormCadastrarProduto_Serviço.html', '../css/prod_serv_php.css', '../script/formCadastraProduto_Serviço.js')">
+                    <button onclick="carregarPagina('../html/FormCadastrarProduto_Serviço.html', '../css/cadastro_serv-prod.css', '../script2/formCadastraProduto_Serviço.js')">
                         <i class="ai-shipping-box-v1"></i>
                         <span class="tst">Cadastrar Produtos</span>
                     </button>

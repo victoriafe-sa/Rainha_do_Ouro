@@ -1,40 +1,71 @@
-function carregarPagina(caminhoHtml, caminhoCss = null) {
-    fetch(caminhoHtml)
+// Gerenciar visibilidade do submenu ao clicar no botão de mensagens
+document.querySelectorAll('.button_ai-open-envelope_rc').forEach(item => {
+    item.addEventListener('click', () => {
+        const submenu = document.querySelector('.submenu_rc');
+        const arrow = document.querySelector('.arrow-icon_rc');
+        if (submenu) submenu.classList.toggle('active');
+        if (arrow) arrow.classList.toggle('rotate');
+    });
+});
+
+// Ajuste de largura ao passar o mouse na sidebar (para .sidebar_rc)
+const sidebar_rc = document.querySelector('.sidebar_rc');
+if (sidebar_rc) {
+    sidebar_rc.addEventListener('mouseover', () => {
+        sidebar_rc.style.width = '300px';
+        const right = document.querySelector('.right_rc');
+        if (right) right.style.width = '225px';
+    });
+    sidebar_rc.addEventListener('mouseout', () => {
+        sidebar_rc.style.width = '80px';
+        const right = document.querySelector('.right_rc');
+        if (right) right.style.width = 'auto';
+    });
+}
+
+// Ajuste de largura ao passar o mouse na sidebar (para .sidebar)
+const sidebar = document.querySelector('.sidebar');
+if (sidebar) {
+    sidebar.addEventListener('mouseover', () => {
+        sidebar.style.width = '300px';
+        const right = document.querySelector('.right');
+        if (right) right.style.width = '225px';
+    });
+    sidebar.addEventListener('mouseout', () => {
+        sidebar.style.width = '80px';
+        const right = document.querySelector('.right');
+        if (right) right.style.width = 'auto';
+    });
+}
+
+// Carregar páginas dinâmicas com JS extra opcional
+function carregarPagina(caminho) {
+    fetch(caminho)
         .then(response => response.text())
         .then(html => {
-            const conteudo = document.getElementById('conteudo');
-            conteudo.innerHTML = html;
+            document.getElementById('conteudo').innerHTML = html;
 
-            // Se existir caminhoCss, adicionar o link dinamicamente
-            if (caminhoCss) {
-                const existingLink = document.querySelector(`link[data-dynamic="true"]`);
-                if (existingLink) existingLink.remove(); // remove o anterior
-
-                const link = document.createElement('link');
-                link.rel = 'stylesheet';
-                link.href = caminhoCss;
-                link.setAttribute('data-dynamic', 'true');
-                document.head.appendChild(link);
-            }
-
-            // Carregar JS adicional se necessário
-            if (caminhoHtml.includes('cadastro_serv-prod.html')) {
+            // Injetar JS adicional se necessário
+            if (caminho.includes('../Produto_Serviço/FormCadastrarProduto_Serviço.html')) {
                 const script = document.createElement('script');
                 script.src = '../script/cadastro_serv-prod.js';
                 script.defer = true;
                 document.body.appendChild(script);
             }
-
-            // Aqui você pode adicionar outros ifs para outras páginas específicas, exemplo:
-            if (caminhoHtml.includes('consultar_agend.php')) {
-                const script = document.createElement('script');
-                script.src = '../script/consultar_agendamento.js'; // se tiver um JS exclusivo
-                script.defer = true;
-                document.body.appendChild(script);
-            }
-
         })
         .catch(() => {
             document.getElementById('conteudo').innerHTML = "<p>Erro ao carregar a página.</p>";
         });
 }
+
+// Opcional: Atualizar badges (exemplo)
+function updateBadgeCounts() {
+    const messagesBadge = document.querySelector('.messages-badge');
+    const draftsBadge = document.querySelector('.drafts-badge');
+    if (messagesBadge) messagesBadge.textContent = 12; // Exemplo
+    if (draftsBadge) draftsBadge.textContent = 10;     // Exemplo
+}
+document.addEventListener('DOMContentLoaded', updateBadgeCounts);
+
+
+
