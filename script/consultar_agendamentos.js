@@ -150,3 +150,104 @@ function excluirAgendamento(id) {
   })
   .catch(() => alert('Erro ao conectar ao servidor.'));
 }
+function carregarAgendamentos() {
+    fetch('../crud/carregar_agendamentos.php')
+      .then(response => {
+        if (!response.ok) throw new Error('Erro ao carregar agendamentos');
+        return response.text();
+      })
+      .then(html => {
+        document.getElementById('appointmentsTable').innerHTML = html;
+      })
+      .catch(err => {
+        document.getElementById('appointmentsTable').innerHTML = `<tr><td colspan="7" class="text-danger text-center">Erro ao carregar agendamentos.</td></tr>`;
+        console.error(err);
+      });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    carregarAgendamentos();
+
+    // Filtro de busca
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', () => {
+      const filter = searchInput.value.toLowerCase();
+      const rows = document.querySelectorAll('#appointmentsTable tr');
+      rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        const match = Array.from(cells).some(td => td.textContent.toLowerCase().includes(filter));
+        row.style.display = match ? '' : 'none';
+      });
+    });
+
+    // Submissão do formulário de edição
+    const formEditar = document.getElementById('formEditar');
+    formEditar.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(formEditar);
+      fetch('../crud/editar_agendamento.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert('Agendamento atualizado com sucesso!');
+          fecharModal();
+          carregarAgendamentos();
+        } else {
+          alert('Erro ao atualizar: ' + data.message);
+        }
+      })
+      .catch(() => {
+        alert('Erro ao conectar ao servidor.');
+      });
+    });
+  });
+
+  // Abrir modal e preencher com dados da linha
+  function abrirModalEditar(button) {
+    const tr = button.closest('tr');
+    document.getElementById('id_agendamento').value = tr.dataset.id;
+    document.getElementById('data').value = tr.dataset.data;
+    document.getElementById('horario').value = tr.dataset.horario;
+    document.getElementById('status').value = tr.dataset.status;
+    document.getElementById('servico').value = tr.dataset.servico;
+    document.getElementById('tipoServico').value = tr.dataset.tiposervico;
+    document.getElementById('modalEditar').style.display = 'block';
+  }
+
+  function fecharModal() {
+    document.getElementById('modalEditar').style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById('modalEditar');
+    if (event.target == modal) {
+      fecharModal();
+    }
+  }
+
+  // Função para excluir agendamento
+  function excluirAgendamento(id) {
+    if (confirm('Deseja realmente excluir o agendamento ID ' + id + '?')) {
+      fetch('../crud/excluir_agendamento.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'id_agendamento=' + encodeURIComponent(id)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert('Agendamento excluído com sucesso!');
+          carregarAgendamentos();
+        } else {
+          alert('Erro ao excluir: ' + data.message);
+        }
+      })
+      .catch(() => {
+        alert('Erro ao conectar ao servidor.');
+      });
+    }
+  }

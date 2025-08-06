@@ -86,6 +86,7 @@ INSERT INTO tb_vendas (data_venda, valor) VALUES
 -- VALUES (3, NOW())
 -- ON DUPLICATE KEY UPDATE ultima_atualizacao = NOW();
 -- Aqui está um INSERT de vendas
+
 INSERT INTO tb_vendas (data_venda, valor) VALUES
 ('2025-01-05', 100.00),
 ('2025-01-20', 150.00),
@@ -97,3 +98,79 @@ INSERT INTO tb_vendas (data_venda, valor) VALUES
 ('2025-06-18', 270.00),
 ('2025-07-08', 350.00),
 ('2025-08-01', 400.00);
+
+select * from tb_agendamentos;
+-- Inserts para clientes
+INSERT INTO tb_clientes (nome, telefone, data_nascimento, email, senha, cep, rua, numero, bairro, cidade, estado, ativo) VALUES
+('Ana Silva', '11999990001', '1990-05-15', 'ana.silva@email.com', 'senha123', '01234-567', 'Rua A', 100, 'Bairro 1', 'São Paulo', 'SP', 1),
+('Bruno Souza', '11999990002', '1985-10-22', 'bruno.souza@email.com', 'senha123', '01234-568', 'Rua B', 101, 'Bairro 2', 'São Paulo', 'SP', 1),
+('Carla Dias', '11999990003', '1992-07-10', 'carla.dias@email.com', 'senha123', '01234-569', 'Rua C', 102, 'Bairro 3', 'São Paulo', 'SP', 1),
+('Daniel Costa', '11999990004', '1988-12-01', 'daniel.costa@email.com', 'senha123', '01234-570', 'Rua D', 103, 'Bairro 4', 'São Paulo', 'SP', 1),
+('Elisa Martins', '11999990005', '1995-03-20', 'elisa.martins@email.com', 'senha123', '01234-571', 'Rua E', 104, 'Bairro 5', 'São Paulo', 'SP', 1),
+('Fábio Lima', '11999990006', '1983-11-05', 'fabio.lima@email.com', 'senha123', '01234-572', 'Rua F', 105, 'Bairro 6', 'São Paulo', 'SP', 1),
+('Gabriela Rocha', '11999990007', '1991-06-18', 'gabriela.rocha@email.com', 'senha123', '01234-573', 'Rua G', 106, 'Bairro 7', 'São Paulo', 'SP', 1),
+('Henrique Alves', '11999990008', '1987-08-25', 'henrique.alves@email.com', 'senha123', '01234-574', 'Rua H', 107, 'Bairro 8', 'São Paulo', 'SP', 1),
+('Isabela Fernandes', '11999990009', '1994-09-30', 'isabela.fernandes@email.com', 'senha123', '01234-575', 'Rua I', 108, 'Bairro 9', 'São Paulo', 'SP', 1),
+('João Pereira', '11999990010', '1986-04-12', 'joao.pereira@email.com', 'senha123', '01234-576', 'Rua J', 109, 'Bairro 10', 'São Paulo', 'SP', 1);
+
+-- insert de um fornecedor
+INSERT INTO tb_fornecedores (nome, cnpj, telefone, email, endereco) VALUES
+('Fornecedor 1', '00.000.000/0001-01', '11999990001', 'fornecedor1@email.com', 'Endereco 1');
+
+--  Inserts para pagamentos
+INSERT INTO tb_pagamentos (valor, forma_pagamento, status, data_pagamento, tb_compras_id_compras, tb_clientes_id_clientes) VALUES
+(100.00, 'pix', 'pago', '2025-08-01 10:00:00', 1, 1),
+(150.00, 'cartao', 'pago', '2025-08-02 11:00:00', 2, 2),
+(200.00, 'pix', 'pago', '2025-08-03 12:00:00', 3, 3),
+(180.00, 'cartao', 'pago', '2025-08-04 13:00:00', 4, 4),
+(250.00, 'pix', 'pago', '2025-08-05 14:00:00', 5, 5),
+(220.00, 'cartao', 'pago', '2025-08-06 15:00:00', 6, 6),
+(300.00, 'pix', 'pago', '2025-08-07 16:00:00', 7, 7),
+(270.00, 'cartao', 'pago', '2025-08-08 17:00:00', 8, 8),
+(350.00, 'pix', 'pago', '2025-08-09 18:00:00', 9, 9),
+(400.00, 'cartao', 'pago', '2025-08-10 19:00:00', 10, 10);
+
+-- Inserts para agendamentos
+
+INSERT INTO tb_agendamentos (servico, tipoServico, data, horario, status, tb_clientes_id_clientes) VALUES
+('Corte de cabelo', 'Corte', '2025-08-10', '09:00:00', 'agendado', 1),
+('Penteado com tranças', 'Tranças', '2025-08-10', '10:30:00', 'realizado', 2),
+('Hidratação capilar', 'Hidratação', '2025-08-11', '14:00:00', 'cancelado', 3),
+('Coloração', 'Coloração', '2025-08-12', '11:00:00', 'agendado', 4),
+('Escova modeladora', 'Escova', '2025-08-12', '15:00:00', 'agendado', 5),
+('Corte e escova', 'Combo', '2025-08-13', '13:30:00', 'realizado', 6),
+('Penteado para festa', 'Penteado', '2025-08-14', '09:00:00', 'agendado', 7),
+('Luzes', 'Coloração', '2025-08-14', '16:00:00', 'agendado', 8),
+('Manicure e pedicure', 'Beleza', '2025-08-15', '10:00:00', 'realizado', 9),
+('Selagem térmica', 'Tratamento', '2025-08-15', '11:30:00', 'agendado', 10),
+('Corte masculino', 'Corte', '2025-08-16', '14:00:00', 'agendado', 1),
+('Relaxamento', 'Tratamento', '2025-08-16', '15:30:00', 'cancelado', 2),
+('Penteado noiva', 'Penteado', '2025-08-17', '09:00:00', 'realizado', 3),
+('Reconstrução capilar', 'Tratamento', '2025-08-17', '13:00:00', 'agendado', 4),
+('Progressiva', 'Tratamento', '2025-08-18', '10:00:00', 'agendado', 5);
+
+-- insert de compras
+INSERT INTO tb_compras (data_compra, valor_total, observacoes, tb_fornecedores_id_fornecedores) VALUES
+('2025-08-01 09:00:00', 100.00, 'Compra 1', 1),
+('2025-08-02 10:00:00', 150.00, 'Compra 2', 1),
+('2025-08-03 11:00:00', 200.00, 'Compra 3', 1),
+('2025-08-04 12:00:00', 180.00, 'Compra 4', 1),
+('2025-08-05 13:00:00', 250.00, 'Compra 5', 1),
+('2025-08-06 14:00:00', 220.00, 'Compra 6', 1),
+('2025-08-07 15:00:00', 300.00, 'Compra 7', 1),
+('2025-08-08 16:00:00', 270.00, 'Compra 8', 1),
+('2025-08-09 17:00:00', 350.00, 'Compra 9', 1),
+('2025-08-10 18:00:00', 400.00, 'Compra 10', 1);
+
+-- insert de pagamentos
+INSERT INTO tb_pagamentos (valor, forma_pagamento, status, data_pagamento, tb_compras_id_compras, tb_clientes_id_clientes) VALUES
+(100.00, 'pix', 'pago', '2025-08-01 10:00:00', 1, 1),
+(150.00, 'cartao', 'pago', '2025-08-02 11:00:00', 2, 2),
+(200.00, 'pix', 'pago', '2025-08-03 12:00:00', 3, 3),
+(180.00, 'cartao', 'pago', '2025-08-04 13:00:00', 4, 4),
+(250.00, 'pix', 'pago', '2025-08-05 14:00:00', 5, 5),
+(220.00, 'cartao', 'pago', '2025-08-06 15:00:00', 6, 6),
+(300.00, 'pix', 'pago', '2025-08-07 16:00:00', 7, 7),
+(270.00, 'cartao', 'pago', '2025-08-08 17:00:00', 8, 8),
+(350.00, 'pix', 'pago', '2025-08-09 18:00:00', 9, 9),
+(400.00, 'cartao', 'pago', '2025-08-10 19:00:00', 10, 10);

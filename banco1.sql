@@ -293,3 +293,5 @@ SET tb_clientes_id_clientes = 5,
     tb_pagamentos_id_pagamentos = 10
 WHERE tb_clientes_id_clientes = 0
   AND tb_pagamentos_id_pagamentos = 0;
+
+  
