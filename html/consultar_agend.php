@@ -48,9 +48,10 @@ $result = $stmt->get_result();
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Agendamentos - Rainha do Ouro</title>
+  <title>Agendamentos | Rainha do Ouro</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../css/consultarAgendamento.css" rel="stylesheet" />
+  <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
   
   <style>
     .modal {

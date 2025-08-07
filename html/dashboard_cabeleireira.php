@@ -38,11 +38,12 @@ $conn->close();
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard - Rainha do Ouro</title>
+    <title>Dashboard | Rainha do Ouro</title>
 
     <link rel="stylesheet" href="../css/dashboard_cabel.css" />
     <script src="https://unpkg.com/akar-icons-fonts"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
 </head>
 
 <body>

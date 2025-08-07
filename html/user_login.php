@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login/Cadastro - Rainha do Ouro</title>
+  <title>Login/Cadastro | Rainha do Ouro</title>
   <link rel="stylesheet" href="../css/user_login.css">
+  <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
 </head>
 
 <body>
