@@ -27,7 +27,7 @@ if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
         $query = "INSERT INTO tb_produtos(nome, descricao, preco_venda, quantidade_estoque, path, data_upload)
                   VALUES ('$nome', '$descricao', '$preco_venda', '$quantidade_estoque', '$caminhoImagem', NOW())";
         if (mysqli_query($conn, $query)) {
-            echo "<script>alert('Produto adicionado com sucesso!'); window.location = '../html/dashboard.php';</script>";
+            echo "<script>alert('Produto adicionado com sucesso!'); window.location = '../html/dashboard_adm.php';</script>";
         } else {
             echo "Erro ao salvar: " . mysqli_error($conn);
         }

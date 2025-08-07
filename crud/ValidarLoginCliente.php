@@ -39,11 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header("Location: ../html/pagina_inicial.html");
             exit;
         } else {
-            echo "Senha incorreta.";
+            echo "<script>alert('Senha incorreta.'); window.location.href = '../html/user_login.php';</script>";
             exit;
         }
     } else {
-        echo "Usuário não encontrado.";
+        echo "<script>alert('Usuário não encontrado.'); window.location.href = '../html/user_login.php';</script>";
         exit;
     }
 } else {

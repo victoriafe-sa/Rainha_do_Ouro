@@ -17,7 +17,7 @@ include_once "../conectarbd.php";
         mysqli_select_db($conn, 'db_rainhadoouro');
         $sql = "INSERT INTO tb_clientes(nome, telefone,cpf, data_nascimento, email, senha, cep, rua, numero, bairro, cidade, estado) VALUES ('$nome', '$telefone','$cpf', '$data_nascimento', '$email', '$senha', '$cep', '$rua', '$numero', '$bairro', '$cidade', '$estado')";
         if (mysqli_query($conn, $sql)) {
-            echo "<script>alert('Seus dados foram salvos !'); window.location = '../html/pagina_inicial.html';</script>";
+            echo "<script>alert('Cadastro realizado com sucesso!'); window.location = '../html/pagina_inicial.html';</script>";
         } else {
             echo "Deu erro: " . $sql . "<br>" . mysqli_error($conn);
         }
