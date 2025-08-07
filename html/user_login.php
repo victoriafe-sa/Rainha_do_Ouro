@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login/Cadastro - Rainha do Ouro</title>
-    <link rel="stylesheet" href="../css/user_login.css">
+  <link rel="stylesheet" href="../css/user_login.css">
 </head>
 
 <body>
@@ -17,7 +17,7 @@
         <h1>Criar Conta</h1>
         <input type="text" name="nome" placeholder="Nome completo" required />
         <input type="text" name="telefone" id="phone" placeholder="Telefone" required />
-        <input type="date" name="data_nascimento" id="data" required placeholder="Data de Nascimento"/>
+        <input type="date" name="data_nascimento" id="data" required placeholder="Data de Nascimento" />
         <input type="email" name="email" placeholder="Email" required />
         <input type="password" name="senha" id="senha" placeholder="Senha" required />
         <button type="submit">Cadastrar</button>
@@ -30,6 +30,10 @@
         <h1>Login</h1>
         <input type="email" name="email" placeholder="Email" required />
         <input type="password" name="senha" placeholder="Senha" required />
+
+        <!-- Campo oculto para redirecionamento -->
+        <input type="hidden" name="redirect" value="<?php echo $_GET['redirect'] ?? '../html/pagina_inicial.html'; ?>">
+
         <button type="submit">Entrar</button>
       </form>
     </div>
@@ -51,6 +55,7 @@
       </div>
     </div>
   </div>
+
   <script src="../script2/user_login.js"></script>
   <!-- Script para alternar login/cadastro -->
   <script>

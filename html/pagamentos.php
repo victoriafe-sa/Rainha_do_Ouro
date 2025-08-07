@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['id_cliente'])) {
+    // Redireciona para login com retorno garantido à página de pagamento
+    header("Location: user_login.php?redirect=../html/pagamentos.php");
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +35,7 @@
         </nav>
         <div class="icons">
             <a href="../html/carrinho.html"><img src="../img/carrinho.png " alt="Carrinho"></a>
-            <a href=""><img src="../img/perfil.png" alt="Perfil"></a>
+            <a href="../html/perfil_usuario.html"><img src="../img/perfil.png" alt="Perfil"></a>
         </div>
     </header>
     <div class="form-container">
