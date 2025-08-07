@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['id_cliente'])) {
+    // Redireciona para login com retorno garantido à página de pagamento
+    header("Location: user_login.php?redirect=../html/pagamentos.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
