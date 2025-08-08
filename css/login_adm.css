@@ -16,7 +16,7 @@
 
 body {
   font-family: 'Times New Roman', Times, serif;
-  background-color: var(--marrom-claro);
+  background-color: #F8D39C;
   display: flex;
   justify-content: center;
   align-items: center;

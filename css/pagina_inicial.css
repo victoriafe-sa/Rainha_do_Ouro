@@ -1,10 +1,11 @@
+/* ------------------ Global ------------------ */
 body {
   margin: 0;
   background-color: #F8D39C;
   font-family: 'Georgia', serif;
 }
 
-/* Header */
+/* ------------------ Header ------------------ */
 header {
   background-color: #4B2C1A;
   color: #F7E1A0;
@@ -50,8 +51,7 @@ header .icons a:last-child img {
   height: 40px;
 }
 
-
-/* Diferenciais */
+/* ------------------ Diferenciais ------------------ */
 .diferenciais {
   display: flex;
   justify-content: center;
@@ -86,7 +86,7 @@ header .icons a:last-child img {
   margin: 0;
 }
 
-/* Categorias */
+/* ------------------ Categorias ------------------ */
 .categorias {
   display: flex;
   justify-content: center;
@@ -106,14 +106,11 @@ header .icons a:last-child img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
   filter: brightness(50%);
   transition: filter 0.3s ease;
 }
 
-.categoria:hover img {
-  filter: brightness(70%);
-}
+.categoria:hover img { filter: brightness(70%); }
 
 .categoria h3 {
   position: absolute;
@@ -127,7 +124,7 @@ header .icons a:last-child img {
   z-index: 1;
 }
 
-/* Lançamentos */
+/* ------------------ Lançamentos ------------------ */
 .produtos {
   display: flex;
   justify-content: center;
@@ -135,7 +132,6 @@ header .icons a:last-child img {
 }
 
 .produto {
-  position: relative;
   background-color: #d49e68;
   border-radius: 20px;
   padding: 20px;
@@ -153,12 +149,10 @@ header .icons a:last-child img {
   height: 200px;
   background-color: #F8D39C;
   border-radius: 30px;
-  transition: transform 0.3s ease; /* transição suave */
+  transition: transform 0.3s ease;
 }
 
-.produto img:hover {
-  transform: scale(1.05); /* aumenta 5% */
-}
+.produto img:hover { transform: scale(1.05); }
 
 .compra {
   background-color: #794a31;
@@ -171,21 +165,17 @@ header .icons a:last-child img {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
 }
-.compra:hover {
-   transform: scale(1.05);}
 
-.valor{
-   font-size:20px;
-  
-}
+.compra:hover { transform: scale(1.05); }
+
+.valor { font-size: 20px; }
+
 .produto p {
-  margin-top: -10px; /* ou outro valor menor */
+  margin-top: -10px;
   font-family: 'Baskerville';
-  
 }
 
-
-/* Nossos Profissionais */
+/* ------------------ Nossos Profissionais ------------------ */
 .nossos-profissionais {
   text-align: center;
   padding: 45px 20px;
@@ -205,7 +195,6 @@ header .icons a:last-child img {
   overflow: hidden;
   border-radius: 100px 100px 0 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
 }
 
 .profissional img {
@@ -215,14 +204,11 @@ header .icons a:last-child img {
   transition: transform 0.3s ease;
 }
 
-.profissional:hover img {
-  transform: scale(1.05);
-}
+.profissional:hover img { transform: scale(1.05); }
 
 .profissional .info {
   position: absolute;
   bottom: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   background: rgba(33, 33, 33, 0.85);
@@ -247,19 +233,15 @@ header .icons a:last-child img {
 
 .profissional .info p { font-size: 14px; }
 
-/* Avaliações */
+/* ------------------ Avaliações ------------------ */
 .avaliacoes {
   background-color: #d49e68;
   padding: 40px;
-  margin: 60px auto; /* centraliza horizontalmente */
+  margin: 60px auto;
   border-radius: 50px;
   text-align: center;
   font-family: 'Playfair Display', serif;
-  width: 100%;
-  max-width: 800px; /* limite de largura */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* centraliza conteúdo */
+  max-width: 800px;
 }
 
 .avaliacoes h2 {
@@ -272,7 +254,6 @@ header .icons a:last-child img {
   justify-content: center;
   align-items: center;
   gap: 40px;
-  text-align: left;
   flex-wrap: wrap;
 }
 
@@ -291,20 +272,14 @@ header .icons a:last-child img {
   color: #333;
 }
 
-.estrelas {
-  color: #ffce00;
-  font-size: 20px;
+.estrelas { 
+  color: #ffce00; 
+  font-size: 20px; 
 }
 
 .avaliacao cite {
   font-size: 18px;
   font-weight: bold;
-}
-
-.foto-usuario {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .foto-usuario img {
@@ -316,23 +291,110 @@ header .icons a:last-child img {
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-
-
-/* Nosso Espaço */
+/* ------------------ Nosso Espaço ------------------ */
 .carrossel-fotos {
   padding: 100px;
   background-color: #F0B429;
   text-align: center;
 }
 
-/* Footer */
-.site-footer {
+.nosso-espaco {
+  padding: 20px 0 0;
+  text-align: center;
+}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.imagem-expandir {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.imagem-expandir:hover { transform: scale(1.05); }
+
+.popup-imagem {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(32, 13, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-imagem img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.popup-imagem .fechar {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ------------------ Vídeo ------------------ */
+.anuncio_mpR {
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.anuncio_mpR video {
   width: 100%;
+  height: 600px;
+  object-fit: cover;
+  display: block;
+}
+
+.anuncio_mpR::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #F8D39C 50%);
+  pointer-events: none;
+}
+
+/* ------------------ Frase com coroa ------------------ */
+.frase-com-coroa {
+  width: 100vw;
+  background: linear-gradient(to bottom, rgba(248, 211, 156, 0) 0%, #f8c983 40%, #fdd395 70%, #f8c983 100%);
+  padding: 30px 20px;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: #5c3b19;
+  font-size: 20px;
+  font-style: italic;
+}
+
+.frase-com-coroa img {
+  width: 60px;
+  margin: 10px auto;
+  display: block;
+}
+
+/* ------------------ Footer ------------------ */
+.site-footer {
   background-color: #4B2C1A;
   color: #F7E1A0;
-  margin-top: 40px;
   border-top: 4px solid #F0B429;
-    margin-top: 0;
   padding-top: 0;
 }
 
@@ -347,8 +409,7 @@ header .icons a:last-child img {
 
 .logo-footer {
   width: 110px;
-margin-left: -80px;
-padding-bottom: -100px;
+  margin-left: -80px;
 }
 
 .info-footer {
@@ -369,9 +430,7 @@ padding-bottom: -100px;
   text-decoration: none;
 }
 
-.footer-links a:hover {
-  color: #ffffff;
-}
+.footer-links a:hover { color: #ffffff; }
 
 .redes-sociais {
   display: flex;
@@ -387,157 +446,35 @@ padding-bottom: -100px;
   transition: transform 0.3s ease;
 }
 
-.redes-sociais img:hover {
-  transform: scale(1.2);
-}
+.redes-sociais img:hover { transform: scale(1.2); }
 
-/* Responsivo */
+/* ------------------ Responsivo ------------------ */
 @media (max-width: 600px) {
   .footer-content {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-
-  .footer-esquerda {
-    margin-bottom: 15px;
-  }
+  .footer-esquerda { margin-bottom: 15px; }
 }
 
-/*Efeito abaixo do titulo*/
+/* ------------------ Títulos com efeito ------------------ */
 .titulo-secao {
   text-align: center;
   position: relative;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
   margin-bottom: 30px;
   font-family: 'Playfair Display', serif;
   padding-top: 10px;
 }
+
 .titulo-secao::after {
   content: '';
   display: block;
   width: 70px;
   height: 5px;
-  background-color: #4B2C1A; /* Troque pela cor visível no fundo (ex: #fff ou #F8D39C) */
+  background-color: #4B2C1A;
   margin: 8px auto 0;
   border-radius: 20px;
-}
-
-
-/*video*/
-.anuncio_mpR {
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-}
-
-.anuncio_mpR video {
-  width: 100%;
-  height: 600px; /* você pode ajustar esse valor */
-  object-fit: cover; /* para manter o vídeo centralizado e proporcional */
-  display: block;
-}
-
-
-/* Gradiente na parte inferior */
-.anuncio_mpR::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px; /* ajuste conforme o efeito desejado */
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #F8D39C 50%);
-    pointer-events: none;
-    z-index: 2;
-}
-
-.frase-com-coroa {
-  width: 100vw; /* ocupa toda a largura da tela */
-  background: linear-gradient(to bottom, rgba(248, 211, 156, 0) 0%, #f8c983 40%, #fdd395 70%, #f8c983 100%);
-  padding: 30px 20px;
-  margin: 0; /* remove margens que limitam a largura */
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  font-family: 'Georgia', serif;
-  color: #5c3b19;
-  font-size: 20px;
-  font-style: italic;
-  position: relative;
-}
-
-
-
-.frase-com-coroa img {
-  width: 60px;
-  margin: 10px auto;
-  display: block;
-}
-
-/*nosso espaço*/
-.nosso-espaco {
-  padding: 20px 0 0; /* padding inferior removido para encostar no footer */
-  text-align: center;
-  margin-bottom: 0; /* garante que não haja espaço depois */
-}
-
-.titulo-secao {
-  font-size: 32px;
-  margin-bottom: 30px;
-  font-family: 'Playfair Display', serif;
-}
-
-.galeria {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-  padding-bottom: 40px; /* se quiser um respiro acima do rodapé */
-}
-
-.imagem-expandir {
-  width: 200px;
-  height: 150px;
-  object-fit: cover;
-  cursor: pointer;
-  border-radius: 12px;
-  transition: transform 0.3s;
-}
-
-.imagem-expandir:hover {
-  transform: scale(1.05);
-}
-
-.popup-imagem {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(32, 13, 0, 0.8);
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.popup-imagem img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-}
-
-.popup-imagem .fechar {
-  position: absolute;
-  top: 20px;
-  right: 40px;
-  font-size: 40px;
-  color: white;
-  cursor: pointer;
 }

@@ -343,3 +343,28 @@ main {
 .redes-sociais img:hover {
     transform: scale(1.2);
 }
+.frase-com-coroa {
+    width: 100vw;
+    margin: 0;
+    /* remove margens que limitam a largura */
+    border-radius: 0 0 20px 20px;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    color: #5c3b19;
+    font-size: 20px;
+    font-style: italic;
+    position: relative;
+    font-size: 30px;
+}
+
+.frase-com-coroa img {
+    width: 60px;
+    margin: 10px auto;
+    display: block;
+
+}
+
+.frase-com-coroa h2 {
+    margin-bottom: -20px;
+    margin-top: -20px;
+}
