@@ -30,7 +30,7 @@ if (!isset($_SESSION['id_cliente'])) {
                 <li><a href="../html/pagina_inicial.html">Inicio</a></li>
                 <li><a href="../html/produtos.html">Produtos</a></li>
                 <li><a href="../html/servicos.html">Serviços</a></li>
-                <li><a href="../html/agendamentos.html">Agendamento</a></li>
+                <li><a href="../html/agendamentos.php">Agendar</a></li>
             </ul>
         </nav>
         <div class="icons">

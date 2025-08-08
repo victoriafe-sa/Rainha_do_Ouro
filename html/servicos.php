@@ -20,7 +20,7 @@
                 <li><a href="../html/pagina_inicial.html">Inicio</a></li>
                 <li><a href="produtos.php">Produtos</a></li>
                 <li><a href="servicos.php">Serviços</a></li>
-                <li><a href="../html/agendamentos.html">Agendamento</a></li>
+                <li><a href="../html/agendamentos.php">Agendar</a></li>
             </ul>
         </nav>
         <div class="icons">
@@ -64,7 +64,7 @@ if ($result->num_rows > 0) {
                 <h3>' . htmlspecialchars($row["nome"]) . '</h3>
                 <p>' . htmlspecialchars($row["descricao"]) . '</p>
                 <p>Duração em minutos: ' . htmlspecialchars($row["duracao_min"]) . 'min</p>
-                <a href="../html/agendamentos.html">Agendar</a>
+                <a href="../html/agendamentos.php">Agendar</a>
             </div>
         </div>';
     }

@@ -88,7 +88,7 @@ if ($resultado->num_rows > 0) {
             $mail->AltBody = "Agendamento confirmado para $nome $sobrenome - Serviço: $servico - Tipo: $tipoServico - Data: $data - Horário: $horario";
 
             $mail->send();
-            header("Location: agendamentos.html#sucesso");
+            header("Location: agendamentos.php#sucesso");
             exit;
         } catch (Exception $e) {
             echo "Erro ao enviar o e-mail: {$mail->ErrorInfo}";

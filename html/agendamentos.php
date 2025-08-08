@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['id_cliente'])) {
+    // Redireciona para login com retorno garantido à página de pagamento
+    header("Location: user_login.php?redirect=../html/agendamentos.php");
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,7 +32,7 @@
                 <li><a href="../html/pagina_inicial.html">Inicio</a></li>
                 <li><a href="../html/produtos.php">Produtos</a></li>
                 <li><a href="../html/servicos.php">Serviços</a></li>
-                <li><a href="../html/agendamentos.html">Agendamento</a></li>
+                <li><a href="../html/agendamentos.php">Agendar</a></li>
             </ul>
         </nav>
         <div class="icons">

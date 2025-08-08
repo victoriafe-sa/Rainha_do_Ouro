@@ -20,7 +20,7 @@
                 <li><a href="../html/pagina_inicial.html">Inicio</a></li>
                 <li><a href="../html/produtos.php">Produtos</a></li>
                 <li><a href="../html/servicos.php">Serviços</a></li>
-                <li><a href="../html/agendamentos.html">Agendamento</a></li>
+                <li><a href="../html/agendamentos.php">Agendar</a></li>
             </ul>
         </nav>
         <div class="icons">
