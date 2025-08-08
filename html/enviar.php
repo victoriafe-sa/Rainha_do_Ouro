@@ -32,7 +32,7 @@ $stmt->execute();
 $resultado = $stmt->get_result();
 
 if ($resultado->num_rows > 0) {
-    echo "Já existe um agendamento para essa data e horário.";
+    echo "<script>alert('Já existe um agendamento para essa data e horário.'); window.location.href = '../html/agendamentos.php';</script>";
 } else {
     // Exemplo: pegar ID do cliente (aqui está fixo como 1, mas você pode pegar da sessão ou do login)
     $idCliente = 1; 
