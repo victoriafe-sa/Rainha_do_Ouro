@@ -1,33 +1,46 @@
 <?php
-session_start();
 include("../conectarbd.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = trim($_POST['email'] ?? '');
-    $telefone = trim($_POST['telefone'] ?? '');
+    // Normaliza email
+    $email = strtolower(trim($_POST['email'] ?? ''));
+
+    // Remove tudo que não é número do telefone
+    $telefone = preg_replace('/\D/', '', $_POST['telefone'] ?? '');
+
+    // Normaliza data para formato YYYY-MM-DD
     $data_nascimento = trim($_POST['data_nascimento'] ?? '');
+    if (preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $data_nascimento)) {
+        [$dia, $mes, $ano] = explode('/', $data_nascimento);
+        $data_nascimento = "$ano-$mes-$dia";
+    }
 
     if (empty($email) || empty($telefone) || empty($data_nascimento)) {
-        echo "Por favor, preencha todos os campos.";
+        echo "Preencha todos os campos.";
         exit;
     }
 
-    $sql = "SELECT id_clientes FROM tb_clientes WHERE email = ? AND telefone = ? AND data_nascimento = ? LIMIT 1";
+    // Consulta com normalização no banco também
+    $sql = "SELECT id_clientes FROM tb_clientes 
+            WHERE LOWER(TRIM(email)) = ? 
+              AND REPLACE(REPLACE(REPLACE(REPLACE(telefone, '(', ''), ')', ''), '-', ''), ' ', '') = ?
+              AND DATE(data_nascimento) = ?
+            LIMIT 1";
     $stmt = $conn->prepare($sql);
 
     if (!$stmt) {
-        echo "Erro na preparação da consulta: " . $conn->error;
+        echo "Erro interno.";
         exit;
     }
 
     $stmt->bind_param("sss", $email, $telefone, $data_nascimento);
     $stmt->execute();
-    $resultado = $stmt->get_result();
+    $result = $stmt->get_result();
 
-    if ($resultado->num_rows === 1) {
-        echo "ok"; // Cliente válido
+    if ($result->num_rows > 0) {
+        echo "ok";
     } else {
-        echo "Dados não conferem. Verifique e tente novamente.";
+        echo "Dados não conferem.";
     }
 
     $stmt->close();

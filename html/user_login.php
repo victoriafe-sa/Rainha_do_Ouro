@@ -105,7 +105,7 @@
       <input type="email" name="email" id="emailRecuperar" placeholder="Gmail" required /><br /><br />
       
       <label for="telefoneRecuperar">Digite seu telefone:</label><br />
-      <input type="tel" name="telefone" id="telefoneRecuperar" placeholder="Telefone" required pattern="\d{10,15}" title="Digite seu telefone com 10 ou 11 dígitos numéricos" /><br /><br />
+      <input type="tel" name="telefone" id="telefoneRecuperar" placeholder="Telefone" required pattern="\(\d{2}\)\d{4,5}-\d{4}" title="Digite seu telefone com 10 ou 11 dígitos numéricos" /><br /><br />
       
       <label for="dataNascimentoRecuperar">Digite sua data de nascimento:</label><br />
       <input type="date" name="data_nascimento" id="dataNascimentoRecuperar" required /><br /><br />
@@ -197,7 +197,7 @@ formRecuperar.addEventListener('submit', async (e) => {
 
     const result = await response.text();
 
-    if (result === 'ok') {
+    if (result.trim()=== 'ok') {
       // Se validou, avança para o passo 2 (nova senha)
       passo1.style.display = 'none';
       passo2.style.display = 'block';
@@ -225,6 +225,45 @@ formNovaSenha.addEventListener('submit', (e) => {
     alert('As senhas não conferem!');
   }
 });
+
+
+function aplicarMascaraTelefone(valor) {
+    valor = valor.replace(/\D/g, "");
+    if (valor.length > 10) {
+        valor = valor.replace(/^(\d{2})(\d{5})(\d{4})/, "($1)$2-$3");
+    } else {
+        valor = valor.replace(/^(\d{2})(\d{4})(\d{4})/, "($1)$2-$3");
+    }
+    return valor;
+}
+
+function limparMascaraTelefone(valor) {
+    return valor.replace(/\D/g, "");
+}
+
+// Máscara no cadastro
+const phoneCadastro = document.getElementById('phone');
+phoneCadastro.addEventListener('input', function() {
+    this.value = aplicarMascaraTelefone(this.value);
+});
+
+// Máscara na recuperação
+const phoneRecuperar = document.getElementById('telefoneRecuperar');
+phoneRecuperar.addEventListener('input', function() {
+    this.value = aplicarMascaraTelefone(this.value);
+});
+
+// Remove máscara antes de enviar os forms
+document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', function() {
+        const telInput = this.querySelector('input[name="telefone"]');
+        if (telInput) {
+            telInput.value = limparMascaraTelefone(telInput.value);
+        }
+    });
+});
+
+
 
   </script>
 </body>
