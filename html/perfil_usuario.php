@@ -1,6 +1,37 @@
+<?php
+session_start();
+if (!isset($_SESSION['id_cliente'])) {
+    header("Location: user_login.php");
+    exit;
+}
+
+include("../conectarbd.php");
+$id_cliente = $_SESSION['id_cliente'];
+
+// Buscar dados do cliente
+$sqlCliente = "SELECT * FROM tb_clientes WHERE id_clientes = ?";
+$stmt = $conn->prepare($sqlCliente);
+$stmt->bind_param("i", $id_cliente);
+$stmt->execute();
+$dadosCliente = $stmt->get_result()->fetch_assoc();
+
+// Buscar pedidos do cliente
+$sqlPedidos = "SELECT * FROM tb_pedidos WHERE id_cliente = ? ORDER BY data_pedido DESC";
+$stmt = $conn->prepare($sqlPedidos);
+$stmt->bind_param("i", $id_cliente);
+$stmt->execute();
+$pedidos = $stmt->get_result();
+
+// Buscar agendamentos
+$sqlAgendamentos = "SELECT * FROM tb_agendamentos WHERE id_cliente = ? ORDER BY data DESC, horario DESC";
+$stmt = $conn->prepare($sqlAgendamentos);
+$stmt->bind_param("i", $id_cliente);
+$stmt->execute();
+$agendamentos = $stmt->get_result();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
-<!--Conectar ao banco-->
 
 <head>
     <meta charset="UTF-8">
@@ -51,28 +82,22 @@
                 <input type="text" name="senha" value="">
 
                 <label for="cep">CEP</label>
-                <input type="text" id="cep" name="cep" onblur="pesquisacep(this.value)"
-                    value="">
+                <input type="text" id="cep" name="cep" onblur="pesquisacep(this.value)" value="">
 
                 <label for="rua">Endereço</label>
-                <input type="text" id="logradouro" name="rua"
-                    value="">
+                <input type="text" id="logradouro" name="rua" value="">
 
                 <label for="numero">Número</label>
-                <input type="text" id="numero" name="numero"
-                    value="">
+                <input type="text" id="numero" name="numero" value="">
 
                 <label for="bairro">Bairro</label>
-                <input type="text" id="bairro" name="bairro"
-                    value="">
+                <input type="text" id="bairro" name="bairro" value="">
 
                 <label for="cidade">Cidade</label>
-                <input type="text" id="cidade" name="cidade"
-                    value="">
+                <input type="text" id="cidade" name="cidade" value="">
 
                 <label for="estado">Estado</label>
-                <input type="text" id="estado" name="estado"
-                    value="">
+                <input type="text" id="estado" name="estado" value="">
 
                 <button type="submit">Salvar Alterações</button>
             </form>
@@ -100,16 +125,27 @@
             <h2>Meus Agendamentos</h2>
             <ul class="appointments-list">
                 <li>
-                    25/06/2025 - 14:00 - Corte e Hidratação
+                    <?php while ($pedido = $pedidos->fetch_assoc()): ?>
+                <li>
+                    Pedido #<?php echo $pedido['id_pedido']; ?> - <?php echo $pedido['descricao']; ?> -
+                    <?php echo $pedido['status']; ?>
                     <div class="actions">
                         <button class="cancel-btn">Cancelar</button>
                     </div>
                 </li>
+                <?php endwhile; ?>
+                </li>
                 <li>
-                    10/07/2025 - 16:00 - Escova e Nutrição
+                    <?php while ($agendamento = $agendamentos->fetch_assoc()): ?>
+                <li>
+                    <?php echo date("d/m/Y", strtotime($agendamento['data'])); ?> -
+                    <?php echo substr($agendamento['horario'], 0, 5); ?> -
+                    <?php echo $agendamento['servico']; ?>
                     <div class="actions">
                         <button class="cancel-btn">Cancelar</button>
                     </div>
+                </li>
+                <?php endwhile; ?>
                 </li>
             </ul>
         </section>
@@ -117,31 +153,31 @@
 
     <footer class="site-footer">
         <div class="footer-content">
-    
-          <!-- Logo alinhada à esquerda -->
-          <div class="footer-esquerda">
-            <img src="../img/logo.png" alt="Rainha do Ouro" class="logo-footer">
-          </div>
-    
-          <!-- Texto e ícones centralizados -->
-          <div class="info-footer">
-            <p>&copy; 2025 Rainha do Ouro. Todos os direitos reservados.</p>
-    
-            <div class="footer-links">
-              <a href="#">Política de Privacidade</a>
-              <a href="#">Termos de Uso</a>
-              <a href="#">Contato</a>
+
+            <!-- Logo alinhada à esquerda -->
+            <div class="footer-esquerda">
+                <img src="../img/logo.png" alt="Rainha do Ouro" class="logo-footer">
             </div>
-    
-            <div class="redes-sociais">
-              <a href="#"><img src="../img/instagram-icon.png" alt="Instagram"></a>
-              <a href="#"><img src="../img/facebook-icon.png" alt="Facebook"></a>
-              <a href="#"><img src="../img/x-icon.png" alt="X"></a>
+
+            <!-- Texto e ícones centralizados -->
+            <div class="info-footer">
+                <p>&copy; 2025 Rainha do Ouro. Todos os direitos reservados.</p>
+
+                <div class="footer-links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Contato</a>
+                </div>
+
+                <div class="redes-sociais">
+                    <a href="#"><img src="../img/instagram-icon.png" alt="Instagram"></a>
+                    <a href="#"><img src="../img/facebook-icon.png" alt="Facebook"></a>
+                    <a href="#"><img src="../img/x-icon.png" alt="X"></a>
+                </div>
             </div>
-          </div>
-    
+
         </div>
-      </footer>
+    </footer>
 
     <script src="../script/perfil_usuario.js"></script>
 </body>

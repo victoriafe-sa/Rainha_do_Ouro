@@ -37,7 +37,7 @@ if (!isset($_SESSION['id_cliente'])) {
         </nav>
         <div class="icons">
             <a href="../html/carrinho.html"><img src="../img/carrinho.png" alt="Carrinho"></a>
-            <a href="../html/perfil_usuario.html"><img src="../img/perfil.png" alt="Perfil"></a>
+            <a href="../html/user_login.php"><img src="../img/perfil.png" alt="Perfil"></a>
         </div>
     </header>
     <div id="sidebar-container"></div>
