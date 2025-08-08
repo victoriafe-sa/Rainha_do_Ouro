@@ -4,15 +4,15 @@ header('Content-Type: text/html; charset=utf-8');
 
 include("../conectarbd.php");
 
-// Variável para filtro, default sem filtro
+// Variável para filtro
 $id_cliente_filtro = null;
 
-// Se for cliente logado, usa o id_cliente da sessão
+// Se cliente estiver logado, filtra apenas dele
 if (isset($_SESSION['id_cliente'])) {
     $id_cliente_filtro = $_SESSION['id_cliente'];
 }
 
-// Monta a query base
+// Query buscando sempre o nome correto do cliente
 $sql = "
 SELECT 
     ag.id_agendamentos,
@@ -23,10 +23,11 @@ SELECT
     ag.tipoServico,
     cli.nome AS nome_cliente
 FROM tb_agendamentos ag
-LEFT JOIN tb_clientes cli ON cli.id_clientes = ag.tb_clientes_id_clientes
+INNER JOIN tb_clientes cli 
+    ON cli.id_clientes = ag.tb_clientes_id_clientes
 ";
 
-// Aplica filtro por cliente, se existir
+// Aplica filtro se necessário
 if ($id_cliente_filtro !== null) {
     $sql .= " WHERE ag.tb_clientes_id_clientes = ? ";
 }
@@ -41,7 +42,6 @@ if ($id_cliente_filtro !== null) {
 
 $stmt->execute();
 $result = $stmt->get_result();
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -52,46 +52,17 @@ $result = $stmt->get_result();
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../css/consultarAgendamento.css" rel="stylesheet" />
   <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
-  
   <style>
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.4);
-    }
-    .modal-content {
-      background-color: #fff;
-      margin: 10% auto;
-      padding: 20px;
-      border-radius: 8px;
-      width: 400px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      position: relative;
-    }
-    .close-btn {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      font-size: 24px;
-      font-weight: bold;
-      cursor: pointer;
-      border: none;
-      background: none;
-    }
-    /* Exemplo simples para status */
+    .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); }
+    .modal-content { background-color: #fff; margin: 10% auto; padding: 20px; border-radius: 8px; width: 400px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); position: relative; }
+    .close-btn { position: absolute; right: 10px; top: 10px; font-size: 24px; font-weight: bold; cursor: pointer; border: none; background: none; }
     .status-agendado { color: blue; font-weight: bold; }
     .status-realizado { color: green; font-weight: bold; }
     .status-cancelado { color: red; font-weight: bold; }
   </style>
 </head>
 <body>
-  <div class="container mt-4">
+<div class="container mt-4">
     <h1>Agendamentos</h1>
 
     <div class="search-container mb-3">
@@ -120,7 +91,7 @@ $result = $stmt->get_result();
           } else {
               while ($row = $result->fetch_assoc()) {
                   $statusClass = 'status-' . strtolower($row['status']);
-                  $nome_cliente = htmlspecialchars($row['nome_cliente'] ?? 'Desconhecido');
+                  $nome_cliente = htmlspecialchars($row['nome_cliente']);
                   $data_formatada = date('d/m/Y', strtotime($row['data']));
                   $hora_formatada = date('H:i', strtotime($row['horario']));
                   $servico = htmlspecialchars($row['servico'], ENT_QUOTES);
@@ -128,11 +99,11 @@ $result = $stmt->get_result();
                   $status = ucfirst(htmlspecialchars($row['status']));
                   
                   echo "
-                  <tr data-id=\"{$row['id_agendamentos']}\"
-                      data-data=\"{$row['data']}\"
-                      data-horario=\"{$row['horario']}\"
-                      data-status=\"{$row['status']}\"
-                      data-servico=\"{$servico}\"
+                  <tr data-id=\"{$row['id_agendamentos']}\" 
+                      data-data=\"{$row['data']}\" 
+                      data-horario=\"{$row['horario']}\" 
+                      data-status=\"{$row['status']}\" 
+                      data-servico=\"{$servico}\" 
                       data-tiposervico=\"{$tipo}\">
                     <td>{$nome_cliente}</td>
                     <td>{$data_formatada}</td>
@@ -155,52 +126,48 @@ $result = $stmt->get_result();
     <div class="buttonBack">
         <button><a href="../html/dashboard_cabeleireira.php">Cancelar</a> </button>
     </div>
-  </div>
+</div>
 
-  <!-- Modal Editar Agendamento -->
-  <div id="modalEditar" class="modal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="fecharModal()">&times;</button>
-      <h4>Editar Agendamento</h4>
-      <form id="formEditar">
-        <input type="hidden" name="id_agendamento" id="id_agendamento" />
-        <div class="mb-3">
-          <label for="data" class="form-label">Data</label>
-          <input type="date" name="data" id="data" class="form-control" required />
-        </div>
-        <div class="mb-3">
-          <label for="horario" class="form-label">Horário</label>
-          <input type="time" name="horario" id="horario" class="form-control" required />
-        </div>
-        <div class="mb-3">
-          <label for="status" class="form-label">Status</label>
-          <select name="status" id="status" class="form-select" required>
-            <option value="agendado">Agendado</option>
-            <option value="realizado">Realizado</option>
-            <option value="cancelado">Cancelado</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label for="servico" class="form-label">Serviço</label>
-          <input type="text" name="servico" id="servico" class="form-control" required />
-        </div>
-        <div class="mb-3">
-          <label for="tipoServico" class="form-label">Tipo de Serviço</label>
-          <input type="text" name="tipoServico" id="tipoServico" class="form-control" required />
-        </div>
-        <button type="submit" class="btn btn-success">Salvar Alterações</button>
-      </form>
-      
-    </div>
+<!-- Modal Editar Agendamento -->
+<div id="modalEditar" class="modal">
+  <div class="modal-content">
+    <button class="close-btn" onclick="fecharModal()">&times;</button>
+    <h4>Editar Agendamento</h4>
+    <form id="formEditar">
+      <input type="hidden" name="id_agendamento" id="id_agendamento" />
+      <div class="mb-3">
+        <label for="data" class="form-label">Data</label>
+        <input type="date" name="data" id="data" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="horario" class="form-label">Horário</label>
+        <input type="time" name="horario" id="horario" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="status" class="form-label">Status</label>
+        <select name="status" id="status" class="form-select" required>
+          <option value="agendado">Agendado</option>
+          <option value="realizado">Realizado</option>
+          <option value="cancelado">Cancelado</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="servico" class="form-label">Serviço</label>
+        <input type="text" name="servico" id="servico" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="tipoServico" class="form-label">Tipo de Serviço</label>
+        <input type="text" name="tipoServico" id="tipoServico" class="form-control" required />
+      </div>
+      <button type="submit" class="btn btn-success">Salvar Alterações</button>
+    </form>
   </div>
-
+</div>
 
 <script>
-  const searchInput = document.getElementById('searchInput');
-  searchInput.addEventListener('input', () => {
+  document.getElementById('searchInput').addEventListener('input', () => {
     const filter = searchInput.value.toLowerCase();
-    const rows = document.querySelectorAll('#appointmentsTable tr');
-    rows.forEach(row => {
+    document.querySelectorAll('#appointmentsTable tr').forEach(row => {
       const cells = row.querySelectorAll('td');
       const match = Array.from(cells).some(td => td.textContent.toLowerCase().includes(filter));
       row.style.display = match ? '' : 'none';
@@ -223,25 +190,20 @@ $result = $stmt->get_result();
   }
 
   window.onclick = function (event) {
-    const modal = document.getElementById('modalEditar');
-    if (event.target == modal) {
+    if (event.target == document.getElementById('modalEditar')) {
       fecharModal();
     }
   }
 
   document.getElementById('formEditar').addEventListener('submit', e => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    fetch('../crud/Editar_agendamento.php', {
-      method: 'POST',
-      body: formData,
-    })
+    fetch('../crud/Editar_agendamento.php', { method: 'POST', body: new FormData(e.target) })
     .then(res => res.json())
     .then(data => {
       if (data.success) {
         alert('Agendamento atualizado com sucesso!');
         fecharModal();
-        location.reload(); // recarrega a página para atualizar tabela
+        location.reload();
       } else {
         alert('Erro: ' + (data.error || 'Erro desconhecido'));
       }
@@ -251,19 +213,14 @@ $result = $stmt->get_result();
 
   function excluirAgendamento(id) {
     if (!confirm('Deseja realmente excluir o agendamento?')) return;
-
     const formData = new FormData();
     formData.append('id_agendamento', id);
-
-    fetch('../crud/Excluir_agendamento.php', {
-      method: 'POST',
-      body: formData,
-    })
+    fetch('../crud/Excluir_agendamento.php', { method: 'POST', body: formData })
     .then(res => res.json())
     .then(data => {
       if (data.success) {
         alert('Agendamento excluído com sucesso!');
-        location.reload(); // recarrega a página para atualizar tabela
+        location.reload();
       } else {
         alert('Erro: ' + (data.error || 'Erro desconhecido'));
       }
@@ -271,6 +228,5 @@ $result = $stmt->get_result();
     .catch(() => alert('Erro ao conectar ao servidor.'));
   }
 </script>
-
 </body>
 </html>
