@@ -140,11 +140,13 @@ textarea {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.botao-cadastrar, .botao-cancelar {
+.botao-cadastrar,
+.botao-cancelar {
 	background-color: #4B2E1E;
 }
 
-.botao-cadastrar:hover, .botao-cancelar:hover {
+.botao-cadastrar:hover,
+.botao-cancelar:hover {
 	background-color: #27170e;
 }
 
