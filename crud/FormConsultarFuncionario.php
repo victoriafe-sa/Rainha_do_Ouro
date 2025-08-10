@@ -11,19 +11,24 @@
 <body>
     <h1>Funcionários Cadastrados</h1>
 
-    <form method="GET" action="">
-        <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome" value="<?php echo isset($_GET['nome']) ? $_GET['nome'] : ''; ?>">
+    <form method="GET" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" value="<?php echo isset($_GET['nome']) ? $_GET['nome'] : ''; ?>">
+        </div>
 
-        <label for="cpf">CPF:</label>
-        <input type="text" name="cpf" id="cpf" value="<?php echo isset($_GET['cpf']) ? $_GET['cpf'] : ''; ?>">
+        <div class="form-group">
+            <label for="cpf">CPF:</label>
+            <input type="text" name="cpf" id="cpf" value="<?php echo isset($_GET['cpf']) ? $_GET['cpf'] : ''; ?>">
+        </div>
 
-        <label for="cargo">Cargo:</label>
-        <input type="text" name="cargo" id="cargo" value="<?php echo isset($_GET['cargo']) ? $_GET['cargo'] : ''; ?>">
+        <div class="form-group">
+            <label for="cargo">Cargo:</label>
+            <input type="text" name="cargo" id="cargo" value="<?php echo isset($_GET['cargo']) ? $_GET['cargo'] : ''; ?>">
+        </div>
 
         <input type="submit" value="Pesquisar" class="botoes">
     </form>
-    <br>
 
 
     <table width="100%" border="1" bordercolor="black" cellspacing="2" cellpadding="5">
@@ -33,7 +38,6 @@
             <td align="center"> <strong>Data de Nascimento</strong></td>
             <td align="center"> <strong>CPF</strong></td>
             <td align="center"> <strong>Telefone</strong></td>
-            <td align="center"> <strong>E-mail</strong></td>
             <td align="center"> <strong>Bairro</strong></td>
             <td align="center"> <strong>Cidade</strong></td>
             <td align="center"> <strong>Cargo</strong></td>
@@ -47,7 +51,7 @@
 
         <?php
         include("../conectarbd.php");
-        
+
         //$selecionar = mysqli_query($conn, "SELECT * FROM tb_funcionarios");
 
         $nome = isset($_GET['nome']) ? $_GET['nome'] : '';
@@ -77,7 +81,6 @@
                 <td align="center"><?= $campo["data_nascimento"] ?></td>
                 <td align="center"><?= $campo["cpf"] ?></td>
                 <td align="center"><?= $campo["telefone"] ?></td>
-                <td align="center"><?= $campo["email"] ?></td>
                 <td align="center"><?= $campo["bairro"] ?></td>
                 <td align="center"><?= $campo["cidade"] ?></td>
                 <td align="center"><?= $campo["cargo"] ?></td>
@@ -88,8 +91,8 @@
                 <td align="center"><a
                         href="../crud/FormEditarFuncionario.php?editarid=<?php echo $campo['id_funcionarios']; ?>">Editar</a>
                 </td>
-                <td align="center"><i><a
-                            href="../crud/ExcluirFuncionario.php?p=excluir&funcionario=<?php echo $campo['id_funcionarios']; ?>">Excluir</i></a>
+                <td align="center"><a
+                        href="../crud/ExcluirFuncionario.php?p=excluir&funcionario=<?php echo $campo['id_funcionarios']; ?>">Excluir</a>
                 </td>
             </tr>
         <?php } ?>

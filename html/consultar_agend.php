@@ -124,7 +124,7 @@ $result = $stmt->get_result();
       </table>
     </div>
     <div class="buttonBack">
-        <button><a href="../html/dashboard_cabeleireira.php">Cancelar</a> </button>
+        <button><a href="../html/dashboard_adm.php">Cancelar</a> </button>
     </div>
 </div>
 

@@ -29,7 +29,7 @@
       width: 90%;
       max-width: 400px;
       position: relative;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     .fechar {
@@ -53,6 +53,13 @@
         <h1>Criar Conta</h1>
         <input type="text" name="nome" placeholder="Nome completo" required />
         <input type="text" name="telefone" id="phone" placeholder="Telefone" required />
+        <select name="genero" required>
+          <option value="" disabled selected>Selecione o gênero</option>
+          <option value="Feminino">Feminino</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Outro">Outro</option>
+          <option value="Prefiro não dizer">Prefiro não dizer</option>
+        </select>
         <input type="date" name="data_nascimento" id="data" required placeholder="Data de Nascimento" />
         <input type="email" name="email" placeholder="Email" required />
         <input type="password" name="senha" id="senha" placeholder="Senha" required />
@@ -68,7 +75,7 @@
         <input type="password" name="senha" placeholder="Senha" required />
 
         <!-- Campo oculto para redirecionamento -->
-        <input type="hidden" name="redirect" value="<?php echo $_GET['redirect'] ?? '../html/pagina_inicial.html'; ?>">
+        <input type="hidden" name="redirect" value="<?php echo $_GET['redirect'] ?? '../html/pagina_inicial.php'; ?>">
 
         <button type="submit">Entrar</button>
         <!-- Botão mudou para type="button" e id para controle JS -->
@@ -94,43 +101,43 @@
   </div>
 
   <!-- Modal para email + CPF -->
-<div id="modalRecuperarSenha" class="modal">
-  <!-- Passo 1: Validar usuário -->
-  <div class="modal-content" id="passo1">
-    <span id="fecharModal" class="fechar">&times;</span>
-    <h2>Recuperar Senha</h2>
-    <form id="formRecuperar" action="../crud/RecuperarSenhaCliente.php" method="POST">
-      <label for="emailRecuperar">Digite seu Gmail:</label><br />
-      <input type="email" name="email" id="emailRecuperar" placeholder="Gmail" required /><br /><br />
-      
-      <label for="telefoneRecuperar">Digite seu telefone:</label><br />
-      <input type="tel" name="telefone" id="telefoneRecuperar" placeholder="Telefone" required pattern="\(\d{2}\)\d{4,5}-\d{4}" title="Digite seu telefone com 10 ou 11 dígitos numéricos" /><br /><br />
-      
-      <label for="dataNascimentoRecuperar">Digite sua data de nascimento:</label><br />
-      <input type="date" name="data_nascimento" id="dataNascimentoRecuperar" required /><br /><br />
-      
-      <button type="submit">Enviar</button>
-    </form>
-  </div>
+  <div id="modalRecuperarSenha" class="modal">
+    <!-- Passo 1: Validar usuário -->
+    <div class="modal-content" id="passo1">
+      <span id="fecharModal" class="fechar">&times;</span>
+      <h2>Recuperar Senha</h2>
+      <form id="formRecuperar" action="../crud/RecuperarSenhaCliente.php" method="POST">
+        <label for="emailRecuperar">Digite seu Gmail:</label><br />
+        <input type="email" name="email" id="emailRecuperar" placeholder="Gmail" required /><br /><br />
 
-  <!-- Passo 2: Nova senha -->
-  <div class="modal-content" id="passo2" style="display:none;">
-    <h2>Digite a nova senha</h2>
-    <form id="formNovaSenha" action="../crud/AlterarSenhaLoginCliente.php" method="POST">
-      <input type="hidden" name="email" id="emailConfirmar" />
-      <input type="hidden" name="telefone" id="telefoneConfirmar" />
-      <input type="hidden" name="data_nascimento" id="dataNascimentoConfirmar" />
-      
-      <label for="novaSenha">Nova senha:</label><br />
-      <input type="password" name="nova_senha" id="novaSenha" placeholder="Nova senha" required /><br /><br />
-      
-      <label for="confirmarSenha">Confirmar senha:</label><br />
-      <input type="password" name="confirmar_senha" id="confirmarSenha" placeholder="Confirmar senha" required /><br /><br />
-      
-      <button type="submit">Alterar Senha</button>
-    </form>
+        <label for="telefoneRecuperar">Digite seu telefone:</label><br />
+        <input type="tel" name="telefone" id="telefoneRecuperar" placeholder="Telefone" required pattern="\(\d{2}\)\d{4,5}-\d{4}" title="Digite seu telefone com 10 ou 11 dígitos numéricos" /><br /><br />
+
+        <label for="dataNascimentoRecuperar">Digite sua data de nascimento:</label><br />
+        <input type="date" name="data_nascimento" id="dataNascimentoRecuperar" required /><br /><br />
+
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+
+    <!-- Passo 2: Nova senha -->
+    <div class="modal-content" id="passo2" style="display:none;">
+      <h2>Digite a nova senha</h2>
+      <form id="formNovaSenha" action="../crud/AlterarSenhaLoginCliente.php" method="POST">
+        <input type="hidden" name="email" id="emailConfirmar" />
+        <input type="hidden" name="telefone" id="telefoneConfirmar" />
+        <input type="hidden" name="data_nascimento" id="dataNascimentoConfirmar" />
+
+        <label for="novaSenha">Nova senha:</label><br />
+        <input type="password" name="nova_senha" id="novaSenha" placeholder="Nova senha" required /><br /><br />
+
+        <label for="confirmarSenha">Confirmar senha:</label><br />
+        <input type="password" name="confirmar_senha" id="confirmarSenha" placeholder="Confirmar senha" required /><br /><br />
+
+        <button type="submit">Alterar Senha</button>
+      </form>
+    </div>
   </div>
-</div>
 
 
 

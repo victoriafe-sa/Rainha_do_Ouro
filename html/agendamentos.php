@@ -9,9 +9,53 @@ if (!isset($_SESSION['id_cliente'])) {
 }
 
 ?>
+<?php
+include("../conectarbd.php");
+
+$nomeUsuario = "Fazer login"; // fallback
+
+if (isset($_SESSION['id_cliente'])) {
+    $id_cliente = $_SESSION['id_cliente'];
+
+    $sqlCliente = "SELECT nome FROM tb_clientes WHERE id_clientes = ?";
+    $stmt = $conn->prepare($sqlCliente);
+    $stmt->bind_param("i", $id_cliente);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result && $result->num_rows > 0) {
+        $dadosCliente = $result->fetch_assoc();
+        $nomeUsuario = explode(' ', $dadosCliente['nome'])[0]; // pega o primeiro nome
+    }
+}
+if (isset($_SESSION['id_cliente'])) {
+    $id_cliente = $_SESSION['id_cliente'];
+
+    $sqlCliente = "SELECT nome, genero FROM tb_clientes WHERE id_clientes = ?";
+    $stmt = $conn->prepare($sqlCliente);
+    $stmt->bind_param("i", $id_cliente);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result && $result->num_rows > 0) {
+        $dadosCliente = $result->fetch_assoc();
+        $nomeUsuario = explode(' ', $dadosCliente['nome'])[0]; // pega o primeiro nome
+
+        // Define imagem pelo gênero
+        if ($dadosCliente['genero'] === 'Feminino') {
+            $imagemPerfil = "../img/01.png";
+        } elseif ($dadosCliente['genero'] === 'Masculino') {
+            $imagemPerfil = "../img/02.png";
+        } else {
+            $imagemPerfil = "../img/03.png";
+        }
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,22 +68,29 @@ if (!isset($_SESSION['id_cliente'])) {
 
 <body>
     <header>
-        <div class="logo">
-            <img src="../img/logo.png" alt="Rainha do Ouro">
+    <div class="logo">
+      <img src="../img/logo.png" alt="Rainha do Ouro">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../html/pagina_inicial.php">Inicio</a></li>
+        <li><a href="produtos.php">Produtos</a></li>
+        <li><a href="servicos.php">Serviços</a></li>
+        <li><a href="../html/agendamentos.php">Agendar</a></li>
+      </ul>
+    </nav>
+    <div class="icons" style="display:flex; align-items:center; gap:8px;">
+            <a href="../html/carrinho.php"><img src="../img/carrinho.png" alt="Carrinho" /></a>
+            <?php
+    $perfilUrl = isset($_SESSION['id_cliente']) ? '../html/perfil_usuario.php' : '../html/user_login.php';
+    ?>
+            <a href="<?php echo isset($_SESSION['id_cliente']) ? '../html/perfil_usuario.php' : '../html/user_login.php'; ?>"
+                style="display:flex; align-items:center; gap:6px; text-decoration:none; color:#F7E1A0; font-weight:700;">
+                <img src="<?php echo $imagemPerfil; ?>" alt="Foto do Perfil" />
+                <span><?php echo htmlspecialchars($nomeUsuario); ?></span>
+            </a>
         </div>
-        <nav>
-            <ul>
-                <li><a href="../html/pagina_inicial.html">Inicio</a></li>
-                <li><a href="../html/produtos.php">Produtos</a></li>
-                <li><a href="../html/servicos.php">Serviços</a></li>
-                <li><a href="../html/agendamentos.php">Agendar</a></li>
-            </ul>
-        </nav>
-        <div class="icons">
-            <a href="../html/carrinho.html"><img src="../img/carrinho.png" alt="Carrinho"></a>
-            <a href="../html/user_login.php"><img src="../img/perfil.png" alt="Perfil"></a>
-        </div>
-    </header>
+  </header>
     <div id="sidebar-container"></div>
     <div class="container">
         <h2>Selecione o tipo de serviço</h2>
@@ -140,33 +191,34 @@ if (!isset($_SESSION['id_cliente'])) {
 
     <footer class="site-footer">
         <div class="footer-content">
-    
-          <!-- Logo alinhada à esquerda -->
-          <div class="footer-esquerda">
-            <img src="../img/logo.png" alt="Rainha do Ouro" class="logo-footer">
-          </div>
-    
-          <!-- Texto e ícones centralizados -->
-          <div class="info-footer">
-            <p>&copy; 2025 Rainha do Ouro. Todos os direitos reservados.</p>
-    
-            <div class="footer-links">
-              <a href="#">Política de Privacidade</a>
-              <a href="#">Termos de Uso</a>
-              <a href="#">Contato</a>
+
+            <!-- Logo alinhada à esquerda -->
+            <div class="footer-esquerda">
+                <img src="../img/logo.png" alt="Rainha do Ouro" class="logo-footer">
             </div>
-    
-            <div class="redes-sociais">
-              <a href="#"><img src="../img/instagram-icon.png" alt="Instagram"></a>
-              <a href="#"><img src="../img/facebook-icon.png" alt="Facebook"></a>
-              <a href="#"><img src="../img/x-icon.png" alt="X"></a>
+
+            <!-- Texto e ícones centralizados -->
+            <div class="info-footer">
+                <p>&copy; 2025 Rainha do Ouro. Todos os direitos reservados.</p>
+
+                <div class="footer-links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Contato</a>
+                </div>
+
+                <div class="redes-sociais">
+                    <a href="#"><img src="../img/instagram-icon.png" alt="Instagram"></a>
+                    <a href="#"><img src="../img/facebook-icon.png" alt="Facebook"></a>
+                    <a href="#"><img src="../img/x-icon.png" alt="X"></a>
+                </div>
             </div>
-          </div>
-    
+
         </div>
-      </footer>
-      
+    </footer>
+
     <script src="../script/dahboard_adm.js"></script>
     <script src="../script/agendamentos.js"></script>
 </body>
+
 </html>

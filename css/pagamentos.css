@@ -57,8 +57,9 @@ a {
   color: #ffe3cd8f;
   text-decoration: none;
 }
-
-
+p{
+  font-size: 22px;
+}
 /* Container principal */
 .payment-container {
   max-width: 600px;

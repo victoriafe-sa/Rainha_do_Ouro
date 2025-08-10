@@ -1,0 +1,328 @@
+<?php
+session_start();
+include("../conectarbd.php");
+
+$nomeUsuario = "Fazer login"; // fallback
+
+if (isset($_SESSION['id_cliente'])) {
+    $id_cliente = $_SESSION['id_cliente'];
+
+    $sqlCliente = "SELECT nome FROM tb_clientes WHERE id_clientes = ?";
+    $stmt = $conn->prepare($sqlCliente);
+    $stmt->bind_param("i", $id_cliente);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result && $result->num_rows > 0) {
+        $dadosCliente = $result->fetch_assoc();
+        $nomeUsuario = explode(' ', $dadosCliente['nome'])[0]; // pega o primeiro nome
+    }
+}
+$imagemPerfil = "../img/03.png";
+
+if (isset($_SESSION['id_cliente'])) {
+    $id_cliente = $_SESSION['id_cliente'];
+
+    $sqlCliente = "SELECT nome, genero FROM tb_clientes WHERE id_clientes = ?";
+    $stmt = $conn->prepare($sqlCliente);
+    $stmt->bind_param("i", $id_cliente);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result && $result->num_rows > 0) {
+        $dadosCliente = $result->fetch_assoc();
+        $nomeUsuario = explode(' ', $dadosCliente['nome'])[0]; // pega o primeiro nome
+
+        // Define imagem pelo gênero
+        if ($dadosCliente['genero'] === 'Feminino') {
+            $imagemPerfil = "../img/01.png";
+        } elseif ($dadosCliente['genero'] === 'Masculino') {
+            $imagemPerfil = "../img/02.png";
+        } else {
+            $imagemPerfil = "../img/03.png";
+        }
+    }
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainha do Ouro</title>
+    <link rel="stylesheet" href="../css/pagina_inicial.css">
+    <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">
+            <img src="../img/logo.png" alt="Rainha do Ouro">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../html/pagina_inicial.php">Inicio</a></li>
+                <li><a href="produtos.php">Produtos</a></li>
+                <li><a href="servicos.php">Serviços</a></li>
+                <li><a href="../html/agendamentos.php">Agendar</a></li>
+            </ul>
+        </nav>
+        <div class="icons" style="display:flex; align-items:center; gap:8px;">
+            <a href="../html/carrinho.php"><img src="../img/carrinho.png" alt="Carrinho" /></a>
+            <?php
+              $perfilUrl = isset($_SESSION['id_cliente']) ? '../html/perfil_usuario.php' : '../html/user_login.php';
+            ?>
+            <a href="<?php echo isset($_SESSION['id_cliente']) ? '../html/perfil_usuario.php' : '../html/user_login.php'; ?>"
+                style="display:flex; align-items:center; gap:6px; text-decoration:none; color:#F7E1A0; font-weight:700;">
+                <img src="<?php echo $imagemPerfil; ?>" alt="Foto do Perfil" />
+                <span><?php echo htmlspecialchars($nomeUsuario); ?></span>
+            </a>
+
+        </div>
+    </header>
+
+    <!-- Video -->
+    <section class="anuncio_mpR">
+        <div class="banner"></div>
+        <video autoplay loop muted poster="../img/01.mp4">
+            <source src="../img/queen (2).mp4" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
+        </div>
+    </section>
+
+    <!-- FRASE -->
+    <div id="Diferenciais" class="frase-com-coroa">
+        <img src="../img/cra.png" alt="Coroa">
+        <h2>Um ambiente pensado para realçar o que você tem de mais bonito:<br>
+            <strong>você mesma.</strong>
+        </h2>
+        <img src="../img/cra2.png" alt="Coroa">
+    </div>
+
+
+    <!-- Seções de serviços, produtos e tranças -->
+    <section class="categorias">
+        <div class="categoria"><a href="../html/servicos.php">
+                <img src="../img/salão.jpeg" alt="Serviços">
+                <h3>Serviços</h3>
+        </div></a>
+        <div class="categoria"><a href="../html/produtos.php">
+                <img src="../img/produtos.jpeg" alt="Produtos">
+                <h3>Produtos</h3>
+        </div></a>
+        <div class="categoria"><a href="../html/servicos.php">
+                <img src="../img/trancista.jpeg" alt="Tranças">
+                <h3>Tranças</h3>
+        </div></a>
+    </section>
+
+    <!-- Lançamentos -->
+    <section class="lancamentos">
+        <h2 class="titulo-secao">Lançamentos</h2>
+        <div class="produtos">
+            <div class="produto">
+                <img src="../img/lola.png" alt="Kit Meu Cacho Minha Vida - Lola">
+                <h4>Kit Meu Cacho Minha Vida - Lola</h4>
+                <p><del>R$150,00</del></p>
+                <p class="valor">R$ 99,99</p>
+                <p>10x de 9,99</p>
+                <button class="compra" onclick="addToCart(this)">Comprar</button>
+            </div>
+
+            <div class="produto">
+                <img src="../img/salon line.png" alt="Kit Melancia Kids - Salon Line">
+                <h4>Kit Melancia Kids - Salon Line</h4>
+                <p><del>R$200,00</del></p>
+                <p class="valor">R$ 129,99</p>
+                <p>10x de 12,99</p>
+                <button class="compra" onclick="addToCart(this)">Comprar</button>
+            </div>
+
+
+            <div class="produto">
+                <img src="../img/juba.png" alt="Kit Juba - Widi Care">
+                <h4>Kit Juba - <br>Widi Care</h4>
+                <p><del>R$250,00</del></p>
+                <p class="valor">R$ 200,00</p>
+                <p>10x de 20,00</p>
+                <button class="compra" onclick="addToCart(this)">Comprar</button>
+            </div>
+
+            <div class="produto">
+                <img src="../img/apse.png" alt="Kit Crespo Power - Aeg">
+                <h4>Kit Crespo Power - <br>Aeg</h4>
+                <p><del>R$350,00</del></p>
+                <p class="valor">R$ 250,00</p>
+                <p>10x de 25,00</p>
+                <button class="compra" onclick="addToCart(this)">Comprar</button>
+            </div>
+    </section>
+
+
+    <!-- Seção Nossos Profissionais -->
+    <section class="nossos-profissionais">
+        <h2 class="titulo-secao">Nossos Profissionais</h2>
+        <div class="galeria-profissionais">
+
+            <div class="profissional">
+                <img src="../img/jumboprof.jpg" alt="Rafaela Costa">
+                <div class="info">
+                    <h3>Rafaela Costa</h3>
+                    <p>Tranças Afro</p>
+                </div>
+            </div>
+
+            <div class="profissional">
+                <img src="../img/proff.jpg" alt="Joana Lima">
+                <div class="info">
+                    <h3>João Lima</h3>
+                    <p>Barbearia & Cortes</p>
+                </div>
+            </div>
+
+            <div class="profissional">
+                <img src="../img/cabeleira.jpg" alt="Camila Rosa">
+                <div class="info">
+                    <h3>Camila Rosa</h3>
+                    <p>Coloração e Mechas</p>
+                </div>
+            </div>
+
+            <div class="profissional">
+                <img src="../img/mascu.png" alt="Bianca Luz">
+                <div class="info">
+                    <h3>Breno Santos</h3>
+                    <p>Tratamento Capilar</p>
+                </div>
+            </div>
+
+            <div class="profissional">
+                <img src="../img/corteprof.jpg" alt="Lívia Santana">
+                <div class="info">
+                    <h3>Lívia Santana</h3>
+                    <p>Cortes Femininos</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Seção Avaliações -->
+    <h2 class="titulo-secao">Avaliações</h2>
+    <section class="avaliacoes">
+        <div class="avaliacao">
+            <blockquote>
+                <p>"Ambiente agradável, profissionais atenciosos e serviços de excelente qualidade — superou minhas
+                    expectativas!"</p>
+                <footer id="ava">
+                    <span class="estrelas">★★★★★</span> - <cite>Juliana Paes</cite>
+                </footer>
+            </blockquote>
+            <div class="foto-usuario">
+                <img src="../img/perfilava.jpg" alt="Usuário">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Nossos Espaço -->
+    <section class="nosso-espaco">
+        <h2 class="titulo-secao">Nosso Espaço</h2>
+        <div class="galeria">
+            <img src="../img/salon.jpg" alt="Imagem 1" class="imagem-expandir">
+            <img src="../img/fachada.jpg" alt="Imagem 2" class="imagem-expandir">
+            <img src="../img/produtos.jpg" alt="Imagem 3" class="imagem-expandir">
+            <img src="../img/lavatorio.jpg" alt="Imagem 3" class="imagem-expandir">
+            <!-- Adicione quantas quiser -->
+        </div>
+
+        <!-- Pop-up da imagem expandida -->
+        <div class="popup-imagem" id="popup">
+            <span class="fechar" onclick="fecharImagem()">&times;</span>
+            <img id="imagemExpandida" src="" alt="Imagem Expandida">
+        </div>
+    </section>
+
+
+    <!-- Rodapé -->
+    <footer class="site-footer">
+        <div class="footer-content">
+
+            <!-- Logo alinhada à esquerda -->
+            <div class="footer-esquerda">
+                <img src="../img/logo.png" alt="Rainha do Ouro" class="logo-footer">
+            </div>
+
+            <!-- Texto e ícones centralizados -->
+            <div class="info-footer">
+                <p>&copy; 2025 Rainha do Ouro. Todos os direitos reservados.</p>
+
+                <div class="footer-links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Contato</a>
+                </div>
+
+                <div class="redes-sociais">
+                    <a href="#"><img src="../img/instagram-icon.png" alt="Instagram"></a>
+                    <a href="#"><img src="../img/facebook-icon.png" alt="Facebook"></a>
+                    <a href="#"><img src="../img/x-icon.png" alt="X"></a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="../script/teste-fotos.js"></script>
+    <script>
+    function addToCart(button) {
+        const productCard = button.closest('.produto');
+
+        // Captura o nome completo do produto
+        const name = productCard.querySelector('h4')?.textContent.replace(/\s+/g, ' ').trim() || 'Produto';
+
+        // Neste HTML não há marca separada, então deixamos em branco ou tentamos extrair
+        const brandMatch = name.match(/-\s*(.+)$/);
+        const brand = brandMatch ? brandMatch[1] : '';
+
+        // Captura o preço do produto, da tag com classe 'valor'
+        const priceText = productCard.querySelector('.valor')?.textContent.replace('R$', '').replace(',', '.').trim();
+        const price = parseFloat(priceText) || 0;
+
+        const imageUrl = productCard.querySelector('img')?.getAttribute('src') || '';
+
+        const product = {
+            name: name,
+            brand: brand,
+            price: price,
+            imageUrl: imageUrl,
+            quantity: 1
+        };
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        const existingProduct = cart.find(item => item.name === product.name && item.brand === product.brand);
+        if (existingProduct) {
+            existingProduct.quantity += 1;
+        } else {
+            cart.push(product);
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${product.name} foi adicionado ao carrinho!`);
+    }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,145 +1,186 @@
+/* ===== Reset básico e configuração geral ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
-    font-family: sans-serif;
-    background-color: #F8D39C; /* Light gray background for the body */
-    display: flex;
-    flex-direction: column; /* Arrange content in a column */
-    align-items: center; /* Center horizontally */
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px; /* Add some padding around the content */
-    box-sizing: border-box; /* Include padding in element's total width and height */
+  font-family: Arial, sans-serif;
+  background-color: #F8D39C;
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* centraliza horizontalmente */
+  justify-content: center; /* centraliza verticalmente */
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+  text-align: center;      /* centraliza texto dentro dos blocos */
 }
 
+
+/* ===== Título principal ===== */
 h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-    font-size: 28px;
-    padding: 15px 30px;
-    background-color: #f7d794; /* Yellowish background for the title */
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    width: 100%;
-    box-sizing: border-box;
+  width: 100%;
+  max-width: 800px;
+  padding: 15px 30px;
+  margin: 0 auto 30px auto; /* centraliza horizontalmente */
+  background-color: #f7d794;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;  /* centraliza o texto */
+  color: #333;
 }
 
+
+/* ===== Tabela estilizada ===== */
 table {
-    background-color: #f7d794; /* Yellowish background for the table */
-    border-collapse: collapse; /* Collapse borders between cells */
-    margin-bottom: 20px;
-    border: 1px solid #c0a060; /* Darker yellowish border */
-    border-radius: 8px; /* Rounded corners for the table */
-    overflow: hidden; /* Ensures rounded corners are visible */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+  background-color: #f7d794;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  border: 1px solid #c0a060;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  color: #333;
 }
 
-table tr:first-child { /* Style for the header row */
-    background-color: #e6c582; /* Slightly darker yellowish for header */
+table thead tr {
+  background-color: #e6c582;
+  font-weight: 700;
+  color: #222;
 }
 
-table th, table td {
-    padding: 12px 15px; /* Padding inside cells */
-    text-align: center;
-    border: 1px solid #c0a060; /* Borders for cells */
-    color: #333;
+table th,
+table td {
+  padding: 12px 15px;
+  text-align: center;
+  border: 1px solid #c0a060;
 }
 
-table strong {
-    color: #222; /* Stronger color for header text */
-}
-
-table tr:nth-child(even) { /* Zebra striping for rows */
-    background-color: #fcdfa9; /* Lighter yellow for even rows */
+table tr:nth-child(even) {
+  background-color: #fcdfa9;
 }
 
 table tr:hover {
-    background-color: #fce8bd; /* Even lighter yellow on row hover */
+  background-color: #fce8bd;
 }
 
+/* ===== Links ===== */
 a {
-    color: #000000; /* Standard blue for links */
-    text-decoration: none; /* No underline by default */
-    transition: color 0.2s;
+  color: #000;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-    color: #252525; /* Darker blue on hover */
-    text-decoration: underline; /* Underline on hover */
+  color: #252525;
+  text-decoration: underline;
 }
 
-/* Style for the 'Cancelar' button */
+/* ===== Botões ===== */
 .botoes {
-    background-color: #af7454; /* Grayish background for the button */
-    color: #ffffff;
-    padding: 10px 25px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.2s;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 0.5px;
+  display: inline-block;
+  background-color: #af7454;
+  color: #fff;
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.2s ease, border-color 0.3s ease;
 }
 
 .botoes:hover {
-    background-color: #4e2f1b; /* Lighter gray on hover */
-    border-color: #777;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: #4e2f1b;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  border-color: #777;
 }
 
-/* Ensure the table doesn't overflow on smaller screens */
-@media (max-width: 768px) {
-    table, h1 {
-        width: 95%; /* Adjust width for smaller screens */
-        margin-left: auto;
-        margin-right: auto;
-    }
-    table, thead, tbody, th, td, tr {
-        display: block; /* Make table elements block-level for stacking */
-    }
+form {
+  max-width: 700px;
+  margin: 20px auto 40px auto;
+  padding: 20px 25px;
+  background-color: #f7d794;
+  border-radius: 10px;
+  box-shadow: 0 3px 7px rgba(75,44,26,0.15);
+  font-family: Arial, sans-serif;
+  color: #4B2C1A;
+  display: flex;
+  flex-wrap: wrap;  /* permite quebrar em telas pequenas */
+  gap: 20px;        /* espaçamento entre os inputs */
+  align-items: flex-end; /* alinha labels e inputs pela base */
+}
 
-    thead tr {
-        position: absolute;
-        top: -9999px; /* Hide table headers visually */
-        left: -9999px;
-    }
+/* Cada grupo label + input fica em um container flex vertical */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 200px; /* ocupa pelo menos 200px e cresce se couber */
+  min-width: 150px; /* evita ficar muito pequeno */
+}
 
-    tr {
-        border: 1px solid #ccc;
-        margin-bottom: 10px;
-        border-radius: 5px;
-        overflow: hidden;
-    }
+form label {
+  margin-bottom: 6px;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+}
 
-    td {
-        border: none; /* Remove individual cell borders when stacked */
-        border-bottom: 1px solid #eee;
-        position: relative;
-        padding-left: 50%; /* Make space for the label */
-        text-align: left; /* Align text to the left */
-    }
+form input[type="text"], select {
+  padding: 10px 12px;
+  border: 2px solid #c0a060;
+  border-radius: 7px;
+  font-size: 15px;
+  font-weight: 500;
+  background-color: #fff9e6;
+  color: #4B2C1A;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-    td:before {
-        position: absolute;
-        top: 6px;
-        left: 6px;
-        width: 45%;
-        padding-right: 10px;
-        white-space: nowrap;
-        content: attr(data-label); /* Use data-label for content */
-        font-weight: bold;
-        color: #555;
-    }
+form input[type="text"]:focus {
+  border-color: #4B2C1A;
+  outline: none;
+  box-shadow: 0 0 8px rgba(75,44,26,0.6);
+}
 
-    /* Assign data-label to each td for responsive table headers */
-    td:nth-of-type(1):before { content: "ID"; }
-    td:nth-of-type(2):before { content: "Nome"; }
-    td:nth-of-type(3):before { content: "Descrição"; }
-    td:nth-of-type(4):before { content: "Preço de Venda"; }
-    td:nth-of-type(5):before { content: "Categoria"; }
-    td:nth-of-type(6):before { content: "Ativo"; }
-    td:nth-of-type(7):before { content: "Editar"; }
-    td:nth-of-type(8):before { content: "Deletar"; }
+/* Botão ocupa 100% da largura disponível, ficando na linha abaixo */
+form input[type="submit"].botoes {
+  flex-basis: 100%;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background-color: #4B2C1A;
+  color: #f9f9f9;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  margin-top: 10px;
+}
+
+form input[type="submit"].botoes:hover {
+  background-color: #6b3f24;
+  box-shadow: 0 4px 10px rgba(107,63,36,0.5);
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 600px) {
+  form {
+    flex-direction: column;
+  }
+  .form-group {
+    flex-basis: 100%;
+    min-width: auto;
+  }
 }

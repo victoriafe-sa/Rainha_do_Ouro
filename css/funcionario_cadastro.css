@@ -1,8 +1,7 @@
 body {
-	font-family: Arial, sans-serif;
 	background-color: #F8D39C;
 	margin: 0;
-	padding: 20px;
+	padding: 0px;
 }
 
 @keyframes fade {

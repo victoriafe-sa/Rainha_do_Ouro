@@ -1,0 +1,1 @@
+{"userId":3,"cep":"70745-060","itens":[{"id":2,"name":"Tênis Esportivo","brand":"Calçados","price":199.9,"imageUrl":"../img/default.jpg","quantity":1},{"id":3,"name":"Relógio Digital","brand":"Acessórios","price":129.5,"imageUrl":"../img/default.jpg","quantity":1}]}

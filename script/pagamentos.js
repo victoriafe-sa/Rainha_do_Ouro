@@ -61,7 +61,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Aguarda o alerta ser exibido antes de redirecionar
         setTimeout(function () {
-            window.location.href = "../html/pagina_inicial.html";
+            window.location.href = "../html/perfil_usuario.php";
         }, 100);
+
+        form.submit();
     });
 });

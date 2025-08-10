@@ -278,3 +278,27 @@ footer a {
     opacity: 1;
 }
 
+select {
+    background-color: #fff2de;
+    border-radius: 11px;
+    border: 1px solid rgba(187, 119, 56, 0.26);
+    padding: 10px;
+    margin: 5px 0;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #4B2E1E;
+    appearance: none; /* Remove estilo padrão da seta */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    /* Para ter uma seta personalizada você pode usar background-image, se quiser */
+}
+
+/* Opcional: seta personalizada */
+select {
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='5'%3E%3Cpath fill='%234B2E1E' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px 5px;
+}

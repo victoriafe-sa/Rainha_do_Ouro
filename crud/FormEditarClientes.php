@@ -11,56 +11,84 @@
 <body>
     <?php
         include("../conectarbd.php");
-        $recid = filter_input(INPUT_GET, 'editarid');
-        $selecionar = mysqli_query($conn, "SELECT * FROM tb_clientes WHERE id_clientes=$recid");
+        $recid = filter_input(INPUT_GET, 'editarid', FILTER_VALIDATE_INT);
+        $selecionar = mysqli_query($conn, "SELECT * FROM tb_clientes WHERE id_clientes = $recid");
         $campo = mysqli_fetch_array($selecionar);
     ?>
 
-        <div class="formulario">
-            <h1>Editar Clientes</h1>
-            <form method="post" action="EditarCliente.php">
-                <input type="hidden" name="id" value="<?=$campo["id_clientes"]?>">
+    <div class="formulario">
+        <h1>Editar Clientes</h1>
+        <form method="post" action="EditarCliente.php">
+            <input type="hidden" name="id" value="<?= htmlspecialchars($campo["id_clientes"]) ?>">
 
-                <label>Nome</label>
-                <input type="text" name="nome" placeholder="Nome" value="<?=$campo["nome"]?>" required>
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Nome" value="<?= htmlspecialchars($campo["nome"]) ?>" required>
+            </div>
 
-                <label>Telefone</label>
-                <input type="text" name="telefone" placeholder="Telefone" value="<?=$campo["telefone"]?>" required>
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="Telefone" value="<?= htmlspecialchars($campo["telefone"]) ?>" required>
+            </div>
 
-                <label>Data de Nascimento</label>
-                <input type="text" name="data_nascimento" placeholder="Data de nascimento" value="<?=$campo["data_nascimento"]?>" required>
+            <div class="form-group">
+                <label for="data_nascimento">Data de Nascimento</label>
+                <input type="date" id="data_nascimento" name="data_nascimento" value="<?= htmlspecialchars($campo["data_nascimento"]) ?>" required>
+            </div>
 
-                <label>Email</label>
-                <input type="text" name="email" placeholder="Email" value="<?=$campo["email"]?>" required>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" value="<?= htmlspecialchars($campo["email"]) ?>" required>
+            </div>
 
-                <label>Senha</label>
-                <input type="text" name="senha" placeholder="Senha" value="<?=$campo["senha"]?>" required>
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Senha" value="<?= htmlspecialchars($campo["senha"]) ?>" required>
+            </div>
 
-                <label>CEP</label>
-                <input type="number" name="cep" placeholder="CEP" value="<?=$campo["cep"]?>" required>
+            <div class="form-group">
+                <label for="cep">CEP</label>
+                <input type="text" id="cep" name="cep" placeholder="CEP" value="<?= htmlspecialchars($campo["cep"]) ?>" required>
+            </div>
 
-                <label>Rua</label>
-                <input type="text" name="rua" placeholder="Rua" value="<?=$campo["rua"]?>" required>
+            <div class="form-group">
+                <label for="rua">Rua</label>
+                <input type="text" id="rua" name="rua" placeholder="Rua" value="<?= htmlspecialchars($campo["rua"]) ?>" required>
+            </div>
 
-                <label>Número</label>
-                <input type="number" name="numero" placeholder="Número" value="<?=$campo["numero"]?>" required>
+            <div class="form-group">
+                <label for="numero">Número</label>
+                <input type="number" id="numero" name="numero" placeholder="Número" value="<?= htmlspecialchars($campo["numero"]) ?>" required>
+            </div>
 
-                <label>Bairro</label>
-                <input type="text" name="bairro" placeholder="Bairro" value="<?=$campo["bairro"]?>" required>
+            <div class="form-group">
+                <label for="bairro">Bairro</label>
+                <input type="text" id="bairro" name="bairro" placeholder="Bairro" value="<?= htmlspecialchars($campo["bairro"]) ?>" required>
+            </div>
 
-                <label>Cidade</label>
-                <input type="text" name="cidade" placeholder="Cidade" value="<?=$campo["cidade"]?>" required>
+            <div class="form-group">
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" name="cidade" placeholder="Cidade" value="<?= htmlspecialchars($campo["cidade"]) ?>" required>
+            </div>
 
-                <label>Estado</label>
-                <input type="text" name="estado" placeholder="Estado" value="<?=$campo["estado"]?>" required>
+            <div class="form-group">
+                <label for="estado">Estado</label>
+                <input type="text" id="estado" name="estado" placeholder="Estado" maxlength="2" value="<?= htmlspecialchars($campo["estado"]) ?>" required>
+            </div>
 
-                <label>Ativo</label>
-                <input class="form-input" type="number" name="ativo" placeholder="Ativo" value="<?=$campo["ativo"]?>" required>
+            <div class="form-group">
+                <label for="ativo">Ativo</label>
+                <select id="ativo" name="ativo" required>
+                    <option value="1" <?= ($campo["ativo"] == 1) ? 'selected' : '' ?>>Sim</option>
+                    <option value="0" <?= ($campo["ativo"] == 0) ? 'selected' : '' ?>>Não</option>
+                </select>
+            </div>
 
+            <div class="form-buttons">
                 <input type="submit" class="botoes" value="Salvar">
-                <a href="../crud/FormConsultarClientes.php"><button type="button" class="botoes">Cancelar</button></a>
-            </form>
-        </div>
-
+                <button type="button" class="botoes" onclick="window.location.href='../crud/FormConsultarClientes.php'">Cancelar</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

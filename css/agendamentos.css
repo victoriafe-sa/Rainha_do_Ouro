@@ -169,10 +169,7 @@ button:hover {
 
 /* Footer */
 
-footer{
-    position: fixed;
-    bottom: 0;
-}
+
 .site-footer {
     width: 100%;
     background-color: #4B2C1A;

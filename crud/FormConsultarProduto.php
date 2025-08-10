@@ -7,30 +7,78 @@
     <link type="text/css" rel="stylesheet" href="../css/consultar.css">
     <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
 </head>
+<style>
+    table {
+        width: 100%;
+        max-width: 1200px;
+        /* aumenta a largura máxima da tabela */
+        margin: 0 auto;
+        /* centraliza horizontalmente */
+        background-color: #f7d794;
+        /* opcional, para visual */
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    table th,
+    table td {
+        padding: 15px 20px;
+        /* aumenta o padding interno das células */
+        border: 1px solid #c0a060;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    /* Se quiser que a coluna "Editar" e "Excluir" fiquem com largura fixa */
+    table td:nth-last-child(2),
+    table td:nth-last-child(1),
+    table th:nth-last-child(2),
+    table th:nth-last-child(1) {
+        width: 80px;
+        max-width: 80px;
+    }
+
+    /* Opcional: ajustar a largura de colunas específicas */
+    table td:nth-child(1),
+    table th:nth-child(1) {
+        /* ID */
+        width: 60px;
+    }
+
+    table td:nth-child(4),
+    table th:nth-child(4) {
+        /* Preço */
+        width: 100px;
+    }
+</style>
 
 <body>
     <h1>Produtos Cadastrados</h1>
 
-    <form method="GET" action="">
-        <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome" value="<?php echo isset($_GET['nome']) ? $_GET['nome'] : ''; ?>">
+    <form method="GET" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" value="<?php echo isset($_GET['nome']) ? $_GET['nome'] : ''; ?>">
+        </div>
 
-        <label for="categoria">Categoria:</label>
-        <input type="text" name="categoria" id="categoria"
-            value="<?php echo isset($_GET['categoria']) ? $_GET['categoria'] : ''; ?>">
+        <div class="form-group">
+            <label for="categoria">Categoria:</label>
+            <input type="text" name="categoria" id="categoria" value="<?php echo isset($_GET['categoria']) ? $_GET['categoria'] : ''; ?>">
+        </div>
 
-        <label for="ativo">Ativo:</label>
-        <select name="ativo" id="ativo">
-            <option value="">Todos</option>
-            <option value="1" <?php if (isset($_GET['ativo']) && $_GET['ativo'] === "1")
-                echo 'selected'; ?>>Sim</option>
-            <option value="0" <?php if (isset($_GET['ativo']) && $_GET['ativo'] === "0")
-                echo 'selected'; ?>>Não</option>
-        </select>
+        <div class="form-group">
+            <label for="ativo">Ativo:</label>
+            <select name="ativo" id="ativo">
+                <option value="">Todos</option>
+                <option value="1" <?php if (isset($_GET['ativo']) && $_GET['ativo'] === "1") echo 'selected'; ?>>Sim</option>
+                <option value="0" <?php if (isset($_GET['ativo']) && $_GET['ativo'] === "0") echo 'selected'; ?>>Não</option>
+            </select>
+        </div>
 
         <input type="submit" value="Pesquisar" class="botoes">
     </form>
-    <br>
+
 
 
     <table width="100%" border="1" bordercolor="black" cellspacing="2" cellpadding="5">
@@ -49,7 +97,7 @@
         <?php
         include("../conectarbd.php");
         //$selecionar= mysqli_query($conn, "SELECT * FROM tb_produtos");
-        
+
         $nome = isset($_GET['nome']) ? $_GET['nome'] : '';
         $categoria = isset($_GET['categoria']) ? $_GET['categoria'] : '';
         $ativo = isset($_GET['ativo']) ? $_GET['ativo'] : '';

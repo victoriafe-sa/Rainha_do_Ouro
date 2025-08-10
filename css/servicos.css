@@ -1,10 +1,10 @@
-/* Estilização geral para fontes */
+/* ======= ESTILO GLOBAL ======= */
 body {
     margin: 0;
     background-color: #F8D39C;
 }
 
-/*==============HEADER============*/
+/* ======= HEADER ======= */
 header {
     background-color: #4B2C1A;
     color: #F7E1A0;
@@ -21,6 +21,7 @@ header .logo img {
     margin-left: 20px;
 }
 
+/* Navegação */
 nav ul {
     list-style: none;
     display: flex;
@@ -34,6 +35,7 @@ nav ul li a {
     font-size: 22px;
 }
 
+/* Ícones do Header */
 header .icons {
     display: flex;
     align-items: center;
@@ -51,6 +53,7 @@ header .icons a:last-child img {
     height: 40px;
 }
 
+/* ======= SEÇÃO PRINCIPAL ======= */
 .mainSection {
     display: flex;
     justify-content: center;
@@ -58,15 +61,12 @@ header .icons a:last-child img {
     margin: 3em;
 }
 
-
-/*VIDEO DE ANUNCIO */
+/* ======= VÍDEO DE ANÚNCIO ======= */
 .anuncio_mpR {
     width: 100vw;
     margin: 0;
     padding: 0;
     position: relative;
-    top: 0;
-    left: 0;
     overflow: hidden;
 }
 
@@ -76,7 +76,7 @@ header .icons a:last-child img {
     display: block;
 }
 
-/* AREA DOS SERVIÇOS*/
+/* ======= ÁREA DE SERVIÇOS ======= */
 /* Container dos cards */
 .servicos {
     display: grid;
@@ -86,7 +86,7 @@ header .icons a:last-child img {
     margin-top: 50px;
 }
 
-/* Estilo de cada card */
+/* Card individual */
 .serv-card {
     background-color: #fff7ea;
     border-radius: 12px;
@@ -96,23 +96,21 @@ header .icons a:last-child img {
     flex-direction: column;
     height: 400px;
     transition: transform 0.3s;
-    margin-left: 25px;
-    margin-right: 25px;
-    margin-bottom: 50px;
+    margin: 0 25px 50px;
 }
 
 .serv-card:hover {
     transform: scale(1.02);
 }
 
-/* Imagem ocupa metade do card */
+/* Imagem do card */
 .serv-card img {
     width: 100%;
     height: 50%;
     object-fit: cover;
 }
 
-/* Parte inferior com info centralizada */
+/* Informações do card */
 .serv-info {
     height: 50%;
     display: flex;
@@ -136,6 +134,7 @@ header .icons a:last-child img {
     margin-bottom: 15px;
 }
 
+/* Botão do card */
 .serv-info a {
     background-color: #F0B429;
     color: #fff;
@@ -150,18 +149,12 @@ header .icons a:last-child img {
     background-color: #d89f1d;
 }
 
-
-/* Footer */
+/* ======= FOOTER ======= */
 .site-footer {
     width: 100%;
     background-color: #4B2C1A;
     color: #F7E1A0;
-    margin-top: 40px;
     border-top: 4px solid #F0B429;
-    margin-top: 0;
-    padding-top: 0;
-    position: fixed;
-    bottom: 0;
 }
 
 .footer-content {
@@ -173,18 +166,20 @@ header .icons a:last-child img {
     flex-wrap: wrap;
 }
 
+/* Logo no Footer */
 .logo-footer {
     width: 110px;
     margin-left: -80px;
-    padding-bottom: -100px;
 }
 
+/* Informações do Footer */
 .info-footer {
     flex: 1;
     text-align: center;
     font-size: 15px;
 }
 
+/* Links do Footer */
 .footer-links {
     display: flex;
     gap: 15px;
@@ -201,6 +196,7 @@ header .icons a:last-child img {
     color: #ffffff;
 }
 
+/* Redes sociais */
 .redes-sociais {
     display: flex;
     justify-content: right;

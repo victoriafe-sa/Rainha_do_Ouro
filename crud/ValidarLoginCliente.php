@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['id_cliente'] = $cliente['id_clientes'];
             $_SESSION['email_cliente'] = $cliente['email'];
 
-            header("Location: ../html/pagina_inicial.html");
+            header("Location: ../html/pagina_inicial.php");
             exit;
         } else {
             echo "<script>alert('Senha incorreta.'); window.location.href = '../html/user_login.php';</script>";
