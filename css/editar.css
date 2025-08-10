@@ -133,3 +133,7 @@ body {
         padding: 10px 5px;
     }
 }
+
+a{
+    text-decoration: none;
+}

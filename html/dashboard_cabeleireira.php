@@ -50,15 +50,17 @@ $conn->close();
     <aside class="sidebar">
         <div class="left">
             <img src="../img/logo.png" alt="Logo Rainha do Ouro" />
-            
-
-
             <div class="test">
                 <button
                     onclick="carregarPagina('../html/consultar_agenda_cab.php', '../css/consultarAgendamento.css', '../script/consultar_agendamentos.js')"><i
                         class="ai-calendar"></i></button>
                 <div class="texto-hover texto-hover-relatorio">Agenda</div>
             </div>
+            <div class="test btn-exit">
+                <button onclick="logout()"><i class="ai-door"></i></button>
+                <div class="texto-hover texto-hover-exit">Exit</div>
+            </div>
+
         </div>
     </aside>
 
@@ -179,6 +181,10 @@ $conn->close();
                 document.getElementById('conteudo').innerHTML = "<p>Erro ao carregar a página.</p>";
             });
     }
+
+    function logout() {
+            window.location.href = '../crud/logout_adm.php';
+        }
     </script>
 
 

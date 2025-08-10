@@ -79,6 +79,10 @@ h2, h3, ul {
     color: #000000;
 }
 
+.btn-exit {
+    position: absolute;
+    bottom: 20px; /* Distância do rodapé */
+}
 
 /* ====== Hover Textos ====== */
 .texto-hover {

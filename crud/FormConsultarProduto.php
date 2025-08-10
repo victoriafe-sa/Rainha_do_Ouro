@@ -9,48 +9,56 @@
 </head>
 <style>
     table {
-        width: 100%;
-        max-width: 1200px;
-        /* aumenta a largura máxima da tabela */
-        margin: 0 auto;
-        /* centraliza horizontalmente */
-        background-color: #f7d794;
-        /* opcional, para visual */
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+    width: 100%;
+    max-width: 1200px;
+    /* aumenta a largura máxima da tabela */
+    margin: 0 auto;
+    /* centraliza horizontalmente */
+    background-color: #f7d794;
+    /* opcional, para visual */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-    table th,
-    table td {
-        padding: 15px 20px;
-        /* aumenta o padding interno das células */
-        border: 1px solid #c0a060;
-        text-align: center;
-        vertical-align: middle;
-    }
+table th,
+table td {
+    padding: 15px 20px;
+    /* aumenta o padding interno das células */
+    border: 1px solid #c0a060;
+    text-align: center;
+    vertical-align: middle;
+}
 
-    /* Se quiser que a coluna "Editar" e "Excluir" fiquem com largura fixa */
-    table td:nth-last-child(2),
-    table td:nth-last-child(1),
-    table th:nth-last-child(2),
-    table th:nth-last-child(1) {
-        width: 80px;
-        max-width: 80px;
-    }
+/* Colunas "Editar" e "Excluir" com largura fixa */
+table td:nth-last-child(2),
+table td:nth-last-child(1),
+table th:nth-last-child(2),
+table th:nth-last-child(1) {
+    width: 80px;
+    max-width: 80px;
+}
 
-    /* Opcional: ajustar a largura de colunas específicas */
-    table td:nth-child(1),
-    table th:nth-child(1) {
-        /* ID */
-        width: 60px;
-    }
+/* Coluna ID */
+table td:nth-child(1),
+table th:nth-child(1) {
+    width: 60px;
+}
 
-    table td:nth-child(4),
-    table th:nth-child(4) {
-        /* Preço */
-        width: 100px;
-    }
+/* Coluna Preço */
+table td:nth-child(4),
+table th:nth-child(4) {
+    width: 900px;
+}
+
+/* Coluna Nome (2ª coluna) */
+table td:nth-child(3),
+table th:nth-child(3) {
+    max-width: 250px;      /* largura máxima */
+    white-space: normal;   /* permite quebra de linha */
+    word-wrap: break-word; /* força quebra de palavras grandes */
+    overflow-wrap: break-word;
+}
 </style>
 
 <body>
@@ -84,6 +92,7 @@
     <table width="100%" border="1" bordercolor="black" cellspacing="2" cellpadding="5">
         <tr>
             <td align="center"> <strong>ID</strong></td>
+            <td align="center"> <strong>Imagem</strong></td>
             <td align="center"> <strong>Nome</strong></td>
             <td align="center"> <strong>Descrição</strong></td>
             <td align="center"> <strong>Preço de Venda</strong></td>
@@ -120,6 +129,9 @@
         while ($campo = mysqli_fetch_array($selecionar)) { ?>
             <tr>
                 <td align="center"><?= $campo["id_produtos"] ?></td>
+                <td align="center">
+                    <img src="../<?= htmlspecialchars($campo["path"]) ?>" alt="Imagem Serviço" style="width:80px; height:auto; border-radius:4px;">
+                </td>
                 <td align="center"><?= $campo["nome"] ?></td>
                 <td align="center"><?= $campo["descricao"] ?></td>
                 <td align="center"><?= $campo["preco_venda"] ?></td>

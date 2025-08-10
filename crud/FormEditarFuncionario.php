@@ -68,9 +68,6 @@
             <label>Estado</label>
             <input type="text" name="estado" placeholder="Estado" value="<?=$campo["estado"]?>">
 
-            <label>Cargo</label>
-            <input type="text" name="cargo" placeholder="Cargo" value="<?=$campo["cargo"]?>">
-
             <label>Horário de trabalho</label>
             <input type="text" name="horario_trabalho" placeholder="Horário de trabalho"
                 value="<?=$campo["horario_trabalho"]?>">

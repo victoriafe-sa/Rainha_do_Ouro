@@ -58,6 +58,10 @@ $conn->close();
                 <button onclick="carregarPagina('../html/consultar_agend.php', '../css/consultarAgendamento.css', '../script/consultar_agendamentos.js')"><i class="ai-calendar"></i></button>
                 <div class="texto-hover texto-hover-relatorio">Agenda</div>
             </div>
+            <div class="test btn-exit">
+                <button onclick="logout()"><i class="ai-door"></i></button>
+                <div class="texto-hover texto-hover-exit">Exit</div>
+            </div>
         </div>
 
         <div class="right">
@@ -182,6 +186,10 @@ $conn->close();
                     }
                 }
             });
+        }
+
+        function logout() {
+            window.location.href = '../crud/logout_adm.php';
         }
     </script>
 </body>
