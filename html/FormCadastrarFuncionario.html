@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro de Funcionário - Salão Rainha do Ouro</title>
-    <link rel="stylesheet" href="../css/funcionario_cadastro.css" />
+    <link rel="stylesheet" href="../css/cadastro.css" />
     <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
 </head>
 
@@ -100,10 +100,6 @@
             <!-- SEÇÃO: INFORMAÇÕES PROFISSIONAIS -->
             <h2 class="section-title">Informações Profissionais</h2>
             <div class="form-section">
-                <div class="form-group">
-                    <label for="cargo">Cargo/Função</label>
-                    <input type="text" id="cargo" name="cargo" required placeholder="Cargo" />
-                </div>
 
                 <div class="form-group">
                     <label for="tipo_funcionario">Tipo de Funcionário</label>
@@ -152,10 +148,10 @@
                 </div>
             </div>
 
-            <ul class="botao-lista">
-                <li><button type="submit" class="botao botao-cadastrar">Cadastrar</button></li>
-                <li><a href="../html/dashboard_adm.php" class="botao botao-cancelar">Cancelar</a></li>
-            </ul>
+            <div class="form-buttons">
+                <button type="submit" class="btn">Cadastrar</button>
+                <button type="button" class="btn" onclick="window.location.href='../html/dashboard_adm.php'">Cancelar</button>
+            </div>
 
         </form>
     </div>

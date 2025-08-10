@@ -308,3 +308,9 @@ h2, h3, ul {
     margin-left: 120px;        /* Espaço da sidebar */
 
 }
+
+
+.btn-exit {
+    position: absolute;
+    bottom: 20px; /* Distância do rodapé */
+}

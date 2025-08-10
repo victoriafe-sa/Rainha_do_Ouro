@@ -2,50 +2,53 @@
 
 <html lang="pt-br">
 
-    <head>
-        <meta charset="UTF-8">
-        <title>Editar Produto</title>
-        <link rel="stylesheet" href="../css/editar.css"/>
-        <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Produto</title>
+    <link rel="stylesheet" href="../css/editar.css" />
+    <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
+</head>
 
-    <body>
-        <?php
-        include("../conectarbd.php");
-        $recid = filter_input(INPUT_GET, 'editarid');
-        $selecionar = mysqli_query($conn, "SELECT * FROM tb_produtos WHERE id_produtos=$recid");
-        $campo = mysqli_fetch_array($selecionar);
-        ?>
+<body>
+    <?php
+    include("../conectarbd.php");
+    $recid = filter_input(INPUT_GET, 'editarid');
+    $selecionar = mysqli_query($conn, "SELECT * FROM tb_produtos WHERE id_produtos=$recid");
+    $campo = mysqli_fetch_array($selecionar);
+    ?>
 
-        <div class="formulario">
-            <form method="post" action="EditarProduto.php">
+    <div class="formulario">
+        <form method="post" action="EditarProduto.php">
 
-                <h1>Editar Produto</h1>
+            <h1>Editar Produto</h1>
 
-                <!--esta linha cria um campo oculto para passar o id_cliente, pois senão ao clicar em Salvar o código não saberá onde salvar.-->
-                <input type="hidden" name="id" value="<?= $campo["id_produtos"] ?>"> 
+            <!--esta linha cria um campo oculto para passar o id_cliente, pois senão ao clicar em Salvar o código não saberá onde salvar.-->
+            <input type="hidden" name="id" value="<?= $campo["id_produtos"] ?>">
 
-                <label>Nome</label> 
-                <input type="text" name="nome" placeholder="Nome" value="<?= $campo["nome"] ?>"> 
+            <label>Nome</label>
+            <input type="text" name="nome" placeholder="Nome" value="<?= $campo["nome"] ?>">
 
-                <label>Descrição</label>
-                <input type="text" name="descricao" placeholder="Descrição" value="<?= $campo["descricao"] ?>"> 
+            <label>Descrição</label>
+            <input type="text" name="descricao" placeholder="Descrição" value="<?= $campo["descricao"] ?>">
 
-                <label>Preço de Venda</label>
-                <input type="number" name="preco_venda" placeholder="Preço de Venda" value="<?= $campo["preco_venda"] ?>"> 
-                
-                <label>Categoria</label>
-                <input type="text" name="categoria" placeholder="Categoria" value="<?= $campo["categoria"] ?>"> 
+            <label>Preço de Venda</label>
+            <input type="number" name="preco_venda" placeholder="Preço de Venda" value="<?= $campo["preco_venda"] ?>">
 
-                <label>Ativo</label>
-                <input type="text" name="ativo" placeholder="Ativo" value="<?= $campo["ativo"] ?>"> 
+            <label>Categoria</label>
+            <input type="text" name="categoria" placeholder="Categoria" value="<?= $campo["categoria"] ?>">
+
+            <label>Ativo</label>
+            <input type="text" name="ativo" placeholder="Ativo" value="<?= $campo["ativo"] ?>">
 
 
-                <input type="submit" class="botoes" value="Salvar" >
-                <a href="../crud/FormConsultarProduto.php"><input type="button" class="botoes" value="Cancelar"/></a>
+            <div class="form-buttons">
+                <input type="submit" class="botoes" value="Salvar">
+                <button type="button" class="botoes" onclick="window.location.href='../crud/FormConsultarProduto.php'">Cancelar</button>
+            </div>
 
-            </form>
-        </div>
+        </form>
+    </div>
 
-    </body>
+</body>
+
 </html>

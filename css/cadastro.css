@@ -1,194 +1,205 @@
-/* ==========================
-   ESTILOS GERAIS
-========================== */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #F8D39C;
-    color: #4B2E1E;
-    margin: 0;
-    padding: 0;
+/* Reset e ajustes globais */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
-/* ==========================
-   ANIMAÇÕES
-========================== */
+body {
+	background-color: #F8D39C;
+	font-family: Arial, sans-serif;
+	color: #4B2E1E;
+}
+
+/* Animação fade-in */
 @keyframes fade {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+	from {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 .fade-in {
-    animation: fade 1s ease-out;
+	animation: fade 1s ease-out;
 }
 
-/* ==========================
-   FORMULÁRIO
-========================== */
+/* Imagens */
+img {
+	display: block;
+	margin: 0 auto;
+	width: 200px;
+	height: auto;
+}
+
+/* Container do formulário */
+.form-container,
 .formulario {
-    max-width: 1000px;
-    margin: 100px auto 0;
-    padding: 40px 30px;
-    background-color: rgba(166, 123, 91, 0.56);
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(2px);
+	max-width: 1000px;
+	margin: 100px auto 0;
+	padding: 30px 40px;
+	background-color: rgba(166, 123, 91, 0.56);
+	border-radius: 10px;
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+	backdrop-filter: blur(2px);
+	color: #4B2E1E;
+}
+
+/* Títulos */
+h1, h2 {
+	text-align: center;
+	color: #4B2E1E;
+	margin-bottom: 30px;
 }
 
 h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2em;
-    color: #4B2E1E;
+	font-size: 2em;
+	margin-bottom: 40px;
 }
 
 .section-title {
-    font-size: 1.4em;
-    margin: 30px 0 20px;
-    padding-bottom: 8px;
-    color: #4B2E1E;
-    border-bottom: 2px solid #4B2E1E;
+	font-size: 1.4em;
+	margin: 30px 0 20px;
+	padding-bottom: 8px;
+	border-bottom: 2px solid #4B2E1E;
+	color: #4B2E1E;
 }
 
+/* Layout das seções e grupos */
 .form-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 25px;
 }
 
 .form-group {
-    flex: 1 1 45%;
-    min-width: 280px;
-    display: flex;
-    flex-direction: column;
+	flex: 1 1 calc(50% - 20px); /* duas colunas */
+	min-width: 280px;
+	display: flex;
+	flex-direction: column;
 }
 
+/* Labels */
 label {
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #4B2E1E;
+	display: block;
+	margin-bottom: 8px;
+	font-weight: bold;
+	color: #4B2E1E;
 }
 
-/* ==========================
-   CAMPOS DE ENTRADA
-========================== */
+/* Campos de input e textarea - estilo do primeiro bloco */
 input[type="text"],
 input[type="date"],
 input[type="email"],
 input[type="tel"],
 input[type="file"],
+input[type="number"],
 select,
 textarea {
-    width: 100%;
-    padding: 10px 12px;
-    font-size: 1em;
-    color: #2d1a12;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: inset 0 1px 3px rgba(75, 46, 30, 0.2);
-    background-color: rgba(228, 221, 221, 0.77);
-    box-sizing: border-box;
-    transition: all 0.3s ease;
+	width: 100%;
+	padding: 10px 12px;
+	border: 2px solid #c0a060;
+	border-radius: 7px;
+	font-size: 15px;
+	font-weight: 500;
+	background-color: #fff9e6;
+	color: #4B2C1A;
+	transition: border-color 0.3s ease, box-shadow 0.3s ease;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	box-sizing: border-box;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-    outline: none;
-    border: 1px solid #4B2E1E;
-    box-shadow: 0 0 8px rgba(75, 46, 30, 0.2);
-    background-color: #e6e6e6;
+	border-color: #4B2C1A;
+	outline: none;
+	box-shadow: 0 0 8px rgba(75, 44, 26, 0.6);
+	background-color: #fff9e6;
 }
 
 textarea {
-    resize: vertical;
-    min-height: 100px;
+	resize: vertical;
+	min-height: 100px;
+	height: 100px;
 }
 
 .full-width {
-    flex: 1 1 100%;
+	flex: 1 1 100%;
 }
 
-/* ==========================
-   BOTÕES
-========================== */
+/* Botões */
+.botao-lista,
+.form-buttons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	margin-top: 30px;
+	flex-wrap: wrap;
+}
+
+.botao,
+.btn,
+.btn-primary {
+	display: inline-block;
+	padding: 12px 30px;
+	width: 200px;
+	height: 45px;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+	background-color: #4B2E1E;
+	border: none;
+	border-radius: 25px;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.botao-cadastrar,
+.botao-cancelar {
+	background-color: #4B2E1E;
+}
+
+.botao:hover,
+.btn:hover,
+.btn-primary:hover,
+.botao-cadastrar:hover,
+.botao-cancelar:hover {
+	background-color: #27170e;
+	transform: scale(1.02);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+	.form-group {
+		flex: 1 1 100%;
+	}
+	.form-container {
+		padding: 25px 20px;
+	}
+}
+
+@media (max-width: 600px) {
+	.botao-lista,
+	.form-buttons {
+		flex-direction: column;
+	}
+}
+
 .form-buttons {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px; 
+    justify-content: center; /* centraliza horizontalmente */
+    align-items: center;     /* centraliza verticalmente, se necessário */
+    gap: 20px;               /* espaço entre os botões */
     margin-top: 20px;
 }
 
-.btn,
-.btn-primary {
-    width: 200px;
-    height: 45px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #643c27;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn:hover,
-.btn-primary:hover {
-    background-color: #4e2f1b;
-    transform: scale(1.02);
-}
-
-/* ==========================
-   RESPONSIVIDADE
-========================== */
-@media (max-width: 768px) {
-    .form-group {
-        flex: 1 1 100%;
-    }
-    .form-container {
-        padding: 25px 20px;
-    }
-}
-
-/* ==========================
-   FOOTER
-========================== */
-footer {
-    background-color: #4B2C1A;
-    color: #F7E1A0;
-    padding: 20px 0;
-    margin-top: 40px;
-    border-top: 4px solid #F0B429;
-    text-align: center;
-    font-family: 'Georgia', serif;
-}
-
-.footer-content {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.footer-links {
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.footer-links a {
-    font-size: 14px;
-    color: #F7E1A0;
-    text-decoration: none;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}

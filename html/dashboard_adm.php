@@ -37,10 +37,13 @@ if ($result) {
 }
 
 $conn->close();
+
+
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8" />
     <title>Dashboard | Rainha do Ouro</title>
@@ -50,14 +53,22 @@ $conn->close();
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="shortcut icon" type="imagex/png" href="../img/RAINHA DO OURO.ico">
 </head>
+
 <body>
     <aside class="sidebar">
         <div class="left">
             <img src="../img/logo.png" alt="Logo Rainha do Ouro" />
             <div class="test">
-                <button onclick="carregarPagina('../html/consultar_agend.php', '../css/consultarAgendamento.css', '../script/consultar_agendamentos.js')"><i class="ai-calendar"></i></button>
+                <button
+                    onclick="carregarPagina('../html/consultar_agend.php', '../css/consultarAgendamento.css', '../script/consultar_agendamentos.js')"><i
+                        class="ai-calendar"></i></button>
                 <div class="texto-hover texto-hover-relatorio">Agenda</div>
             </div>
+            <div class="test btn-exit">
+                <button onclick="logout()"><i class="ai-door"></i></button>
+                <div class="texto-hover texto-hover-exit">Exit</div>
+            </div>
+
         </div>
 
         <div class="right">
@@ -69,15 +80,17 @@ $conn->close();
                     </div>
                 </div>
                 <nav>
-                    <button onclick="carregarPagina('../html/FormCadastrarFuncionario.html', '../css/funcionario_cadastro.css', '../js/formCadastraFuncionario.js')">
+                    <button
+                        onclick="carregarPagina('../html/FormCadastrarFuncionario.html', '../css/cadastro.css', '../script/funcionario_cadastro.js')">
                         <i class="ai-person"></i>
                         <span class="tst">Cadastrar Funcionários</span>
                     </button>
-                    <button onclick="carregarPagina('../html/FormCadastrarClientes.html')">
+                    <button onclick="carregarPagina('../html/FormCadastrarClientes.html', '../css/cadastro.css', '../script/cadastrar_cliente.js')">
                         <i class="ai-file"></i>
                         <span class="tst">Cadastrar Cliente </span>
                     </button>
-                    <button onclick="carregarPagina('../html/FormCadastrarProduto_Serviço.html', '../css/cadastro_serv-prod.css', '../script/cad_prod_serv.js')">
+                    <button
+                        onclick="carregarPagina('../html/FormCadastrarProduto_Serviço.html', '../css/cadastro_serv-prod.css', '../script/cad_prod_serv.js')">
                         <i class="ai-shipping-box-v1"></i>
                         <span class="tst">Cadastrar Produtos e Serviço</span>
                     </button>
@@ -189,16 +202,28 @@ $conn->close();
                     scales: {
                         y: {
                             beginAtZero: true,
-                            ticks: { stepSize: 1, precision: 0 }
+                            ticks: {
+                                stepSize: 1,
+                                precision: 0
+                            }
                         }
                     },
                     plugins: {
-                        legend: { display: true },
-                        tooltip: { enabled: true }
+                        legend: {
+                            display: true
+                        },
+                        tooltip: {
+                            enabled: true
+                        }
                     }
                 }
             });
         }
+
+        function logout() {
+            window.location.href = '../crud/logout_adm.php';
+        }
     </script>
 </body>
+
 </html>

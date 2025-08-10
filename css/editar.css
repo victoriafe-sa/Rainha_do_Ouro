@@ -32,12 +32,14 @@ body {
     font-size: 15px;
 }
 
-/* ====== Inputs ====== */
+/* ====== Inputs e Select ====== */
 .formulario input[type="text"],
 .formulario input[type="email"],
 .formulario input[type="date"],
 .formulario input[type="password"],
-.formulario input[type="number"] {
+.formulario input[type="number"],
+.formulario input[type="tel"],
+.formulario select {
     width: 100%;
     padding: 10px 14px;
     border: 1px solid #ddd;
@@ -49,6 +51,29 @@ body {
     box-sizing: border-box;
     height: 45px;
     margin-bottom: 20px;
+}
+
+/* Ajuste para o select */
+.formulario select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23643c27' d='M1.41 0L6 4.58 10.59 0 12 1.41 6 7.41 0 1.41z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px 8px;
+    cursor: pointer;
+}
+
+/* Efeito de foco */
+.formulario input[type="tel"]:focus,
+.formulario select:focus,
+.formulario input[type="text"]:focus,
+.formulario input[type="email"]:focus,
+.formulario input[type="date"]:focus,
+.formulario input[type="password"]:focus,
+.formulario input[type="number"]:focus {
+    outline: none;
+    border-color: #643c27;
+    box-shadow: 0 0 0 2px rgba(100, 60, 39, 0.2);
 }
 
 /* ====== Botões ====== */
@@ -72,7 +97,14 @@ body {
     transform: scale(1.02);
 }
 
-/* Responsivo */
+/* ====== Nota ====== */
+.note {
+    font-size: 0.9rem;
+    color: #5a4533;
+    margin-top: 15px;
+}
+
+/* ====== Responsividade ====== */
 @media (max-width: 600px) {
     .formulario {
         padding: 20px;
@@ -82,31 +114,22 @@ body {
     .botoes {
         font-size: 14px;
     }
+
+    .payment-tabs {
+        padding: 20px;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+
+    .form-input,
+    .btn,
+    .form-textarea {
+        font-size: 14px;
+    }
+
+    .tab-header button {
+        padding: 10px 5px;
+    }
 }
-
-    .note {
-        font-size: 0.9rem;
-        color: #5a4533;
-        margin-top: 15px;
-    }
-
-    /* ====== Responsividade ====== */
-    @media (max-width: 600px) {
-        .payment-tabs {
-            padding: 20px;
-        }
-
-        .form-container {
-            padding: 20px;
-        }
-
-        .form-input,
-        .btn,
-        .form-textarea {
-            font-size: 14px;
-        }
-
-        .tab-header button {
-            padding: 10px 5px;
-        }
-    }

@@ -40,7 +40,6 @@
             <td align="center"> <strong>Telefone</strong></td>
             <td align="center"> <strong>Bairro</strong></td>
             <td align="center"> <strong>Cidade</strong></td>
-            <td align="center"> <strong>Cargo</strong></td>
             <td align="center"> <strong>Data de admissão</strong></td>
             <td align="center"> <strong>Horário de trabalho</strong></td>
             <td align="center"> <strong>Tipo de contrato</strong></td>
@@ -83,7 +82,6 @@
                 <td align="center"><?= $campo["telefone"] ?></td>
                 <td align="center"><?= $campo["bairro"] ?></td>
                 <td align="center"><?= $campo["cidade"] ?></td>
-                <td align="center"><?= $campo["cargo"] ?></td>
                 <td align="center"><?= $campo["data_cadastro"] ?></td>
                 <td align="center"><?= $campo["horario_trabalho"] ?></td>
                 <td align="center"><?= $campo["tipo_contrato"] ?></td>

@@ -141,7 +141,7 @@
 
 
 
-  <script src="../script2/user_login.js"></script>
+  <script src="../script/user_login.js"></script>
 
 </body>
 

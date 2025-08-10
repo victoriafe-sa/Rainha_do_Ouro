@@ -17,7 +17,6 @@ $numero            = $_POST['numero'];
 $bairro            = $_POST['bairro'];
 $cidade            = $_POST['cidade'];
 $estado            = $_POST['estado'];
-$cargo             = $_POST['cargo'];
 $horario_trabalho  = $_POST['horario_trabalho'];
 $salario           = floatval($_POST['salario']);
 $tipo_contrato     = $_POST['tipo_contrato'];
@@ -47,16 +46,17 @@ $senha_hash = password_hash($senha_crua, PASSWORD_DEFAULT);
 
 // Inserir na tabela tb_funcionarios
 $sql_funcionario = "INSERT INTO tb_funcionarios 
-    (nome_completo, data_nascimento, cpf, rg, sexo, estado_civil, telefone, cep, rua, numero, bairro, cidade, estado, cargo, horario_trabalho, salario, tipo_contrato, carteira_trabalho, pis, observacoes, tipo_funcionario)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    (nome_completo, data_nascimento, cpf, rg, sexo, estado_civil, telefone, cep, rua, numero, bairro, cidade, estado, horario_trabalho, salario, tipo_contrato, carteira_trabalho, pis, observacoes, tipo_funcionario)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 $stmt = $conn->prepare($sql_funcionario);
 $stmt->bind_param(
-    "sssssssssssssssssssss",
+    "sssssssssssssssdssss",
     $nome_completo, $data_nascimento, $cpf, $rg, $sexo, $estado_civil, $telefone,
-    $cep, $rua, $numero, $bairro, $cidade, $estado, $cargo, $horario_trabalho,
+    $cep, $rua, $numero, $bairro, $cidade, $estado, $horario_trabalho,
     $salario, $tipo_contrato, $carteira_trabalho, $pis, $observacoes, $tipo_funcionario
 );
+
 
 if ($stmt->execute()) {
     $id_funcionario = $stmt->insert_id;
