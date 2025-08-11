@@ -56,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail = new PHPMailer(true);
             try {
                 $mail->isSMTP();
+                
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
                 $mail->Username = 'victoria.senac.13@gmail.com'; // seu email
@@ -67,6 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $mail->addAddress($email, "$nome $sobrenome");
 
                 $mail->isHTML(true);
+                $mail->CharSet = 'UTF-8'; // n perde a configuração do caracter especial
+                $mail->Encoding = 'base64'; // n perde a configuração do caracter especial 
                 $mail->Subject = 'Agendamento de Serviço - Rainha do Ouro';
                 $mail->Body = "
                     <h2>Agendamento Confirmado!</h2>
