@@ -24,7 +24,7 @@ for ($i = 1; $i <= 12; $i++) {
 }
 
 $quantidadesVendas = array_fill(0, 12, 0);
-$sql = "SELECT MONTH(data_venda) AS mes, COUNT(*) AS total_vendas
+$sql = "SELECT MONTH(data_venda) AS mes, SUM(valor) AS total_vendas
         FROM tb_vendas
         WHERE YEAR(data_venda) = $anoAtual
         GROUP BY mes";
@@ -33,6 +33,16 @@ if ($result) {
     while ($row = $result->fetch_assoc()) {
         $indice = (int)$row['mes'] - 1;
         $quantidadesVendas[$indice] = (int)$row['total_vendas'];
+    }
+}
+
+// Serviços mais agendados
+$sqlServicos = "SELECT servico, COUNT(*) as qtd FROM tb_agendamentos GROUP BY servico ORDER BY qtd DESC LIMIT 5";
+$resultServ = $conn->query($sqlServicos);
+$servicosMaisAgendados = [];
+if ($resultServ) {
+    while ($row = $resultServ->fetch_assoc()) {
+        $servicosMaisAgendados[] = $row;
     }
 }
 
@@ -134,6 +144,26 @@ $conn->close();
                 <div style="width: 80%; max-width: 800px; margin: 40px auto;">
                     <canvas id="graficoVendas"></canvas>
                 </div>
+
+                <div class="servicos-top" style="width: 80%; max-width: 800px; margin: 40px auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <h3 style="margin-bottom: 20px;">Top 5 Serviços Mais Agendados</h3>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid #eee;">
+                                <th style="text-align: left; padding: 10px;">Serviço</th>
+                                <th style="text-align: right; padding: 10px;">Agendamentos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($servicosMaisAgendados as $s): ?>
+                                <tr style="border-bottom: 1px solid #eee;">
+                                    <td style="padding: 10px;"><?= htmlspecialchars($s['servico']) ?></td>
+                                    <td style="text-align: right; padding: 10px;"><b><?= $s['qtd'] ?></b></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
     </div>
@@ -188,7 +218,7 @@ $conn->close();
                 data: {
                     labels: <?= json_encode($mesesLabel) ?>,
                     datasets: [{
-                        label: 'Quantidade de Vendas',
+                        label: 'Faturamento Mensal (R$)',
                         data: <?= json_encode($quantidadesVendas) ?>,
                         backgroundColor: 'rgba(75, 192, 85, 0.7)',
                         borderColor: 'rgba(75, 192, 85, 0.7)',

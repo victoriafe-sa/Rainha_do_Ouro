@@ -162,4 +162,15 @@ document.querySelectorAll('form').forEach(form => {
     });
 });
 
-
+const formLogin = document.getElementById('formLogin');
+if (formLogin) {
+    formLogin.addEventListener('submit', function() {
+        const cartDataInput = document.getElementById('cart_data');
+        if (cartDataInput) {
+            const cart = localStorage.getItem('cart');
+            if (cart) {
+                cartDataInput.value = cart;
+            }
+        }
+    });
+}

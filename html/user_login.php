@@ -69,13 +69,14 @@
 
     <!-- Login -->
     <div class="form-container sign-in-container">
-      <form action="../crud/ValidarLoginCliente.php" method="POST">
+      <form id="formLogin" action="../crud/ValidarLoginCliente.php" method="POST">
         <h1>Login</h1>
         <input type="email" name="email" placeholder="Email" required />
         <input type="password" name="senha" placeholder="Senha" required />
 
         <!-- Campo oculto para redirecionamento -->
         <input type="hidden" name="redirect" value="<?php echo $_GET['redirect'] ?? '../html/pagina_inicial.php'; ?>">
+        <input type="hidden" name="cart_data" id="cart_data" value="">
 
         <button type="submit">Entrar</button>
         <!-- Botão mudou para type="button" e id para controle JS -->

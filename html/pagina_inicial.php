@@ -92,11 +92,10 @@ if (isset($_SESSION['id_cliente'])) {
     <!-- Video -->
     <section class="anuncio_mpR">
         <div class="banner"></div>
-        <video autoplay loop muted poster="../img/01.mp4">
+        <video autoplay loop muted playsinline poster="../img/salão.jpeg">
             <source src="../img/queen (2).mp4" type="video/mp4">
             Seu navegador não suporta o elemento de vídeo.
         </video>
-        </div>
     </section>
 
     <!-- FRASE -->

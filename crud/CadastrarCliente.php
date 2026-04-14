@@ -5,7 +5,7 @@ include_once "../conectarbd.php";
         $cpf = $_POST["cpf"];
         $data_nascimento = $_POST["data_nascimento"];
         $email = $_POST["email"];
-        $senha = $_POST["senha"];
+        $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
         $cep = $_POST["cep"];
         $rua = $_POST["rua"];
         $numero = $_POST["numero"];
@@ -14,12 +14,13 @@ include_once "../conectarbd.php";
         $estado = $_POST["estado"];
         
         $conn = mysqli_connect($servidor, $dbusuario, $dbsenha, $dbname);
-        mysqli_select_db($conn, 'db_rainhadoouro');
-        $sql = "INSERT INTO tb_clientes(nome, telefone,cpf, data_nascimento, email, senha, cep, rua, numero, bairro, cidade, estado) VALUES ('$nome', '$telefone','$cpf', '$data_nascimento', '$email', '$senha', '$cep', '$rua', '$numero', '$bairro', '$cidade', '$estado')";
-        if (mysqli_query($conn, $sql)) {
+        $sql = "INSERT INTO tb_clientes(nome, telefone, cpf, data_nascimento, email, senha, cep, rua, numero, bairro, cidade, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "ssssssssssss", $nome, $telefone, $cpf, $data_nascimento, $email, $senha, $cep, $rua, $numero, $bairro, $cidade, $estado);
+        if (mysqli_stmt_execute($stmt)) {
             echo "<script>alert('Seus dados foram salvos !'); window.location = '../html/dashboard_adm.php';</script>";
         } else {
-            echo "Deu erro: " . $sql . "<br>" . mysqli_error($conn);
+            echo "Deu erro: " . mysqli_error($conn);
         }
         mysqli_close($conn);
         ?>

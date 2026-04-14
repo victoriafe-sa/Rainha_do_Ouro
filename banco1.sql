@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `tb_clientes` (
   `data_nascimento` DATE NOT NULL,
   `genero` VARCHAR(45) NOT NULL,
   `email` VARCHAR(100) NOT NULL,
-  `senha` VARCHAR(45) NOT NULL,
+  `senha` VARCHAR(255) NOT NULL,
   `cep` VARCHAR(9) NOT NULL,
   `rua` VARCHAR(45) NOT NULL,
   `numero` INT NOT NULL,

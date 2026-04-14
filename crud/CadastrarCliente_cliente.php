@@ -5,15 +5,16 @@ include_once "../conectarbd.php";
         $data_nascimento = $_POST["data_nascimento"];
         $genero = $_POST["genero"];
         $email = $_POST["email"];
-        $senha = $_POST["senha"];
+        $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
         
         $conn = mysqli_connect($servidor, $dbusuario, $dbsenha, $dbname);
-        mysqli_select_db($conn, 'db_rainhadoouro');
-        $sql = "INSERT INTO tb_clientes(nome, telefone, data_nascimento, genero, email, senha) VALUES ('$nome', '$telefone', '$data_nascimento','$genero', '$email', '$senha')";
-        if (mysqli_query($conn, $sql)) {
+        $sql = "INSERT INTO tb_clientes(nome, telefone, data_nascimento, genero, email, senha) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "ssssss", $nome, $telefone, $data_nascimento, $genero, $email, $senha);
+        if (mysqli_stmt_execute($stmt)) {
             echo "<script>alert('Seus dados foram salvos !'); window.location = '../html/pagina_inicial.php';</script>";
         } else {
-            echo "Deu erro: " . $sql . "<br>" . mysqli_error($conn);
+            echo "Deu erro: " . mysqli_error($conn);
         }
         mysqli_close($conn);
         ?>
